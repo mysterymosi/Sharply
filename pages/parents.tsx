@@ -1,22 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Star, Zap } from "react-feather";
+import { Star } from "react-feather";
 import {
   Button,
   Footer,
   NavigationBar,
   WhatsappContactCEO,
+  PhoneInput,
+  SuspenseContainer,
+  TwoColLayout,
 } from "../components";
-import { PhoneInput } from "../components/Input/PhoneInput";
-import { SuspenseContainer } from "../components/Loader";
-import { TwoColLayout } from "../components/TwoColLayout";
-import { featuresParentsLove, parentFeatures } from "../libs";
+
+import { featuresParentsLove, parentFeatures } from "../utils";
 
 const Parents: NextPage = () => {
   return (
     <SuspenseContainer>
-      <section className={`bg-[#CCF4A5]  md:h-[1100px] h-[900px] `}>
+      <section className={`bg-[#CCF4A5]  h-[950px] `}>
         <NavigationBar />
         <div className="flex justify-between flex-col lg:flex-row lg:max-w-[1000px]  mt-16 md:mt-0 h-3/4 m-auto items-center md:w-full xl:max-w-[1040px]">
           <div className=" px-[25px] md:px-[0] flex flex-col flex-auto justify-center col-4 max-w-[48ch]">
@@ -61,7 +62,7 @@ const Parents: NextPage = () => {
                 key={title}
                 className={`${
                   i !== 0 ? "hidden" : "flex"
-                } md:bg-white box-shadow  sm:flex  flex-col justify-start min-h-[325px] border-[antiquewhite] rounded-[24px] px-[24px] py-[40px] border-[0.1px] `}>
+                } md:bg-white box-shadow  sm:flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}>
                 <div
                   className={`
                  ${
@@ -95,7 +96,7 @@ const Parents: NextPage = () => {
         </h3>
         <div className="flex justify-between flex-col md:flex-row h-[1100px]  sm:h-[660px] md:mt-[82px]">
           <div className="bg-[#C7F797] basis-[49%] h-[400px]  md:h-full   px-[48px] pt-[64px] rounded-[16px]">
-            <p className="font-semibold md:text-[18px] leading-[31px]">
+            <p className="font-semibold md:text-[18px] leading-[31px] text-[#3D3D3D]">
               Step 1
             </p>
             <p className="md:mt-[21px] font-semibold md:text-[32px] ">
@@ -130,7 +131,7 @@ const Parents: NextPage = () => {
           </div>
           <div className="bg-[#C5E8FC] basis-[49%] px-[48px] pt-[64px] rounded-[16px] mt-[12px] md:mt-0">
             {" "}
-            <p className="font-semibold md:text-[18px] leading-[31px]">
+            <p className="font-semibold md:text-[18px] leading-[31px] text-[#3D3D3D]">
               Step 2
             </p>
             <p className="md:mt-[21px] font-semibold md:text-[32px] ">
@@ -155,7 +156,9 @@ const Parents: NextPage = () => {
        flex  md:flex-row  flex-col justify-around items-center shadow-inner box-shadow py-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
        lg:max-w-[1000px] lg:mb-[100px] md:w-full  m-auto  px-[25px] h-full  bg-white`}>
         <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
-          <p className="text-[18px] mb-[13px]">Step 3</p>
+          <p className="text-[18px] mb-[13px] font-semibold text-[#3D3D3D]">
+            Step 3
+          </p>
           <h3 className="font-semibold text-[24px] lg:text-[38px]">
             {" "}
             Start nurturing your child into a financially responsible adult
@@ -185,7 +188,7 @@ const Parents: NextPage = () => {
                 key={i}
                 className={`${
                   i !== 0 ? "hidden" : "flex"
-                } md:bg-white box-shadow  sm:flex  flex-col justify-center min-h-[235px] border-[antiquewhite] rounded-[24px] p-[24px] border-[0.1px] `}>
+                } md:bg-white box-shadow  sm:flex  flex-col justify-center min-h-[235px] rounded-[24px] p-[24px] `}>
                 <div className="flex mb-[16px]">
                   {Array(5)
                     .fill(0)

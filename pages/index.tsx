@@ -8,12 +8,12 @@ import {
   Footer,
   NavigationBar,
   WhatsappContact,
+  Accordion,
+  HomeStepper,
+  PhoneInput,
+  SuspenseContainer,
 } from "../components";
-import { Accordion } from "../components/Accordion";
-import { HomeStepper } from "../components/HomeStepper";
-import { PhoneInput } from "../components/Input/PhoneInput";
-import { SuspenseContainer } from "../components/Loader";
-import { faqs, moneyItemList, schools } from "../libs";
+import { faqs, moneyItemList, schools } from "../utils";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       <section
         className={`${styles["home-image"]} sm:bg-center bg-no-repeat sm:h-[868px] h-[600px] bg-cover bg-top`}>
         <NavigationBar />
-        <div className="xl:ml-[190px]  px-[25px] flex flex-col flex-auto h-5/6 justify-center text-white col-4">
+        <div className=" px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto h-5/6 lg:max-w-[1070px] mx-auto justify-center text-white col-4">
           <h1 className="md:text-xxl  max-w-[20ch] text-[28px] leading-[34px] font-semibold ">
             A better way to give your child pocket money.
           </h1>
@@ -42,10 +42,10 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="flex flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-[#F5F5F5]">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="max-w-full md:max-w-[40ch]">
-            <h2 className="font-semibold text-[24px] lg:text-[30px]">
+      <section className="flex flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-[#F5F5F5]">
+        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+          <div className="max-w-full md:max-w-[47ch]">
+            <h2 className="font-semibold text-[24px] lg:leading-[44px] lg:text-[40px]">
               Become Intentional about your child’s financial future
             </h2>
             <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
@@ -75,8 +75,8 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <section className="flex flex-auto justify-center md:px-5 pt-[80px] lg:mt-{200px] bg-[#F5F5F5]">
-        <div className="flex justify-between flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] lg:mb-[106px]  w-full  transition-all  xl:mb-16 ">
+      <section className="flex flex-auto justify-center md:px-8 pt-[80px] lg:mt-{200px] bg-[#F5F5F5]">
+        <div className="flex justify-between flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] lg:mb-[106px]  w-full  transition-all  xl:mb-16 ">
           <h3 className="font-semibold text-[24px] lg:text-[40px] ">
             Money lessons made easy & practical
           </h3>
@@ -104,10 +104,10 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="flex flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="max-w-full md:max-w-[45ch]">
-            <h2 className="font-semibold text-[24px] lg:text-[40px] leading-[50px]">
+      <section className="flex flex-col flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
+        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+          <div className="max-w-full sm:max-w-[30ch] lg:max-w-[45ch]">
+            <h2 className="font-semibold text-[24px] lg:text-[40px] leading-[30px]  lg:leading-[50px]">
               The Smart card for The Smart Child
             </h2>
             <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
@@ -123,7 +123,7 @@ const Home: NextPage = () => {
 
           <img
             src="/images/home-card-hero.svg"
-            className="w-full h-full md:h-[400px] md:w-[460px]"
+            className="w-full h-full md:h-[400px] lg:w-[460px] md:w-[300px]"
             alt="video"
           />
 
@@ -136,10 +136,12 @@ const Home: NextPage = () => {
           <span className="text-[#757575]">Little steps 👇🏽</span>
         </h4>
       </section>
-      <section className="bg-[#CCF4A5] min-h-[2900px] md:min-h-[2700px]  lg:rounded-[40px]">
+      <section className="bg-[#CCF4A5] lg:rounded-[40px] w-full">
         <HomeStepper />
       </section>
-      <section className="flex md:flex-row flex-col px-[20px]   lg:max-w-[1000px] lg:mb-[100px] md:w-full xl:max-w-[1300px] m-auto justify-end flex-auto  items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
+      <section
+        className="flex md:flex-row flex-col px-[20px] lg:max-w-[1070px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center
+       md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
         <div className="md:basis-1/3 md:mr-[70px] ">
           <div className="max-w-[408px ]">
             <h3 className="font-semibold text-[40px] leading-[40px] md:mb-[24px] mb-[8px] ">
@@ -161,7 +163,7 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="basis-1/2">
-          <div className="mt-[24px] md:mt-[40px] grid  grid-cols-1 md:grid-cols-2  gap-5 gap-y-6">
+          <div className="mt-[24px] md:mt-[40px] grid-flow-row grid overflow-y-auto md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0">
             {Array(4)
               .fill(0)
               .map((_, i) => (
@@ -198,15 +200,13 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <div className="flex justify-between m-auto lg:max-w-[1000px] md:w-full xl:max-w-[1040px]">
+      <div className="flex justify-between m-auto lg:max-w-[1200px] md:w-full overflow-y-auto bg-white">
         {schools.map(({ name, image }) => (
-          <Image
+          <img
             key={name}
             src={image}
-            width={80}
+            className="md:w-[80px] md:h-[75px] mx-[25px] md:mx-0"
             alt={name}
-            height={75}
-            layout="fixed"
           />
         ))}
       </div>
@@ -225,8 +225,8 @@ const Home: NextPage = () => {
           <span className="underline cursor-pointer">Click here</span>
         </p>
       </section>
-      <DownloadCard className="lg:max-w-[1000px] md:w-full xl:max-w-[1040px] lg:m-auto lg:mw-[1px] flex items-center justify-center overflow-x-hidden mb-12" />
-      <div className="flex pl-[22.5px] pr-[17.5px]  z-30 w-full flex-col lg:items-center transition-all  xl:mb-16 overflow-x-hidden md:px-5">
+      <DownloadCard className="lg:max-w-[1070px] md:w-full xl:max-w-[1040px] lg:m-auto lg:mw-[1px] flex items-center justify-center overflow-x-hidden mb-12" />
+      <div className="flex pl-[22.5px] pr-[17.5px]  z-30 w-full flex-col lg:items-center transition-all  md:mb-16 overflow-x-hidden md:px-5">
         <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
         <Footer />
       </div>

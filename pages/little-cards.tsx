@@ -6,11 +6,10 @@ import {
   Footer,
   NavigationBar,
   WhatsappContact,
+  Accordion,
+  SuspenseContainer,
 } from "../components";
-import { Accordion } from "../components/Accordion";
-import { HomeStepper } from "../components/HomeStepper";
-import { SuspenseContainer } from "../components/Loader";
-import { giftLinkFaqs, giftlinkOptions, shareGiftlinkOptions } from "../libs";
+import { giftLinkFaqs, giftlinkOptions, shareGiftlinkOptions } from "../utils";
 
 const LittleCards: NextPage = () => {
   const cardWorkingList = [

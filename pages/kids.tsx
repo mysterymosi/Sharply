@@ -6,10 +6,9 @@ import {
   Footer,
   NavigationBar,
   WhatsappContact,
+  PhoneInput,
+  SuspenseContainer,
 } from "../components";
-import { PhoneInput } from "../components/Input/PhoneInput";
-import { SuspenseContainer } from "../components/Loader";
-
 const Kids: NextPage = () => {
   return (
     <SuspenseContainer>
@@ -91,7 +90,7 @@ const Kids: NextPage = () => {
         className={`
         bg-[#E1E4FE]
         gap-[40px]
-       flex  md:flex-row  flex-col justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow pt-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
+       flex  md:flex-row  flex-col justify-around items-center shadow-inner md:px-0  box-shadow pt-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
        lg:max-w-[1200px] lg:mb-[100px] md:w-full  m-auto  px-[25px] h-full `}>
         <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
           <h3 className="font-semibold text-[24px] lg:text-[38px]">

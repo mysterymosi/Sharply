@@ -4,9 +4,9 @@ import {
   Footer,
   NavigationBar,
   WhatsappContact,
+  Accordion,
+  SuspenseContainer,
 } from "../components";
-import { Accordion } from "../components/Accordion";
-import { SuspenseContainer } from "../components/Loader";
 import { allFaqs } from "../libs";
 
 const Home: NextPage = () => {

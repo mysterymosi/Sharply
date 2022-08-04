@@ -73,10 +73,14 @@ a {
 
 
 .box-shadow{
-  box-shadow: -20px 6px 20px 20px rgb(158 158 158 / 11%);
--webkit-box-shadow: -20px 6px 20px 20px rgb(158 158 158 / 11%);
--moz-box-shadow: -20px 6px 20px 20px rgb(158 158 158 / 11%);
+  box-shadow: 1px -1px 20px 20px rgb(158 158 158 / 11%);
+-webkit-box-shadow: 1px -1px 20px 20px rgb(158 158 158 / 11%);
+-moz-box-shadow: 1px -1px 20px 20px rgb(158 158 158 / 11%);
 }
 .little-card-gradient{
   background: linear-gradient(to bottom, #BBEDFC 70%, #fff 30%);
+}
+
+.small-list-item{
+  list-style-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 100 100'><circle cx='50%' cy='50%' r='15' /></svg>");
 }

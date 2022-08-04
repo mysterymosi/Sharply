@@ -5,41 +5,14 @@ import {
   DownloadCard,
   Footer,
   NavigationBar,
+  SuspenseContainer,
+  Accordion,
   WhatsappContact,
 } from "../components";
-import { Accordion } from "../components/Accordion";
-import { SuspenseContainer } from "../components/Loader";
-import { allFaqs, faqs, giftLinkFaqs } from "../libs";
+
+import { giftLinkFaqs, giftlinkOptions, shareGiftlinkOptions } from "../utils";
 
 const FamilyAndFriends: NextPage = () => {
-  const giftlinkOptions = [
-    {
-      name: "Add Custom Image",
-      icon: "/images/giftlink-image.svg",
-    },
-    {
-      name: "Title your giftlink",
-      icon: "/images/giftlink-title.svg",
-    },
-    {
-      name: "Add a description",
-      icon: "/images/giftlink-description.svg",
-    },
-  ];
-  const shareGiftlinkOptions = [
-    {
-      name: "Copy Link",
-      icon: "/images/giftlink-link.svg",
-    },
-    {
-      name: "Share as a text",
-      icon: "/images/share-text.svg",
-    },
-    {
-      name: "Send as an email",
-      icon: "/images/send-email.svg",
-    },
-  ];
   return (
     <SuspenseContainer>
       <section
@@ -125,7 +98,7 @@ const FamilyAndFriends: NextPage = () => {
         mx-[12px] md:mx-[0]
        flex  md:flex-row  flex-col justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow pb-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
       lg:mb-[100px]  `}>
-          <div className="max-w-[40ch] flex justify-center  pt-[100px]  md:px-0 flex-col order-last md:order-1 lg:mt-[48px] sm:mb-[48px] lg:mt-0 ">
+          <div className="max-w-[40ch] flex justify-center  pt-[100px]  md:px-0 flex-col order-last md:order-1  sm:mb-[48px] lg:mt-0 ">
             <h3 className="font-semibold text-[24px] lg:text-[38px]">
               {" "}
               Share Giftlink

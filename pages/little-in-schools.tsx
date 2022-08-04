@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Play, Star } from "react-feather";
 import {
   Button,
   DownloadCard,
@@ -10,44 +9,11 @@ import {
   WhatsappContact,
 } from "../components";
 import { Accordion } from "../components/Accordion";
-import { HomeStepper } from "../components/HomeStepper";
 import { PhoneInput } from "../components/Input/PhoneInput";
 import { SuspenseContainer } from "../components/Loader";
-import { faqs, moneyItemList, schools } from "../libs";
+import { books, faqs, schoolBenefits, schools } from "../utils";
 
 const LittleInSchools: NextPage = () => {
-  const books = [
-    {
-      name: "From child to financially responsible adult",
-      link: "https://picsum.photos",
-    },
-    {
-      name: "Finance 101 ; Money lessons for children",
-      link: "https://picsum.photos",
-    },
-    {
-      name: "Money lessons for the child I love",
-      link: "https://picsum.photos",
-    },
-    {
-      name: "Money lessons 101; A child’s first money journey",
-      link: "https://picsum.photos",
-    },
-    {
-      name: "How to raise a financially responsible child",
-      link: "https://picsum.photos",
-    },
-    {
-      name: "Rich kids: How to raise a millionaire child",
-      link: "https://picsum.photos",
-    },
-  ];
-  const schoolBenefits = [
-    "Ease of use and convenience for parents and students",
-    "No middle man between students pocket money and their spending",
-    "Zero complains about students misplacing pocket money ",
-    "Introducing financial responsibility among students",
-  ];
   return (
     <SuspenseContainer>
       <section
@@ -74,7 +40,7 @@ const LittleInSchools: NextPage = () => {
           </div>
 
           <img
-            src={"/images/smart-money.svg"}
+            src={"/images/school-hero.svg"}
             className="w-[480px]"
             alt={"family"}
           />
@@ -84,7 +50,12 @@ const LittleInSchools: NextPage = () => {
       <section className="flex flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
         <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <div className="max-w-full md:max-w-[35ch]">
-            <h2 className="font-semibold text-[24px] lg:text-[40px] leading-[50px]">
+            <h2 className="font-semibold text-[24px] flex lg:text-[40px] leading-[50px]">
+              <img
+                src="/images/goal-icon.svg"
+                className=" md:h-[40px] md:w-[40px] mr-[16px]"
+                alt="video"
+              />
               Our Goal
             </h2>
             <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
@@ -97,14 +68,10 @@ const LittleInSchools: NextPage = () => {
             </Button>
           </div>
           <img
-            src="/images/home-card-hero.svg"
+            src="/images/school-goals.svg"
             className="w-full h-full md:h-[400px] md:w-[460px]"
             alt="video"
           />
-
-          <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
-            Get your Card Now!
-          </Button>
         </div>
       </section>
 
@@ -112,12 +79,12 @@ const LittleInSchools: NextPage = () => {
         <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <img
             src="/images/home-card-hero.svg"
-            className="w-full h-full md:h-[400px] md:w-[460px]"
+            className="w-full h-full  md:w-[460px]"
             alt="video"
           />
 
           <div className="max-w-full md:max-w-[45ch]">
-            <h2 className="font-semibold text-[24px] lg:text-[40px] leading-[50px]">
+            <h2 className="font-semibold text-[24px] lg:text-[40px] md:leading-[50px] leading-[30px] md mt-[30px]">
               Introducing the Little Card for Schools
             </h2>
             <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
@@ -144,7 +111,7 @@ const LittleInSchools: NextPage = () => {
         </h4>
       </section>
 
-      <div className="flex justify-between m-auto lg:max-w-[1000px] md:w-full xl:max-w-[1040px]">
+      <div className="flex justify-between m-auto lg:max-w-[1400px] md:w-full">
         {schools.map(({ name, image }) => (
           <Image
             key={name}
@@ -157,54 +124,76 @@ const LittleInSchools: NextPage = () => {
         ))}
       </div>
       <section
-        className="flex flex-col  px-[20px] 
+        className="flex flex-col  px-[20px] md:px-0 md:x-0 md:mt-[80px] mt-0
       lg:mb-[100px] md:w-full xl:max-w-[1000px] m-auto justify-end flex-auto  
-       md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <h3 className="font-semibold  md:text-[40px] text-[20px]  text-center">
+   pt-[80px] lg:pt-{200px]  mb-[16px] bg-white">
+        <h3 className="font-semibold  md:text-[40px] text-[20px] mb-[48px]  text-center">
           How it works in Little <span className="text-[#757575]"> steps</span>
         </h3>
         <div className="flex justify-between flex-col md:flex-row h-[1100px]  sm:h-[660px] md:mt-[82px]">
-          <div className="box-shadow basis-[49%] h-[400px]  md:h-full   px-[48px] pt-[64px] rounded-[16px]">
+          <div className="box-shadow basis-[49%] h-[400px]  md:h-full  px-[48px] pt-[64px] rounded-[16px]">
             <p className="font-semibold md:text-[18px] leading-[31px]">
               Step 1
             </p>
-            <p className="md:mt-[21px] font-semibold md:text-[32px] ">
+            <p className="md:mt-[21px] font-semibold md:text-[30px] text-[20px] ">
               Students get Little card
             </p>
+            <img
+              alt="green little card"
+              src="/images/cards.svg"
+              className="md:w-[313px] w-[140px] h-full lg:mt-[80px] mx-auto md:h-[342px]   "
+            />
           </div>
           <div className="box-shadow basis-[49%] px-[48px] pt-[64px] rounded-[16px] mt-[12px] md:mt-0">
             {" "}
             <p className="font-semibold md:text-[18px] leading-[31px]">
               Step 2
             </p>
-            <p className="md:mt-[21px] lg:leading-[34px] font-semibold md:text-[32px] ">
+            <p className="md:mt-[21px] lg:leading-[34px] font-semibold md:text-[30px]  text-[20px] ">
               Parents/ Guardian transfer money from any bank into student’s card
             </p>
             <img
               alt="grid of parents avatars"
-              className="w-fit mt-[65px] md:mt-[47px] flex justify-center items-center mx-auto"
-              src="/images/create-account-half.svg"
+              className="w-fit mt-[65px] md:mt-[86px] flex justify-center items-center mx-auto"
+              src="/images/wallet-funded-phone.svg"
             />
           </div>
         </div>
       </section>
       <section
         className={`
-    gap-[30px]
-       flex  md:flex-row  flex-col justify-around items-center shadow-inner box-shadow py-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
-       lg:max-w-[1000px] lg:mb-[100px] md:w-full  m-auto  px-[25px] h-full  bg-white`}>
-        <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
-          <p className="text-[18px] mb-[13px]">Step 3</p>
-          <h3 className="font-semibold text-[24px] lg:text-[38px]">
+       gap-[30px]  md:px-0 md:mx-auto
+       flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner box-shadow pt-[65px] 
+       rounded-[24px] z-30 lg:pl-[100px] 
+        mb-[20px]
+       lg:max-w-[1000px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}>
+        <Button className="my-2 whitespace-nowrap  md:hidden  mt-12 w-full text-center justify-center flex mb-[48px]">
+          Learn More
+        </Button>
+        <div className="max-w-[51ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
+          <p className="md:text-[18px] leading-[31px] mb-[13px] font-[#3D3D3D] font-semibold">
+            Step 3
+          </p>
+          <h3 className="font-semibold lg:text-[30px]  text-[20px]">
             {" "}
             Students uses card at designated sales point within the school{" "}
           </h3>
-          <Button className="my-2 whitespace-nowrap mt-12 w-full sm:w-auto md:flex">
+          <Button className="my-2 whitespace-nowrap hidden  mt-12 w-fill md:w-fit sm:w-auto md:flex mb-[48px]">
             Learn More
           </Button>
         </div>
+
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
-          <img src={"/images/nutuing-image.svg"} alt={"family"} />
+          <img
+            src={"/images/epos.svg"}
+            className="w-[370px] h-full hidden md:flex"
+            alt={"epos machine"}
+          />
+          <img
+            src={"/images/epos-mobile.svg"}
+            className="w-[370px] h-full md:hidden flex"
+            alt={"epos machine"}
+          />
         </div>
       </section>
       <section className="flex flex-col flex-auto justify-start items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-[#EBFDD9]">
@@ -219,9 +208,9 @@ const LittleInSchools: NextPage = () => {
             <h2 className="font-semibold text-[24px] lg:text-[32px] leading-[50px]">
               How does it benefit my school?
             </h2>
-            <ul className="list-disc pl-[16px] mt-[32px]">
+            <ul className="pl-[15px] mt-[32px] small-list-item">
               {schoolBenefits.map((benefit) => (
-                <li className="mb-5 text-[20px]" key={benefit}>
+                <li className="mb-5 text-[20px] pl-[10px] " key={benefit}>
                   {benefit}
                 </li>
               ))}
@@ -231,7 +220,7 @@ const LittleInSchools: NextPage = () => {
             </Button>
           </div>
 
-          <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
+          <Button className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex">
             Invite us to your PTA
           </Button>
         </div>
