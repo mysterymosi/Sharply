@@ -12,7 +12,7 @@ export const PhoneInput = ({
 }: PhoneInputProps) => (
   <div className="w-full">
     <div
-      className={`${className} h-[64px] flex shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-white rounded-full pl-[24px] pr-[8px]`}>
+      className={`${className} h-[64px] flex shadow-sm  bg-white rounded-full pl-[24px] pr-[8px]`}>
       <input
         type={type}
         name={name}

@@ -1,4 +1,4 @@
-import { Disclosure } from "@headlessui/react";
+import { Disclosure, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { ListProps } from "../types";
 
@@ -12,7 +12,7 @@ export const Accordion = ({ list }: ListProps) => {
           <Disclosure key={title}>
             {({ open }) => (
               <>
-                <Disclosure.Button className="py-3 flex justify-between w-full items-center overflow-hidden">
+                <div className="flex justify-between w-full items-center overflow-hidden">
                   <p
                     className={`${
                       !open ? "truncate" : ""
@@ -20,31 +20,42 @@ export const Accordion = ({ list }: ListProps) => {
                     {title}{" "}
                   </p>
 
-                  <div className="w-[40px] text-xs  h-[40px] rounded-xl font-medium bg-white flex items-center justify-center ">
-                    {" "}
-                    {open ? (
-                      <Image
-                        src={"/images/minus-icon.svg"}
-                        width={12}
-                        alt="minus"
-                        height={2}
-                        layout="fixed"
-                      />
-                    ) : (
-                      <Image
-                        src={"/images/plus-icon.svg"}
-                        width={12}
-                        alt="plus"
-                        height={12}
-                        layout="fixed"
-                      />
-                    )}
-                  </div>
-                </Disclosure.Button>
-
-                <Disclosure.Panel className="text-gray-500 mb-[24px]">
-                  {description}
-                </Disclosure.Panel>
+                  <Disclosure.Button className="py-3 ">
+                    <div className="w-[40px] text-xs  h-[40px] rounded-xl font-medium bg-white flex items-center justify-center ">
+                      {" "}
+                      {open ? (
+                        <Image
+                          priority={true}
+                          src={"/images/minus-icon.svg"}
+                          width={12}
+                          alt="minus"
+                          height={2}
+                          layout="fixed"
+                        />
+                      ) : (
+                        <Image
+                          priority={true}
+                          src={"/images/plus-icon.svg"}
+                          width={12}
+                          alt="plus"
+                          height={12}
+                          layout="fixed"
+                        />
+                      )}
+                    </div>
+                  </Disclosure.Button>
+                </div>
+                <Transition
+                  enter="transition duration-100 ease-out"
+                  enterFrom="transform scale-95 opacity-0"
+                  enterTo="transform scale-100 opacity-100"
+                  leave="transition duration-75 ease-out"
+                  leaveFrom="transform scale-100 opacity-100"
+                  leaveTo="transform scale-95 opacity-0">
+                  <Disclosure.Panel className="text-gray-500 mb-[24px]">
+                    {description}
+                  </Disclosure.Panel>
+                </Transition>
               </>
             )}
           </Disclosure>

@@ -7,48 +7,51 @@ import {
   NavigationBar,
   WhatsappContact,
   PhoneInput,
-  SuspenseContainer,
 } from "../components";
+import { EnterFromLeft, FadeInWhenVisible } from "../utils";
 const Kids: NextPage = () => {
   return (
-    <SuspenseContainer>
+    <main>
       <section
         className={`  sm:h-[868px] lg:h-[800px] md:h-[600px] h-[950px] bg-[#F6ED97]`}>
         <NavigationBar />
-        <div className="  px-[25px] flex lg:flex-row flex-col  h-5/6 justify-center text-black ">
+        <div className=" items-center px-[25px] flex lg:flex-row flex-col  h-5/6 justify-center text-black ">
           <div className="flex justify-center flex-col">
-            <h1 className="md:text-xxl  max-w-[16ch] text-[28px] leading-[34px] font-semibold ">
-              Join the money-smart cool kids.
-            </h1>
-            <div className="max-w-[440px]">
-              <p className="mt-6 text-black font-normal text-sm  ">
-                There is no better time for you to start being cool. With
-                Little, you get real-life experiences with money from earning
-                pocket money, to spending with your own debit card.
-              </p>
-              <PhoneInput
-                placeholder="Enter your phone number"
-                text="Get Started"
-                className="mt-[40px]"
-              />
-              <p className="text-sm mt-6 text-center md:text-start">
-                For kids aged 9-18.
-              </p>
-            </div>
+            <EnterFromLeft>
+              <h1 className="md:text-xxl  max-w-[16ch] text-[28px] leading-[34px] font-semibold ">
+                Join the money-smart cool kids.
+              </h1>
+              <div className="max-w-[440px]">
+                <p className="mt-6 text-black font-normal text-sm  ">
+                  There is no better time for you to start being cool. With
+                  Little, you get real-life experiences with money from earning
+                  pocket money, to spending with your own debit card.
+                </p>
+                <PhoneInput
+                  placeholder="Enter your phone number"
+                  text="Get Started"
+                  className="mt-[40px]"
+                />
+                <p className="text-sm mt-6 text-center md:text-start">
+                  For kids aged 9-18.
+                </p>
+              </div>
+            </EnterFromLeft>
           </div>
-
-          <img
-            src={"/images/smart-money.svg"}
-            className="w-[480px]"
-            alt={"family"}
-          />
+          <FadeInWhenVisible>
+            <img
+              src={"/images/smart-money.svg"}
+              className="w-[480px] "
+              alt={"family"}
+            />
+          </FadeInWhenVisible>
         </div>
       </section>
       <section
         className={`
         gap-[30px]
        flex  md:flex-row  flex-col justify-around items-center  py-[80px] rounded-[24px] z-30   mb-[20px] md:px-0 px-[25px]
-       lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto   h-full `}>
+       lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto lg:mt-9   h-full `}>
         <div className="max-w-[48ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
           <h3 className="font-semibold text-[24px] lg:text-[38px]">
             {" "}
@@ -63,7 +66,9 @@ const Kids: NextPage = () => {
           </Button>
         </div>
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
-          <img src={"/images/debit-card-phone.svg"} alt={"family"} />
+          <FadeInWhenVisible>
+            <img src={"/images/debit-card-phone.svg"} alt={"family"} />
+          </FadeInWhenVisible>
         </div>
       </section>
       <section
@@ -72,7 +77,9 @@ const Kids: NextPage = () => {
        flex  md:flex-row  flex-col justify-around items-center  py-[80px] rounded-[24px] z-30 md:px-0 px-[25px]  mb-[20px]
        lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto   h-full `}>
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-last md:order-1 ">
-          <img src={"/images/earn-extra.svg"} alt={"family"} />
+          <FadeInWhenVisible>
+            <img src={"/images/earn-extra.svg"} alt={"list of too do's"} />{" "}
+          </FadeInWhenVisible>
         </div>
         <div className="max-w-[48ch] flex justify-center  md:px-0 flex-col  mt-[48px] order-2 sm:mb-[48px] lg:mt-0 ">
           <h3 className="font-semibold text-[24px] lg:text-[38px]">
@@ -105,7 +112,9 @@ const Kids: NextPage = () => {
           </p>
         </div>
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
-          <img src={"/images/gift-money.svg"} alt={"family"} />
+          <FadeInWhenVisible>
+            <img src={"/images/gift-money.svg"} alt={"gift money"} />
+          </FadeInWhenVisible>
         </div>
       </section>
 
@@ -114,7 +123,7 @@ const Kids: NextPage = () => {
         <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
         <Footer />
       </div>
-    </SuspenseContainer>
+    </main>
   );
 };
 

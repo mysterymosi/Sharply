@@ -5,14 +5,21 @@ import Link from "next/link";
 import { ChevronDown } from "react-feather";
 import { navItems } from "../types";
 import { useRouter } from "next/router";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 export const NavigationBar = () => {
   const router = useRouter();
-
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <Popover
       as="nav"
+      ref={ref}
       className="drop-shadow-md relative align-center transition-all  items-center lg:px-8 lg:pt-6 justify-between">
-      <div className=" xl:w-full xl:m-auto xl:max-w-[1060px] px-[20px] xl:mw-[1px] bg-white lg:rounded-full ">
+      <div
+        className={`${
+          isInView ? "opacity-100 " : "opacity-0 translate-y-[-200px]"
+        } duration-[0.5s] transition-all xl:w-full xl:m-auto xl:max-w-[1060px] px-[20px] xl:mw-[1px] bg-white lg:rounded-full `}>
         <div className="flex justify-between items-center md:justify-start h-[76px]">
           <div className="flex mr-10 cursor-pointer">
             <Link href="/" passHref>
@@ -51,7 +58,7 @@ export const NavigationBar = () => {
           <Popover.Button className=" cursor-pointer py-2.5 px-[8px] rounded-full w-[92px] outline-0 my-2 whitespace-nowrap md:hidden flex items-center justify-evenly md:flex-1 lg:w-0 bg-[#F5F5F5] font-semibold text-xs text-black">
             Menu <ChevronDown size={15} />
           </Popover.Button>
-          <Popover.Panel className="absolute z-10 top-[4rem] rounded-2xl  shadow bg-white w-[200px] right-[21px] px-[24px] pb-[24px]">
+          <Popover.Panel className="absolute z-50 top-[4rem] rounded-2xl  shadow bg-white w-[200px] right-[21px] px-[24px] pb-[24px]">
             <div className="grid grid-col-1">
               {navItems.map(({ name, link }) => (
                 <Link key={link} href={link}>

@@ -11,69 +11,81 @@ import {
   Accordion,
   HomeStepper,
   PhoneInput,
-  SuspenseContainer,
 } from "../components";
-import { faqs, moneyItemList, schools } from "../utils";
+import {
+  EnterFromLeft,
+  EnterFromRight,
+  FadeInWhenVisible,
+  faqs,
+  moneyItemList,
+  schools,
+} from "../utils";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
-    <SuspenseContainer>
+    <main>
       <section
         className={`${styles["home-image"]} sm:bg-center bg-no-repeat sm:h-[868px] h-[600px] bg-cover bg-top`}>
         <NavigationBar />
+
         <div className=" px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto h-5/6 lg:max-w-[1070px] mx-auto justify-center text-white col-4">
-          <h1 className="md:text-xxl  max-w-[20ch] text-[28px] leading-[34px] font-semibold ">
-            A better way to give your child pocket money.
-          </h1>
-          <div className="max-w-[531px]">
-            <p className="mt-6 text-white font-normal text-sm  ">
-              Send money instantly to your child while they spend with ease.
-              They own a card ; you monitor their spend.
-            </p>
-            <PhoneInput
-              placeholder="Enter your phone number"
-              text="Get Link"
-              className="mt-[40px]"
-            />
-            <p className="text-sm mt-6">
-              You’ll receive a link within 5 mins to download the Little app
-            </p>
-          </div>
+          <EnterFromLeft>
+            <h1 className="md:text-xxl  max-w-[20ch] text-[28px] leading-[34px] font-semibold ">
+              A better way to give your child pocket money.
+            </h1>
+            <div className="max-w-[531px]">
+              <p className="mt-6 text-white font-normal text-sm  ">
+                Send money instantly to your child while they spend with ease.
+                They own a card ; you monitor their spend.
+              </p>
+              <PhoneInput
+                placeholder="Enter your phone number"
+                text="Get Link"
+                className="mt-[40px]"
+              />
+              <p className="text-sm mt-6">
+                You’ll receive a link within 5 mins to download the Little app
+              </p>
+            </div>{" "}
+          </EnterFromLeft>
         </div>
       </section>
-      <section className="flex flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-[#F5F5F5]">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="max-w-full md:max-w-[47ch]">
-            <h2 className="font-semibold text-[24px] lg:leading-[44px] lg:text-[40px]">
-              Become Intentional about your child’s financial future
-            </h2>
-            <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-              Learning good money habits for the future starts today. With
-              Little, your child gets a debit card with an instant bank account
-              for receiving their pocket money while you guide them through the
-              journey using the Little app.
-            </p>
-            <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+      <FadeInWhenVisible>
+        <section className="flex flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-[#F5F5F5]">
+          <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+            <div className="max-w-full md:max-w-[47ch]">
+              <h2 className="font-semibold text-[24px] lg:leading-[44px] lg:text-[40px]">
+                Become Intentional about your child’s financial future
+              </h2>
+              <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+                Learning good money habits for the future starts today. With
+                Little, your child gets a debit card with an instant bank
+                account for receiving their pocket money while you guide them
+                through the journey using the Little app.
+              </p>
+              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+                Get Started
+              </Button>
+            </div>
+
+            <div className="relative">
+              <img
+                src="/images/video.svg"
+                className="w-full h-full md:h-[400px] md:w-[460px]"
+                alt="video"
+              />
+              <div className="w-[48px] flex absolute top-[45%] left-[46%] inset-1/2 justify-center items-center h-[48px] bg-white cursor-pointer rounded-full">
+                <Play fill="#5BAB0A" color="#5BAB0A" />
+              </div>
+            </div>
+
+            <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
               Get Started
             </Button>
           </div>
-          <div className="relative">
-            <img
-              src="/images/video.svg"
-              className="w-full h-full md:h-[400px] md:w-[460px]"
-              alt="video"
-            />
-            <div className="w-[48px] flex absolute top-[45%] left-[46%] inset-1/2 justify-center items-center h-[48px] bg-white cursor-pointer rounded-full">
-              <Play fill="#5BAB0A" color="#5BAB0A" />
-            </div>
-          </div>
-
-          <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
-            Get Started
-          </Button>
-        </div>
-      </section>
+        </section>
+      </FadeInWhenVisible>
 
       <section className="flex flex-auto justify-center md:px-8 pt-[80px] lg:mt-{200px] bg-[#F5F5F5]">
         <div className="flex justify-between flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] lg:mb-[106px]  w-full  transition-all  xl:mb-16 ">
@@ -86,13 +98,16 @@ const Home: NextPage = () => {
                 key={title}
                 className=" bg-white flex flex-col justify-center h-[335px] md:h-[400px] rounded-[24px] p-[48px] ">
                 <div className="w-[80px] md:w-[70px] h-[56px] md:h-[64px] rounded-full bg-[#F0F0F0] flex items-center justify-center mb-[32px]">
-                  <Image
-                    src={icon}
-                    width={40}
-                    alt="vidoe"
-                    height={40}
-                    layout="fixed"
-                  />{" "}
+                  <FadeInWhenVisible>
+                    <Image
+                      src={icon}
+                      width={30}
+                      alt={title}
+                      priority={true}
+                      height={30}
+                      layout="fixed"
+                    />{" "}
+                  </FadeInWhenVisible>
                 </div>
 
                 <h4 className="font-semibold text-[20px] lg:text-[24px] ">
@@ -121,11 +136,14 @@ const Home: NextPage = () => {
             </Button>
           </div>
 
-          <img
-            src="/images/home-card-hero.svg"
-            className="w-full h-full md:h-[400px] lg:w-[460px] md:w-[300px]"
-            alt="video"
-          />
+          <FadeInWhenVisible>
+            {" "}
+            <img
+              src="/images/home-card-hero.svg"
+              className="w-full h-full md:h-[400px] lg:w-[460px] md:w-[300px]"
+              alt="video"
+            />
+          </FadeInWhenVisible>
 
           <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
             Get your Card Now!
@@ -133,7 +151,12 @@ const Home: NextPage = () => {
         </div>
         <h4 className="flex font-semibold text-[20px] md:text-[40px] mb-[48px]">
           How it works in&nbsp;
-          <span className="text-[#757575]">Little steps 👇🏽</span>
+          <EnterFromRight>
+            <span className="text-[#757575]">
+              Little steps
+              <span className="animate-pulse ">👇🏽</span>
+            </span>
+          </EnterFromRight>
         </h4>
       </section>
       <section className="bg-[#CCF4A5] lg:rounded-[40px] w-full">
@@ -200,12 +223,12 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <div className="flex justify-between m-auto lg:max-w-[1200px] md:w-full overflow-y-auto bg-white">
+      <div className="flex justify-between m-auto lg:max-w-[1200px] h-full md:w-full overflow-y-auto bg-white">
         {schools.map(({ name, image }) => (
           <img
             key={name}
             src={image}
-            className="md:w-[80px] md:h-[75px] mx-[25px] md:mx-0"
+            className="md:w-[80px] hover:scale-[0.9] md:h-[75px] mx-[25px] md:mx-0"
             alt={name}
           />
         ))}
@@ -230,7 +253,7 @@ const Home: NextPage = () => {
         <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
         <Footer />
       </div>
-    </SuspenseContainer>
+    </main>
   );
 };
 

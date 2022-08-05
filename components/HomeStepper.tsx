@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import { HomeStepProps } from "../types";
+import { FadeInWhenVisible } from "../utils";
 import { Stepper } from "./Stepper";
 
 const HomeStep = ({ step, children }: HomeStepProps) => (
@@ -106,7 +106,7 @@ export const HomeStepper = () => {
             </div>
           </div>
           <div className="md:w-[340px] w-full mx-auto flex justify-center mb-8 md:mb-0">
-            {img}
+            <FadeInWhenVisible> {img}</FadeInWhenVisible>
           </div>
         </HomeStep>
       ))}

@@ -73,9 +73,9 @@ a {
 
 
 .box-shadow{
-  box-shadow: 1px -1px 20px 20px rgb(158 158 158 / 11%);
--webkit-box-shadow: 1px -1px 20px 20px rgb(158 158 158 / 11%);
--moz-box-shadow: 1px -1px 20px 20px rgb(158 158 158 / 11%);
+  box-shadow: 2px 4px 20px 2px rgb(158 158 158 / 11%);
+-webkit-box-shadow: 2px 4px 20px 2px rgb(158 158 158 / 11%);
+-moz-box-shadow: 2px 4px 20px 2px rgb(158 158 158 / 11%);
 }
 .little-card-gradient{
   background: linear-gradient(to bottom, #BBEDFC 70%, #fff 30%);

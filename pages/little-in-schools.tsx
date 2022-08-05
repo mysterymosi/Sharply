@@ -2,6 +2,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import {
+  BookList,
   Button,
   DownloadCard,
   Footer,
@@ -10,12 +11,11 @@ import {
 } from "../components";
 import { Accordion } from "../components/Accordion";
 import { PhoneInput } from "../components/Input/PhoneInput";
-import { SuspenseContainer } from "../components/Loader";
 import { books, faqs, schoolBenefits, schools } from "../utils";
 
 const LittleInSchools: NextPage = () => {
   return (
-    <SuspenseContainer>
+    <main>
       <section
         className={`  sm:h-[868px] lg:h-[800px] md:h-[600px] h-[950px] bg-[#D4D3FC]`}>
         <NavigationBar />
@@ -116,6 +116,7 @@ const LittleInSchools: NextPage = () => {
           <Image
             key={name}
             src={image}
+            priority={true}
             width={80}
             alt={name}
             height={75}
@@ -226,31 +227,7 @@ const LittleInSchools: NextPage = () => {
         </div>
       </section>
 
-      <section className="flex flex-col flex-auto  md:px-5 pt-[80px] xl:max-w-[1040px] m-auto lg:pt-{200px]  bg-white">
-        <h3 className="md:text-[34px] font-medium md:mb-[40px]">
-          Get our free books
-        </h3>
-        <div className="grid grid-cols-4 gap-4">
-          {books.map(({ name, link }, i) => (
-            <div key={name} className="mb-[48px]">
-              <img
-                src={`${link}/id/${i}/200`}
-                alt={name}
-                className="lg:w-[250px] lg:h-[240px] rounded-[24px]"
-              />
-              <p className="mt-[20px] mb-[16px] font-medium md:text-[18px]">
-                {name}
-              </p>
-
-              <p className="underline text-[16px] leading-[24px] font-normal">
-                <a href={link} rel="noreferrer" target="_blank">
-                  Download Book
-                </a>
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <BookList title="Get our free books" download books={books} />
 
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
         <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">
@@ -271,7 +248,7 @@ const LittleInSchools: NextPage = () => {
         <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
         <Footer />
       </div>
-    </SuspenseContainer>
+    </main>
   );
 };
 

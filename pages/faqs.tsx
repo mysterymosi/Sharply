@@ -5,13 +5,12 @@ import {
   NavigationBar,
   WhatsappContact,
   Accordion,
-  SuspenseContainer,
 } from "../components";
-import { allFaqs } from "../libs";
+import { allFaqs } from "../utils";
 
 const Home: NextPage = () => {
   return (
-    <SuspenseContainer>
+    <main>
       <NavigationBar />
       <section className="flex flex-col px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[120px]">
         <div className="flex flex-col flex-auto justify-center sm:items-center lg:mb-[80px]  mb-[40px] ">
@@ -41,7 +40,7 @@ const Home: NextPage = () => {
         <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
         <Footer />
       </div>
-    </SuspenseContainer>
+    </main>
   );
 };
 

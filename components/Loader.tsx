@@ -1,8 +1,13 @@
-import Image from "next/image";
-import { ReactNode, Suspense } from "react";
+/* eslint-disable @next/next/no-img-element */
 
-const LoaderComp = <Image src="/logo.svg" width={72} alt="logo" height={18} />;
-
-export const SuspenseContainer = ({ children }: { children: ReactNode }) => {
-  return <Suspense fallback={LoaderComp}>{children}</Suspense>;
+export const Loader: React.FC = () => {
+  return (
+    <div className="w-full h-screen flex justify-center items-center">
+      <img
+        className="animate-bounce w-[120px] h-[120px]"
+        src="/logo.svg"
+        alt="logo"
+      />
+    </div>
+  );
 };

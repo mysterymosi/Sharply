@@ -10,3 +10,4 @@ export * from "./DownloadCard";
 export * from "./Footer";
 export * from "./Input/PhoneInput";
 export * from "./HomeStepper";
+export * from "./BooksList";
