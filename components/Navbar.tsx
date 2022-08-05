@@ -15,7 +15,7 @@ export const NavigationBar = () => {
     <Popover
       as="nav"
       ref={ref}
-      className="drop-shadow-md relative align-center transition-all  items-center lg:px-8 lg:pt-6 justify-between">
+      className="box-shadow relative z-50 align-center transition-all  items-center lg:px-8 lg:pt-6 justify-between">
       <div
         className={`${
           isInView ? "opacity-100 " : "opacity-0 translate-y-[-200px]"
@@ -41,7 +41,7 @@ export const NavigationBar = () => {
                 <Link key={link} href={link}>
                   <p
                     className={`my-5 text-xs lg:text-base cursor-pointer ${
-                      router.pathname.includes(link)
+                      router?.pathname?.includes(link)
                         ? "font-semibold"
                         : "font-normal"
                     }`}>

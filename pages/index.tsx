@@ -168,7 +168,7 @@ const Home: NextPage = () => {
         <div className="md:basis-1/3 md:mr-[70px] ">
           <div className="max-w-[408px ]">
             <EnterFromLeft>
-              <h3 className="font-semibold text-[40px] leading-[40px] md:mb-[24px] mb-[8px] ">
+              <h3 className="font-semibold md:text-[40px] text-[20px] leading-[21px] md:leading-[40px] md:mb-[24px] mb-[8px] ">
                 Schools Trust us & Parents Love us
               </h3>
               <p>
@@ -187,15 +187,15 @@ const Home: NextPage = () => {
             </EnterFromLeft>
           </div>
         </div>
-        <div className="basis-1/2">
+        <div className="md:basis-1/2 overflow-x-auto w-full">
           <EnterFromRight>
-            <div className="mt-[24px] md:mt-[40px] grid-flow-row grid overflow-y-auto md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0">
+            <div className="mt-[24px] flex flex-row md:mt-[40px] md:grid-flow-row md:grid  md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0">
               {Array(4)
                 .fill(0)
                 .map((_, i) => (
                   <div
                     key={i}
-                    className=" md:bg-white  bg-[#F5F5F5] box-shadow flex  flex-col justify-center min-h-[235px] rounded-[24px] p-[24px] ">
+                    className=" md:bg-white  bg-[#F5F5F5] box-shadow flex  min-w-[240px] md:min-w-min flex-col justify-center min-h-[235px] rounded-[24px] p-[24px] ">
                     <div className="flex mb-[16px]">
                       {Array(5)
                         .fill(0)
