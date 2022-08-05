@@ -71,15 +71,17 @@ const FamilyAndFriends: NextPage = () => {
        flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow lg:pt-[80px] rounded-[24px] z-30 lg:px-[100px]  
       lg:mb-[100px] mb-[20px] `}>
           <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
-            <h3 className="font-semibold text-[24px] lg:text-[38px]">
-              {" "}
-              Create Giftlink
-            </h3>
-            <p className="text-[18px] mb-[13px]">
-              Creating a giftlink is really easy on Little. You can add the
-              title, a description of what the gift money is for and include
-              pictures.
-            </p>
+            <EnterFromLeft>
+              <h3 className="font-semibold text-[24px] lg:text-[38px]">
+                {" "}
+                Create Giftlink
+              </h3>
+              <p className="text-[18px] mb-[13px]">
+                Creating a giftlink is really easy on Little. You can add the
+                title, a description of what the gift money is for and include
+                pictures.
+              </p>
+            </EnterFromLeft>
 
             <ul className="flex flex-col mt-[40px]">
               {giftlinkOptions.map(({ name, icon }) => (
@@ -172,14 +174,16 @@ const FamilyAndFriends: NextPage = () => {
        md:px-0 px-[25px] box-shadow pb-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
       lg:mb-[100px]  `}>
           <div className="max-w-[40ch] flex justify-center  lg:pt-[100px]  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
-            <h3 className="font-semibold text-[24px] lg:text-[38px]">
-              {" "}
-              Receive Gifts
-            </h3>
-            <p className="text-[18px] mb-[13px]">
-              Every amount sent with the giftlink is automatically credited to
-              your child’s Little account and you’ll be notified immediately.
-            </p>
+            <EnterFromLeft>
+              <h3 className="font-semibold text-[24px] lg:text-[38px]">
+                {" "}
+                Receive Gifts
+              </h3>
+              <p className="text-[18px] mb-[13px]">
+                Every amount sent with the giftlink is automatically credited to
+                your child’s Little account and you’ll be notified immediately.
+              </p>
+            </EnterFromLeft>
           </div>
           <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
             <FadeInWhenVisible>

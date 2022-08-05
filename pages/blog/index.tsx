@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import {
+  BookList,
   Button,
   DownloadCard,
   Footer,
@@ -30,60 +31,40 @@ const LittleCards: NextPage = () => {
         </div>
       </section>
 
-      <section className="flex flex-col flex-auto  md:px-5 pt-[80px] xl:max-w-[1040px] m-auto lg:pt-{200px]  bg-white">
-        <h3 className="md:text-[34px] font-medium md:mb-[40px]">
-          Latest releases
-        </h3>
-        <div className="grid grid-cols-4 gap-4">
-          {books.map(({ name, link }, i) => (
-            <div key={name} className="mb-[48px]">
-              <img
-                src={`${link}/id/${i}/200`}
-                alt={name}
-                className="lg:w-[250px] lg:h-[240px] rounded-[24px]"
-              />
-              <p className="mt-[20px] mb-[16px] font-medium md:text-[18px]">
-                {name}
-              </p>
+      <BookList
+        title="  Latest releases"
+        books={books.filter((_, i) => i < 4)}
+      />
 
-              <p className="underline text-[16px] leading-[24px] font-normal">
-                <a href={link} rel="noreferrer" target="_blank">
-                  Download Book
-                </a>
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className="lg:max-w-[1000px] md:w-full  m-auto  h-full  rounded-[40px]">
+      <section className="lg:max-w-[1000px] md:w-full  m-auto  h-full md:mt-[100px]  rounded-[40px]">
         <div
           className={`bg-[#F9F2B4] 
         gap-[40px]  py-[48px]
-        mx-[12px] md:mx-[0]
-       flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow  
-       rounded-[24px] z-30 lg:p-[100px]  
+        w-full
+       flex  md:flex-row  flex-col justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow  
+       lg:rounded-[24px] z-30 lg:p-[100px]  
        lg:mb-[100px] mb-[12px]`}>
           <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col lg:mt-0 ">
-            <h3 className="font-semibold text-[24px] lg:text-[32px] mb-[8px]">
+            <h3 className="font-semibold text-[24px] leading-[40px] lg:text-[32px] mb-[8px]">
               {" "}
               Want updates straight to your inbox?
             </h3>
-            <p className="text-[18px] ">
+            <p className="text-[18px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien
               lobortis pulvinar amet, tristique cursus elit. Mi tortor dui
               aenean sit sed in.{" "}
             </p>
           </div>{" "}
-          <div className="flex flex-col mt-[20px] md:w-[400px] md:mt-[0px] justify-center items-center">
+          <div className="flex flex-col mt-[20px] md:w-[350px] md:mt-[0px] justify-center items-center">
             <input
               type="text"
               name="first-name"
               id="first-name"
               placeholder="Enter your email address"
-              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300  px-[20px] h-[56px] rounded-[32px]"
+              className="mt-1 mb-[12px]  block w-full shadow-sm sm:text-sm border-gray-300  px-[20px] h-[56px] rounded-[32px]"
             />
 
-            <Button className="my-2 whitespace-nowrap flex w-full items-center justify-center ">
+            <Button className="my-2 h-[56px] whitespace-nowrap flex w-full items-center justify-center ">
               Subscribe to Newsletter
             </Button>
           </div>

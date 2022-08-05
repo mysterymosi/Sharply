@@ -167,81 +167,89 @@ const Home: NextPage = () => {
        md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
         <div className="md:basis-1/3 md:mr-[70px] ">
           <div className="max-w-[408px ]">
-            <h3 className="font-semibold text-[40px] leading-[40px] md:mb-[24px] mb-[8px] ">
-              Schools Trust us & Parents Love us
-            </h3>
-            <p>
-              Little can be used in school and out of school, for online and
-              offline expenses
-            </p>
-            <br />
-            <p>
-              {" "}
-              Join over 15,000+ parents that are intentional about their
-              children
-            </p>
-            <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-              Get your Card Now!
-            </Button>
+            <EnterFromLeft>
+              <h3 className="font-semibold text-[40px] leading-[40px] md:mb-[24px] mb-[8px] ">
+                Schools Trust us & Parents Love us
+              </h3>
+              <p>
+                Little can be used in school and out of school, for online and
+                offline expenses
+              </p>
+              <br />
+              <p>
+                {" "}
+                Join over 15,000+ parents that are intentional about their
+                children
+              </p>
+              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+                Get your Card Now!
+              </Button>
+            </EnterFromLeft>
           </div>
         </div>
         <div className="basis-1/2">
-          <div className="mt-[24px] md:mt-[40px] grid-flow-row grid overflow-y-auto md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0">
-            {Array(4)
-              .fill(0)
-              .map((_, i) => (
-                <div
-                  key={i}
-                  className=" md:bg-white  bg-[#F5F5F5] box-shadow flex  flex-col justify-center min-h-[235px] rounded-[24px] p-[24px] ">
-                  <div className="flex mb-[16px]">
-                    {Array(5)
-                      .fill(0)
-                      .map((_, i) => (
-                        <Star
-                          fill="#FFCF25"
-                          color="#FFCF25"
-                          key={i}
-                          size={16}
-                          className="mr-[6px]"
-                        />
-                      ))}
-                  </div>
+          <EnterFromRight>
+            <div className="mt-[24px] md:mt-[40px] grid-flow-row grid overflow-y-auto md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0">
+              {Array(4)
+                .fill(0)
+                .map((_, i) => (
+                  <div
+                    key={i}
+                    className=" md:bg-white  bg-[#F5F5F5] box-shadow flex  flex-col justify-center min-h-[235px] rounded-[24px] p-[24px] ">
+                    <div className="flex mb-[16px]">
+                      {Array(5)
+                        .fill(0)
+                        .map((_, i) => (
+                          <Star
+                            fill="#FFCF25"
+                            color="#FFCF25"
+                            key={i}
+                            size={16}
+                            className="mr-[6px]"
+                          />
+                        ))}
+                    </div>
 
-                  <h4 className="font-semibold md:text-[16px] text-[14px]  ">
-                    Little is awesome
-                  </h4>
-                  <p className="text-[14px] lg:text-[15px] mt-[8px]">
-                    I love Little!!!! It`s easy to use, very convenient and so
-                    much more exciting for my kids being able to use their full
-                    control 🤣 Thanks!!!
-                  </p>
-                  <p className="font-semibold text-[14px] lg:text-[15px] mt-[16px]">
-                    Oluwafemi Fashikun
-                  </p>
-                </div>
-              ))}
-          </div>
+                    <h4 className="font-semibold md:text-[16px] text-[14px]  ">
+                      Little is awesome
+                    </h4>
+                    <p className="text-[14px] lg:text-[15px] mt-[8px]">
+                      I love Little!!!! It`s easy to use, very convenient and so
+                      much more exciting for my kids being able to use their
+                      full control 🤣 Thanks!!!
+                    </p>
+                    <p className="font-semibold text-[14px] lg:text-[15px] mt-[16px]">
+                      Oluwafemi Fashikun
+                    </p>
+                  </div>
+                ))}
+            </div>{" "}
+          </EnterFromRight>
         </div>
       </section>
-      <div className="flex justify-between m-auto lg:max-w-[1200px] h-full md:w-full overflow-y-auto bg-white">
-        {schools.map(({ name, image }) => (
-          <img
-            key={name}
-            src={image}
-            className="md:w-[80px] hover:scale-[0.9] md:h-[75px] mx-[25px] md:mx-0"
-            alt={name}
-          />
-        ))}
-      </div>
+      <FadeInWhenVisible>
+        <div className="flex justify-between m-auto lg:max-w-[1200px] h-full md:w-full overflow-y-auto bg-white">
+          {schools.map(({ name, image }) => (
+            <img
+              key={name}
+              src={image}
+              className="md:w-[80px] hover:scale-[0.9] md:h-[75px] mx-[25px] md:mx-0"
+              alt={name}
+            />
+          ))}
+        </div>
+      </FadeInWhenVisible>
 
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
         <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">
           {" "}
           Frequently Asked Questions{" "}
         </h3>
-        <div className="sm:w-[627px]">
-          <Accordion list={faqs} />
-        </div>
+        <EnterFromRight>
+          <div className="sm:w-[627px]">
+            <Accordion list={faqs} />
+          </div>
+        </EnterFromRight>
 
         <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-[#424242]">
           Need more answers?&nbsp;

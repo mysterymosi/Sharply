@@ -1,13 +1,14 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { ListProps } from "../types";
+import { FadeInWhenVisible } from "../utils";
 
 export const Accordion = ({ list }: ListProps) => {
   return (
-    <>
-      {list.map(({ title, description }) => (
+    <FadeInWhenVisible>
+      {list.map(({ title, description }, i) => (
         <div
-          key={title}
+          key={i}
           className="bg-[#F7F7F7] min-h-[56px] flex flex-col w-full sm:w-[627px] lg:w-full items-start px-[12px] md:px-[24px] justify-center mb-[20px] rounded-[12px]">
           <Disclosure key={title}>
             {({ open }) => (
@@ -61,6 +62,6 @@ export const Accordion = ({ list }: ListProps) => {
           </Disclosure>
         </div>
       ))}
-    </>
+    </FadeInWhenVisible>
   );
 };

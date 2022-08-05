@@ -31,23 +31,28 @@ export function EnterFromLeft({ children }: { children: React.ReactNode }) {
       }
       transition={{
         type: "tween",
-        duration: 0.5,
+        duration: 0.7,
       }}>
       {children}
     </motion.div>
   );
 }
 export function EnterFromRight({ children }: { children: React.ReactNode }) {
+  const isSmall = useMediaQuery("(max-width: 480px)");
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      animate={{
-        x: ["0%", "5%", "0%"],
-      }}
+      animate={
+        isSmall
+          ? {
+              x: ["0px", "50px", "0px"],
+            }
+          : { x: ["0px", "100px", "0px"] }
+      }
       transition={{
         type: "tween",
-        duration: 0.5,
+        duration: 0.7,
       }}>
       {children}
     </motion.div>
