@@ -3,25 +3,41 @@ import { Button } from "./Button";
 import { Popover } from "@headlessui/react";
 import Link from "next/link";
 import { ChevronDown } from "react-feather";
-import { navItems } from "../types";
 import { useRouter } from "next/router";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+import { navItems } from "../utils";
 export const NavigationBar = () => {
   const router = useRouter();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
+  const [backgroundFull, setBackgroundFull] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setBackgroundFull(true);
+    } else {
+      setBackgroundFull(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavbarColor);
+  }, []);
   return (
     <Popover
       as="nav"
       ref={ref}
-      className="box-shadow relative z-50 align-center transition-all  items-center lg:px-8 lg:pt-6 justify-between">
+      className={` ${
+        backgroundFull ? "xl:bg-white box-shadow lg:py-2 lg:pt-2" : ""
+      } z-50 top-0 w-full fixed align-center transition-all left-0 items-center lg:px-8 lg:pt-6 justify-between `}>
       <div
         className={`${
           isInView ? "opacity-100 " : "opacity-0 translate-y-[-200px]"
-        } duration-[0.5s] transition-all xl:w-full xl:m-auto xl:max-w-[1060px] px-[20px] xl:mw-[1px] bg-white lg:rounded-full `}>
-        <div className="flex justify-between items-center md:justify-start h-[76px]">
-          <div className="flex mr-10 cursor-pointer">
+        } duration-[0.5s]
+        ${backgroundFull ? "" : " box-shadow"} 
+        
+         transition-all xl:w-full xl:m-auto xl:max-w-[1100px] pr-[8px] pl-[24px] xl:mw-[1px] bg-white lg:rounded-full `}>
+        <div className="flex justify-between items-center md:justify-start lg:h-[64px] h-[76px]">
+          <div className="flex mr-6 lg:mr-10 cursor-pointer">
             <Link href="/" passHref>
               <a className="mt-[3px]">
                 <Image
@@ -36,26 +52,30 @@ export const NavigationBar = () => {
           </div>
 
           <div className=" flex-auto justify-between  hidden md:flex">
-            {navItems.map(({ name, link }) => {
-              return (
-                <Link key={link} href={link}>
-                  <p
-                    className={`my-5 text-xs lg:text-base cursor-pointer ${
-                      router?.pathname?.includes(link)
-                        ? "font-semibold"
-                        : "font-normal"
-                    }`}>
-                    {name}
-                  </p>
-                </Link>
-              );
-            })}
+            {navItems
+              .filter((_, idx) => idx < 6)
+              .map(({ name, link }) => {
+                return (
+                  <Link key={link} href={link}>
+                    <p
+                      className={`my-5 text-xs lg:text-base cursor-pointer ${
+                        router?.pathname?.includes(link)
+                          ? "font-semibold"
+                          : "font-medium"
+                      }`}>
+                      {name}
+                    </p>
+                  </Link>
+                );
+              })}
           </div>
-          <div className="hidden md:flex items-center justify-end sm:ml-3 md:flex-1 lg:w-0">
-            <Button className="my-2 whitespace-nowrap">Get Started</Button>
+          <div className="hidden md:flex items-center  justify-end  md:flex-1 lg:w-0 ml-6 lg:ml-0">
+            <Button className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100">
+              Get Started
+            </Button>
           </div>
 
-          <Popover.Button className=" cursor-pointer py-2.5 px-[8px] rounded-full w-[92px] outline-0 my-2 whitespace-nowrap md:hidden flex items-center justify-evenly md:flex-1 lg:w-0 bg-[#F5F5F5] font-semibold text-xs text-black">
+          <Popover.Button className=" cursor-pointer py-2.5 px-[8px] rounded-full w-[92px] outline-0 my-2 whitespace-nowrap md:hidden flex items-center justify-evenly md:flex-1 lg:w-0 bg-white2 font-semibold text-xs text-black">
             Menu <ChevronDown size={15} />
           </Popover.Button>
           <Popover.Panel className="absolute z-50 top-[4rem] rounded-2xl  shadow bg-white w-[200px] right-[21px] px-[24px] pb-[24px]">
@@ -64,20 +84,15 @@ export const NavigationBar = () => {
                 <Link key={link} href={link}>
                   <p
                     className={`my-5 text-xs lg:text-base cursor-pointer ${
-                      router.pathname.includes(link)
+                      router?.pathname?.includes(link)
                         ? "font-semibold"
-                        : "font-normal"
+                        : "font-medium"
                     }`}>
                     {name}
                   </p>
                 </Link>
               ))}
-              <p className="my-5 text-xs lg:text-base " key={"/blog"}>
-                Blog
-              </p>
-              <p className="my-5 text-xs lg:text-base " key={"/faqs"}>
-                FAQ
-              </p>
+
               <Button className="my-2 whitespace-nowrap">Get Started</Button>
             </div>
           </Popover.Panel>

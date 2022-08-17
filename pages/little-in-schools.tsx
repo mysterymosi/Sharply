@@ -1,14 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import groq from "groq";
 import type { NextPage } from "next";
-import Image from "next/image";
-import {
-  BookList,
-  Button,
-  DownloadCard,
-  Footer,
-  NavigationBar,
-  WhatsappContact,
-} from "../components";
+import client from "../client";
+import { BookList, Button, Layout, NavigationBar } from "../components";
 import { Accordion } from "../components/Accordion";
 import { PhoneInput } from "../components/Input/PhoneInput";
 import {
@@ -17,50 +11,58 @@ import {
   EnterFromRight,
   FadeInWhenVisible,
   faqs,
+  getValue,
   schoolBenefits,
-  schools,
+  urlFor,
 } from "../utils";
 
-const LittleInSchools: NextPage = () => {
+const LittleInSchools: NextPage<any> = ({
+  contents,
+  schoolContent,
+  blogContent,
+}) => {
   return (
-    <main>
+    <Layout title="Little in Schools" showDownloadCard>
       <section
-        className={`  sm:h-[868px] lg:h-[800px] md:h-[600px] h-[950px] bg-[#D4D3FC]`}>
+        className={`  sm:h-[868px] lg:h-[800px] md:h-[600px] h-[1000px] bg-[#D4D3FC]`}>
         <NavigationBar />
-        <div className="  px-[25px] flex lg:flex-row flex-col md:gap-[100px] items-center  h-5/6 justify-center text-black ">
+        <div className=" pt-[100px] px-[25px] flex lg:flex-row flex-col md:gap-[145px] items-center  h-full justify-center text-black ">
           <div className="flex justify-center flex-col">
             <EnterFromLeft>
-              <h1 className="md:text-[53px] md:leading-[60px]  max-w-[13ch] text-[28px] leading-[34px] font-semibold ">
-                A better way for students to spend & receive pocket money
+              <h1 className="md:text-[53px] md:leading-[60px]  max-w-[14ch] text-[28px] leading-[34px] font-semibold ">
+                {getValue(contents, "1", "heading")}
               </h1>
               <div className="max-w-[440px]">
-                <p className="mt-6 text-black font-normal text-sm  ">
-                  A Pocket money card for students in school
+                <p className="mt-6 text-black font-medium text-sm">
+                  {getValue(contents, "1", "description")}
                 </p>
                 <PhoneInput
                   placeholder="Enter your phone number"
-                  text="Get Started"
+                  text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
+                  type={"phone"}
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
-                  For kids aged 9-18.
+                  {getValue(contents, "1", "footNote")}
                 </p>
               </div>
             </EnterFromLeft>
           </div>
           <FadeInWhenVisible>
-            {" "}
             <img
-              src={"/images/school-hero.svg"}
-              className="w-[480px]"
-              alt={"family"}
+              alt={
+                getValue(contents, "1", "imageAlt") ??
+                getValue(contents, "1", "heading")
+              }
+              src={getValue(contents, "1", "image")}
+              className="w-[480px] mt-[40px] md:mt-0"
             />
           </FadeInWhenVisible>
         </div>
       </section>
 
       <section className="flex flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <div className="max-w-full md:max-w-[35ch]">
             <EnterFromLeft>
               <h2 className="font-semibold text-[24px] flex lg:text-[40px] leading-[50px]">
@@ -69,134 +71,130 @@ const LittleInSchools: NextPage = () => {
                   className=" md:h-[40px] md:w-[40px] mr-[16px]"
                   alt="video"
                 />
-                Our Goal
+                {getValue(contents, "2", "heading")}
               </h2>
-              <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-                To help nurture financially responsible students in a global
-                era.
-                <br /> It takes a village to raise a child.
+              <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+                {getValue(contents, "2", "description")}
               </p>
 
               <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-                Get your Card Now!
+                {getValue(contents, "2", "buttonText")}
               </Button>
             </EnterFromLeft>
           </div>
           <FadeInWhenVisible>
             <img
-              src="/images/school-goals.svg"
-              className="w-full h-full md:h-[400px] md:w-[460px]"
-              alt="video"
+              src={getValue(contents, "2", "image")}
+              alt={getValue(contents, "2", "imageAlt")}
+              className="w-full h-full md:h-[400px] md:w-[520px]"
             />
           </FadeInWhenVisible>
         </div>
       </section>
 
       <section className="flex flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <FadeInWhenVisible>
             <img
-              src="/images/home-card-hero.svg"
+              src={getValue(contents, "3", "image")}
+              alt={getValue(contents, "3", "imageAlt")}
               className="w-full h-full  md:w-[460px]"
-              alt="video"
             />
           </FadeInWhenVisible>
 
           <div className="max-w-full md:max-w-[45ch]">
             <EnterFromRight>
               <h2 className="font-semibold text-[24px] lg:text-[40px] md:leading-[50px] leading-[30px] md mt-[30px]">
-                Introducing the Little Card for Schools
+                {getValue(contents, "3", "heading")}
               </h2>
-              <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-                The Little card for schools is a spend card that allows students
-                to receive and spend pocket money with ease. This card is an NFC
-                card
+              <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[24px] sm:mb-0">
+                {getValue(contents, "3", "description")}
               </p>
-              <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-                The card is accompanied by an App where parents/guardians can
-                get instant notifications, set spending limit and block card.
+              <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+                {getValue(contents, "3", "footNote")}
               </p>
 
               <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-                Get your Card Now!
+                {getValue(contents, "3", "buttonText")}
               </Button>
             </EnterFromRight>
           </div>
 
-          <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
-            Get your Card Now!
+          <Button className="my-2 whitespace-nowrap mt-12 md:hidden mb-[80px] justify-center flex">
+            {getValue(contents, "3", "buttonText")}
           </Button>
         </div>
         <FadeInWhenVisible>
-          {" "}
           <h4 className="flex font-semibold text-[18px] md:text-[24px] mb-[48px]">
             Schools that trust Little
           </h4>
         </FadeInWhenVisible>
       </section>
       <FadeInWhenVisible>
-        <div className="flex justify-between m-auto lg:max-w-[1400px] md:w-full">
-          {schools.map(({ name, image }) => (
-            <Image
-              key={name}
-              src={image}
-              priority={true}
-              width={80}
-              alt={name}
-              height={75}
-              layout="fixed"
-            />
-          ))}
+        <div className="flex justify-between m-auto overflow-x-auto lg:overflow-hidden lg:max-w-[1400px] md:w-full">
+          {getValue(schoolContent, "7", "images").map(
+            (img: string, i: number) => (
+              <img
+                key={i}
+                src={urlFor(img) as any}
+                className="md:w-[80px] hover:scale-[0.9] md:h-[75px] mx-[25px] md:mx-0"
+                alt={img}
+              />
+            )
+          )}
         </div>
       </FadeInWhenVisible>
 
       <section
         className="flex flex-col  px-[20px] md:px-0 md:x-0 md:mt-[80px] mt-0
-      lg:mb-[100px] md:w-full xl:max-w-[1000px] m-auto justify-end flex-auto  
+      lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto  
    pt-[80px] lg:pt-{200px]  mb-[16px] bg-white">
         <FadeInWhenVisible>
           <h3 className="font-semibold  md:text-[40px] text-[20px] mb-[48px]  text-center">
-            How it works in Little{" "}
-            <span className="text-[#757575]"> steps</span>
+            How it works in Little
+            <span className="text-grey2"> steps</span>
           </h3>
         </FadeInWhenVisible>
 
         <div className="flex justify-between flex-col md:flex-row h-[1100px]  sm:h-[660px] md:mt-[82px]">
           <div className="box-shadow basis-[49%] h-[400px]  md:h-full  px-[48px] pt-[64px] rounded-[16px]">
             <FadeInWhenVisible>
-              {" "}
-              <p className="font-semibold md:text-[18px] leading-[31px]">
-                Step 1
+              <p className="font-semibold md:text-[18px] capitalize leading-[31px]">
+                {getValue(contents, "5", "heading")}
               </p>
             </FadeInWhenVisible>
 
-            <p className="md:mt-[21px] font-semibold md:text-[30px] text-[20px] ">
-              Students get Little card
+            <p className="md:mt-[21px] capitalize font-semibold md:text-[30px] text-[20px] ">
+              {getValue(contents, "5", "description")}
             </p>
             <FadeInWhenVisible>
               <img
-                alt="green little card"
-                src="/images/cards.svg"
+                src={getValue(contents, "5", "image")}
+                alt={
+                  getValue(contents, "5", "imageAlt") ??
+                  getValue(contents, "5", "heading")
+                }
                 className="md:w-[313px] w-[140px] h-full lg:mt-[80px] mx-auto md:h-[342px]   "
               />
             </FadeInWhenVisible>
           </div>
           <div className="box-shadow basis-[49%] px-[48px] pt-[64px] rounded-[16px] mt-[12px] md:mt-0">
-            {" "}
             <FadeInWhenVisible>
-              {" "}
-              <p className="font-semibold md:text-[18px] leading-[31px]">
-                Step 2
+              <p className="font-semibold md:text-[18px] capitalize leading-[31px]">
+                {getValue(contents, "6", "heading")}
               </p>
             </FadeInWhenVisible>
-            <p className="md:mt-[21px] lg:leading-[34px] font-semibold md:text-[30px]  text-[20px] ">
-              Parents/ Guardian transfer money from any bank into student’s card
+            <p className="md:mt-[21px] lg:leading-[34px] capitalize font-semibold md:text-[30px]  text-[20px] ">
+              {getValue(contents, "6", "description")}
             </p>
             <FadeInWhenVisible>
               <img
-                alt="grid of parents avatars"
+                src={getValue(contents, "6", "image")}
+                alt={
+                  getValue(contents, "6", "imageAlt") ??
+                  getValue(contents, "6", "heading")
+                }
                 className="w-fit mt-[65px] md:mt-[86px] flex justify-center items-center mx-auto"
-                src="/images/wallet-funded-phone.svg"
               />
             </FadeInWhenVisible>
           </div>
@@ -205,60 +203,66 @@ const LittleInSchools: NextPage = () => {
       <section
         className={`
        gap-[30px]  md:px-0 md:mx-auto
-       flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner box-shadow pt-[65px] 
+       flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner box-shadow pt-[63px] 
        rounded-[24px] z-30 lg:pl-[100px] 
         mb-[20px]
-       lg:max-w-[1000px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}>
+       lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}>
         <Button className="my-2 whitespace-nowrap  md:hidden  mt-12 w-full text-center justify-center flex mb-[48px]">
-          Learn More
+          {getValue(contents, "7", "buttonText")}
         </Button>
         <div className="max-w-[51ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
           <FadeInWhenVisible>
-            {" "}
             <p className="md:text-[18px] leading-[31px] mb-[13px] font-[#3D3D3D] font-semibold">
-              Step 3
+              {getValue(contents, "7", "heading")}
             </p>
           </FadeInWhenVisible>
 
           <h3 className="font-semibold lg:text-[30px]  text-[20px]">
-            {" "}
-            Students uses card at designated sales point within the school{" "}
+            {getValue(contents, "7", "description")}
           </h3>
-          <Button className="my-2 whitespace-nowrap hidden  mt-12 w-fill md:w-fit sm:w-auto md:flex mb-[48px]">
-            Learn More
+          <Button className="whitespace-nowrap hidden lg:w-[172px]  mt-12 w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px]">
+            {getValue(contents, "7", "buttonText")}
           </Button>
         </div>
 
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
           <FadeInWhenVisible>
             <img
-              src={"/images/epos.svg"}
+              src={getValue(contents, "7", "image")}
+              alt={
+                getValue(contents, "7", "imageAlt") ??
+                getValue(contents, "7", "heading")
+              }
               className="w-[370px] h-full hidden md:flex"
-              alt={"epos machine"}
             />
             <img
-              src={"/images/epos-mobile.svg"}
+              src={"/images/eposFull.png"}
+              alt={
+                getValue(contents, "7", "imageAlt") ??
+                getValue(contents, "7", "heading")
+              }
               className="w-[370px] h-full md:hidden flex"
-              alt={"epos machine"}
             />
           </FadeInWhenVisible>
         </div>
       </section>
-      <section className="flex flex-col flex-auto justify-start items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-[#EBFDD9]">
-        <div className="flex justify-start gap-[50px] md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1000px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+      <section className="flex flex-col flex-auto justify-start items-center md:px-5 pt-[80px] lg:pt-{200px] mt-[80px]  bg-[#EBFDD9]">
+        <div className="flex justify-start lg:gap-[107px] md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1170px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <FadeInWhenVisible>
-            {" "}
             <img
-              src="/images/home-card-hero.svg"
-              className="w-full h-full md:h-[400px] md:w-[460px]"
-              alt="video"
+              src={getValue(contents, "8", "image")}
+              alt={
+                getValue(contents, "8", "imageAlt") ??
+                getValue(contents, "8", "heading")
+              }
+              className="w-full h-full md:h-[590px] hidden md:flex "
             />
           </FadeInWhenVisible>
 
           <div className="max-w-full md:max-w-[35ch]">
             <EnterFromRight>
               <h2 className="font-semibold text-[24px] lg:text-[32px] leading-[50px]">
-                How does it benefit my school?
+                {getValue(contents, "8", "heading")}
               </h2>
               <ul className="pl-[15px] mt-[32px] small-list-item">
                 {schoolBenefits.map((benefit) => (
@@ -268,7 +272,7 @@ const LittleInSchools: NextPage = () => {
                 ))}
               </ul>
               <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-                Invite us to your PTA
+                {getValue(contents, "8", "buttonText")}
               </Button>
             </EnterFromRight>
           </div>
@@ -283,25 +287,66 @@ const LittleInSchools: NextPage = () => {
 
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
         <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">
-          {" "}
-          Frequently Asked Questions{" "}
+          Frequently Asked Questions
         </h3>
         <div className="sm:w-[627px]">
           <Accordion list={faqs} />
         </div>
 
-        <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-[#424242]">
+        <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-grey">
           Need more answers?&nbsp;
           <span className="underline cursor-pointer">Click here</span>
         </p>
       </section>
-      <DownloadCard className="lg:max-w-[1000px] md:w-full xl:max-w-[1040px] lg:m-auto lg:mw-[1px] flex items-center justify-center overflow-x-hidden mb-12" />
-      <div className="flex pl-[22.5px] pr-[17.5px]  z-30 w-full flex-col lg:items-center transition-all  xl:mb-16 overflow-x-hidden md:px-5">
-        <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
-        <Footer />
-      </div>
-    </main>
+    </Layout>
   );
 };
+export async function getStaticProps() {
+  const contents = await client.fetch(groq`
+  *[
+    _type == "schools"
+  ]{
+    section,
+    heading,
+    description,
+    buttonText,
+    footNote,
+    imageAlt,
+    "image" :image.asset->url
+  }
 
+   `);
+  const schoolContent = await client.fetch(groq`
+   *[
+     _type == "home"
+     
+   ]{
+     images,
+     section
+   }
+ 
+    `);
+  const blogContent = await client.fetch(groq`
+   *[
+     _type == "blog"
+   ]{
+    _id,
+    title,
+    slug,
+    publishedAt,
+    body,
+    "image" :image.asset->url,
+    'estimatedReadingTime' : round(length(pt::text(body)) / 5 / 180 ),
+
+  }
+ 
+    `);
+  return {
+    props: {
+      contents,
+      schoolContent,
+      blogContent,
+    },
+  };
+}
 export default LittleInSchools;

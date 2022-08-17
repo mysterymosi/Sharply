@@ -1,104 +1,136 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Play, Star } from "react-feather";
+import { Play } from "react-feather";
 import {
   Button,
-  DownloadCard,
-  Footer,
   NavigationBar,
-  WhatsappContact,
   Accordion,
-  HomeStepper,
   PhoneInput,
+  Layout,
+  HomeStepper,
 } from "../components";
 import {
   EnterFromLeft,
   EnterFromRight,
   FadeInWhenVisible,
   faqs,
+  getValue,
   moneyItemList,
-  schools,
+  urlFor,
 } from "../utils";
-import styles from "../styles/Home.module.css";
+import client from "../client";
+import groq from "groq";
+import { ContentTypeProps } from "../types";
+import { Reviews } from "../components/Reviews";
+import HomeModal from "../components/Modal";
+import { useEffect } from "react";
+import gsap from "gsap";
+import TextPlugin from "gsap/dist/TextPlugin";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
-const Home: NextPage = () => {
+const Home: NextPage<ContentTypeProps> = ({ contents }) => {
+  const backgroundImage = {
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)), url(${getValue(
+      contents,
+      "1",
+      "image"
+    )})`,
+  };
+  useEffect(() => {
+    gsap.registerPlugin(TextPlugin);
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".text", {
+      scrollTrigger: {
+        trigger: ".text",
+
+        start: "top bottom",
+      },
+      text: {
+        value: "little steps",
+      },
+      duration: 0.3,
+      delay: 0.5,
+      ease: "none",
+    });
+  }, []);
+
   return (
-    <main>
+    <Layout title="Home" showDownloadCard>
+      <HomeModal />
       <section
-        className={`${styles["home-image"]} sm:bg-center bg-no-repeat sm:h-[868px] h-[600px] bg-cover bg-top`}>
+        style={backgroundImage}
+        className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}>
         <NavigationBar />
 
-        <div className=" px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto h-5/6 lg:max-w-[1070px] mx-auto justify-center text-white col-4">
+        <div className=" px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-full mt-[50px] lg:mt-0">
           <EnterFromLeft>
             <h1 className="md:text-xxl  max-w-[20ch] text-[28px] leading-[34px] font-semibold ">
-              A better way to give your child pocket money.
+              {getValue(contents, "1", "heading")}
             </h1>
             <div className="max-w-[531px]">
-              <p className="mt-6 text-white font-normal text-sm  ">
-                Send money instantly to your child while they spend with ease.
-                They own a card ; you monitor their spend.
+              <p className="mt-6 text-white font-regular text-sm  ">
+                {getValue(contents, "1", "description")}{" "}
               </p>
               <PhoneInput
+                type={"phone"}
                 placeholder="Enter your phone number"
-                text="Get Link"
+                text={getValue(contents, "1", "buttonText")}
                 className="mt-[40px]"
               />
               <p className="text-sm mt-6">
-                You’ll receive a link within 5 mins to download the Little app
+                {getValue(contents, "1", "footNote")}{" "}
               </p>
-            </div>{" "}
+            </div>
           </EnterFromLeft>
         </div>
       </section>
-      <FadeInWhenVisible>
-        <section className="flex flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-[#F5F5F5]">
-          <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-            <div className="max-w-full md:max-w-[47ch]">
-              <h2 className="font-semibold text-[24px] lg:leading-[44px] lg:text-[40px]">
-                Become Intentional about your child’s financial future
-              </h2>
-              <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-                Learning good money habits for the future starts today. With
-                Little, your child gets a debit card with an instant bank
-                account for receiving their pocket money while you guide them
-                through the journey using the Little app.
-              </p>
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-                Get Started
-              </Button>
-            </div>
-
-            <div className="relative">
-              <img
-                src="/images/video.svg"
-                className="w-full h-full md:h-[400px] md:w-[460px]"
-                alt="video"
-              />
-              <div className="w-[48px] flex absolute top-[45%] left-[46%] inset-1/2 justify-center items-center h-[48px] bg-white cursor-pointer rounded-full">
-                <Play fill="#5BAB0A" color="#5BAB0A" />
-              </div>
-            </div>
-
-            <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
-              Get Started
+      <section className="flex flex-auto justify-center h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
+        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+          <div className="max-w-full md:max-w-[53ch]">
+            <h2 className="font-semibold text-[24px] lg:leading-[44px] lg:text-[40px]">
+              {getValue(contents, "2", "heading")}
+            </h2>
+            <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+              {getValue(contents, "2", "description")}
+            </p>
+            <Button className="my-2 whitespace-nowrap mt-12 hidden w-full md:flex lg:w-[172px]">
+              {getValue(contents, "2", "buttonText")}
             </Button>
           </div>
-        </section>
-      </FadeInWhenVisible>
 
-      <section className="flex flex-auto justify-center md:px-8 pt-[80px] lg:mt-{200px] bg-[#F5F5F5]">
-        <div className="flex justify-between flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] lg:mb-[106px]  w-full  transition-all  xl:mb-16 ">
-          <h3 className="font-semibold text-[24px] lg:text-[40px] ">
-            Money lessons made easy & practical
+          <div className="relative">
+            <img
+              className="w-full h-full md:h-[400px] md:w-[460px]"
+              src={getValue(contents, "2", "image")}
+              alt={
+                getValue(contents, "2", "imageAlt") ??
+                getValue(contents, "2", "heading")
+              }
+            />
+            <div className="w-[48px] flex absolute top-[45%] left-[46%] inset-1/2 justify-center items-center h-[48px] bg-white cursor-pointer rounded-full">
+              <Play fill="#5BAB0A" color="#5BAB0A" />
+            </div>
+          </div>
+
+          <Button className="my-2 w-full lg:w-[172px] items-center whitespace-nowrap mt-12 md:hidden justify-center flex">
+            {getValue(contents, "2", "buttonText")}
+          </Button>
+        </div>{" "}
+      </section>{" "}
+      <section className="flex flex-auto justify-center md:px-8 pt-[80px] lg:mt-{200px]  bg-white2 ">
+        <div className="flex justify-between flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:mb-[106px]  w-full  transition-all  xl:mb-16 ">
+          <h3 className="font-semibold text-[24px] lg:text-[40px] mb-[40px] lg:mb-0 ">
+            {getValue(contents, "3", "heading")}
           </h3>
-          <div className="mt-[24px] md:mt-[40px] grid  grid-cols-1 md:grid-cols-2  gap-5 gap-y-6">
+          <div className="mt-[24px] md:mt-[40px] grid mb-4  grid-cols-1 md:grid-cols-2  gap-5 gap-y-6">
             {moneyItemList.map(({ icon, title, description }) => (
               <div
                 key={title}
-                className=" bg-white flex flex-col justify-center h-[335px] md:h-[400px] rounded-[24px] p-[48px] ">
-                <div className="w-[80px] md:w-[70px] h-[56px] md:h-[64px] rounded-full bg-[#F0F0F0] flex items-center justify-center mb-[32px]">
-                  <FadeInWhenVisible>
+                className=" bg-white flex flex-col justify-center lg:h-[335px] h-[300px] md:h-[400px] rounded-[24px] lg:p-[48px] p-[24px] ">
+                <FadeInWhenVisible>
+                  <div className="w-[80px] md:w-[70px] h-[56px] md:h-[64px] rounded-full bg-[#F0F0F0] flex items-center justify-center mb-[32px]">
                     <Image
                       src={icon}
                       width={30}
@@ -107,8 +139,8 @@ const Home: NextPage = () => {
                       height={30}
                       layout="fixed"
                     />{" "}
-                  </FadeInWhenVisible>
-                </div>
+                  </div>{" "}
+                </FadeInWhenVisible>
 
                 <h4 className="font-semibold text-[20px] lg:text-[24px] ">
                   {title}
@@ -117,129 +149,73 @@ const Home: NextPage = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-      <section className="flex flex-col flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1070px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+        </div>{" "}
+      </section>{" "}
+      <section className="flex flex-col flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white h-full">
+        <div className="flex justify-between md:flex-row flex-col-reverse pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <div className="max-w-full sm:max-w-[30ch] lg:max-w-[45ch]">
             <h2 className="font-semibold text-[24px] lg:text-[40px] leading-[30px]  lg:leading-[50px]">
-              The Smart card for The Smart Child
+              {getValue(contents, "4", "heading")}
             </h2>
-            <p className="text-[16px] font-normal lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-              We designed the Little cards to cater for you and your child. The
-              cards work just like a regular debit card while giving you the
-              added advantage of being able to set boundaries like spending
-              limits, track spend location and so much more
+            <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+              {getValue(contents, "4", "description")}
             </p>
-            <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-              Get your Card Now!
+            <Button className="my-2 whitespace-nowrap mt-12 flex lg:w-fit w-full mb-[86px] lg:mb-0">
+              {getValue(contents, "4", "buttonText")}
             </Button>
           </div>
 
           <FadeInWhenVisible>
-            {" "}
             <img
-              src="/images/home-card-hero.svg"
-              className="w-full h-full md:h-[400px] lg:w-[460px] md:w-[300px]"
-              alt="video"
+              src={getValue(contents, "4", "image")}
+              alt={
+                getValue(contents, "4", "imageAlt") ??
+                getValue(contents, "4", "heading")
+              }
+              className="w-full h-full md:h-full lg:w-[493px] md:w-[460px] mb-[40px] lg:mb-0"
             />
           </FadeInWhenVisible>
-
-          <Button className="my-2 whitespace-nowrap mt-12 md:hidden justify-center flex">
-            Get your Card Now!
-          </Button>
         </div>
-        <h4 className="flex font-semibold text-[20px] md:text-[40px] mb-[48px]">
+        <h4 className="text-block flex font-semibold text-[20px] md:text-[40px] mb-[48px] ">
           How it works in&nbsp;
-          <EnterFromRight>
-            <span className="text-[#757575]">
-              Little steps
-              <span className="animate-pulse ">👇🏽</span>
-            </span>
-          </EnterFromRight>
-        </h4>
+          <span className="text-grey2 text"></span>
+        </h4>{" "}
+      </section>{" "}
+      <section className="bg-[#CCF4A5]  lg:rounded-[40px] w-full relative">
+        <HomeStepper images={getValue(contents, "5", "images")} />
       </section>
-      <section className="bg-[#CCF4A5] lg:rounded-[40px] w-full">
-        <HomeStepper />
-      </section>
-      <section
-        className="flex md:flex-row flex-col px-[20px] lg:max-w-[1070px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center
-       md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
+      <section className="flex md:flex-row flex-col px-[20px] lg:max-w-[1500px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center   md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
         <div className="md:basis-1/3 md:mr-[70px] ">
           <div className="max-w-[408px ]">
             <EnterFromLeft>
               <h3 className="font-semibold md:text-[40px] text-[20px] leading-[21px] md:leading-[40px] md:mb-[24px] mb-[8px] ">
-                Schools Trust us & Parents Love us
+                {getValue(contents, "6", "heading")}
               </h3>
-              <p>
-                Little can be used in school and out of school, for online and
-                offline expenses
-              </p>
+              <p>{getValue(contents, "6", "description")}</p>
               <br />
-              <p>
-                {" "}
-                Join over 15,000+ parents that are intentional about their
-                children
-              </p>
+              <p> {getValue(contents, "6", "footNote")}</p>
               <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-                Get your Card Now!
+                {getValue(contents, "6", "buttonText")}
               </Button>
             </EnterFromLeft>
           </div>
         </div>
         <div className="md:basis-1/2 overflow-x-auto w-full">
-          <EnterFromRight>
-            <div className="mt-[24px] flex flex-row md:mt-[40px] md:grid-flow-row md:grid  md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0">
-              {Array(4)
-                .fill(0)
-                .map((_, i) => (
-                  <div
-                    key={i}
-                    className=" md:bg-white  bg-[#F5F5F5] box-shadow flex  min-w-[240px] md:min-w-min flex-col justify-center min-h-[235px] rounded-[24px] p-[24px] ">
-                    <div className="flex mb-[16px]">
-                      {Array(5)
-                        .fill(0)
-                        .map((_, i) => (
-                          <Star
-                            fill="#FFCF25"
-                            color="#FFCF25"
-                            key={i}
-                            size={16}
-                            className="mr-[6px]"
-                          />
-                        ))}
-                    </div>
-
-                    <h4 className="font-semibold md:text-[16px] text-[14px]  ">
-                      Little is awesome
-                    </h4>
-                    <p className="text-[14px] lg:text-[15px] mt-[8px]">
-                      I love Little!!!! It`s easy to use, very convenient and so
-                      much more exciting for my kids being able to use their
-                      full control 🤣 Thanks!!!
-                    </p>
-                    <p className="font-semibold text-[14px] lg:text-[15px] mt-[16px]">
-                      Oluwafemi Fashikun
-                    </p>
-                  </div>
-                ))}
-            </div>{" "}
-          </EnterFromRight>
-        </div>
-      </section>
+          <Reviews />
+        </div>{" "}
+      </section>{" "}
       <FadeInWhenVisible>
-        <div className="flex justify-between m-auto lg:max-w-[1200px] h-full md:w-full overflow-y-auto bg-white">
-          {schools.map(({ name, image }) => (
+        <div className="flex justify-between m-auto lg:max-w-[1100px] h-full md:w-full overflow-y-auto bg-white">
+          {getValue(contents, "7", "images").map((img: string, i: number) => (
             <img
-              key={name}
-              src={image}
+              key={i}
+              src={urlFor(img) as any}
               className="md:w-[80px] hover:scale-[0.9] md:h-[75px] mx-[25px] md:mx-0"
-              alt={name}
+              alt={img}
             />
           ))}
-        </div>
+        </div>{" "}
       </FadeInWhenVisible>
-
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
         <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">
           {" "}
@@ -251,18 +227,35 @@ const Home: NextPage = () => {
           </div>
         </EnterFromRight>
 
-        <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-[#424242]">
+        <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-grey">
           Need more answers?&nbsp;
           <span className="underline cursor-pointer">Click here</span>
         </p>
       </section>
-      <DownloadCard className="lg:max-w-[1070px] md:w-full xl:max-w-[1040px] lg:m-auto lg:mw-[1px] flex items-center justify-center overflow-x-hidden mb-12" />
-      <div className="flex pl-[22.5px] pr-[17.5px]  z-30 w-full flex-col lg:items-center transition-all  md:mb-16 overflow-x-hidden md:px-5">
-        <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
-        <Footer />
-      </div>
-    </main>
+    </Layout>
   );
 };
+export async function getStaticProps() {
+  const contents = await client.fetch(groq`
+  *[
+    _type == "home"
+  ]{
+  section,
+    heading,
+    description,
+    buttonText,
+    footNote,
+    imageAlt,
+   images,
+    "image" :image.asset->url
+  }
+
+   `);
+  return {
+    props: {
+      contents,
+    },
+  };
+}
 
 export default Home;

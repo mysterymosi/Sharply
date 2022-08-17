@@ -5,7 +5,7 @@ import { FadeInWhenVisible } from "../utils";
 export const DownloadCard = ({ className }: ClassNameProps) => {
   return (
     <div
-      className={`${className} flex flex-col bg-blue h-[600px]  px-[30px] sm:px-0 w-full lg:min-w-[500px] sm:h-[750px] lg:rounded-[48px]`}>
+      className={`${className} flex flex-col bg-blue h-[600px]  px-[30px] sm:px-0 lg:max-w-[1000px] md:w-full xl:max-w-[1350px]  sm:h-[750px] lg:rounded-[48px]`}>
       <Image
         src="/images/downloadCard.svg"
         width={241.82}

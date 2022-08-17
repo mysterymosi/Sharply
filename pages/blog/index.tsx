@@ -1,83 +1,127 @@
 /* eslint-disable @next/next/no-img-element */
+import groq from "groq";
 import type { NextPage } from "next";
+import Link from "next/link";
+import { useEffect } from "react";
+import { useState } from "react";
+import client from "../../client";
 import {
   BookList,
-  Button,
-  DownloadCard,
-  Footer,
+  Layout,
   NavigationBar,
-  WhatsappContact,
+  Subscription,
 } from "../../components";
-import { books } from "../../utils";
-const LittleCards: NextPage = () => {
+import Tabs from "../../components/Tab";
+const Blog: NextPage<any> = ({ blogContent, catgeoryContent }) => {
+  const [selectedTab, setSelectedTab] = useState("All Articles");
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setBooks([]);
+    client
+      .fetch(
+        `*[_type == "blog"${
+          selectedTab !== "All Articles"
+            ? `&& category->title =="${selectedTab}"`
+            : `\n`
+        }]{
+          _id,
+    title,
+    category->,
+    slug,
+    publishedAt,
+    body,
+    "image" :image.asset->url,
+    'estimatedReadingTime' : round(length(pt::text(body)) / 5 / 180 )
+ }`
+      )
+      .then((data) => {
+        setLoading(false);
+        setBooks(data);
+      });
+  }, [selectedTab]);
   return (
-    <main>
-      <section
-        className={` sm:h-[868px]  lg:h-[1100px] md:h-[600px] h-[450px] `}>
-        <NavigationBar />
-        <div className="px-[25px] flex lg:flex-row flex-col md:h-full h-4/5 justify-center text-black ">
-          <div className="flex justify-center flex-col  items-center ">
-            <p>Inside Little</p>
-            <h1 className="md:text-[40px] max-w-[20ch] underline text-[28px] leading-[34px ]  lg:leading-[50px] font-semibold md:text-center lg:mb-[16px] ">
-              The simple money app for kids and teens!
-            </h1>
-            <p>June 20, 2022 - 5 mins read</p>
-            <img
-              src={"/images/home-background.svg"}
-              className="lg:mt-[80px] lg:w-[560px]  rounded-[196px] box-shadow"
-              alt={"little card hero"}
-            />
+    <div className="bg-faintYellow">
+      <Layout title="Blog">
+        <section>
+          <NavigationBar />
+          <div className="px-[25px] pt-[96px] lg:pt-[150px] flex lg:flex-row flex-col md:h-full  justify-center text-black ">
+            <div className="flex justify-center flex-col  items-center">
+              <p className=""> {blogContent[0]?.category?.title}</p>
+              <Link
+                href={`/blog/${blogContent[0]?.slug?.current}`}
+                passHref
+                as={`/blog/${blogContent[0]?.slug?.current}`}>
+                <h1 className="  hover:underline md:text-[40px] cursor-pointer max-w-[20ch] text-[28px] leading-[34px ]   lg:leading-[50px] font-semibold text-center mb-[16px] ">
+                  {blogContent[0]?.title}
+                </h1>
+              </Link>
+
+              <p>
+                {new Date(blogContent[0].publishedAt).toDateString() ?? "Today"}{" "}
+                - {blogContent[0]?.estimatedReadingTime} mins
+              </p>
+              <img
+                src={blogContent[0]?.image}
+                className="lg:mt-[75px] mt-[40px] lg:w-[650px]  rounded-[12px] box-shadow"
+                alt={"little card hero"}
+              />
+            </div>
           </div>
+        </section>
+
+        <div className="lg:mt-[100px] ">
+          <BookList title="Latest releases" books={blogContent} />
         </div>
-      </section>
 
-      <BookList
-        title="  Latest releases"
-        books={books.filter((_, i) => i < 4)}
-      />
-
-      <section className="lg:max-w-[1000px] md:w-full  m-auto  h-full md:mt-[100px]  rounded-[40px]">
-        <div
-          className={`bg-[#F9F2B4] 
-        gap-[40px]  py-[48px]
-        w-full
-       flex  md:flex-row  flex-col justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow  
-       lg:rounded-[24px] z-30 lg:p-[100px]  
-       lg:mb-[100px] mb-[12px]`}>
-          <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col lg:mt-0 ">
-            <h3 className="font-semibold text-[24px] leading-[40px] lg:text-[32px] mb-[8px]">
-              {" "}
-              Want updates straight to your inbox?
-            </h3>
-            <p className="text-[18px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien
-              lobortis pulvinar amet, tristique cursus elit. Mi tortor dui
-              aenean sit sed in.{" "}
-            </p>
-          </div>{" "}
-          <div className="flex flex-col mt-[20px] md:w-[350px] md:mt-[0px] justify-center items-center">
-            <input
-              type="text"
-              name="first-name"
-              id="first-name"
-              placeholder="Enter your email address"
-              className="mt-1 mb-[12px]  block w-full shadow-sm sm:text-sm border-gray-300  px-[20px] h-[56px] rounded-[32px]"
-            />
-
-            <Button className="my-2 h-[56px] whitespace-nowrap flex w-full items-center justify-center ">
-              Subscribe to Newsletter
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <DownloadCard className="lg:max-w-[1200px] md:w-full  lg:m-auto lg:mw-[1px] flex items-center justify-center overflow-x-hidden mb-12" />
-      <div className="flex pl-[22.5px] pr-[17.5px]  z-30 w-full flex-col lg:items-center transition-all  xl:mb-16 overflow-x-hidden md:px-5">
-        <WhatsappContact className="lg:mb-[106px] lg:mt-10 mb-[90px]" />
-        <Footer />
-      </div>
-    </main>
+        <section className="lg:max-w-[1100px] md:w-full  m-auto  h-full md:mt-[100px]  rounded-[40px] box-shadow">
+          <Subscription />
+        </section>
+        <section className="lg:max-w-[1100px] md:w-full px-5  m-auto  h-full md:mt-[100px]   mb-[50px]">
+          {" "}
+          <Tabs
+            title="Read more from Little"
+            books={books}
+            loading={loading}
+            setLoading={setLoading}
+            setSelectedTab={setSelectedTab}
+            categories={catgeoryContent}
+          />
+        </section>
+      </Layout>
+    </div>
   );
 };
-
-export default LittleCards;
+export async function getStaticProps() {
+  const blogContent = await client.fetch(groq`
+   *[
+     _type == "blog"
+     
+   ] | order(_createdAt desc){
+    _id,
+    title,
+    category->,
+    slug,
+    publishedAt,
+    body,
+    "image" :image.asset->url,
+    'estimatedReadingTime' : round(length(pt::text(body)) / 5 / 180 )
+  }
+ 
+    `);
+  const catgeoryContent = await client.fetch(groq`
+    *[
+      _type == "category"
+    ] {
+    title,
+     }
+     `);
+  return {
+    props: {
+      blogContent,
+      catgeoryContent,
+    },
+  };
+}
+export default Blog;

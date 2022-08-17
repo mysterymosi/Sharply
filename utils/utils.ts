@@ -1,6 +1,41 @@
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../client";
+import { ContentProp, ContentTypeProps } from "../types";
+
 export function truncateString(str: string, num: number) {
   if (str?.length <= num) {
     return str;
   }
   return str?.slice(0, num) + "...";
 }
+
+export const builder = imageUrlBuilder(client);
+export function urlFor(source: string) {
+  return builder.image(source);
+}
+export const getValue = (contents: any, sectionNumber: string, key: string) =>
+  contents.find(({ section }: ContentProp) => section == sectionNumber)?.[key];
+
+export const duration = 0.1;
+
+export const timelineOptionsStart = {
+  duration: duration,
+  opacity: 0,
+  y: 50,
+  autoAlpha: 1,
+};
+
+export const timelineOptionsEnd = {
+  duration: duration,
+  opacity: 1,
+  y: -50,
+  autoAlpha: 0,
+};
+
+export const scrollTrigerOptions = {
+  pin: ".list",
+  scrub: true,
+  start: "center center",
+  snap: 0.1,
+  trigger: ".list",
+};

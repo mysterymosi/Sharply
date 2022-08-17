@@ -22,9 +22,9 @@ export const Stepper = ({
                } 
                flex justify-center items-center`}>
               {isActive ? (
-                <p className="text-[#5BAB0A] text-center font-black">{step}</p>
+                <p className="text-primary text-center font-black">{step}</p>
               ) : (
-                <div className=" w-[8px] h-[8px] bg-[#BDDD9D] rounded-[20%]"></div>
+                <div className=" w-[8px] h-[8px] bg-green2 rounded-[20%]"></div>
               )}
             </div>
           );

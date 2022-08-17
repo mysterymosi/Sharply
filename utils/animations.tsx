@@ -31,7 +31,7 @@ export function EnterFromLeft({ children }: { children: React.ReactNode }) {
       }
       transition={{
         type: "tween",
-        duration: 0.7,
+        duration: 0.3,
       }}>
       {children}
     </motion.div>
@@ -52,7 +52,7 @@ export function EnterFromRight({ children }: { children: React.ReactNode }) {
       }
       transition={{
         type: "tween",
-        duration: 0.7,
+        duration: 0.3,
       }}>
       {children}
     </motion.div>

@@ -4,7 +4,7 @@ import { footerNavItems, footerSocials } from "../utils";
 
 export const Footer = () => {
   return (
-    <footer className="lg:w-full lg:m-auto lg:border-t border-[#E8E8E8] md:items-center lg:pt-[51px]  ">
+    <footer className="lg:w-full lg:m-auto lg:border-t border-white4 md:items-center lg:pt-[51px]  ">
       <div className="flex flex-1 relative lg:max-w-[1000px] md:w-full xl:max-w-[1350px] lg:m-auto lg:mw-[1px] md:flex-row flex-col md:items-center justify-start md:justify-between">
         <Link href="/" passHref>
           <a className="cursor-pointer">

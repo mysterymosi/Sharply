@@ -11,3 +11,7 @@ export * from "./Footer";
 export * from "./Input/PhoneInput";
 export * from "./HomeStepper";
 export * from "./BooksList";
+export * from "./Input/PhoneInput";
+export * from "./Modal";
+export * from "./SharePost";
+export * from "./Subscribtion";

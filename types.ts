@@ -3,6 +3,9 @@ import { ReactNode } from "react";
 export type ClassNameProps = {
   className?: string;
 };
+export type ChildrenProp = {
+  children: ReactNode;
+};
 export type ButtonTypes = {
   children: ReactNode;
   onClick?: () => void;
@@ -25,34 +28,67 @@ export type ListProps = {
     title: string;
     description: string;
   }[];
+  className?: string;
 };
 export type HomeStepProps = {
   step: number;
   children: React.ReactNode;
+  className?: string;
 };
-export const navItems = [
-  {
-    name: "Parents",
-    link: "/parents",
-  },
-  {
-    name: "Kids",
-    link: "/kids",
-  },
-  {
-    name: "Family & Friends",
-    link: "/family-and-friends",
-  },
-  {
-    name: "Little Cards",
-    link: "/little-cards",
-  },
-  {
-    name: " Little in Schools",
-    link: "/little-in-schools",
-  },
-  {
-    name: "About",
-    link: "/about",
-  },
-];
+export type ContentProp = {
+  heading: string;
+  description: string;
+  buttonText?: string;
+  footNote?: string;
+  image?: string;
+  section: string;
+};
+export type ContentTypeProps = {
+  contents: ContentProp[];
+};
+export type LayoutProps = {
+  children: ReactNode;
+  title: string;
+  showDownloadCard?: boolean;
+};
+export type BooksTypes = {
+  title: string;
+  image: string;
+  _id: string;
+  estimatedReadingTime?: number;
+  publishedAt?: string;
+  slug?: {
+    current: string;
+    _type: string;
+  };
+};
+export type BookListProps = {
+  books: BooksTypes[];
+  title: string;
+  download?: boolean;
+};
+export type BookGridProps = {
+  books: BooksTypes[];
+  download?: boolean;
+};
+export type TwoColLayoutProps = {
+  showButton?: boolean;
+  title: string;
+  description: string;
+  image: string;
+  position: string;
+};
+export type GiftCardColProps = {
+  children: ReactNode;
+  className?: string;
+};
+export type TabsProps = {
+  books: BooksTypes[];
+  categories: {
+    title: string;
+  }[];
+  loading: boolean;
+  setSelectedTab: React.Dispatch<React.SetStateAction<string>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  title: string;
+};

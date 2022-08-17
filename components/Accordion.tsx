@@ -3,21 +3,23 @@ import Image from "next/image";
 import { ListProps } from "../types";
 import { FadeInWhenVisible } from "../utils";
 
-export const Accordion = ({ list }: ListProps) => {
+export const Accordion = ({ list, className }: ListProps) => {
   return (
-    <FadeInWhenVisible>
+    <div className="w-full">
       {list.map(({ title, description }, i) => (
         <div
           key={i}
-          className="bg-[#F7F7F7] min-h-[56px] flex flex-col w-full sm:w-[627px] lg:w-full items-start px-[12px] md:px-[24px] justify-center mb-[20px] rounded-[12px]">
+          className={`${
+            className ? className : ""
+          } bg-white3 min-h-[56px] flex flex-col w-full sm:w-[627px] lg:w-full items-start px-[12px]  md:px-[24px] justify-center mb-[20px] rounded-[12px] `}>
           <Disclosure key={title}>
             {({ open }) => (
               <>
                 <div className="flex justify-between w-full items-center overflow-hidden">
                   <p
                     className={`${
-                      !open ? "truncate" : ""
-                    } text-start font-medium`}>
+                      !open ? "truncate font-regular" : ""
+                    } text-start font-regular`}>
                     {title}{" "}
                   </p>
 
@@ -62,6 +64,6 @@ export const Accordion = ({ list }: ListProps) => {
           </Disclosure>
         </div>
       ))}
-    </FadeInWhenVisible>
+    </div>
   );
 };

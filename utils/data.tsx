@@ -1,5 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+import React, { ReactNode } from "react";
 import { Zap } from "react-feather";
+import { ChildrenProp } from "../types";
+import { urlFor } from "./utils";
 
 export const faqs = [
   {
@@ -176,7 +180,7 @@ export const parentFeatures = [
     position: "left",
   },
   {
-    title: "   Send money anytime or anywhere",
+    title: " Send money anytime or anywhere",
     showButton: false,
     description:
       " Is your child stranded, low on funds or in case of an emergency? With Little, you can send money instantly to their card.",
@@ -270,28 +274,40 @@ export const shareGiftlinkOptions = [
 
 export const books = [
   {
-    name: "From child to financially responsible adult",
-    link: "https://picsum.photos",
+    title: "From child to financially responsible adult",
+    image: "https://picsum.photos/200",
+    link: "ww.googl.oc",
+    _id: "1",
   },
   {
-    name: "Finance 101 ; Money lessons for children",
-    link: "https://picsum.photos",
+    title: "Finance 101 ; Money lessons for children",
+    image: "https://picsum.photos/200",
+    link: "ww.googl.oc",
+    _id: "2",
   },
   {
-    name: "Money lessons for the child I love",
-    link: "https://picsum.photos",
+    title: "Money lessons for the child I love",
+    image: "https://picsum.photos/200",
+    link: "ww.googl.oc",
+    _id: "4",
   },
   {
-    name: "Money lessons 101; A child’s first money journey",
-    link: "https://picsum.photos",
+    title: "Money lessons 101; A child’s first money journey",
+    image: "https://picsum.photos/200",
+    link: "ww.googl.oc",
+    _id: "6",
   },
   {
-    name: "How to raise a financially responsible child",
-    link: "https://picsum.photos",
+    title: "How to raise a financially responsible child",
+    image: "https://picsum.photos/200",
+    link: "ww.googl.oc",
+    _id: "5",
   },
   {
-    name: "Rich kids: How to raise a millionaire child",
-    link: "https://picsum.photos",
+    title: "Rich kids: How to raise a millionaire child",
+    image: "https://picsum.photos/200",
+    link: "ww.googl.oc",
+    _id: "9",
   },
 ];
 export const schoolBenefits = [
@@ -320,3 +336,80 @@ export const cardWorkingList = [
     image: "/images/block-card.svg",
   },
 ];
+
+export const navItems = [
+  {
+    name: "About",
+    link: "/about",
+  },
+  {
+    name: "Parents",
+    link: "/parents",
+  },
+  {
+    name: "Kids",
+    link: "/kids",
+  },
+  {
+    name: "Family & Friends",
+    link: "/family-and-friends",
+  },
+  {
+    name: "Little Cards",
+    link: "/little-cards",
+  },
+  {
+    name: " Little in Schools",
+    link: "/little-in-schools",
+  },
+
+  {
+    name: "Blog",
+    link: "/blog",
+  },
+  {
+    name: "FAQ",
+    link: "/faqs",
+  },
+];
+
+export const ptComponents = {
+  block: {
+    // Ex. 1: customizing common block types
+    h1: ({ children }: ChildrenProp) => (
+      <h1 className="text-2xl">{children}</h1>
+    ),
+    p: ({ children }: ChildrenProp) => <h1 className="text-2xl">{children}</h1>,
+    blockquote: ({ children }: ChildrenProp) => (
+      <blockquote className="border-l-purple-500">{children}</blockquote>
+    ),
+
+    // Ex. 2: rendering custom styles
+    customHeading: ({ children }: ChildrenProp) => (
+      <h2 className="text-lg text-primary text-purple-700">{children}</h2>
+    ),
+  },
+  types: {
+    image: ({ value }: any) => {
+      if (!value?.asset?._ref) {
+        return null;
+      }
+      let imageSrc: any = urlFor(value)
+        .width(320)
+        .height(240)
+        .fit("max")
+        .auto("format");
+
+      return (
+        <Image
+          alt={value.alt || " "}
+          height={23}
+          className="logo"
+          src={imageSrc}
+          width={24}
+          loading="lazy"
+        />
+      );
+    },
+  },
+};
