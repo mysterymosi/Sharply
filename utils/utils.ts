@@ -39,3 +39,34 @@ export const scrollTrigerOptions = {
   snap: 0.1,
   trigger: ".list",
 };
+
+export const reviewSettings = {
+  infinite: true,
+  slidesToShow: 1,
+  speed: 500,
+  rows: 2,
+  slidesPerRow: 2,
+  className: "center",
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesPerRow: 2,
+        slidesToShow: 1,
+        infinite: true,
+        rows: 2,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesPerRow: 1,
+        slidesToShow: 1,
+        infinite: true,
+        rows: 1,
+        swipeToSlide: true,
+        arrows: false,
+      },
+    },
+  ],
+};

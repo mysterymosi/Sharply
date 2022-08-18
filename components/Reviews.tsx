@@ -1,42 +1,12 @@
 import Slider from "react-slick";
 import { Star } from "react-feather";
-
-const settings = {
-  infinite: true,
-  slidesToShow: 1,
-  speed: 500,
-  rows: 2,
-  slidesPerRow: 2,
-  className: "center",
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesPerRow: 2,
-        slidesToShow: 1,
-        infinite: true,
-        rows: 2,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesPerRow: 1,
-        slidesToShow: 1,
-        infinite: true,
-        rows: 1,
-        swipeToSlide: true,
-        arrows: false,
-      },
-    },
-  ],
-};
+import { reviewSettings } from "../utils";
 
 export const Reviews = () => {
   return (
     <Slider
-      {...settings}
-      className="mt-[24px] flex flex-row md:mt-[40px] md:grid-flow-row md:grid
+      {...reviewSettings}
+      className="mt-[24px] flex flex-row md:mt-[40px] md:grid-flow-row md:grid reviews
         md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0 box">
       {Array(10)
         .fill(0)

@@ -44,7 +44,6 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
     gsap.to(".text", {
       scrollTrigger: {
         trigger: ".text",
-
         start: "center center",
       },
       text: {
@@ -63,13 +62,13 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         style={backgroundImage}
         className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}>
         <NavigationBar />
-        <div className="px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen  lg:mt-0">
+        <div className="px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section">
           <EnterFromLeft>
-            <h1 className="md:text-xxl  max-w-[20ch] text-[27px] leading-[40px] font-semibold ">
+            <h1 className="md:text-xxl  max-w-[20ch] text-xl   xs:text-[30px] leading-[40px] font-semibold ">
               {getValue(contents, "1", "heading")}
             </h1>
             <div className="max-w-[531px]">
-              <p className="mt-6 text-white font-regular text-[15px] ">
+              <p className="mt-6 text-white font-regular text-base ">
                 {getValue(contents, "1", "description")}{" "}
               </p>
               <PhoneInput
@@ -78,20 +77,20 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 text={getValue(contents, "1", "buttonText")}
                 className="mt-[40px]"
               />
-              <p className="text-[15px] md:text-sm mt-6">
+              <p className="text-base md:text-sm mt-6">
                 {getValue(contents, "1", "footNote")}{" "}
               </p>
             </div>
           </EnterFromLeft>
         </div>
       </section>
-      <section className="flex flex-auto justify-center h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
+      <section className="flex flex-auto justify-center h-full md:h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
         <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <div className="max-w-full md:max-w-[53ch]">
             <h2 className="font-semibold text-[23px] lg:leading-[44px] lg:text-[40px]">
               {getValue(contents, "2", "heading")}
             </h2>
-            <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+            <p className="text-base font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
               {getValue(contents, "2", "description")}
             </p>
             <Button className="my-2 whitespace-nowrap mt-12 hidden w-full md:flex lg:w-[172px]">
@@ -180,7 +179,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
           <span className="text-grey2 text"></span>
         </h4>{" "}
       </section>{" "}
-      <section className="bg-[#CCF4A5] overflow-x-hidden lg:rounded-[40px] w-full relative">
+      <section className="bg-[#CCF4A5] px-[10px] sm:px-[40px] overflow-hidden lg:rounded-[40px] w-full relative h-screen xl:h-[800px] flex">
         <HomeStepper images={getValue(contents, "5", "images")} />
       </section>
       <section className="flex md:flex-row flex-col px-[20px] lg:max-w-[1500px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center   md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
@@ -190,11 +189,11 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
               <h3 className="font-semibold md:text-[40px] text-[23px] leading-[30px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
                 {getValue(contents, "6", "heading")}
               </h3>
-              <p className="text-[16px] ">
+              <p className="text-base ">
                 {getValue(contents, "6", "description")}
               </p>
               <br />
-              <p className="text-[16px]">
+              <p className="text-base">
                 {" "}
                 {getValue(contents, "6", "footNote")}
               </p>

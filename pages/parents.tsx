@@ -50,7 +50,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         <div className="flex justify-between lg:mb-[200px] lg:pb-[150px] flex-col lg:flex-row lg:h-full lg:max-w-[1100px]  mt-16 md:mt-0  m-auto items-center md:w-full">
           <div className=" mt-[50px] md:mb-[50px] md:mt-[120px] px-[25px] md:px-[0] flex flex-col flex-auto justify-center col-4 max-w-[48ch]">
             <EnterFromLeft>
-              <h1 className="md:text-xxl text-[28px] leading-[34px] font-semibold ">
+              <h1 className="md:text-xxl text-xl leading-[34px] font-semibold ">
                 {getValue(contents, "1", "heading")}
               </h1>
               <PhoneInput
@@ -58,7 +58,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                 text={getValue(contents, "1", "buttonText")}
                 className="mt-[40px]"
               />
-              <p className="text-sm mt-6">
+              <p className="text-base  mt-6">
                 {" "}
                 {getValue(contents, "1", "footNote")}
               </p>
@@ -87,7 +87,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         )
       )}
       <section className="flex flex-col  px-[20px]  lg:mb-[100px] md:w-full xl:max-w-[1000px] m-auto justify-end flex-auto   md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <h3 className="font-semibold md:text-[40px] text-[20px] text-center">
+        <h3 className="font-semibold md:text-[40px] text-[24px] text-center">
           Features Parents love
         </h3>
         <div className="mt-[24px] md:mt-[40px] flex md:flex-row flex-col justify-between mb-[64px] gap-5 gap-y-6">
@@ -109,12 +109,10 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                   <FadeInWhenVisible> {image}</FadeInWhenVisible>
                 </div>
 
-                <h4 className="font-semibold lg:text-[24px] text-[20px] lg:mt-[40px]  ">
+                <h4 className="font-semibold text-[24px]  lg:mt-[40px]  ">
                   {title}
                 </h4>
-                <p className="text-[14px] lg:text-[15px] mt-[8px]">
-                  {description}
-                </p>
+                <p className="text-[16px] mt-[8px]">{description}</p>
               </div>
             )
           )}
@@ -126,7 +124,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
        md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
         <FadeInWhenVisible>
           {" "}
-          <h3 className="font-semibold  md:text-[40px] text-[20px] mb-[53px]  text-center">
+          <h3 className="font-semibold  md:text-[40px] text-[24px] mb-[53px]  text-center">
             Get started in <span className="text-grey2"> 3 easy steps</span>
           </h3>{" "}
         </FadeInWhenVisible>
