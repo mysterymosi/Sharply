@@ -16,7 +16,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     const targets = document.querySelectorAll(".list li");
-    const height = (targets.length - 1) * 100 + "%";
+    const height = (targets.length - 1) * 200 + "%";
     gsap.set(".list", { autoAlpha: 1 });
 
     const timeline = gsap.timeline({
@@ -43,7 +43,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
         <img
           src={urlFor(images[0]) as any}
           alt={images[0]}
-          className="  mx-auto md:h-[400px] h-[300px]  lg:h-[600px]"
+          className="  mx-auto  h-[300px]  lg:h-[600px]"
         />
       ),
     },
@@ -104,7 +104,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
 
   return (
     <div>
-      <ul className="list max-w-[1300px] m-auto invisible h-screen  w-full min-h-screen relative">
+      <ul className="list max-w-[1300px] m-auto invisible h-screen  w-full min-h-screen relative overflow-x-hidden">
         {homeStepList.map(({ heading, details, img }, i) => {
           return (
             <li

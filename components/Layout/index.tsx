@@ -25,7 +25,7 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
         <meta name="description" content="Little is a " />
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <main className="relative">
+      <main className="relative overflow-x-hidden">
         {children}
         {showDownloadCard && (
           <DownloadCard className="lg:max-w-[1000px] md:w-full xl:max-w-[1350px] lg:m-auto lg:mw-[1px] flex items-center justify-center overflow-x-hidden mb-12" />

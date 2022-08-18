@@ -180,7 +180,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
           <span className="text-grey2 text"></span>
         </h4>{" "}
       </section>{" "}
-      <section className="bg-[#CCF4A5]  lg:rounded-[40px] w-full relative">
+      <section className="bg-[#CCF4A5] overflow-x-hidden lg:rounded-[40px] w-full relative">
         <HomeStepper images={getValue(contents, "5", "images")} />
       </section>
       <section className="flex md:flex-row flex-col px-[20px] lg:max-w-[1500px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center   md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
