@@ -21,14 +21,14 @@ export const duration = 0.1;
 export const timelineOptionsStart = {
   duration: duration,
   opacity: 0,
-  y: 50,
+  x: "50%",
   autoAlpha: 1,
 };
 
 export const timelineOptionsEnd = {
   duration: duration,
   opacity: 1,
-  y: -50,
+  x: 0,
   autoAlpha: 0,
 };
 
@@ -36,6 +36,7 @@ export const scrollTrigerOptions = {
   pin: ".list",
   scrub: true,
   start: "center center",
+
   snap: 0.1,
   trigger: ".list",
 };

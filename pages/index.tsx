@@ -63,14 +63,13 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         style={backgroundImage}
         className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}>
         <NavigationBar />
-
-        <div className=" px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-full mt-[50px] lg:mt-0">
+        <div className="px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen  lg:mt-0">
           <EnterFromLeft>
-            <h1 className="md:text-xxl  max-w-[20ch] text-[28px] leading-[34px] font-semibold ">
+            <h1 className="md:text-xxl  max-w-[20ch] text-[27px] leading-[40px] font-semibold ">
               {getValue(contents, "1", "heading")}
             </h1>
             <div className="max-w-[531px]">
-              <p className="mt-6 text-white font-regular text-sm  ">
+              <p className="mt-6 text-white font-regular text-[15px] ">
                 {getValue(contents, "1", "description")}{" "}
               </p>
               <PhoneInput
@@ -79,7 +78,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 text={getValue(contents, "1", "buttonText")}
                 className="mt-[40px]"
               />
-              <p className="text-sm mt-6">
+              <p className="text-[15px] md:text-sm mt-6">
                 {getValue(contents, "1", "footNote")}{" "}
               </p>
             </div>
@@ -89,7 +88,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       <section className="flex flex-auto justify-center h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
         <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <div className="max-w-full md:max-w-[53ch]">
-            <h2 className="font-semibold text-[24px] lg:leading-[44px] lg:text-[40px]">
+            <h2 className="font-semibold text-[23px] lg:leading-[44px] lg:text-[40px]">
               {getValue(contents, "2", "heading")}
             </h2>
             <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
@@ -121,7 +120,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       </section>{" "}
       <section className="flex flex-auto justify-center md:px-8 pt-[80px] lg:mt-{200px]  bg-white2 ">
         <div className="flex justify-between flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:mb-[106px]  w-full  transition-all  xl:mb-16 ">
-          <h3 className="font-semibold text-[24px] lg:text-[40px] mb-[40px] lg:mb-0 ">
+          <h3 className="font-semibold text-[23px] lg:text-[40px] mb-[40px] lg:mb-0 ">
             {getValue(contents, "3", "heading")}
           </h3>
           <div className="mt-[24px] md:mt-[40px] grid mb-4  grid-cols-1 md:grid-cols-2  gap-5 gap-y-6">
@@ -142,10 +141,10 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                   </div>{" "}
                 </FadeInWhenVisible>
 
-                <h4 className="font-semibold text-[20px] lg:text-[24px] ">
+                <h4 className="font-semibold text-[20px] mb-[8px] lg:text-[24px] ">
                   {title}
                 </h4>
-                <p className="text-[16px] lg:text-[18px] "> {description}</p>
+                <p className="text-[17px] "> {description}</p>
               </div>
             ))}
           </div>
@@ -154,10 +153,10 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       <section className="flex flex-col flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white h-full">
         <div className="flex justify-between md:flex-row flex-col-reverse pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <div className="max-w-full sm:max-w-[30ch] lg:max-w-[45ch]">
-            <h2 className="font-semibold text-[24px] lg:text-[40px] leading-[30px]  lg:leading-[50px]">
+            <h2 className="font-semibold text-[23px] lg:text-[40px] leading-[35px]  lg:leading-[50px]">
               {getValue(contents, "4", "heading")}
             </h2>
-            <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+            <p className="text-[18px] font-medium  mt-6 mb-[48px] sm:mb-0">
               {getValue(contents, "4", "description")}
             </p>
             <Button className="my-2 whitespace-nowrap mt-12 flex lg:w-fit w-full mb-[86px] lg:mb-0">
@@ -176,7 +175,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             />
           </FadeInWhenVisible>
         </div>
-        <h4 className="text-block flex font-semibold text-[20px] md:text-[40px] mb-[48px] ">
+        <h4 className="text-block flex font-semibold text-[23px] flex-col md:flex-row text-center px-[20px] lg:px-0 md:text-[40px] mb-[48px] ">
           How it works in&nbsp;
           <span className="text-grey2 text"></span>
         </h4>{" "}
@@ -188,12 +187,17 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         <div className="md:basis-1/3 md:mr-[70px] ">
           <div className="max-w-[408px ]">
             <EnterFromLeft>
-              <h3 className="font-semibold md:text-[40px] text-[20px] leading-[21px] md:leading-[40px] md:mb-[24px] mb-[8px] ">
+              <h3 className="font-semibold md:text-[40px] text-[23px] leading-[30px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
                 {getValue(contents, "6", "heading")}
               </h3>
-              <p>{getValue(contents, "6", "description")}</p>
+              <p className="text-[16px] ">
+                {getValue(contents, "6", "description")}
+              </p>
               <br />
-              <p> {getValue(contents, "6", "footNote")}</p>
+              <p className="text-[16px]">
+                {" "}
+                {getValue(contents, "6", "footNote")}
+              </p>
               <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
                 {getValue(contents, "6", "buttonText")}
               </Button>
@@ -217,7 +221,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         </div>{" "}
       </FadeInWhenVisible>
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
-        <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">
+        <h3 className="font-semibold text-[23px] text-center md:text-[40px] mb-[40px] lg:mb-[80px]">
           {" "}
           Frequently Asked Questions{" "}
         </h3>

@@ -18,14 +18,14 @@ export const PhoneInput = ({
         name={name}
         id={id}
         onChange={onChange}
-        className=" flex-1 focus:bg-white text-[black] focus:outline-none block w-full text-base bg-[transparent] rounded-full rounded-r-md sm:text-sm border-gray-300"
+        className=" flex-1 focus:bg-white text-[black] focus:outline-none block w-full text-base bg-transparent focus:rounded-full rounded-full sm:text-sm border-gray-300"
         placeholder={placeholder}
       />
       <Button className="my-2 lg:h-[49px] w-[138px] whitespace-nowrap hidden md:flex items-center justify-center">
         {text}
       </Button>
     </div>
-    <Button className="my-2 h-[56px] items-center whitespace-nowrap md:hidden flex justify-center w-full">
+    <Button className="my-3 h-[56px] items-center whitespace-nowrap md:hidden flex justify-center w-full">
       {text}
     </Button>
   </div>

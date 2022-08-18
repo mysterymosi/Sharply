@@ -25,7 +25,7 @@ export const Footer = () => {
               <p
                 className={`${
                   i !== 2 ? "mr-12" : ""
-                }  mb-6 lg:mb-0 cursor-pointer`}>
+                }  mb-6 lg:mb-0 cursor-pointer font-[16px]`}>
                 {" "}
                 {name}
               </p>

@@ -44,7 +44,7 @@ const ModalForm = ({
       />
     </div>
     {err && <p className="text-[red] mt-1">{err}</p>}
-    <div className="mt-[48px]">
+    <div className="md:mt-[48px] mt-[24px]">
       <Button className="w-full hover:scale-100" onClick={checkEmail}>
         Get Started
       </Button>
@@ -119,7 +119,7 @@ export default function HomeModal() {
         </p>
       </div>
 
-      <div className="mt-[48px]">
+      <div className="md:mt-[48px] mt-[24px]">
         <Button className="w-full hover:scale-100" onClick={closeModal}>
           Okay. got it!
         </Button>
@@ -151,12 +151,12 @@ export default function HomeModal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
               <Dialog.Panel
-                className={`transform  rounded-2xl bg-white ${
-                  isSubmited ? "h-[622px]" : "h-[462px]"
-                }  w-[536px] flex justify-center  flex-col my-auto px-[48px] text-left align-middle shadow-xl transition-all`}>
+                className={`transform  md:rounded-2xl bg-white h-screen ${
+                  isSubmited ? "md:h-[622px]" : "md:h-[462px]"
+                }  w-[536px] flex justify-center  flex-col my-auto lg:px-[48px] px-[20px] text-left align-middle shadow-xl transition-all`}>
                 <button
                   onClick={closeModal}
-                  className="w-[40px] h-[40px] rounded-full bg-white flex justify-center items-center box-shadow absolute right-[-13px] top-[-14px]">
+                  className="w-[40px] h-[40px] rounded-full bg-[#F0F0F0] md:bg-white flex justify-center items-center box-shadow absolute right-[7%] md:right-[-13px] top-[5%] md:top-[-14px]">
                   <X />
                 </button>
                 {isSubmited ? (

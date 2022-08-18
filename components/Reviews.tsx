@@ -43,7 +43,7 @@ export const Reviews = () => {
         .map((_, i) => (
           <div
             key={`${i}`}
-            className=" md:bg-white bg-white2 box-shadow flex  min-w-[240px]  md:min-w-min flex-col justify-center min-h-[235px] rounded-[24px] p-[24px]  box-item">
+            className=" md:bg-white bg-white2 lg:box-shadow flex  min-w-[240px]  md:min-w-min flex-col justify-center min-h-[235px] rounded-[24px] p-[24px]  box-item">
             <div className="flex mb-[16px]">
               {Array(5)
                 .fill(0)
@@ -58,15 +58,13 @@ export const Reviews = () => {
                 ))}
             </div>
 
-            <h4 className="font-semibold md:text-[16px] text-[14px]  ">
-              Little is awesome
-            </h4>
+            <h4 className="font-semibold text-[16px]   ">Little is awesome</h4>
             <p className="text-[14px] lg:text-[15px] mt-[8px]">
               I love Little!!!! It`s easy to use, very convenient and so much
               more exciting for my kids being able to use their full control 🤣
               Thanks!!!
             </p>
-            <p className="font-semibold text-[14px] lg:text-[15px] mt-[16px]">
+            <p className="font-semibold text-[16px] lg:text-[15px] mt-[16px]">
               Oluwafemi Fashikun
             </p>
           </div>
