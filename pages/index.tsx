@@ -45,7 +45,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       scrollTrigger: {
         trigger: ".text",
 
-        start: "top bottom",
+        start: "center center",
       },
       text: {
         value: "little steps",

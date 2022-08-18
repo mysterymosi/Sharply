@@ -43,7 +43,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
         <img
           src={urlFor(images[0]) as any}
           alt={images[0]}
-          className="w-full mx-auto md:h-[400px] object-cover lg:h-[600px]"
+          className="  mx-auto md:h-[400px] h-[300px]  lg:h-[600px]"
         />
       ),
     },
@@ -57,7 +57,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
         <img
           src={urlFor(images[1]) as any}
           alt={images[1]}
-          className="w-full mx-auto md:h-[400px] lg:h-[600px]"
+          className=" mx-auto md:h-[400px] h-[300px]  lg:h-[600px]"
         />
       ),
     },
@@ -70,7 +70,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
         <img
           src={urlFor(images[2]) as any}
           alt={images[2]}
-          className="w-full md:w-[200px] lg:w-full m-auto"
+          className=" md:w-[200px] h-[300px]  lg:w-full m-auto"
         />
       ),
     },
@@ -81,7 +81,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
       backgroundColor: "purple",
       img: (
         <img
-          className="w-full mx-auto md:w-[300px]  md:h-[400px]  lg:h-[600px]"
+          className=" mx-auto md:w-[300px] h-[300px]  md:h-[400px]  lg:h-[600px]"
           src={urlFor(images[3]) as any}
           alt={images[3]}
         />
@@ -95,7 +95,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
       img: (
         <img
           alt="watch child grow"
-          className="w-full md:w-[200px]  lg:w-full m-auto"
+          className=" md:w-[200px] h-[300px]  lg:w-full m-auto"
           src="/images/watch-grow.svg"
         />
       ),
