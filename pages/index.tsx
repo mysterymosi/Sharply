@@ -204,7 +204,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             </EnterFromLeft>
           </div>
         </div>
-        <div className="md:basis-1/2 overflow-x-auto w-full">
+        <div className="md:basis-1/2 mt-[5px] md:mt-0  overflow-x-auto w-full">
           <Reviews />
         </div>{" "}
       </section>{" "}
