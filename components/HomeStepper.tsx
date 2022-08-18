@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from "react";
 import {
+  duration,
   FadeInWhenVisible,
   scrollTrigerOptions,
   timelineOptionsEnd,
@@ -29,10 +30,31 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
       },
     });
 
-    targets.forEach((elem) => {
-      timeline.fromTo(elem, timelineOptionsStart, timelineOptionsEnd);
+    ScrollTrigger.matchMedia({
+      "(min-width: 800px)": () => {
+        targets.forEach((elem) => {
+          timeline.fromTo(elem, timelineOptionsStart, timelineOptionsEnd);
+        });
+      },
+    });
+    ScrollTrigger.matchMedia({
+      "(max-width: 800px)": () => {
+        targets.forEach((elem) => {
+          timeline.fromTo(
+            elem,
+            {
+              duration: duration,
+              opacity: 0,
+              x: 10,
+              autoAlpha: 1,
+            },
+            timelineOptionsEnd
+          );
+        });
+      },
     });
   }, []);
+
   const homeStepList = [
     {
       heading: "Create a parent account on Little",
