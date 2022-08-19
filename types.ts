@@ -92,3 +92,17 @@ export type TabsProps = {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
 };
+
+export type ModalProps = {
+  show: boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type StepperListProps = {
+  list: {
+    heading: string;
+    description: string;
+    img: any;
+  }[];
+  page?: string;
+};

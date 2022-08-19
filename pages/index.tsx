@@ -23,7 +23,6 @@ import client from "../client";
 import groq from "groq";
 import { ContentTypeProps } from "../types";
 import { Reviews } from "../components/Reviews";
-import HomeModal from "../components/Modal";
 import { useEffect } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
@@ -57,7 +56,6 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
 
   return (
     <Layout title="Home" showDownloadCard>
-      <HomeModal />
       <section
         style={backgroundImage}
         className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}>
@@ -87,7 +85,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       <section className="flex flex-auto justify-center h-full md:h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
         <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <div className="max-w-full md:max-w-[53ch]">
-            <h2 className="font-semibold text-[23px] lg:leading-[44px] lg:text-[40px]">
+            <h2 className="font-semibold text-xl   xs:text-[30px] leading-[40px] lg:leading-[44px] lg:text-[40px]">
               {getValue(contents, "2", "heading")}
             </h2>
             <p className="text-base font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
@@ -186,7 +184,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         <div className="md:basis-1/3 md:mr-[70px] ">
           <div className="max-w-[408px ]">
             <EnterFromLeft>
-              <h3 className="font-semibold md:text-[40px] text-[23px] leading-[30px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
+              <h3 className="font-semibold md:text-[40px] text-xl   xs:text-[30px] leading-[40px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
                 {getValue(contents, "6", "heading")}
               </h3>
               <p className="text-base ">

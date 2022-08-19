@@ -14,7 +14,7 @@ const Kids: NextPage<ContentTypeProps> = ({ contents }) => {
         <div className=" xl:max-w-[1100px] md:max-w-[950px]  pt-[150px] gap-[50px]  m-auto items-center px-[25px] lg:px-0 flex lg:flex-row flex-col  justify-center text-black ">
           <div className="flex justify-center flex-col">
             <EnterFromLeft>
-              <h1 className="md:text-xxl  max-w-[16ch] text-[28px] leading-[34px] font-semibold ">
+              <h1 className="md:text-xxl  md:max-w-[16ch] text-xl  xs:text-[30px] leading-[40px] lg:leading-[34px] font-semibold ">
                 {getValue(contents, "1", "heading")}
               </h1>
               <div className="max-w-[440px]">

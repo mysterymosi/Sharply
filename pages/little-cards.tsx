@@ -6,7 +6,6 @@ import { Button, NavigationBar, Accordion, Layout } from "../components";
 import { CardStepper } from "../components/CardStepper";
 import { ContentTypeProps } from "../types";
 import {
-  cardWorkingList,
   EnterFromLeft,
   EnterFromRight,
   FadeInWhenVisible,
@@ -18,7 +17,7 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
   return (
     <Layout title="Little Cards" showDownloadCard>
       <section
-        className={`sm:h-[868px] little-card-gradient lg:h-[1100px] md:h-[600px] h-[450px] `}>
+        className={`sm:h-[868px] little-card-gradient  lg:h-[1100px] md:h-[600px] h-[450px] `}>
         <NavigationBar />
         <div className="px-[25px] pt-[200px] items-center flex lg:flex-row flex-col md:h-full h-4/5 justify-center text-black ">
           <div className="flex justify-center flex-col  items-center ">
@@ -149,8 +148,8 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
           How little card works 👇🏽
         </h4>
       </section>
-      <section className="bg-[#E1E4FE] min-h-full py-[80px] md:py-[150px]  lg:rounded-[40px]">
-        <CardStepper list={cardWorkingList} />
+      <section className="bg-[#E1E4FE] min-h-full py-[80px] md:py-[150px]  little-card lg:rounded-[40px]">
+        <CardStepper />
       </section>
       <section className="  lg:max-w-[1100px] md:w-full  m-auto  h-full">
         <div

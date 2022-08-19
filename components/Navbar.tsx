@@ -7,10 +7,12 @@ import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { navItems } from "../utils";
+import HomeModal from "./Modal";
 export const NavigationBar = () => {
   const router = useRouter();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
+  const [isOpen, setIsOpen] = useState(false);
   const [backgroundFull, setBackgroundFull] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -26,9 +28,9 @@ export const NavigationBar = () => {
     <Popover
       as="nav"
       ref={ref}
-      className={` ${
-        backgroundFull ? "xl:bg-white box-shadow lg:py-2 lg:pt-2" : ""
-      } z-50 top-0 w-full fixed align-center transition-all left-0 items-center lg:px-8 lg:pt-6 justify-between `}>
+      className={`  ${
+        backgroundFull ? "xl:bg-white box-shadow lg:py-2 lg:pt-2" : "lg:pt-6"
+      } z-50 top-0 w-full fixed align-center transition-all left-0 items-center lg:px-8  justify-between `}>
       <div
         className={`${
           isInView ? "opacity-100 " : "opacity-0 translate-y-[-200px]"
@@ -70,7 +72,9 @@ export const NavigationBar = () => {
               })}
           </div>
           <div className="hidden md:flex items-center  justify-end  md:flex-1 lg:w-0 ml-6 lg:ml-0">
-            <Button className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100">
+            <Button
+              onClick={() => setIsOpen(true)}
+              className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100">
               Get Started
             </Button>
           </div>
@@ -78,14 +82,14 @@ export const NavigationBar = () => {
           <Popover.Button className=" cursor-pointer py-2.5 px-[8px] rounded-full w-[92px] outline-0 my-2 whitespace-nowrap md:hidden flex items-center justify-evenly md:flex-1 lg:w-0 bg-white2 font-semibold text-xs text-black">
             Menu <ChevronDown size={15} />
           </Popover.Button>
-          <Popover.Panel className="absolute z-50 top-[4rem] rounded-2xl  shadow bg-white w-[200px] right-[21px] px-[24px] pb-[24px]">
+          <Popover.Panel className="absolute z-50 top-[4rem] rounded-2xl  shadow bg-white w-[260px] right-[21px] px-[24px] pb-[24px]">
             <div className="grid grid-col-1">
               {navItems.map(({ name, link }) => (
                 <Link key={link} href={link}>
                   <p
-                    className={`my-5 text-xs lg:text-base cursor-pointer ${
+                    className={`my-5 text-sm lg:text-base cursor-pointer ${
                       router?.pathname?.includes(link)
-                        ? "font-semibold"
+                        ? "font-bold"
                         : "font-medium"
                     }`}>
                     {name}
@@ -98,6 +102,7 @@ export const NavigationBar = () => {
           </Popover.Panel>
         </div>
       </div>
+      <HomeModal show={isOpen} setShow={setIsOpen} />
     </Popover>
   );
 };

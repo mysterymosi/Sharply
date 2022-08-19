@@ -209,8 +209,12 @@ input:-internal-autofill-selected {
   color: #5BAB0A !important;
 }
 
+.little-card .slick-dots li.slick-active button:before {
+  color: #AFB6F6 !important;
+  opacity: 1 !important;
+}
 
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 390px) {
   .text-xl {
     font-size: 30px;
     line-height: 40px;

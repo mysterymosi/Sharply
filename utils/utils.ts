@@ -39,6 +39,15 @@ export const scrollTrigerOptions = {
   snap: 0.1,
   trigger: ".list",
 };
+export const sliderSettings = {
+  dots: true,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+  autoplay: true,
+  speed: 300,
+};
 
 export const reviewSettings = {
   infinite: true,

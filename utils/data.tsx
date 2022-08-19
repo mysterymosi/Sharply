@@ -316,32 +316,8 @@ export const schoolBenefits = [
   "Zero complains about students misplacing pocket money",
   "Introducing financial responsibility among students",
 ];
-export const cardWorkingList = [
-  {
-    title: "Get Instant Notification",
-    description:
-      "Get instant notifications for every transaction your child does that show how much and where they are spending",
-    image: "/images/little-instant-notifications.svg",
-  },
-  {
-    title: "Set spend and withdrawal limits",
-    description:
-      "Set weekly or monthly limits on how much your child can spend with their card. Easily enable and disable the card for use online and at ATMs or POS points. Block their cards from use at select stores & merchants",
-    image: "/images/withdrawal-limit.svg",
-  },
-  {
-    title: "Safe & secure",
-    description:
-      "Little Cards are fully safe & secure for transactions. You can easily block the card directly from the app if it ever goes missing.",
-    image: "/images/block-card.svg",
-  },
-];
 
 export const navItems = [
-  {
-    name: "About",
-    link: "/about",
-  },
   {
     name: "Parents",
     link: "/parents",
@@ -370,6 +346,10 @@ export const navItems = [
   {
     name: "FAQ",
     link: "/faqs",
+  },
+  {
+    name: "About",
+    link: "/about",
   },
 ];
 

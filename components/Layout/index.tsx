@@ -5,11 +5,13 @@ import { WhatsappContact } from "../WhatsappContact";
 import { useRouter } from "next/router";
 import { Loader } from "../Loader";
 import { LayoutProps } from "../../types";
+
 export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
   const router = useRouter();
   if (router.isFallback) {
     return <Loader />;
   }
+
   return (
     <>
       <Head>

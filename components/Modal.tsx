@@ -1,7 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { X } from "react-feather";
+import { ModalProps } from "../types";
 import { Button } from "./Button";
 
 const ModalForm = ({
@@ -51,28 +52,17 @@ const ModalForm = ({
     </div>
   </>
 );
-export default function HomeModal() {
-  useEffect(() => {
-    setModalDetails({
-      isOpen: true,
-      err: "",
-      email: "",
-      isSubmited: false,
-    });
-  }, []);
+export default function HomeModal({ show, setShow }: ModalProps) {
   let [modalDetails, setModalDetails] = useState({
-    isOpen: true,
     err: "",
     email: "",
     isSubmited: false,
   });
-  const { err, isOpen, email, isSubmited } = modalDetails;
+
+  const { err, email, isSubmited } = modalDetails;
 
   function closeModal() {
-    setModalDetails({
-      ...modalDetails,
-      isOpen: false,
-    });
+    setShow(false);
   }
 
   const checkEmail = () => {
@@ -127,7 +117,7 @@ export default function HomeModal() {
     </>
   );
   return (
-    <Transition appear show={isOpen} as={Fragment}>
+    <Transition appear show={show} as={Fragment}>
       <Dialog as="div" className="relative z-[90]" onClose={closeModal}>
         <Transition.Child
           as={Fragment}
