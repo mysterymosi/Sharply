@@ -45,7 +45,7 @@ export const sliderSettings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   adaptiveHeight: true,
-  autoplay: true,
+  // autoplay: true,
   speed: 300,
 };
 

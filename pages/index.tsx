@@ -83,22 +83,22 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         </div>
       </section>
       <section className="flex flex-auto justify-center h-full md:h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="max-w-full md:max-w-[53ch]">
-            <h2 className="font-semibold text-xl   xs:text-[30px] leading-[40px] lg:leading-[44px] lg:text-[40px]">
+        <div className="flex justify-between lg:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+          <div className="max-w-full lg:max-w-[53ch]  mb-8 lg:mb-0 ">
+            <h2 className="font-semibold text-xl  xs:text-[30px] leading-[40px] lg:leading-[44px] lg:text-[40px]">
               {getValue(contents, "2", "heading")}
             </h2>
             <p className="text-base font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
               {getValue(contents, "2", "description")}
             </p>
-            <Button className="my-2 whitespace-nowrap mt-12 hidden w-full md:flex lg:w-[172px]">
+            <Button className="my-2 whitespace-nowrap mt-12 hidden w-full md:flex md:w-[172px]">
               {getValue(contents, "2", "buttonText")}
             </Button>
           </div>
 
-          <div className="relative">
+          <div className="relative ">
             <img
-              className="w-full h-full md:h-[400px] md:w-[460px]"
+              className="w-full h-full lg:h-[400px] lg:w-[460px]"
               src={getValue(contents, "2", "image")}
               alt={
                 getValue(contents, "2", "imageAlt") ??
@@ -148,8 +148,8 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         </div>{" "}
       </section>{" "}
       <section className="flex flex-col flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white h-full">
-        <div className="flex justify-between md:flex-row flex-col-reverse pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="max-w-full sm:max-w-[30ch] lg:max-w-[45ch]">
+        <div className="flex justify-between lg:flex-row flex-col-reverse pl-[22.5px] lg:pl-0 lg:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+          <div className="sm:max-w-full max-w-[30ch] w-full lg:max-w-[45ch]">
             <h2 className="font-semibold text-[23px] lg:text-[40px] leading-[35px]  lg:leading-[50px]">
               {getValue(contents, "4", "heading")}
             </h2>
@@ -168,13 +168,13 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 getValue(contents, "4", "imageAlt") ??
                 getValue(contents, "4", "heading")
               }
-              className="w-full h-full md:h-full lg:w-[493px] md:w-[460px] mb-[40px] lg:mb-0"
+              className="w-full h-full lg:h-full lg:w-[493px] mb-[40px] lg:mb-0"
             />
           </FadeInWhenVisible>
         </div>
-        <h4 className="text-block flex font-semibold text-[23px] flex-col md:flex-row text-center px-[20px] lg:px-0 md:text-[40px] mb-[48px] ">
+        <h4 className="text-block flex text-grey2 font-semibold text-[23px] flex-col md:flex-row text-center px-[20px] lg:px-0 md:text-[40px] mb-[48px] ">
           How it works in&nbsp;
-          <span className="text-grey2 text"></span>
+          <span className="text-black text"></span>
         </h4>{" "}
       </section>{" "}
       <section className="bg-[#CCF4A5] px-[10px] sm:px-[40px] overflow-hidden lg:rounded-[40px] w-full relative h-screen xl:h-[800px] flex">
@@ -201,7 +201,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             </EnterFromLeft>
           </div>
         </div>
-        <div className="md:basis-1/2 mt-[5px] md:mt-0  overflow-x-auto w-full">
+        <div className="md:basis-[55%] mt-[5px] md:mt-0  overflow-x-auto w-full">
           <Reviews />
         </div>{" "}
       </section>{" "}

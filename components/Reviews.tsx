@@ -6,14 +6,14 @@ export const Reviews = () => {
   return (
     <Slider
       {...reviewSettings}
-      className="mt-[24px] flex flex-row md:mt-[40px] md:grid-flow-row md:grid reviews
+      className="mt-[24px] flex flex-row md:mt-[40px] md:grid-flow-row md:grid
         md:grid-cols-2 bg-white gap-5 gap-y-6 mb-[60px] ms:mb-0 box">
       {Array(10)
         .fill(0)
         .map((_, i) => (
           <div
             key={`${i}`}
-            className=" md:bg-white bg-white2 lg:box-shadow flex  min-w-[240px]  md:min-w-min flex-col justify-center min-h-[235px] rounded-[24px] p-[24px]  box-item">
+            className=" md:bg-white bg-white2 box-shadow flex  min-w-[240px]  md:min-w-min flex-col justify-center min-h-[235px] rounded-[24px] p-[24px]  box-item">
             <div className="flex mb-[16px]">
               {Array(5)
                 .fill(0)

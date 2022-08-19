@@ -59,7 +59,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
       ),
     },
     {
-      heading: "Watch them grow into a financially responsible adult",
+      heading: "Watch them grow into  financially responsible adult",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis morbi rhoncus eu.",
 

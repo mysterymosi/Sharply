@@ -144,8 +144,9 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
             </FadeInWhenVisible>
           </div>
         </div>
-        <h4 className="flex font-semibold text-[20px] md:text-[40px] mb-[48px] md:mb-[80px] justify-center text-center">
-          How little card works 👇🏽
+        <h4 className="flex font-semibold text-grey2  text-[20px] md:text-[40px] mb-[48px] md:mb-[80px] justify-center text-center">
+          How it works in&nbsp;
+          <span className="text-black text"></span>
         </h4>
       </section>
       <section className="bg-[#E1E4FE] min-h-full py-[80px] md:py-[150px]  little-card lg:rounded-[40px]">

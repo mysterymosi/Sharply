@@ -97,7 +97,11 @@ export const NavigationBar = () => {
                 </Link>
               ))}
 
-              <Button className="my-2 whitespace-nowrap">Get Started</Button>
+              <Button
+                onClick={() => setIsOpen(true)}
+                className="my-2 whitespace-nowrap">
+                Get Started
+              </Button>
             </div>
           </Popover.Panel>
         </div>

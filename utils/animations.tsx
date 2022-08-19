@@ -7,7 +7,7 @@ export function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.2 }}
       variants={{
         visible: { opacity: 1, scale: 1 },
         hidden: { opacity: 0, scale: 0 },
@@ -31,7 +31,7 @@ export function EnterFromLeft({ children }: { children: React.ReactNode }) {
       }
       transition={{
         type: "tween",
-        duration: 0.3,
+        duration: 0.2,
       }}>
       {children}
     </motion.div>
@@ -52,7 +52,7 @@ export function EnterFromRight({ children }: { children: React.ReactNode }) {
       }
       transition={{
         type: "tween",
-        duration: 0.3,
+        duration: 0.2,
       }}>
       {children}
     </motion.div>

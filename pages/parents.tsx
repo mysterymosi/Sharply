@@ -11,6 +11,7 @@ import {
   TwoColLayout,
   Layout,
 } from "../components";
+import { Reviews } from "../components/Reviews";
 import { ContentProp, ContentTypeProps } from "../types";
 
 import {
@@ -234,57 +235,27 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           </FadeInWhenVisible>
         </div>
       </section>
-      <section className="flex flex-col  px-[20px]  lg:max-w-[1300px] lg:mb-[100px] md:w-full xl:max-w-[1300px] m-auto justify-end flex-auto   md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div>
-          <h3 className="font-semibold text-[20px] md:text-[40px] md:mb-[16px] mb-[24px]">
-            What Happy Parents are saying
-          </h3>
-          <p className="text-[15px]">
-            🎁 Freebies: We are giving 50% off to first 1300 card purchases.
-          </p>
-          <Button className="my-2 whitespace-nowrap mt-12 w-full sm:w-auto md:flex">
-            Get your Card Now!
-          </Button>
-        </div>
-        <div className="mt-[24px] md:mt-[40px] grid   grid-cols-1 md:grid-cols-3 mb-[64px] gap-5 gap-y-6">
-          {Array(3)
-            .fill(0)
-            .map((_, i) => (
-              <FadeInWhenVisible key={i}>
-                <div
-                  className={`${
-                    i !== 0 ? "hidden" : "flex"
-                  } md:bg-white box-shadow  sm:flex  flex-col justify-center min-h-[235px] rounded-[24px] p-[24px] `}>
-                  <div className="flex mb-[16px]">
-                    {Array(5)
-                      .fill(0)
-                      .map((_, i) => (
-                        <Star
-                          fill="#FFCF25"
-                          color="#FFCF25"
-                          key={i}
-                          size={16}
-                          className="mr-[6px]"
-                        />
-                      ))}
-                  </div>
+      <section className="flex md:flex-row flex-col px-[20px] lg:max-w-[1500px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center   md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
+        <div className="md:basis-1/3  ">
+          <div className="max-w-[408px ]">
+            <EnterFromLeft>
+              <h3 className="font-semibold md:text-[40px] text-xl   xs:text-[30px] leading-[40px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
+                What Happy Parents are saying
+              </h3>
+              <p className="text-base ">
+                🎁 Freebies: We are giving 50% off to first 1300 card purchases.
+              </p>
 
-                  <h4 className="font-semibold md:text-[16px] text-[14px]  ">
-                    Little is awesome
-                  </h4>
-                  <p className="text-[14px] lg:text-[15px] mt-[8px]">
-                    I love Little!!!! It`s easy to use, very convenient and so
-                    much more exciting for my kids being able to use their full
-                    control 🤣 Thanks!!!
-                  </p>
-                  <p className="font-semibold text-[14px] lg:text-[15px] mt-[16px]">
-                    Oluwafemi Fashikun
-                  </p>
-                </div>
-              </FadeInWhenVisible>
-            ))}
+              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+                Get your Card Now!
+              </Button>
+            </EnterFromLeft>
+          </div>
         </div>
-      </section>
+        <div className="md:basis-[55%] mt-[5px] md:mt-0  overflow-x-auto w-full">
+          <Reviews />
+        </div>{" "}
+      </section>{" "}
     </Layout>
   );
 };
