@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import React, { ReactNode } from "react";
+import React from "react";
 import { Zap } from "react-feather";
 import { ChildrenProp } from "../types";
 import { urlFor } from "./utils";
@@ -128,18 +128,18 @@ export const footerNavItems = [
 export const footerSocials = [
   {
     icon: "/images/instagram.svg",
-    link: "www.ig.com",
+    link: "https://instagram.com/Trylittleapp",
     alt: "instagram",
   },
 
   {
     icon: "/images/twitter.svg",
-    link: "wwww.twitter.com",
+    link: "https://twitter.com/Trylittleapp",
     alt: "twitter",
   },
   {
     icon: "/images/linkedin.svg",
-    link: "www.linkedin.com",
+    link: "https://facebook.com/Trylittleapp",
     alt: "linkedin",
   },
 ];

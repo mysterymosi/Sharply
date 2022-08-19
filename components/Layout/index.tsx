@@ -23,8 +23,25 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <meta
+          property="og:title"
+          content={`${title} | Little App`}
+          key="ogtitle"
+        />
+        <meta
+          name="keywords"
+          content="send pocket money, pocket money, personal finance, online banking, prepaid cards, children, kids, teens, family finance, allowance, chores, Debit Card for children, Pocket Money Made Smarter, little app, little card"
+        />
+        <meta
+          property="og:description"
+          content="Little is an easy and convenient way to give your child pocket money. Automatically disburse pocket money, set spending limits, monitor spending habits and more!"
+          key="ogdesc"
+        />
         <meta name="robots" content="index, follow" />
-        <meta name="description" content="Little is a " />
+        <meta
+          name="description"
+          content="Little is an easy and convenient way to give your child pocket money. Automatically disburse pocket money, set spending limits, monitor spending habits and more!"
+        />
         <link rel="icon" href="/logo.svg" />
       </Head>
       <main className="relative overflow-x-hidden">
