@@ -138,9 +138,9 @@ export const footerSocials = [
     alt: "twitter",
   },
   {
-    icon: "/images/linkedin.svg",
+    icon: "/images/facebook.svg",
     link: "https://facebook.com/Trylittleapp",
-    alt: "linkedin",
+    alt: "facebook",
   },
 ];
 
