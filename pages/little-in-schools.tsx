@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
+import { ChevronsRight } from "react-feather";
 import client from "../client";
 import { BookList, Button, Layout, NavigationBar } from "../components";
 import { Accordion } from "../components/Accordion";
+import { ImageSlider } from "../components/ImageSlider";
 import { PhoneInput } from "../components/Input/PhoneInput";
 import {
   books,
@@ -13,23 +15,18 @@ import {
   faqs,
   getValue,
   schoolBenefits,
-  urlFor,
 } from "../utils";
 
-const LittleInSchools: NextPage<any> = ({
-  contents,
-  schoolContent,
-  blogContent,
-}) => {
+const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
   return (
     <Layout title="Little in Schools" showDownloadCard>
       <section
-        className={`  sm:h-[868px] lg:h-[800px] md:h-[600px] h-[1000px] bg-[#D4D3FC]`}>
+        className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}>
         <NavigationBar />
-        <div className=" pt-[100px] px-[25px] flex lg:flex-row flex-col md:gap-[145px] items-center  h-full justify-center text-black ">
+        <div className=" pt-[100px] px-[25px] flex md:flex-row flex-col lg:gap-[145px] md:gap-[50px] items-center  h-full justify-center text-black ">
           <div className="flex justify-center flex-col">
             <EnterFromLeft>
-              <h1 className="md:text-[53px] md:leading-[60px]  max-w-[14ch] text-[28px] leading-[34px] font-semibold ">
+              <h1 className="lg:text-[53px] lg:leading-[60px]  max-w-[14ch] text-[28px] leading-[34px] font-semibold ">
                 {getValue(contents, "1", "heading")}
               </h1>
               <div className="max-w-[440px]">
@@ -76,10 +73,6 @@ const LittleInSchools: NextPage<any> = ({
               <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
                 {getValue(contents, "2", "description")}
               </p>
-
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-                {getValue(contents, "2", "buttonText")}
-              </Button>
             </EnterFromLeft>
           </div>
           <FadeInWhenVisible>
@@ -92,8 +85,8 @@ const LittleInSchools: NextPage<any> = ({
         </div>
       </section>
 
-      <section className="flex flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
+      <section className="flex  flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
+        <div className="flex md:gap-[50px] justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
           <FadeInWhenVisible>
             <img
               src={getValue(contents, "3", "image")}
@@ -102,7 +95,7 @@ const LittleInSchools: NextPage<any> = ({
             />
           </FadeInWhenVisible>
 
-          <div className="max-w-full md:max-w-[45ch]">
+          <div className="max-w-full lg:max-w-[45ch] md:max-w-[30ch]">
             <EnterFromRight>
               <h2 className="font-semibold text-[24px] lg:text-[40px] md:leading-[50px] leading-[30px] md mt-[30px]">
                 {getValue(contents, "3", "heading")}
@@ -131,17 +124,8 @@ const LittleInSchools: NextPage<any> = ({
         </FadeInWhenVisible>
       </section>
       <FadeInWhenVisible>
-        <div className="flex justify-between m-auto overflow-x-auto lg:overflow-hidden lg:max-w-[1400px] md:w-full">
-          {getValue(schoolContent, "7", "images").map(
-            (img: string, i: number) => (
-              <img
-                key={i}
-                src={urlFor(img) as any}
-                className="md:w-[80px] hover:scale-[0.9] md:h-[75px] mx-[25px] md:mx-0"
-                alt={img}
-              />
-            )
-          )}
+        <div className="lg:max-w-[1400px]">
+          <ImageSlider images={getValue(schoolContent, "7", "images")} />
         </div>
       </FadeInWhenVisible>
 
@@ -220,9 +204,10 @@ const LittleInSchools: NextPage<any> = ({
           <h3 className="font-semibold lg:text-[30px]  text-[20px]">
             {getValue(contents, "7", "description")}
           </h3>
-          <Button className="whitespace-nowrap hidden lg:w-[172px]  mt-12 w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px]">
+          <p className="text-primary items-center  gap-2 lg:justify-start justify-center  font-semibold cursor-pointer hidden lg:w-[172px]  mt-12 w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px] text-[20px]">
             {getValue(contents, "7", "buttonText")}
-          </Button>
+            <ChevronsRight />
+          </p>
         </div>
 
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
@@ -282,8 +267,9 @@ const LittleInSchools: NextPage<any> = ({
           </Button>
         </div>
       </section>
-
-      <BookList title="Get our free books" download books={books} />
+      <section className="sm:p-[24px]">
+        <BookList title="Get our free books" download books={books} />
+      </section>
 
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
         <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">

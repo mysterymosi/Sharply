@@ -31,16 +31,6 @@ export const faqs = [
     description:
       " Yes! You can purchase a license that you can share with your entire team.",
   },
-  {
-    title: "How does the Little card work in School?",
-    description:
-      " Yes! You can purchase a license that you can share with your entire team.",
-  },
-  {
-    title: "How does the Little card work in School?",
-    description:
-      " Yes! You can purchase a license that you can share with your entire team.",
-  },
 ];
 export const allFaqs = [
   {

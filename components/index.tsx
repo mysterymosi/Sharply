@@ -15,3 +15,4 @@ export * from "./Input/PhoneInput";
 export * from "./Modal";
 export * from "./SharePost";
 export * from "./Subscribtion";
+export * from "./ImageSlider";

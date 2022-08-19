@@ -9,6 +9,7 @@ import {
   PhoneInput,
   Layout,
   HomeStepper,
+  ImageSlider,
 } from "../components";
 import {
   EnterFromLeft,
@@ -206,15 +207,11 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         </div>{" "}
       </section>{" "}
       <FadeInWhenVisible>
-        <div className="flex justify-between m-auto lg:max-w-[1100px] h-full md:w-full overflow-y-auto bg-white">
-          {getValue(contents, "7", "images").map((img: string, i: number) => (
-            <img
-              key={i}
-              src={urlFor(img) as any}
-              className="md:w-[80px] hover:scale-[0.9] md:h-[75px] mx-[25px] md:mx-0"
-              alt={img}
-            />
-          ))}
+        <h4 className="flex font-semibold text-[18px] justify-center md:text-[24px] mb-[48px]">
+          Schools that trust Little
+        </h4>
+        <div className="lg:max-w-[1100px] ">
+          <ImageSlider images={getValue(contents, "7", "images")} />
         </div>{" "}
       </FadeInWhenVisible>
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">

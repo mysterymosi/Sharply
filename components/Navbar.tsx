@@ -75,7 +75,7 @@ export const NavigationBar = () => {
             <Button
               onClick={() => setIsOpen(true)}
               className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100">
-              Get Started
+              Order a Card
             </Button>
           </div>
 
@@ -100,7 +100,7 @@ export const NavigationBar = () => {
               <Button
                 onClick={() => setIsOpen(true)}
                 className="my-2 whitespace-nowrap">
-                Get Started
+                Order a Card
               </Button>
             </div>
           </Popover.Panel>

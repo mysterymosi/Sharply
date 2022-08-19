@@ -45,10 +45,19 @@ export const sliderSettings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   adaptiveHeight: true,
-  // autoplay: true,
+  autoplay: true,
   speed: 300,
 };
-
+export const imageSliderSettings = {
+  dots: true,
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  height: 100,
+  // adaptiveHeight: true,
+  autoplay: true,
+  speed: 300,
+};
 export const reviewSettings = {
   infinite: true,
   slidesToShow: 1,

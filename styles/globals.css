@@ -214,6 +214,7 @@ input:-internal-autofill-selected {
   opacity: 1 !important;
 }
 
+
 @media screen and (min-width: 390px) {
   .text-xl {
     font-size: 30px;
