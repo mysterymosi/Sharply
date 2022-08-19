@@ -2,7 +2,6 @@
 import groq from "groq";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Star } from "react-feather";
 import client from "../client";
 import {
   Button,
@@ -96,17 +95,16 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             ({ title, description, color, image }, i) => (
               <div
                 key={title}
-                className={` md:bg-white box-shadow  flex  flex-col justify-center min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}>
+                className={` md:bg-white box-shadow  flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}>
                 <div
-                  className={`
-                 ${
-                   color === "#5BAB0A"
-                     ? "bg-[#5BAB0A]"
-                     : color === "#FF991B"
-                     ? "bg-[#FF991B]"
-                     : "bg-[#35AFF7]"
-                 }
-                  flex  hover:animate-bounce h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
+                  className={` ${
+                    color === "#5BAB0A"
+                      ? "bg-[#5BAB0A]"
+                      : color === "#FF991B"
+                      ? "bg-[#FF991B]"
+                      : "bg-[#35AFF7]"
+                  }
+                  flex   h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
                   <FadeInWhenVisible> {image}</FadeInWhenVisible>
                 </div>
 

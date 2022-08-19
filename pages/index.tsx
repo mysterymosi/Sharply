@@ -18,7 +18,6 @@ import {
   faqs,
   getValue,
   moneyItemList,
-  urlFor,
 } from "../utils";
 import client from "../client";
 import groq from "groq";
@@ -150,7 +149,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       </section>{" "}
       <section className="flex flex-col flex-auto justify-center items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white h-full">
         <div className="flex justify-between lg:flex-row flex-col-reverse pl-[22.5px] lg:pl-0 lg:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="sm:max-w-full max-w-[30ch] w-full lg:max-w-[45ch]">
+          <div className="sm:max-w-full md:max-w-[30ch] w-full lg:max-w-[45ch]">
             <h2 className="font-semibold text-[23px] lg:text-[40px] leading-[35px]  lg:leading-[50px]">
               {getValue(contents, "4", "heading")}
             </h2>

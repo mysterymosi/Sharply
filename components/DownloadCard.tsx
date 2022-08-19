@@ -18,12 +18,12 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
       <FadeInWhenVisible>
         <p className="mt-12 font-semibold text-lg lg:text-[40px] lg:min-w-[1px] text-center lg:max-w-[26ch] lg:leading-[44px]">
           {" "}
-          Good money habits for your child starts here/ Empower your child to
+          Good money habits for your child starts here. Empower your child to
           financial responsibility.{" "}
         </p>
       </FadeInWhenVisible>
 
-      <div className="flex mt-16">
+      {/* <div className="flex mt-16">
         <button className="mr-4 font-semibold text-base bg-white w-[145px]  sm:w-[162px] lg:w-[172px] h-[52px] sm:h-14 rounded-full flex  transition ease-in-out delay-150 hover:scale-110 duration-300 justify-center items-center">
           <Image
             priority={true}
@@ -46,7 +46,7 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
           />{" "}
           <p className="ml-[15px] text-sm">Download</p>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

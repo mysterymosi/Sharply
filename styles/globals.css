@@ -225,9 +225,7 @@ input:-internal-autofill-selected {
     font-size: 16px;
   }
 
-  .home-hero-section {
-    padding-bottom: 50px;
-  }
+
 
 }
 
@@ -241,7 +239,5 @@ input:-internal-autofill-selected {
     font-size: 17px;
   }
 
-  .home-hero-section {
-    padding-bottom: 100px;
-  }
+
 }
