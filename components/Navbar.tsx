@@ -61,7 +61,7 @@ export const NavigationBar = () => {
                   <Link key={link} href={link}>
                     <p
                       className={`my-5 text-xs lg:text-base cursor-pointer ${
-                        router?.pathname?.includes(link)
+                        router?.pathname === link
                           ? "font-semibold"
                           : "font-medium"
                       }`}>
@@ -88,9 +88,7 @@ export const NavigationBar = () => {
                 <Link key={link} href={link}>
                   <p
                     className={`my-5 text-sm lg:text-base cursor-pointer ${
-                      router?.pathname?.includes(link)
-                        ? "font-bold"
-                        : "font-medium"
+                      router?.pathname === link ? "font-bold" : "font-medium"
                     }`}>
                     {name}
                   </p>

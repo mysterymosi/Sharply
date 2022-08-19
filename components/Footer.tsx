@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { footerNavItems, footerSocials } from "../utils";
 
 export const Footer = () => {
+  const router = useRouter();
+
   return (
     <footer className="lg:w-full lg:m-auto lg:border-t border-white4 md:items-center lg:pt-[51px]  ">
       <div className="flex flex-1 relative lg:max-w-[1000px] md:w-full xl:max-w-[1350px] lg:m-auto lg:mw-[1px] md:flex-row flex-col md:items-center justify-start md:justify-between">
@@ -23,9 +26,9 @@ export const Footer = () => {
           {footerNavItems.map(({ name, link }, i) => (
             <Link key={name} href={link}>
               <p
-                className={`${
-                  i !== 2 ? "mr-12" : ""
-                }  mb-6 lg:mb-0 cursor-pointer font-[16px]`}>
+                className={`${i !== 2 ? "mr-12" : ""} ${
+                  router?.pathname === link ? "font-semibold" : "font-medium"
+                } mb-6 lg:mb-0 cursor-pointer font-[16px]`}>
                 {" "}
                 {name}
               </p>

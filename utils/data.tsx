@@ -114,7 +114,7 @@ export const schools = [
 export const footerNavItems = [
   {
     name: "About Us",
-    link: "/about",
+    link: "/",
   },
   {
     name: "Read our Blog",
@@ -316,10 +316,10 @@ export const navItems = [
     name: "Kids",
     link: "/kids",
   },
-  {
-    name: "Family & Friends",
-    link: "/family-and-friends",
-  },
+  // {
+  //   name: "Family & Friends",
+  //   link: "/family-and-friends",
+  // },
   {
     name: "Little Cards",
     link: "/little-cards",
@@ -327,6 +327,10 @@ export const navItems = [
   {
     name: " Little in Schools",
     link: "/little-in-schools",
+  },
+  {
+    name: "About",
+    link: "/",
   },
 
   {
@@ -336,10 +340,6 @@ export const navItems = [
   {
     name: "FAQ",
     link: "/faqs",
-  },
-  {
-    name: "About",
-    link: "/about",
   },
 ];
 
