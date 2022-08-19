@@ -210,7 +210,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         <h4 className="flex font-semibold text-[18px] justify-center md:text-[24px] mb-[48px]">
           Schools that trust Little
         </h4>
-        <div className="lg:max-w-[1100px] ">
+        <div className="lg:max-w-[1100px] m-auto ">
           <ImageSlider images={getValue(contents, "7", "images")} />
         </div>{" "}
       </FadeInWhenVisible>

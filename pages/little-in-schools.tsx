@@ -124,7 +124,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         </FadeInWhenVisible>
       </section>
       <FadeInWhenVisible>
-        <div className="lg:max-w-[1400px]">
+        <div className="lg:max-w-[1400px] m-auto">
           <ImageSlider images={getValue(schoolContent, "7", "images")} />
         </div>
       </FadeInWhenVisible>
