@@ -18,7 +18,6 @@ import {
 } from "../utils";
 
 const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
-  console.log(schoolContent);
   return (
     <Layout title="Little in Schools" showDownloadCard>
       <section
@@ -96,16 +95,33 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
             />
           </FadeInWhenVisible>
 
-          <div className="max-w-full lg:max-w-[45ch] md:max-w-[30ch]">
+          <div className="max-w-full lg:max-w-[50ch] md:max-w-[45ch]">
             <EnterFromRight>
-              <h2 className="font-semibold text-[24px] lg:text-[40px] md:leading-[50px] leading-[30px] md mt-[30px]">
+              <h2 className="font-semibold text-[24px] lg:text-[40px] md:leading-[50px] leading-[30px] mb-4 mt-[30px]">
                 {getValue(contents, "3", "heading")}
               </h2>
-              <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[24px] sm:mb-0">
-                {getValue(contents, "3", "description")}
+              <p className="font-semibold mb-0 text-[16px] lg:text-[18px]">
+                For Pocket Money Card in School
               </p>
-              <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-                {getValue(contents, "3", "footNote")}
+
+              <p className="text-[16px] font-medium lg:text-[18px] mt-1 mb-[24px] sm:mb-0">
+                The card is accompanied by an App where parents/guardians can
+                get instant notifications, set spending limits and block cards.
+              </p>
+              <p className="font-semibold mt-4 mb-0 ">
+                For Access Control in School
+              </p>
+              <p className="text-[16px] font-medium lg:text-[18px] mt-1 mb-[24px] sm:mb-0">
+                This Smart card is also designed to offer a secure way to
+                control entries and exits into the school environment while
+                sending parents and the necessary authority instant
+                notifications.
+              </p>
+              <p className="font-semibold mt-4">For Payments</p>
+              <p className="text-[16px] font-medium lg:text-[18px] mt-1 mb-[24px] sm:mb-0">
+                Quick and easy way to make other payments accepted by the
+                school. Can be used to pay tuition, bus fees, books, excursion
+                fees etc.
               </p>
 
               <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
