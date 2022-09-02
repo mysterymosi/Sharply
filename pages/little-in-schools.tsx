@@ -18,6 +18,7 @@ import {
 } from "../utils";
 
 const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
+  console.log(schoolContent);
   return (
     <Layout title="Little in Schools" showDownloadCard>
       <section
@@ -307,8 +308,15 @@ export async function getStaticProps() {
      _type == "home"
      
    ]{
-     images,
-     section
+    section,
+    heading,
+    description,
+    buttonText,
+    footNote,
+    imageAlt,
+   images,
+    "image" :image.asset->url
+  
    }
  
     `);

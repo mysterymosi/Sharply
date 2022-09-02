@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { ChevronsRight } from "react-feather";
 import { TwoColLayoutProps } from "../types";
 import { FadeInWhenVisible } from "../utils";
 import { Button } from "./Button";
@@ -23,9 +24,10 @@ export const TwoColLayout = ({
           <h3 className="font-semibold text-[24px] lg:text-[38px]">{title}</h3>
           <p className="text-[18px]">{description}</p>
           {showButton && (
-            <Button className="my-2 whitespace-nowrap mt-12 md:w-fit md:flex lg:mb-0 mb-[50px]">
-              Learn more
-            </Button>
+            <p className="text-primary items-center  gap-2 lg:justify-start justify-center  font-semibold cursor-pointer hidden lg:w-[172px]  mt-12 w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px] text-[20px]">
+              Learn More
+              <ChevronsRight />
+            </p>
           )}
         </FadeInWhenVisible>
       </div>
