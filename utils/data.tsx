@@ -26,11 +26,6 @@ export const faqs = [
     description:
       " Yes! You can purchase a license that you can share with your entire team.",
   },
-  {
-    title: "What if the Little card gets stolen?",
-    description:
-      " Yes! You can purchase a license that you can share with your entire team.",
-  },
 ];
 export const allFaqs = [
   {

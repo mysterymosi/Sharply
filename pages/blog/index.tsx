@@ -98,7 +98,7 @@ export async function getStaticProps() {
    *[
      _type == "blog"
      
-   ] | order(_createdAt desc){
+   ] | order(_createdAt desc) [0...4]{
     _id,
     title,
     category->,

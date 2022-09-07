@@ -181,22 +181,22 @@ main {
   line-height: 33px;
 }
 
-.blog * p {
+.blog>p {
   margin-block-start: 1em;
   margin-block-end: 1em;
 }
 
-.blog * h1 {
+.blog>h1 {
   font-weight: 900;
   font-size: 24px;
 }
 
-.blog * h2 {
+.blog>h2 {
   font-weight: 800;
   font-size: 22px;
 }
 
-.blog * h3 {
+.blog>h3 {
   font-weight: 700;
   font-size: 20px;
 }

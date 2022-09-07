@@ -284,10 +284,16 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           </Button>
         </div>
       </section>
-      <section className="sm:p-[24px]">
-        <BookList title="Get our free books" download books={books} />
-      </section>
+      <section className="flex flex-col flex-auto md:px-0 px-[23px] pt-[80px] xl:max-w-[1100px] m-auto lg:pt-{200px]  ">
+        <EnterFromLeft>
+          <h3 className="md:text-[34px] text-[20px] font-semibold mb-[40px]">
+            Get our free books
+          </h3>
+          <p>Free financial literacy books, >>>> <span className="font-semibold">  Coming soon</span>
+          </p>
+        </EnterFromLeft>
 
+      </section>
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
         <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">
           Frequently Asked Questions
