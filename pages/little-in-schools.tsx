@@ -38,7 +38,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
                   type={"phone"}
-                  buttonClassName="bg-[#FB991B]"
+                  buttonClassName="#FB991B"
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
                   {getValue(contents, "1", "footNote")}

@@ -23,12 +23,14 @@ export const PhoneInput = ({
         placeholder={placeholder}
       />
       <Button
-        className={`my-2 lg:h-[49px]  w-[138px] whitespace-nowrap hidden md:flex items-center justify-center ${buttonClassName}`}>
+        style={{ backgroundColor: buttonClassName }}
+        className={`my-2 lg:h-[49px]  w-[138px] whitespace-nowrap hidden md:flex items-center justify-center `}>
         {text}
       </Button>
     </div>
     <Button
-      className={`my-3 h-[56px]  items-center whitespace-nowrap md:hidden flex justify-center w-full ${buttonClassName}`}>
+      className={`my-3 h-[56px]  items-center whitespace-nowrap md:hidden flex justify-center w-full ${buttonClassName}`}
+      style={{ backgroundColor: buttonClassName }}>
       {text}
     </Button>
   </div>

@@ -11,6 +11,7 @@ export type ButtonTypes = {
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
+  style?: React.CSSProperties;  
 };
 export type PhoneInputProps = {
   className?: string;
