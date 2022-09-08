@@ -3,12 +3,11 @@ import groq from "groq";
 import type { NextPage } from "next";
 import { ChevronsRight } from "react-feather";
 import client from "../client";
-import {  Button, Layout, NavigationBar } from "../components";
+import { Button, Layout, NavigationBar } from "../components";
 import { Accordion } from "../components/Accordion";
 import { ImageSlider } from "../components/ImageSlider";
 import { PhoneInput } from "../components/Input/PhoneInput";
 import {
-
   EnterFromLeft,
   EnterFromRight,
   FadeInWhenVisible,
@@ -38,7 +37,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
                   type={"phone"}
-                  buttonClassName="#FB991B"
+                  buttonClassName="rgb(251,153,27,0.6)"
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
                   {getValue(contents, "1", "footNote")}
