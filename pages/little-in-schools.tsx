@@ -3,12 +3,12 @@ import groq from "groq";
 import type { NextPage } from "next";
 import { ChevronsRight } from "react-feather";
 import client from "../client";
-import { BookList, Button, Layout, NavigationBar } from "../components";
+import {  Button, Layout, NavigationBar } from "../components";
 import { Accordion } from "../components/Accordion";
 import { ImageSlider } from "../components/ImageSlider";
 import { PhoneInput } from "../components/Input/PhoneInput";
 import {
-  books,
+
   EnterFromLeft,
   EnterFromRight,
   FadeInWhenVisible,

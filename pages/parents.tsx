@@ -57,7 +57,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                 placeholder="Enter phone number"
                 text={getValue(contents, "1", "buttonText")}
                 className="mt-[40px] "
-                buttonClassName="bg-[#FB991B]"
+                buttonClassName="#FB991B"
               />
               <p className="text-base  mt-6">
                 {" "}
