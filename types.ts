@@ -22,6 +22,7 @@ export type PhoneInputProps = {
   type?: string;
   name?: string;
   text?: string;
+  buttonClassName?:string;
 };
 export type ListProps = {
   list: {

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
+import { ChevronsRight } from "react-feather";
 import client from "../client";
 import { Button, NavigationBar, PhoneInput, Layout } from "../components";
 import { ContentTypeProps } from "../types";
@@ -108,9 +109,10 @@ const Kids: NextPage<ContentTypeProps> = ({ contents }) => {
           <p className="text-[18px] mb-[13px] mt-[8px]">
             {getValue(contents, "4", "description")}
           </p>
-          <Button className="my-2 whitespace-nowrap w-full mt-12 md:w-[172px] sm:w-auto md:flex mb-[48px] lg:mb-0">
+          <p className="text-primary items-center  gap-2 lg:justify-start justify-center  font-semibold cursor-pointer hidden lg:w-[172px]  mt-12 w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px] text-[20px]">
             {getValue(contents, "4", "buttonText")}
-          </Button>
+            <ChevronsRight />
+          </p>
         </div>
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
           <FadeInWhenVisible>

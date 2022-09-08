@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { navItems } from "../utils";
 import HomeModal from "./Modal";
-export const NavigationBar = () => {
+export const NavigationBar = ({ buttonText }: { buttonText?: string }) => {
   const router = useRouter();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
@@ -75,7 +75,7 @@ export const NavigationBar = () => {
             <Button
               onClick={() => setIsOpen(true)}
               className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100">
-              Order a Card
+              {buttonText ?? " Order a Card"}
             </Button>
           </div>
 
@@ -98,7 +98,7 @@ export const NavigationBar = () => {
               <Button
                 onClick={() => setIsOpen(true)}
                 className="my-2 whitespace-nowrap">
-                Order a Card
+                {buttonText ?? " Order a Card"}
               </Button>
             </div>
           </Popover.Panel>

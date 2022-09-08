@@ -22,7 +22,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
     <Layout title="Little in Schools" showDownloadCard>
       <section
         className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}>
-        <NavigationBar />
+        <NavigationBar buttonText={"Refer a school and earn"} />
         <div className=" pt-[100px] px-[25px] flex md:flex-row flex-col lg:gap-[145px] md:gap-[50px] items-center  h-full justify-center text-black ">
           <div className="flex justify-center flex-col">
             <EnterFromLeft>
@@ -38,6 +38,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
                   type={"phone"}
+                  buttonClassName="bg-[#FB991B]"
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
                   {getValue(contents, "1", "footNote")}
@@ -273,14 +274,14 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   </li>
                 ))}
               </ul>
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex bg-[#FB991B]">
                 {getValue(contents, "8", "buttonText")}
               </Button>
             </EnterFromRight>
           </div>
 
-          <Button className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex">
-            Invite us to your PTA
+          <Button className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex bg-[#FB991B]">
+            {getValue(contents, "8", "buttonText")}
           </Button>
         </div>
       </section>
@@ -290,8 +291,8 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
             Get our free books
           </h3>
           <p>
-            {`Free financial literacy books, >>>>`}
-            <span className="font-semibold"> Coming soon</span>
+            {`Coming soon  >>>>`}
+            <span className="font-semibold"> Our free book for students </span>
           </p>
         </EnterFromLeft>
       </section>

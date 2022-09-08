@@ -304,6 +304,10 @@ export const schoolBenefits = [
 
 export const navItems = [
   {
+    name: "About",
+    link: "/",
+  },
+  {
     name: "Parents",
     link: "/parents",
   },
@@ -322,10 +326,6 @@ export const navItems = [
   {
     name: " Little in Schools",
     link: "/little-in-schools",
-  },
-  {
-    name: "About",
-    link: "/",
   },
 
   {

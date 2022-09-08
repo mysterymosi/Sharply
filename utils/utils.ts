@@ -1,6 +1,6 @@
 import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
-import { ContentProp, ContentTypeProps } from "../types";
+import { ContentProp } from "../types";
 
 export function truncateString(str: string, num: number) {
   if (str?.length <= num) {
@@ -51,12 +51,27 @@ export const sliderSettings = {
 export const imageSliderSettings = {
   dots: true,
   infinite: true,
-  slidesToShow: 3,
+  slidesToShow: 5,
   slidesToScroll: 1,
   height: 100,
-  // adaptiveHeight: true,
   autoplay: true,
   speed: 300,
+  responsive: [
+    {
+      breakpoint: 700,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 400,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+  ],
 };
 export const reviewSettings = {
   infinite: true,
