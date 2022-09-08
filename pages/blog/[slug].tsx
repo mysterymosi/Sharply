@@ -149,7 +149,7 @@ export async function getStaticProps(context: {
   *[
     _type == "blog"
     
-  ] | order(_createdAt desc) [0...4] {
+  ] | order(publishedAt desc) [0...4] {
    _id,
    title,
    category->,

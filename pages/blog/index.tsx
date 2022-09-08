@@ -25,7 +25,7 @@ const Blog: NextPage<any> = ({ blogContent, catgeoryContent }) => {
           selectedTab !== "All Articles"
             ? `&& category->title =="${selectedTab}"`
             : `\n`
-        }]{
+        }] | order(publishedAt desc){
           _id,
     title,
     category->,
@@ -98,7 +98,7 @@ export async function getStaticProps() {
    *[
      _type == "blog"
      
-   ] | order(_createdAt desc) [0...4]{
+   ] | order(publishedAt desc) [0...4]{
     _id,
     title,
     category->,
