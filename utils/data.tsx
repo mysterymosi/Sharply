@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
-import { Zap } from "react-feather";
+import { CreditCard, Send, Shield, Zap } from "react-feather";
 import { ChildrenProp } from "../types";
 import { urlFor } from "./utils";
 
@@ -48,7 +48,7 @@ export const moneyItemList = [
   {
     icon: "/images/money-icon.svg",
     title: "Send pocket money instantly",
-    description: "Transfer money to your child whenever, however, and wherever",
+    description: "Get instant notifications whenever your child spends money",
   },
   {
     icon: "/images/card-icon.svg",
@@ -199,7 +199,32 @@ export const featuresParentsLove = [
     color: "#35AFF7",
   },
 ];
+export const liitleSchoolFeatures = [
+  {
+    title: "  For Pocket Money Card in School",
+    description:
+      " The card is accompanied by an App where parents/guardians can  get instant notifications, set spending limits and block cards.",
+    image: <CreditCard color="white" size={16} />,
+    color: "#5BAB0A",
+  },
 
+  {
+    title: " For Access Control in School",
+    description:
+      " This Smart card is also designed to offer a secure way to control entries and exits into the school environment while sending parents and the necessary authority instant notifications.",
+    image: <Shield color="white" size={16} />,
+    color: "#FF991B",
+  },
+
+  {
+    title: "For Payments",
+
+    description:
+      " Quick and easy way to make other payments accepted by the  school. Can be used to pay tuition, bus fees, books, excursion     fees etc.",
+    image: <Send color="white" size={16} />,
+    color: "#35AFF7",
+  },
+];
 export const giftLinkFaqs = [
   {
     title: "What are giftlinks?",
@@ -304,17 +329,17 @@ export const schoolBenefits = [
 
 export const navItems = [
   {
-    name: "About",
+    name: "Home",
     link: "/",
   },
   {
     name: "Parents",
     link: "/parents",
   },
-  {
-    name: "Kids",
-    link: "/kids",
-  },
+  // {
+  //   name: "Kids",
+  //   link: "/kids",
+  // },
   // {
   //   name: "Family & Friends",
   //   link: "/family-and-friends",

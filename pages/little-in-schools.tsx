@@ -13,6 +13,7 @@ import {
   FadeInWhenVisible,
   faqs,
   getValue,
+  liitleSchoolFeatures,
   schoolBenefits,
 } from "../utils";
 
@@ -21,7 +22,10 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
     <Layout title="Little in Schools" showDownloadCard>
       <section
         className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}>
-        <NavigationBar buttonText={"Refer a school and earn"} />
+        <NavigationBar
+          buttonText={"Refer a school and earn"}
+          buttonClassName="rgb(251,153,27,0.6)"
+        />
         <div className=" pt-[100px] px-[25px] flex md:flex-row flex-col lg:gap-[145px] md:gap-[50px] items-center  h-full justify-center text-black ">
           <div className="flex justify-center flex-col">
             <EnterFromLeft>
@@ -37,7 +41,6 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
                   type={"phone"}
-                  buttonClassName="rgb(251,153,27,0.6)"
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
                   {getValue(contents, "1", "footNote")}
@@ -84,64 +87,38 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           </FadeInWhenVisible>
         </div>
       </section>
+      <section className="flex flex-col  px-[20px]  lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto   md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
+        <h3 className="font-semibold md:text-[40px] text-[24px] text-center">
+          {getValue(contents, "3", "heading")}
+        </h3>
+        <div className="mt-[24px] md:mt-[40px] flex md:flex-row flex-col justify-between mb-[64px] gap-5 gap-y-6">
+          {liitleSchoolFeatures.map(({ title, description, color, image }) => (
+            <div
+              key={title}
+              className={` md:bg-white box-shadow  flex flex-col justify-start basis-2/6 min-h-[350px] rounded-[24px] px-[24px] py-[40px] `}>
+              <div
+                className={` ${
+                  color === "#5BAB0A"
+                    ? "bg-[#5BAB0A]"
+                    : color === "#FF991B"
+                    ? "bg-[#FF991B]"
+                    : "bg-[#35AFF7]"
+                }
+                  flex h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
+                <FadeInWhenVisible> {image}</FadeInWhenVisible>
+              </div>
 
-      <section className="flex  flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex md:gap-[50px] justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <FadeInWhenVisible>
-            <img
-              src={getValue(contents, "3", "image")}
-              alt={getValue(contents, "3", "imageAlt")}
-              className="w-full h-full  md:w-[460px]"
-            />
-          </FadeInWhenVisible>
-
-          <div className="max-w-full lg:max-w-[50ch] md:max-w-[45ch]">
-            <EnterFromRight>
-              <h2 className="font-semibold text-[24px] lg:text-[40px] md:leading-[50px] leading-[30px] mb-4 mt-[30px]">
-                {getValue(contents, "3", "heading")}
-              </h2>
-              <p className="font-semibold mb-0 text-[16px] lg:text-[18px]">
-                For Pocket Money Card in School
-              </p>
-
-              <p className="text-[16px] font-medium lg:text-[18px] mt-1 mb-[24px] sm:mb-0">
-                The card is accompanied by an App where parents/guardians can
-                get instant notifications, set spending limits and block cards.
-              </p>
-              <p className="font-semibold mt-4 mb-0 ">
-                For Access Control in School
-              </p>
-              <p className="text-[16px] font-medium lg:text-[18px] mt-1 mb-[24px] sm:mb-0">
-                This Smart card is also designed to offer a secure way to
-                control entries and exits into the school environment while
-                sending parents and the necessary authority instant
-                notifications.
-              </p>
-              <p className="font-semibold mt-4">For Payments</p>
-              <p className="text-[16px] font-medium lg:text-[18px] mt-1 mb-[24px] sm:mb-0">
-                Quick and easy way to make other payments accepted by the
-                school. Can be used to pay tuition, bus fees, books, excursion
-                fees etc.
-              </p>
-
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
-                {getValue(contents, "3", "buttonText")}
-              </Button>
-            </EnterFromRight>
-          </div>
-
-          <Button className="my-2 whitespace-nowrap mt-12 md:hidden mb-[80px] justify-center flex">
-            {getValue(contents, "3", "buttonText")}
-          </Button>
+              <h4 className="font-semibold text-[24px]  lg:mt-[40px]  ">
+                {title}
+              </h4>
+              <p className="text-[16px] mt-[8px]">{description}</p>
+            </div>
+          ))}
         </div>
-        <FadeInWhenVisible>
-          <h4 className="flex font-semibold text-[18px] md:text-[24px] mb-[48px]">
-            Schools that trust Little
-          </h4>
-        </FadeInWhenVisible>
       </section>
+
       <FadeInWhenVisible>
-        <div className="lg:max-w-[1400px] m-auto">
+        <div className="lg:max-w-[1300px] m-auto">
           <ImageSlider images={getValue(schoolContent, "7", "images")} />
         </div>
       </FadeInWhenVisible>
@@ -284,17 +261,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           </Button>
         </div>
       </section>
-      <section className="flex flex-col flex-auto md:px-0 px-[23px] pt-[80px] xl:max-w-[1100px] m-auto lg:pt-{200px]  ">
-        <EnterFromLeft>
-          <h3 className="md:text-[34px] text-[20px] font-semibold mb-[40px]">
-            Get our free books
-          </h3>
-          <p>
-            {`Coming soon  >>>>`}
-            <span className="font-semibold"> Our free book for students </span>
-          </p>
-        </EnterFromLeft>
-      </section>
+
       <section className="flex flex-col flex-auto justify-center lg:items-center px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[176px]">
         <h3 className="font-semibold text-[20px] md:text-[40px] mb-[40px] lg:mb-[80px]">
           Frequently Asked Questions

@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import { ChevronsRight } from "react-feather";
 import { urlFor } from "../utils";
 import { Stepper } from "./Stepper";
 
 export const HomeStepper = ({ images }: { images: string[] }) => {
   const homeStepList = [
     {
-      heading: "Create a parent account on Little",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis morbi rhoncus eu.",
+      heading: "Create a parent account",
+      description: "Get a free 10-digit account number in 1 minute”",
 
       img: (
         <img
@@ -21,8 +21,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
 
     {
       heading: "Add your child",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis morbi rhoncus eu.",
+      description: "Simply add their info and picture for a better experience",
 
       img: (
         <img
@@ -33,9 +32,13 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
       ),
     },
     {
-      heading: "Order Little Card for your child",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis morbi rhoncus eu.",
+      heading: "Order a Little Card for your child",
+      description: (
+        <p className="text-primary items-center  gap-2 lg:justify-start justify-center  font-semibold cursor-pointer hidden lg:w-[172px] w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px] ">
+          Learn More
+          <ChevronsRight />
+        </p>
+      ),
 
       img: (
         <img
@@ -47,8 +50,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
     },
     {
       heading: "Fund your child’s Little wallet",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis morbi rhoncus eu.",
+      description: "Via transfer, USSD, or POS agent",
 
       img: (
         <img
@@ -60,8 +62,12 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
     },
     {
       heading: "Watch them grow into  financially responsible adult",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis morbi rhoncus eu.",
+      description: (
+        <>
+          A journey of a thousand miles begins with{" "}
+          <span className="font-bold">LITTLE</span> steps
+        </>
+      ),
 
       img: (
         <img

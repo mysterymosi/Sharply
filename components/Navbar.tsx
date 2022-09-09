@@ -8,7 +8,13 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { navItems } from "../utils";
 import HomeModal from "./Modal";
-export const NavigationBar = ({ buttonText }: { buttonText?: string }) => {
+export const NavigationBar = ({
+  buttonText,
+  buttonClassName,
+}: {
+  buttonText?: string;
+  buttonClassName?: string;
+}) => {
   const router = useRouter();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
@@ -74,6 +80,7 @@ export const NavigationBar = ({ buttonText }: { buttonText?: string }) => {
           <div className="hidden md:flex items-center  justify-end  md:flex-1 lg:w-0 ml-6 lg:ml-0">
             <Button
               onClick={() => setIsOpen(true)}
+              style={{ backgroundColor: buttonClassName }}
               className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100">
               {buttonText ?? " Order a Card"}
             </Button>
@@ -97,6 +104,7 @@ export const NavigationBar = ({ buttonText }: { buttonText?: string }) => {
 
               <Button
                 onClick={() => setIsOpen(true)}
+                style={{ backgroundColor: buttonClassName }}
                 className="my-2 whitespace-nowrap">
                 {buttonText ?? " Order a Card"}
               </Button>

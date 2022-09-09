@@ -15,7 +15,7 @@ export const Stepper = ({ list, page }: StepperListProps) => {
             <div key={i} className="h-full  m-auto">
               <div className="flex h-[500px] flex-col-reverse lg:flex-row md:bg-[transparent]  bg-white pt-[24px] lg:pt-0 rounded-[10px]">
                 <div className="px-[25px] md:px-0 max-w-full md:max-w-[43ch] text-center md:text-start md:m-auto m-auto col-span-3 sm:ml-[20px] ">
-                  <h4 className="font-bold text-[20px] lg:text-[48px] lg:leading-[51px] leading-[24px]">
+                  <h4 className="font-bold text-[20px] lg:text-[47px] lg:leading-[51px] leading-[24px]">
                     {heading}
                   </h4>
                   <h4 className="mt-[16px] text-[14px] mb-[40px] md:mb-[0]">

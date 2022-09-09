@@ -11,7 +11,7 @@ export type ButtonTypes = {
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
-  style?: React.CSSProperties;  
+  style?: React.CSSProperties;
 };
 export type PhoneInputProps = {
   className?: string;
@@ -23,7 +23,7 @@ export type PhoneInputProps = {
   type?: string;
   name?: string;
   text?: string;
-  buttonClassName?:string;
+  buttonClassName?: string;
 };
 export type ListProps = {
   list: {
@@ -103,7 +103,7 @@ export type ModalProps = {
 export type StepperListProps = {
   list: {
     heading: string;
-    description: string;
+    description: string | Element | any;
     img: any;
   }[];
   page?: string;
