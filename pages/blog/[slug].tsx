@@ -58,10 +58,10 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
         <NavigationBar />
       </section>
 
-      <section className="flex lg:max-w-[1100px] md:w-full  m-auto  h-full md:mt-[100px]  rounded-[40px] ">
-        <div className="w-2/5 mt-[100px]">
+      <section className="flex lg:max-w-[1100px] md:w-full md:flex-col flex-row md:m-auto m-5  h-full md:mt-[100px]  rounded-[40px] ">
+        <div className="md:w-2/5 mt-[100px] w-full">
           <p className="text-[18px] font-[400] mb-[16px]"> {category?.title}</p>
-          <h3 className="font-semibold text-[40px] leading-[49px] mb-[16px]">
+          <h3 className="font-semibold text-[30px] leading-[39px] md:text-[40px] md:leading-[49px] mb-[16px]">
             {title}
           </h3>
           <h3 className="text-[#424242] text-[16px] leading-[16px]">
@@ -79,22 +79,24 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
               </p>
             </div>
           </div>
-          <Link href="/blog">
-            <p className="flex text-[14px] items-center">
-              {" "}
-              <ArrowLeft size={14} className="mr-[8px]" /> Back to Blog
-            </p>
-          </Link>
-          <div className="mt-[64px]">
-            <SharePost
-              url={`${origin}${asPath}`}
-              title={title}
-              twitterHandle={twitterHandle}
-            />
+          <div className="hidden md:flex">
+            <Link href="/blog">
+              <p className="flex text-[14px] items-center">
+                {" "}
+                <ArrowLeft size={14} className="mr-[8px]" /> Back to Blog
+              </p>
+            </Link>
+            <div className="mt-[64px]">
+              <SharePost
+                url={`${origin}${asPath}`}
+                title={title}
+                twitterHandle={twitterHandle}
+              />
+            </div>
           </div>
         </div>
 
-        <div className="w-3/5 blog">
+        <div className="md:w-3/5  blog w-full">
           <div className="mb-[80px] ">
             <Image
               src={image}
@@ -104,10 +106,25 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
               priority={true}
               className="rounded-[80px] "
               layout="responsive"
-            />{" "}
+            />
           </div>
 
           <PortableText value={body} components={ptComponents} />
+          <div className="md:hidden flex w-full justify-between">
+            <Link href="/blog">
+              <p className="flex text-[14px] items-center">
+                {" "}
+                <ArrowLeft size={14} className="mr-[8px]" /> Back to Blog
+              </p>
+            </Link>
+            <div className="mt-[64px]">
+              <SharePost
+                url={`${origin}${asPath}`}
+                title={title}
+                twitterHandle={twitterHandle}
+              />
+            </div>
+          </div>
         </div>
       </section>
       <div className="lg:mt-[100px]">
