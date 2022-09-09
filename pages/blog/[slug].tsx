@@ -58,7 +58,7 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
         <NavigationBar />
       </section>
 
-      <section className="flex lg:max-w-[1100px] md:w-full md:flex-col flex-row md:m-auto m-5  h-full md:mt-[100px]  rounded-[40px] ">
+      <section className="flex lg:max-w-[1100px] md:w-full flex-col md:flex-row md:gap-6 p-5 m-auto   h-full md:mt-[100px]  rounded-[40px] ">
         <div className="md:w-2/5 mt-[100px] w-full">
           <p className="text-[18px] font-[400] mb-[16px]"> {category?.title}</p>
           <h3 className="font-semibold text-[30px] leading-[39px] md:text-[40px] md:leading-[49px] mb-[16px]">
