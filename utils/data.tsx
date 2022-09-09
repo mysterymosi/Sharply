@@ -48,7 +48,7 @@ export const moneyItemList = [
   {
     icon: "/images/money-icon.svg",
     title: "Send pocket money instantly",
-    description: "Get instant notifications whenever your child spends money",
+    description: "Transfer money to you child whenever, however and wherever",
   },
   {
     icon: "/images/card-icon.svg",
@@ -58,7 +58,7 @@ export const moneyItemList = [
   {
     icon: "/images/notification-icon.svg",
     title: "Get notified when your child spends ",
-    description: "Transfer money to your child whenever, however, and wherever",
+    description: "Get instant notifications whenever your child spends",
   },
   {
     icon: "/images/reward-icon.svg",
