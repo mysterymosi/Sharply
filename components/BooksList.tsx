@@ -8,8 +8,8 @@ export const BookGrid = ({ books, download }: BookGridProps) => {
   return books?.length > 0 ? (
     <div className="md:grid md:grid-cols-3  lg:grid-cols-4 flex  flex-row overflow-x-scroll gap-4 ">
       {books.map(
-        ({ title, estimatedReadingTime, slug, image, publishedAt, _id }, i) => (
-          <div key={i} className="mb-[48px] min-w-[240px] ">
+        ({ title, estimatedReadingTime, slug, image, publishedAt, _id }) => (
+          <div key={_id} className="mb-[48px] min-w-[240px] ">
             <FadeInWhenVisible>
               <img
                 src={image}

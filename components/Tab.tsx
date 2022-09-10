@@ -26,7 +26,9 @@ export default function Tabs({
                 setSelectedTab(title);
               }}
               key={i}
-              className={` w-fit focus:outline-none ml-[20px] lg:ml-0 `}>
+              className={` w-fit focus:outline-none ${
+                i > 0 ? "ml-[20px]" : ""
+              }  lg:ml-0 `}>
               {({ selected }) => (
                 <div
                   className={`lg:pr-[54px] rounded-full  lg:rounded-none lg:border-b-[2px] lg:border-0  
@@ -54,7 +56,7 @@ export default function Tabs({
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="mt-2 flex h-full lg:min-h-[300px] justify-center items-center">
+        <Tab.Panels className="mt-2 flex h-full lg:min-h-[300px] justify-center items-center overflow-x-auto">
           {blogCategories.map((_, idx) => (
             <Tab.Panel key={idx + 1} className={"mt-[20px]"}>
               {loading ? <Spinner /> : <BookGrid books={books} />}
