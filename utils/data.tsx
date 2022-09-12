@@ -177,7 +177,7 @@ export const featuresParentsLove = [
   {
     title: "Instant account opening ",
     description:
-      "Is your child stranded, low on funds or in case of an emergency? With Little, you can send money instantly to their card.",
+      "Yes! You will not queue up at a bank to create an account or get your child’s account details”",
     image: <Zap fill="white" color="white" size={16} />,
     color: "#5BAB0A",
   },

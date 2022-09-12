@@ -92,30 +92,28 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           Features Parents love
         </h3>
         <div className="mt-[24px] md:mt-[40px] flex md:flex-row flex-col justify-between mb-[64px] gap-5 gap-y-6">
-          {featuresParentsLove.map(
-            ({ title, description, color, image }, i) => (
+          {featuresParentsLove.map(({ title, description, color, image }) => (
+            <div
+              key={title}
+              className={` md:bg-white box-shadow  basis-1/3 flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}>
               <div
-                key={title}
-                className={` md:bg-white box-shadow  flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}>
-                <div
-                  className={` ${
-                    color === "#5BAB0A"
-                      ? "bg-[#5BAB0A]"
-                      : color === "#FF991B"
-                      ? "bg-[#FF991B]"
-                      : "bg-[#35AFF7]"
-                  }
+                className={` ${
+                  color === "#5BAB0A"
+                    ? "bg-[#5BAB0A]"
+                    : color === "#FF991B"
+                    ? "bg-[#FF991B]"
+                    : "bg-[#35AFF7]"
+                }
                   flex   h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
-                  <FadeInWhenVisible> {image}</FadeInWhenVisible>
-                </div>
-
-                <h4 className="font-semibold text-[24px]  lg:mt-[40px]  ">
-                  {title}
-                </h4>
-                <p className="text-[16px] mt-[8px]">{description}</p>
+                <FadeInWhenVisible> {image}</FadeInWhenVisible>
               </div>
-            )
-          )}
+
+              <h4 className="font-semibold text-[24px]  lg:mt-[40px]  ">
+                {title}
+              </h4>
+              <p className="text-[16px] mt-[8px]">{description}</p>
+            </div>
+          ))}
         </div>
       </section>
       <section
