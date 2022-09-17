@@ -6,6 +6,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+      square: "square",
+      alpha: "lower-alpha",
+      roman: "upper-roman",
+    },
     fontSize: {
       xs: ["14px", "20px"],
       base: ["15px", "24px"],

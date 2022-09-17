@@ -4,7 +4,7 @@ import { allFaqs } from "../utils";
 
 const FAQS: NextPage = () => {
   return (
-    <Layout title="  Frequently Asked Questions ">
+    <Layout title="Frequently Asked Questions">
       <NavigationBar />
       <section className="flex flex-col px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[120px]">
         <div className="flex flex-col flex-auto justify-center sm:items-center lg:mb-[80px]  mb-[40px] ">

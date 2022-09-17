@@ -108,8 +108,8 @@ export const schools = [
 ];
 export const footerNavItems = [
   {
-    name: "About Us",
-    link: "/",
+    name: "Privacy",
+    link: "/privacy",
   },
   {
     name: "Read our Blog",

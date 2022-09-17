@@ -11,8 +11,10 @@ import { urlFor } from "../../utils";
 import Link from "next/link";
 import { ArrowLeft } from "react-feather";
 import { twitterHandle } from "../../utils/constants";
+import DisqusComments from "../../components/DisqusComments";
 const Post: NextPage<any> = ({ post, blogContent }) => {
   const {
+    _id,
     body = [],
     title,
     image,
@@ -79,9 +81,9 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
               </p>
             </div>
           </div>
-          <div className="hidden md:flex">
+          <div className="hidden md:flex flex-col ">
             <Link href="/blog">
-              <p className="flex text-[14px] items-center">
+              <p className="flex text-[14px] items-center cursor-pointer">
                 {" "}
                 <ArrowLeft size={14} className="mr-[8px]" /> Back to Blog
               </p>
@@ -110,6 +112,7 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
           </div>
 
           <PortableText value={body} components={ptComponents} />
+
           <div className="md:hidden flex w-full justify-between">
             <Link href="/blog">
               <p className="flex text-[14px] items-center">
@@ -127,6 +130,10 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
           </div>
         </div>
       </section>
+      <section className=" lg:max-w-[1100px]  p-5 m-auto  md:mt-[100px] ">
+        <DisqusComments url={`${origin}${asPath}`} title={title} id={_id} />
+      </section>
+
       <div className="lg:mt-[100px]">
         <BookList title="Latest releases" books={blogContent} />
       </div>
