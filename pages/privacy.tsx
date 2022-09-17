@@ -5,7 +5,7 @@ const Privacy: NextPage = () => {
   return (
     <Layout title="Privacy Policy For Little App">
       <NavigationBar />
-      <section className="flex flex-col px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[120px] mt-20   md:w-full xl:max-w-[800px] m-auto m-1 md:m-auto ">
+      <section className="flex flex-col px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[120px] mt-20   md:w-full xl:max-w-[800px] m-auto mx-1 md:m-auto md:mt-10 ">
         <div className="text-center mb-20">
           <h2 className="font-bold text-[35px] text-center">Privacy Policy</h2>
           <p>Document amended January 10, 2022</p>
