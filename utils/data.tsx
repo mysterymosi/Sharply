@@ -109,7 +109,7 @@ export const schools = [
 export const footerNavItems = [
   {
     name: "Terms",
-    link: "/terms-of-service",
+    link: "/terms-of-use",
   },
   {
     name: "Privacy",
