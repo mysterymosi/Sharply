@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
+import Link from "next/link";
 import { ChevronsRight } from "react-feather";
 import client from "../client";
 import { Button, Layout, NavigationBar } from "../components";
@@ -272,8 +273,9 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
 
         <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-grey">
           Need more answers?&nbsp;
-          <span className="underline cursor-pointer">Click here</span>
-        </p>
+          <span className="underline cursor-pointer">
+            <Link href={'/faqs'}>Click here
+            </Link></span>        </p>
       </section>
     </Layout>
   );

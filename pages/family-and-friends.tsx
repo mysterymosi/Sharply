@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
+import Link from "next/link";
 import client from "../client";
 import { Button, NavigationBar, Accordion, Layout } from "../components";
 import { GiftCardCol } from "../components/GiftcardCol";
@@ -215,7 +216,7 @@ const FamilyAndFriends: NextPage<ContentTypeProps> = ({ contents }) => {
               Frequently Asked Questions
             </h3>
             <p className="text-[18px] mb-[13px] md:flex  hidden">
-              Need more answers? Click here
+              Need more answers? <Link href="/faqs">Click here</Link>
             </p>
           </div>
 

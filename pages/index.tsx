@@ -27,6 +27,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
 
 const Home: NextPage<ContentTypeProps> = ({ contents }) => {
   const backgroundImage = {
@@ -227,7 +228,9 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
 
         <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-grey">
           Need more answers?&nbsp;
-          <span className="underline cursor-pointer">Click here</span>
+          <span className="underline cursor-pointer">
+            <Link href={'/faqs'}>Click here
+            </Link></span>
         </p>
       </section>
     </Layout>

@@ -26,7 +26,7 @@ export const Footer = () => {
           {footerNavItems.map(({ name, link }, i) => (
             <Link key={name} href={link}>
               <p
-                className={`${i !== 2 ? "mr-12" : ""} ${
+                className={`${i !== footerNavItems.length - 1 ? "mr-12" : ""} ${
                   router?.pathname === link ? "font-semibold" : "font-medium"
                 } mb-6 lg:mb-0 cursor-pointer font-[16px]`}>
                 {" "}
