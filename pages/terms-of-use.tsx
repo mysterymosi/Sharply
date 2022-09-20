@@ -5,7 +5,7 @@ const TermsOfUse: NextPage = () => {
   return (
     <Layout title="Terms of Use For Little App">
       <NavigationBar />
-      <section className="flex flex-col px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[120px] mt-20   md:w-full xl:max-w-[800px] m-auto mx-1 md:m-auto md:mt-10 ">
+      <section className="flex flex-col px-[20px] pt-[80px] lg:pt-{200px]  bg-white mb-[104px] lg:mb-[120px] mt-20   md:w-full xl:max-w-[800px] m-auto mx-1 md:m-auto md:mt-10 leading-[2.5] ">
         <div className="text-center mb-20">
           <h2 className="font-bold text-[35px] text-center">Terms of Use</h2>
           <p>Date of last revision January 10, 2022</p>

@@ -49,30 +49,25 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         <NavigationBar />
         <div className="flex justify-between lg:mb-[200px] lg:pb-[150px] flex-col lg:flex-row lg:h-full lg:max-w-[1100px]  mt-16 md:mt-0  m-auto items-center md:w-full">
           <div className=" mt-[50px] md:mb-[50px] md:mt-[120px] px-[25px] md:px-[0] flex flex-col flex-auto justify-center col-4 max-w-[48ch]">
-            <EnterFromLeft>
-              <h1 className="md:text-xxl text-xl leading-[34px] font-semibold ">
-                {getValue(contents, "1", "heading")}
-              </h1>
-              <PhoneInput
-                placeholder="Enter phone number"
-                text={getValue(contents, "1", "buttonText")}
-                className="mt-[40px] "
-                buttonClassName="rgb(251,153,27,0.6)"
-              />
-              <p className="text-base  mt-6">
-                {" "}
-                {getValue(contents, "1", "footNote")}
-              </p>
-            </EnterFromLeft>
-          </div>
-          <FadeInWhenVisible>
-            {" "}
-            <img
-              src={getValue(contents, "1", "image")}
-              className="md:w-[480px] md:h-[434px] mt-9 md:mt-0"
-              alt={getValue(contents, "1", "imageAlt")}
+            <h1 className="md:text-xxl text-xl leading-[34px] font-semibold ">
+              {getValue(contents, "1", "heading")}
+            </h1>
+            <PhoneInput
+              placeholder="Enter phone number"
+              text={getValue(contents, "1", "buttonText")}
+              className="mt-[40px] "
+              buttonClassName="rgb(251,153,27,0.6)"
             />
-          </FadeInWhenVisible>
+            <p className="text-base  mt-6">
+              {" "}
+              {getValue(contents, "1", "footNote")}
+            </p>
+          </div>{" "}
+          <img
+            src={getValue(contents, "1", "image")}
+            className="md:w-[480px] md:h-[434px] mt-9 md:mt-0"
+            alt={getValue(contents, "1", "imageAlt")}
+          />
         </div>
       </section>
       {parentFeatures.map(

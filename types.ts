@@ -68,10 +68,12 @@ export type BookListProps = {
   books: BooksTypes[];
   title: string;
   download?: boolean;
+  loading?: boolean;
 };
 export type BookGridProps = {
   books: BooksTypes[];
   download?: boolean;
+  loading?: boolean;
 };
 export type TwoColLayoutProps = {
   showButton?: boolean;

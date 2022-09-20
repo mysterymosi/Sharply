@@ -18,7 +18,10 @@ export default function Tabs({
         {title}
       </p>
       <Tab.Group>
-        <Tab.List className="flex overflow-x-auto">
+        <Tab.List
+          className="flex overflow-x-auto  rounded-full  lg:rounded-none lg:border-b-[2px] lg:border-0  
+                   lg:border-white3
+                   border-[1.5px]  border-white">
           {blogCategories.map(({ title }, i) => (
             <Tab
               onClick={() => {
@@ -26,14 +29,12 @@ export default function Tabs({
                 setSelectedTab(title);
               }}
               key={i}
-              className={` w-fit focus:outline-none ${
+              className={`lg:pr-[54px] w-fit focus:outline-none ${
                 i > 0 ? "ml-[20px]" : ""
               }  lg:ml-0 `}>
               {({ selected }) => (
                 <div
-                  className={`lg:pr-[54px] rounded-full  lg:rounded-none lg:border-b-[2px] lg:border-0  
-                   lg:border- white3
-                   border-[1.5px]  border-white4 
+                  className={`
                    ${
                      selected
                        ? "bg-primary lg:bg-[rgba(249,242,180,0.1)] lg:text-black text-white "
@@ -59,7 +60,7 @@ export default function Tabs({
         <Tab.Panels className="mt-2 flex h-full lg:min-h-[300px] justify-center items-center overflow-x-auto">
           {blogCategories.map((_, idx) => (
             <Tab.Panel key={idx + 1} className={"mt-[20px]"}>
-              {loading ? <Spinner /> : <BookGrid books={books} />}
+              <BookGrid loading={loading} books={books} />
             </Tab.Panel>
           ))}
         </Tab.Panels>

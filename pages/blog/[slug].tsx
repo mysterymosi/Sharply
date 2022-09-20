@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { PortableText } from "@portabletext/react";
 import client from "../../client";
@@ -105,15 +104,6 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
               className="lg:mt-[75px] mt-[40px] lg:w-[650px]  rounded-[12px] box-shadow"
               alt={"little card hero"}
             />
-            {/* <Image
-              src={image}
-              width={628}
-              alt={title}
-              height={580}
-              priority={true}
-              className="rounded-[80px] "
-              layout="responsive"
-            /> */}
           </div>
 
           <PortableText value={body} components={ptComponents} />
