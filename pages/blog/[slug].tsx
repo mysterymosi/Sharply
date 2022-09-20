@@ -100,7 +100,12 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
 
         <div className="md:w-3/5  blog w-full">
           <div className="mb-[80px] ">
-            <Image
+            <img
+              src={image}
+              className="lg:mt-[75px] mt-[40px] lg:w-[650px]  rounded-[12px] box-shadow"
+              alt={"little card hero"}
+            />
+            {/* <Image
               src={image}
               width={628}
               alt={title}
@@ -108,7 +113,7 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
               priority={true}
               className="rounded-[80px] "
               layout="responsive"
-            />
+            /> */}
           </div>
 
           <PortableText value={body} components={ptComponents} />
