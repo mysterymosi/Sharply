@@ -2,6 +2,7 @@
 import groq from "groq";
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import client from "../client";
 import {
   Button,
@@ -110,6 +111,13 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             </div>
           ))}
         </div>
+        <div className="flex justify-center">
+          <Link href="/little-cards">
+            <Button className="my-2 w-full lg:w-[200px] items-center whitespace-nowrap  justify-center flex">
+              See Pricing and plans
+            </Button>
+          </Link>
+        </div>
       </section>
       <section
         className="flex flex-col  px-[20px] 
@@ -135,40 +143,17 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               Order card
             </p>
 
-            <div className="flex flex-row items-center justify-between mt-[50px] md:mt-[50%] lg:mt-[35%]">
+            <div className="flex flex-row items-center justify-between lg:mt-[20px]  mt-[50px]">
               <img
                 src={"/images/rightLine.svg"}
-                className="md:w-[60px] w-[36px] h-[36px]  md:h-[60px] lg:mt-9 md:mt-0"
+                className="md:w-[60px] w-[36px] h-[36px]  md:h-[60px] lg:mt-2 md:mt-0"
                 alt={"lines"}
               />{" "}
-              <div>
-                <button
-                  className="font-semibold text-base bg-white w-[145px] transition ease-in-out delay-150 md:hover:scale-110 duration-300
-               sm:w-[162px] lg:w-[172px] h-[52px] sm:h-14 rounded-full flex  justify-center items-center">
-                  <Image
-                    src="/images/appleLogo.svg"
-                    width={18}
-                    alt="app store"
-                    priority={true}
-                    height={19}
-                    layout="fixed"
-                  />{" "}
-                  <p className="ml-[15px] text-sm">App Store</p>
-                </button>
-                <button
-                  className="font-semibold text-base bg-white  w-[145px] mt-[22px]  transition ease-in-out delay-150 md:hover:scale-110 duration-300
-               sm:w-[162px] lg:w-[172px] h-[52px] sm:h-14 rounded-full flex items-center justify-center">
-                  <Image
-                    src="/images/playStore.svg"
-                    width={18}
-                    alt="play store"
-                    height={19}
-                    priority={true}
-                    layout="fixed"
-                  />{" "}
-                  <p className="ml-[15px] text-sm">Playstore</p>
-                </button>
-              </div>
+              <img
+                src="/images/littlecard.png"
+                className="md:w-[200px] w-[120px] h-[200px]  md:h-[350px] lg:mt-9 md:mt-0"
+                alt={"lines"}
+              />{" "}
               <img
                 src={"/images/leftLine.svg"}
                 className="md:w-[60px] md:h-[60px] w-[36px] h-[36px]  lg:mt-9 md:mt-0"
@@ -219,6 +204,9 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             {" "}
             Start nurturing your child into a financially responsible adult{" "}
           </h3>
+          <Button className="my-2 mt-12 w-full lg:w-[172px] items-center whitespace-nowrap  justify-center flex">
+            Buy a Little card
+          </Button>
         </div>
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
           <FadeInWhenVisible>
