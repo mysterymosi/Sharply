@@ -2,11 +2,11 @@
 import Slider from "react-slick";
 import { imageSliderSettings, urlFor } from "../utils";
 
-export const ImageSlider = ({ images }: { images: any }) => {
+export const ImageSlider = ({ images,id }: { images: any , id?:string}) => {
   return (
     <Slider {...imageSliderSettings}>
       {images.map((img: string, i: number) => (
-        <div className="flex align-middle justify-center " key={i}>
+        <div className="flex align-middle justify-center" key={i}>
           <img
             key={i}
             src={urlFor(img) as any}

@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
+import Link from "next/link";
 import { useState } from "react";
 import client from "../client";
 import { Button, NavigationBar, Accordion, Layout } from "../components";
@@ -18,7 +20,7 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
     verveCard: false,
     schoolableCard: false,
   });
-  console.log(contents, openCard);
+
   const { verveCard, schoolableCard } = openCard;
   const cardData = [
     {
@@ -167,9 +169,11 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
               <p className="text-[18px] mb-[13px]">
                 {getValue(contents, "4", "footNote")}
               </p>
-              <Button className="my-2 whitespace-nowrap mt-12  mb-[80px] md:mb-0 w-full md:w-fit md:flex">
-                {getValue(contents, "4", "buttonText")}
-              </Button>
+              <a href="/little-in-schools#schools-section">
+                <Button className="my-2 whitespace-nowrap mt-12  mb-[80px] md:mb-0 w-full md:w-fit md:flex">
+                  {getValue(contents, "4", "buttonText")}
+                </Button>
+              </a>
             </EnterFromLeft>
           </div>
           <div className="flex basis-3/6 mt-[20px] md:mt-[0px]  justify-center items-center">

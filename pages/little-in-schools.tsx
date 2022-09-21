@@ -112,14 +112,16 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
               <h4 className="font-semibold text-[24px]  lg:mt-[40px]  ">
                 {title}
               </h4>
-              <p className="text-[16px] mt-[8px]">{description}</p>
+              <p id="schools-section" className="text-[16px] mt-[8px]">
+                {description}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       <FadeInWhenVisible>
-        <div className="lg:max-w-[1300px] m-auto">
+        <div className="lg:max-w-[1300px] m-auto ">
           <ImageSlider images={getValue(schoolContent, "7", "images")} />
         </div>
       </FadeInWhenVisible>
@@ -274,8 +276,9 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-grey">
           Need more answers?&nbsp;
           <span className="underline cursor-pointer">
-            <Link href={'/faqs'}>Click here
-            </Link></span>        </p>
+            <Link href={"/faqs"}>Click here</Link>
+          </span>{" "}
+        </p>
       </section>
     </Layout>
   );
