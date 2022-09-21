@@ -1,19 +1,47 @@
 /* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
+import { useState } from "react";
 import client from "../client";
 import { Button, NavigationBar, Accordion, Layout } from "../components";
 import { CardStepper } from "../components/CardStepper";
 import { ContentTypeProps } from "../types";
 import {
   EnterFromLeft,
-  EnterFromRight,
   FadeInWhenVisible,
   getValue,
   giftLinkFaqs,
 } from "../utils";
 
 const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
+  const [openCard, setOpenCard] = useState({
+    verveCard: false,
+    schoolableCard: false,
+  });
+  console.log(contents, openCard);
+  const { verveCard, schoolableCard } = openCard;
+  const cardData = [
+    {
+      title: getValue(contents, "2", "heading"),
+      description: getValue(contents, "2", "description"),
+      closedImage: getValue(contents, "2", "image"),
+      openImage: getValue(contents, "2", "imageOpen"),
+      alt: getValue(contents, "2", "imageAlt"),
+      openCard: verveCard,
+      setOpenCard: () => setOpenCard({ ...openCard, verveCard: !verveCard }),
+    },
+    {
+      title: getValue(contents, "3", "heading"),
+      description: getValue(contents, "3", "description"),
+
+      closedImage: getValue(contents, "3", "image"),
+      openImage: getValue(contents, "3", "imageOpen"),
+      alt: getValue(contents, "3", "imageAlt"),
+      openCard: schoolableCard,
+      setOpenCard: () =>
+        setOpenCard({ ...openCard, schoolableCard: !schoolableCard }),
+    },
+  ];
   return (
     <Layout title="Little Cards" showDownloadCard>
       <section
@@ -47,72 +75,81 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
           </p>
         </FadeInWhenVisible>
       </div>
-      <section className="lg:max-w-[1100px] md:w-full  m-auto  h-full ">
-        <div
-          className={`
-        py-[48px]
-        gap-[40px]
-        mx-[12px] md:mx-[0]
-       flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow lg:pt-[80px] rounded-[24px] z-30
-        lg:p-[100px]  
-      lg:mb-[100px] mb-[12px]`}>
-          <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col order-last md:order-1  lg:mt-0 ">
-            <EnterFromLeft>
-              <h3 className="font-semibold text-[24px] lg:text-[32px]">
-                {" "}
-                {getValue(contents, "2", "heading")}
-              </h3>
-              <p className="text-[18px] mb-[13px]">
-                {getValue(contents, "2", "description")}
-              </p>
-              <Button className="my-2 whitespace-nowrap mt-12 w-fit hidden md:flex  sm:w-fill ">
-                Order Card
-              </Button>
-            </EnterFromLeft>
-          </div>
-          <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
-            <FadeInWhenVisible>
-              <img src={getValue(contents, "2", "image")} alt={"family"} />
-            </FadeInWhenVisible>
-          </div>
-          <Button className="my-2 whitespace-nowrap mt-12 w-fit md:hidden flex  sm:w-fill ">
-            {getValue(contents, "2", "buttonText")}
-          </Button>
-        </div>
+      <section className="xl:max-w-[1100px] md:p-10  md:w-full  m-auto  xl:h-[950px] flex md:flex-row flex-col justify-between ">
+        {cardData.map(
+          (
+            {
+              title,
+              closedImage,
+              description,
+              openCard,
+              openImage,
+              alt,
+              setOpenCard,
+            },
+            i
+          ) => (
+            <div
+              key={i}
+              className={`
+      py-[48px]  md:w-[48%]
+      mx-[12px] md:mx-[0]
+     flex flex-col items-center shadow-inner md:px-0 px-[25px] box-shadow lg:pt-[80px] rounded-[24px] z-30
+      ${openCard ? "bg-white" : "bg-[#F4F4F4]"} 
+    lg:mb-[100px] mb-[12px]`}>
+              <div className="max-w-[364px] m-auto text-center">
+                <div className=" flex justify-center  md:px-0 flex-col lg:mt-0 mb-[52px] ">
+                  <EnterFromLeft>
+                    <h3 className="font-semibold text-[24px] mr-[5px] lg:text-[28px]">
+                      {title}
+                    </h3>
+                  </EnterFromLeft>
+                </div>
+                <div className="flex flex-col  md:mt-[0px] justify-center items-center ">
+                  <FadeInWhenVisible>
+                    {openCard ? (
+                      <div className="h-[442px] ">
+                        <img
+                          src={openImage}
+                          alt={alt}
+                          className="mt-[50px] w-[75%] m-auto"
+                        />
+                        <p className=" md:w-[90%] m-auto lg:w-[364px] mt-[64px] text-[18px] leading-[31px]">
+                          {description}
+                        </p>
+                      </div>
+                    ) : (
+                      <img
+                        src={closedImage}
+                        alt={alt}
+                        className="h-[442px] w-[276px]"
+                      />
+                    )}
+                  </FadeInWhenVisible>
+                </div>
+
+                {openCard ? (
+                  <div
+                    className=" flex justify-center mr-[20px]
+                  ">
+                    <Button className="my-2 whitespace-nowrap  w-fit  sm:w-fill ">
+                      Order Card
+                    </Button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={setOpenCard}
+                    className={`min-w-[148px] cursor-pointer bg-white  py-2.5 rounded-full px-[21px] h-[64px] mt-[50px] text-black font-semibold
+                  transition ease-in-out delay-150 hover:scale-110 duration-300 justify-center items-center  `}>
+                    Show me how it works
+                  </button>
+                )}
+              </div>
+            </div>
+          )
+        )}
       </section>
-      <section className="lg:max-w-[1100px] md:w-full  m-auto  h-full ">
-        <div
-          className={`
-        gap-[40px]  py-[48px]
-        mx-[12px] md:mx-[0]
-       flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner md:px-0 px-[25px] box-shadow  
-       rounded-[24px] z-30 lg:p-[100px]  
-       lg:mb-[100px] mb-[12px]`}>
-          <Button className="my-2 whitespace-nowrap mt-12 w-fit md:hidden flex  sm:w-fill ">
-            {getValue(contents, "3", "buttonText")}
-          </Button>
-          <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center">
-            <FadeInWhenVisible>
-              <img src={"/images/verve-green.svg"} alt={"green verve card"} />
-            </FadeInWhenVisible>
-          </div>
-          <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col lg:mt-0 ">
-            <EnterFromRight>
-              <h3 className="font-semibold text-[24px] lg:text-[32px]">
-                {" "}
-                {getValue(contents, "3", "heading")}
-              </h3>
-              <p className="text-[18px] mb-[13px]">
-                {getValue(contents, "3", "description")}
-              </p>
-              <Button className="my-2 whitespace-nowrap mt-12 w-fit  hidden md:flex  sm:w-fill ">
-                {getValue(contents, "3", "buttonText")}
-              </Button>
-            </EnterFromRight>
-          </div>
-        </div>
-      </section>
-      <section className="lg:max-w-[1100px] md:w-full  m-auto  h-full ">
+      <section className="lg:max-w-[1100px] md:w-full  p-10 md:m-auto  h-full ">
         <div
           className={`
         gap-[40px]
@@ -179,8 +216,9 @@ export async function getStaticProps() {
     buttonText,
     footNote,
     imageAlt,
-   images,
-    "image" :image.asset->url
+    images,
+   "imageOpen":imageOpen.asset->url,
+   "image":image.asset->url,
   }
 
    `);
