@@ -132,7 +132,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             </FadeInWhenVisible>
 
             <p className="md:mt-[21px] font-semibold md:text-[32px] ">
-              Download App
+              Order card
             </p>
 
             <div className="flex flex-row items-center justify-between mt-[50px] md:mt-[50%] lg:mt-[35%]">
@@ -185,7 +185,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               </p>{" "}
             </FadeInWhenVisible>
             <p className="md:mt-[21px] font-semibold md:text-[32px] ">
-              Create account
+              Fund wallet
             </p>
             <FadeInWhenVisible>
               {" "}
@@ -197,8 +197,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             </FadeInWhenVisible>
             <img
               alt="grid of parents avatars"
-              className="w-fit mt-[65px] md:mt-[47px] flex justify-center items-center mx-auto"
-              src="/images/create-account-half.svg"
+              className="w-fit mt-[65px] md:mt-[47px] md:h-[330px] flex justify-center items-center mx-auto"
+              src="/images/fund-wallet-half.png"
             />
           </div>
         </div>
@@ -217,7 +217,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           </FadeInWhenVisible>
           <h3 className="font-semibold text-[24px] lg:text-[38px]">
             {" "}
-            Start nurturing your child into a financially responsible adult
+            Start nurturing your child into a financially responsible adult{" "}
           </h3>
         </div>
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
