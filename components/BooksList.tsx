@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { BookGridProps, BookListProps } from "../types";
 
-/* eslint-disable @next/next/no-img-element */
-
 export const BookGrid = ({ books, download, loading }: BookGridProps) => {
   return (
     <div>

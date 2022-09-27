@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { StepperListProps } from "../types";
 import { Stepper } from "./Stepper";
 

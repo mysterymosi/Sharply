@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import groq from "groq";
 import type { NextPage } from "next";
 import { ChevronsRight } from "react-feather";

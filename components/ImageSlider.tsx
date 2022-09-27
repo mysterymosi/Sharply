@@ -1,18 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import Slider from "react-slick";
-import { imageSliderSettings, urlFor } from "../utils";
+import { imageSliderSettings, schoolNames, urlFor } from "../utils";
 
-export const ImageSlider = ({ images, id }: { images: any; id?: string }) => {
-  const schools = [
-    "Queens College, Yaba",
-    "St. Finbarr’s College, Akoka",
-    "Ladela Schools, Abuja",
-    " Baptist Boys’ Academy, Obanikoro",
-    "Igbobi College, Yaba",
-    "Reagan Memorial Baptist Girls, Yaba",
-    "Federal Science and Technical College, Yaba",
-    "Methodist Boys’ High School, Victoria Island",
-  ];
+export const ImageSlider = ({ images }: { images: any }) => {
   return (
     <Slider {...imageSliderSettings}>
       {images.map((img: string, i: number) => (
@@ -23,7 +12,7 @@ export const ImageSlider = ({ images, id }: { images: any; id?: string }) => {
             className="md:h-[130px] m-auto "
             alt={img}
           />
-          <p className="mt-3  text-grey2 text-center">{schools[i]}</p>
+          <p className="mt-3  text-grey2 text-center">{schoolNames[i]}</p>
         </div>
       ))}
     </Slider>

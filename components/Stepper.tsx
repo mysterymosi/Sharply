@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { sliderSettings } from "../utils";
 import Slider from "react-slick";

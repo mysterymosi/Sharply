@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ChevronsRight } from "react-feather";
 import { TwoColLayoutProps } from "../types";
 import { FadeInWhenVisible } from "../utils";

@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 export const Loader: React.FC = () => {
   return (
     <div className="w-full h-screen flex justify-center items-center">

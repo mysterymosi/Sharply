@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
 import { CreditCard, Send, Shield, Zap } from "react-feather";
@@ -330,6 +329,16 @@ export const schoolBenefits = [
   "No middle man between students pocket money and their spending",
   "Zero complains about students misplacing pocket money",
   "Introducing financial responsibility among students",
+];
+export const schoolNames = [
+  "Queens College, Yaba",
+  "St. Finbarr’sCollege, Akoka",
+  "Ladela Schools, Abuja",
+  " Baptist Boys’ Academy, Obanikoro",
+  "Igbobi College, Yaba",
+  "Reagan Memorial Baptist Girls, Yaba",
+  "Federal Science and Technical College, Yaba",
+  "Methodist Boys’ High School, Victoria Island",
 ];
 
 export const navItems = [

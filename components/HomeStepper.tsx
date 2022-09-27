@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { ChevronsRight } from "react-feather";
 import { urlFor } from "../utils";
