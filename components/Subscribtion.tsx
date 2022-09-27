@@ -14,8 +14,7 @@ lg:mb-[100px] mb-[12px]`}>
         Want updates straight to your inbox?
       </h3>
       <p className="text-[18px]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien lobortis
-        pulvinar amet, tristique cursus elit. Mi tortor dui aenean sit sed in.{" "}
+        Subscribe to our newsletter for tips, guides and news
       </p>
     </div>{" "}
     <div className="flex flex-col mt-[20px] md:w-[350px] md:mt-[0px] justify-center items-center w-full lg:w-fill">

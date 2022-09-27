@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { NavigationBar, Accordion, Layout } from "../components";
-import { allFaqs } from "../utils";
+import { allFaqs, customerSupportEmail, whatsappNumber } from "../utils";
 
 const FAQS: NextPage = () => {
   return (
@@ -26,7 +26,14 @@ const FAQS: NextPage = () => {
 
         <div className="mb-[40px] text-grey justify-center m-auto lg:max-w-[622px] w-full">
           <p className="font-semibold">Got more questions?</p>
-          <p>You can call us on 0802xxxxxxx or email support@etc.com</p>
+          <p>
+            You can call us on{" "}
+            <a href={`tel:${whatsappNumber}`}>{whatsappNumber}</a> or email
+            <a href={`mailto:${customerSupportEmail}`}>
+              {" "}
+              {customerSupportEmail}
+            </a>
+          </p>
         </div>
       </section>
     </Layout>
