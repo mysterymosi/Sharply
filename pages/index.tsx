@@ -73,7 +73,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         style={backgroundImage}
         className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}
       >
-        <NavigationBar buttonText="Order a card" />
+        <NavigationBar buttonText="Order a Card" />
         <div className="px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
           <EnterFromLeft>
             <h1 className="md:text-xxl  max-w-[20ch] text-xl   xs:text-[30px] leading-[40px] font-semibold ">
