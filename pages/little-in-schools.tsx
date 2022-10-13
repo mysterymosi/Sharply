@@ -304,13 +304,19 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   </li>
                 ))}
               </ul>
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex bg-[#FB991B]">
+              <Button
+                onClick={() => router.push("/book-a-call")}
+                className="my-2 whitespace-nowrap mt-12 hidden md:flex bg-[#FB991B]"
+              >
                 {getValue(contents, "8", "buttonText")}
               </Button>
             </EnterFromRight>
           </div>
 
-          <Button className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex bg-[#FB991B]">
+          <Button
+            onClick={() => router.push("/book-a-call")}
+            className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex bg-[#FB991B]"
+          >
             {getValue(contents, "8", "buttonText")}
           </Button>
         </div>

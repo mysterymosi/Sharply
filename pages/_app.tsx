@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Loader } from "../components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import posthog from "posthog-js";
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -25,6 +26,23 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off("routeChangeError", handleStop);
     };
   }, [router]);
+
+  useEffect(() => {
+    // Init PostHog
+    if (!window.location.href.includes("127.0.0.1")) {
+      posthog.init("phc_EV19U6zkY2rwnNU4qcBKkstbguorKyDZ2liyZjVZKwY", {
+        api_host: "https://app.posthog.com",
+      });
+    }
+
+    // Track page views
+    const handleRouteChange = () => posthog.capture("$pageview");
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, []);
 
   if (loading) return <Loader />;
   return (
