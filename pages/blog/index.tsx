@@ -44,14 +44,15 @@ const Blog: NextPage<any> = ({ blogContent, catgeoryContent }) => {
     <div className="bg-faintYellow">
       <Layout title="Blog">
         <section>
-          <NavigationBar />
+          <NavigationBar buttonText="Order a card" />
           <div className="px-[25px] pt-[96px] lg:pt-[150px] flex lg:flex-row flex-col md:h-full  justify-center text-black ">
             <div className="flex justify-center flex-col  items-center">
               <p className=""> {blogContent[0]?.category?.title}</p>
               <Link
                 href={`/blog/${blogContent[0]?.slug?.current}`}
                 passHref
-                as={`/blog/${blogContent[0]?.slug?.current}`}>
+                as={`/blog/${blogContent[0]?.slug?.current}`}
+              >
                 <h1 className="  hover:underline md:text-[40px] cursor-pointer max-w-[20ch] text-[28px] leading-[34px ]   lg:leading-[50px] font-semibold text-center mb-[16px] ">
                   {blogContent[0]?.title}
                 </h1>

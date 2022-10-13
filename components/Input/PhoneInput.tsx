@@ -10,10 +10,12 @@ export const PhoneInput = ({
   onChange,
   className,
   buttonClassName,
+  onClick,
 }: PhoneInputProps) => (
   <div className="w-full">
     <div
-      className={`${className} h-[64px] flex shadow-sm  bg-white rounded-full pl-[24px] pr-[8px]`}>
+      className={`${className} h-[64px] flex shadow-sm  bg-white rounded-full pl-[24px] pr-[8px]`}
+    >
       <input
         type={type}
         name={name}
@@ -23,14 +25,18 @@ export const PhoneInput = ({
         placeholder={placeholder}
       />
       <Button
+        onClick={onClick}
         style={{ backgroundColor: buttonClassName }}
-        className={`my-2 lg:h-[49px]  w-[138px] whitespace-nowrap hidden md:flex items-center justify-center `}>
+        className={`my-2 lg:h-[49px]  w-[138px] whitespace-nowrap hidden md:flex items-center justify-center `}
+      >
         {text}
       </Button>
     </div>
     <Button
+      onClick={onClick}
       className={`my-3 h-[56px]  items-center whitespace-nowrap md:hidden flex justify-center w-full ${buttonClassName}`}
-      style={{ backgroundColor: buttonClassName }}>
+      style={{ backgroundColor: buttonClassName }}
+    >
       {text}
     </Button>
   </div>

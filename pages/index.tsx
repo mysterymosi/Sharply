@@ -22,19 +22,32 @@ import client from "../client";
 import groq from "groq";
 import { ContentTypeProps } from "../types";
 import { Reviews } from "../components/Reviews";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Home: NextPage<ContentTypeProps> = ({ contents }) => {
+  const router = useRouter();
   const backgroundImage = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)), url(${getValue(
       contents,
       "1",
       "image"
     )})`,
+  };
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const addPhoneNumber = (e: any) => {
+    setPhoneNumber(e.target.value);
+  };
+  const orderCard = () => {
+    if (!phoneNumber) {
+      return;
+    }
+    localStorage.setItem("phoneNumber", phoneNumber);
+    router.push("/order-a-card");
   };
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
@@ -58,8 +71,9 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
     <Layout title="Home" showDownloadCard>
       <section
         style={backgroundImage}
-        className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}>
-        <NavigationBar />
+        className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}
+      >
+        <NavigationBar buttonText="Order a card" />
         <div className="px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
           <EnterFromLeft>
             <h1 className="md:text-xxl  max-w-[20ch] text-xl   xs:text-[30px] leading-[40px] font-semibold ">
@@ -70,11 +84,13 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 {getValue(contents, "1", "description")}{" "}
               </p>
               <PhoneInput
+                onChange={(e) => addPhoneNumber(e)}
                 type={"phone"}
                 placeholder="Enter your phone number"
                 text={getValue(contents, "1", "buttonText")}
                 className="mt-[40px]"
                 buttonClassName="rgb(251,153,27,0.6)"
+                onClick={orderCard}
               />
               <p className="text-base md:text-sm mt-6">
                 {getValue(contents, "1", "footNote")}{" "}
@@ -125,7 +141,8 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             {moneyItemList.map(({ icon, title, description }) => (
               <div
                 key={title}
-                className=" bg-white flex flex-col justify-center lg:h-[335px] h-[300px] md:h-[400px] rounded-[24px] lg:p-[48px] p-[24px] ">
+                className=" bg-white flex flex-col justify-center lg:h-[335px] h-[300px] md:h-[400px] rounded-[24px] lg:p-[48px] p-[24px] "
+              >
                 <FadeInWhenVisible>
                   <div className="w-[80px] md:w-[70px] h-[56px] md:h-[64px] rounded-full bg-[#F0F0F0] flex items-center justify-center mb-[32px]">
                     <Image

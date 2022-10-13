@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode } from "react";
 
 export type ClassNameProps = {
   className?: string;
@@ -15,7 +15,8 @@ export type ButtonTypes = {
 };
 export type PhoneInputProps = {
   className?: string;
-  onChange?: () => void;
+  onClick?: () => void;
+  onChange?: (e: any) => void;
   value?: string;
   placeholder?: string;
   disabled?: boolean;
@@ -110,3 +111,12 @@ export type StepperListProps = {
   }[];
   page?: string;
 };
+
+
+export type PhoneNumberInputProps = {
+  country?: any;
+  placeholder?: string;
+  value: any;
+  onChange: Dispatch<any>;
+  className?: string;
+}

@@ -1,11 +1,26 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { ClassNameProps } from "../types";
-import { FadeInWhenVisible } from "../utils";
+import { PhoneInput } from "./Input/PhoneInput";
 
 export const DownloadCard = ({ className }: ClassNameProps) => {
+  const router = useRouter();
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const addPhoneNumber = (e: any) => {
+    setPhoneNumber(e.target.value);
+  };
+  const orderCard = () => {
+    if (!phoneNumber) {
+      return;
+    }
+    localStorage.setItem("phoneNumber", phoneNumber);
+    router.push("/order-a-card");
+  };
   return (
     <div
-      className={`${className} flex flex-col bg-blue h-[600px]  px-[30px] sm:px-0 lg:max-w-[1000px] md:w-full xl:max-w-[1350px]  sm:h-[750px] lg:rounded-[48px]`}>
+      className={`${className} flex flex-col bg-blue h-[600px]  px-[30px] sm:px-0 lg:max-w-[1000px] md:w-full xl:max-w-[1350px]  sm:h-[750px] lg:rounded-[48px]`}
+    >
       <Image
         src="/images/downloadCard.svg"
         width={241.82}
@@ -19,6 +34,17 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
         Good money habits for your child starts here. Empower your child to
         financial responsibility.{" "}
       </p>
+      <div className="flex justify-center">
+        <PhoneInput
+          onChange={(e) => addPhoneNumber(e)}
+          type={"phone"}
+          placeholder="Enter your phone number"
+          text="Order a card"
+          className="mt-[40px] w-[350px] sm:w-[521px]"
+          buttonClassName="#5BAB0A"
+          onClick={orderCard}
+        />
+      </div>
     </div>
   );
 };

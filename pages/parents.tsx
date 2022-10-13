@@ -45,8 +45,9 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
   return (
     <Layout title="Parents">
       <section
-        className={`bg-[#CCF4A5] lg:h-[900px]  xl:px-[0] lg:px-[30px]  h-[850px] md:h-[1000px]  `}>
-        <NavigationBar />
+        className={`bg-[#CCF4A5] lg:h-[900px]  xl:px-[0] lg:px-[30px]  h-[850px] md:h-[1000px]  `}
+      >
+        <NavigationBar buttonText="Order a card" />
         <div className="flex justify-between lg:mb-[200px] lg:pb-[150px] flex-col lg:flex-row lg:h-full lg:max-w-[1100px]  mt-16 md:mt-0  m-auto items-center md:w-full">
           <div className=" mt-[50px] md:mb-[50px] md:mt-[120px] px-[25px] md:px-[0] flex flex-col flex-auto justify-center col-4 max-w-[48ch]">
             <h1 className="md:text-xxl text-xl leading-[34px] font-semibold ">
@@ -90,7 +91,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           {featuresParentsLove.map(({ title, description, color, image }) => (
             <div
               key={title}
-              className={` md:bg-white box-shadow  basis-1/3 flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}>
+              className={` md:bg-white box-shadow  basis-1/3 flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}
+            >
               <div
                 className={` ${
                   color === "#5BAB0A"
@@ -99,7 +101,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                     ? "bg-[#FF991B]"
                     : "bg-[#35AFF7]"
                 }
-                  flex   h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
+                  flex   h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}
+              >
                 <FadeInWhenVisible> {image}</FadeInWhenVisible>
               </div>
 
@@ -121,7 +124,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
       <section
         className="flex flex-col  px-[20px] 
       lg:mb-[100px] md:w-full xl:max-w-[1000px] m-auto justify-end flex-auto  
-       md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
+       md:px-5 pt-[80px] lg:pt-{200px]  bg-white"
+      >
         <FadeInWhenVisible>
           {" "}
           <h3 className="font-semibold  md:text-[40px] text-[24px] mb-[53px]  text-center">
@@ -191,7 +195,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         className={`
     gap-[30px]
        flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner box-shadow py-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
-       lg:max-w-[1250px] lg:mb-[100px] md:w-full  m-auto  px-[25px] h-full  bg-white`}>
+       lg:max-w-[1250px] lg:mb-[100px] md:w-full  m-auto  px-[25px] h-full  bg-white`}
+      >
         <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
           <FadeInWhenVisible>
             {" "}

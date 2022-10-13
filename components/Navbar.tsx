@@ -27,6 +27,15 @@ export const NavigationBar = ({
       setBackgroundFull(false);
     }
   };
+  const goToForm = () => {
+    console.log("buttonText: ", buttonText);
+    if (buttonText?.toLowerCase() === "order a card") {
+      router.push("/order-a-card");
+    }
+    if (buttonText?.toLowerCase() === "refer a school and earn") {
+      router.push("/refer-a-school");
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", changeNavbarColor);
   }, []);
@@ -36,14 +45,16 @@ export const NavigationBar = ({
       ref={ref}
       className={`  ${
         backgroundFull ? "xl:bg-white box-shadow lg:py-2 lg:pt-2" : "lg:pt-6"
-      } z-50 top-0 w-full fixed align-center transition-all left-0 items-center lg:px-8  justify-between `}>
+      } z-50 top-0 w-full fixed align-center transition-all left-0 items-center lg:px-8  justify-between `}
+    >
       <div
         className={`${
           isInView ? "opacity-100 " : "opacity-0 translate-y-[-200px]"
         } duration-[0.5s]
         ${backgroundFull ? "" : " box-shadow"} 
         
-         transition-all xl:w-full xl:m-auto xl:max-w-[1100px] pr-[8px] pl-[24px] xl:mw-[1px] bg-white lg:rounded-full `}>
+         transition-all xl:w-full xl:m-auto xl:max-w-[1100px] pr-[8px] pl-[24px] xl:mw-[1px] bg-white lg:rounded-full `}
+      >
         <div className="flex justify-between items-center md:justify-start lg:h-[64px] h-[76px]">
           <div className="flex mr-6 lg:mr-10 cursor-pointer">
             <Link href="/" passHref>
@@ -70,7 +81,8 @@ export const NavigationBar = ({
                         router.pathname.includes(link)
                           ? "font-semibold"
                           : "font-medium"
-                      }`}>
+                      }`}
+                    >
                       {name}
                     </p>
                   </Link>
@@ -79,9 +91,10 @@ export const NavigationBar = ({
           </div>
           <div className="hidden md:flex items-center  justify-end  md:flex-1 lg:w-0 ml-6 lg:ml-0">
             <Button
-              onClick={() => setIsOpen(true)}
+              onClick={goToForm}
               style={{ backgroundColor: buttonClassName }}
-              className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100">
+              className="my-2 lg:h-[48px] whitespace-nowrap px-[29px] hover:scale-100"
+            >
               {buttonText ?? " Order a Card"}
             </Button>
           </div>
@@ -96,16 +109,18 @@ export const NavigationBar = ({
                   <p
                     className={`my-5 text-sm lg:text-base cursor-pointer ${
                       router?.pathname === link ? "font-bold" : "font-medium"
-                    }`}>
+                    }`}
+                  >
                     {name}
                   </p>
                 </Link>
               ))}
 
               <Button
-                onClick={() => setIsOpen(true)}
+                onClick={goToForm}
                 style={{ backgroundColor: buttonClassName }}
-                className="my-2 whitespace-nowrap">
+                className="my-2 whitespace-nowrap"
+              >
                 {buttonText ?? " Order a Card"}
               </Button>
             </div>

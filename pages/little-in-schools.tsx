@@ -1,6 +1,8 @@
 import groq from "groq";
 import type { NextPage } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { ChevronsRight } from "react-feather";
 import client from "../client";
 import { Button, Layout, NavigationBar } from "../components";
@@ -18,10 +20,23 @@ import {
 } from "../utils";
 
 const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
+  const router = useRouter();
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const addPhoneNumber = (e: any) => {
+    setPhoneNumber(e.target.value);
+  };
+  const orderCard = () => {
+    if (!phoneNumber) {
+      return;
+    }
+    localStorage.setItem("phoneNumber", phoneNumber);
+    router.push("/book-a-call");
+  };
   return (
     <Layout title="Little in Schools" showDownloadCard>
       <section
-        className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}>
+        className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}
+      >
         <NavigationBar
           buttonText={"Refer a school and earn"}
           buttonClassName="rgb(251,153,27,0.6)"
@@ -37,10 +52,12 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   {getValue(contents, "1", "description")}
                 </p>
                 <PhoneInput
+                  onChange={(e) => addPhoneNumber(e)}
                   placeholder="Enter your phone number"
                   text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
                   type={"phone"}
+                  onClick={orderCard}
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
                   {getValue(contents, "1", "footNote")}
@@ -95,7 +112,8 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           {liitleSchoolFeatures.map(({ title, description, color, image }) => (
             <div
               key={title}
-              className={` md:bg-white box-shadow  flex flex-col justify-start basis-2/6 min-h-[350px] rounded-[24px] px-[24px] py-[40px] `}>
+              className={` md:bg-white box-shadow  flex flex-col justify-start basis-2/6 min-h-[350px] rounded-[24px] px-[24px] py-[40px] `}
+            >
               <div
                 className={` ${
                   color === "#5BAB0A"
@@ -104,7 +122,8 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                     ? "bg-[#FF991B]"
                     : "bg-[#35AFF7]"
                 }
-                  flex h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
+                  flex h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}
+              >
                 <FadeInWhenVisible> {image}</FadeInWhenVisible>
               </div>
 
@@ -125,10 +144,42 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         </div>
       </FadeInWhenVisible>
 
+      {/* refer and earn */}
+      <section className="flex flex-col  px-[20px]  lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto   md:px-5 pt-[90px] md:pt-[180px] lg:pt-{200px]  bg-white">
+        <div
+          className={` md:bg-white box-shadow items-center flex flex-col md:flex-row justify-start basis-2/6 min-h-[350px] rounded-[24px] px-[17px] sm:px-[64px] py-[17px] sm:py-[70px] `}
+        >
+          <div className="mb-[32px] md:mb-[0]">
+            <p className="font-semibold">Refer and earn</p>
+            <p className="font-semibold text-[20px] md:text-[32px] leading-[132%] mt-[20px]">
+              Get a school to adopt Little and earn up to{" "}
+              <span className="text-green">NGN200,000</span> in referal fees
+            </p>
+            <Button
+              onClick={() => router.push("/refer-a-school")}
+              className="hover:scale-100 mt-[20px] px-[43px] hidden sm:hidden md:block"
+            >
+              Refer a school
+            </Button>
+          </div>
+          <img
+            src="/images/refer-and-earn.png"
+            alt="Refer and earn"
+            className="w-full md:w-[520px] "
+          />
+          <Button
+            onClick={() => router.push("/refer-a-school")}
+            className="hover:scale-100 mt-[32px] px-[43px] block md:hidden"
+          >
+            Refer a school and earn
+          </Button>
+        </div>
+      </section>
       <section
         className="flex flex-col  px-[20px] md:px-0 md:x-0 md:mt-[80px] mt-0
       lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto  
-   pt-[80px] lg:pt-{200px]  mb-[16px] bg-white">
+   pt-[80px] lg:pt-{200px]  mb-[16px] bg-white"
+      >
         <FadeInWhenVisible>
           <h3 className="font-semibold  md:text-[40px] text-[20px] mb-[48px]  text-center">
             How it works in Little
@@ -186,7 +237,8 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
        flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner box-shadow pt-[63px] 
        rounded-[24px] z-30 lg:pl-[100px] 
         mb-[20px]
-       lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}>
+       lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}
+      >
         <Button className="my-2 whitespace-nowrap  md:hidden  mt-12 w-full text-center justify-center flex mb-[48px]">
           {getValue(contents, "7", "buttonText")}
         </Button>
