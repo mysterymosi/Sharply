@@ -34,12 +34,14 @@ export const NavigationBar = ({
       router.push("/order-a-card");
       posthog.capture("order_a_card_button_clicked", {
         location: "Navbar on home page",
+        action: "goes to order a card form",
       });
     }
     if (buttonText?.toLowerCase() === "refer a school and earn") {
       router.push("/refer-a-school");
       posthog.capture("refer_a_school_button_clicked", {
         location: "Navbar on little-in-schools page",
+        action: "goes to refer a card form",
       });
     }
   };

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { ClassNameProps } from "../types";
 import { PhoneInput } from "./Input/PhoneInput";
+import posthog from "posthog-js";
 
 export const DownloadCard = ({ className }: ClassNameProps) => {
   const router = useRouter();
@@ -16,6 +17,10 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
     }
     localStorage.setItem("phoneNumber", phoneNumber);
     router.push("/order-a-card");
+    posthog.capture("order_a_card_clicked", {
+      location: "Order a card (Good money habits for your child starts here)",
+      action: "goes to order a card form",
+    });
   };
   return (
     <div

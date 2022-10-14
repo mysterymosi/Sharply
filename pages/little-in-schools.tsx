@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { ChevronsRight } from "react-feather";
 import client from "../client";
 import { Button, Layout, NavigationBar } from "../components";
 import { Accordion } from "../components/Accordion";
@@ -18,6 +17,7 @@ import {
   liitleSchoolFeatures,
   schoolBenefits,
 } from "../utils";
+import posthog from "posthog-js";
 
 const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
   const router = useRouter();
@@ -31,6 +31,14 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
     }
     localStorage.setItem("phoneNumber", phoneNumber);
     router.push("/book-a-call");
+    posthog.capture("book_a_call_button_clicked", {
+      location: `Little in schools page hero (${getValue(
+        contents,
+        "1",
+        "heading"
+      )})`,
+      action: "goes to book a call form",
+    });
   };
   return (
     <Layout title="Little in Schools" showDownloadCard>
@@ -156,7 +164,14 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
               <span className="text-green">NGN200,000</span> in referal fees
             </p>
             <Button
-              onClick={() => router.push("/refer-a-school")}
+              onClick={() => {
+                router.push("/refer-a-school");
+                posthog.capture("refer_a_school_button_clicked", {
+                  location:
+                    "Little in schools page (Get a school to adopt little)",
+                  action: "goes to refer a school form",
+                });
+              }}
               className="hover:scale-100 mt-[20px] px-[43px] hidden sm:hidden md:block"
             >
               Refer a school
@@ -168,7 +183,14 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
             className="w-full md:w-[520px] "
           />
           <Button
-            onClick={() => router.push("/refer-a-school")}
+            onClick={() => {
+              router.push("/refer-a-school");
+              posthog.capture("refer_a_school_button_clicked", {
+                location:
+                  "Little in schools page (Get a school to adopt little)",
+                action: "goes to refer a school form",
+              });
+            }}
             className="hover:scale-100 mt-[32px] px-[43px] block md:hidden"
           >
             Refer a school and earn
@@ -301,7 +323,17 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                 ))}
               </ul>
               <Button
-                onClick={() => router.push("/book-a-call")}
+                onClick={() => {
+                  router.push("/book-a-call");
+                  posthog.capture("book_a_call_button_clicked", {
+                    location: `Little in schools (${getValue(
+                      contents,
+                      "8",
+                      "heading"
+                    )})`,
+                    action: "goes to book a call form",
+                  });
+                }}
                 className="my-2 whitespace-nowrap mt-12 hidden md:flex bg-[#FB991B]"
               >
                 {getValue(contents, "8", "buttonText")}
@@ -310,7 +342,17 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           </div>
 
           <Button
-            onClick={() => router.push("/book-a-call")}
+            onClick={() => {
+              router.push("/book-a-call");
+              posthog.capture("book_a_call_button_clicked", {
+                location: `Little in schools (${getValue(
+                  contents,
+                  "8",
+                  "heading"
+                )})`,
+                action: "goes to book a call form",
+              });
+            }}
             className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex bg-[#FB991B]"
           >
             {getValue(contents, "8", "buttonText")}

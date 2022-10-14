@@ -92,7 +92,13 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
           </EnterFromLeft>
 
           <img
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              setIsOpen(true);
+              posthug.capture("play_icon_clicked", {
+                location: "Home page (hero)",
+                action: "opens modal to play ad",
+              });
+            }}
             className="play-image w-full h-full w-[90px] mt-[50px] md:mt-[0] cursor-pointer"
             src="/images/play.svg"
             alt="play"
@@ -109,7 +115,13 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
               {getValue(contents, "2", "description")}
             </p>
             <div
-              onClick={() => setIsOpen(true)}
+              onClick={() => {
+                setIsOpen(true);
+                posthug.capture("play_icon_clicked", {
+                  location: `Home page (${getValue(contents, "2", "heading")})`,
+                  action: "opens modal to play ad",
+                });
+              }}
               className="flex mt-[20px] items-center"
             >
               <div className="box-shadow w-[40px] flex inset-1/2 justify-center items-center h-[40px] bg-white cursor-pointer rounded-full">
@@ -122,9 +134,9 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             <Button
               onClick={() => {
                 router.push("/order-a-card");
-                posthug.capture("order_a_card_clicked", {
-                  location:
-                    "Get started (Become Intentional about your child’s financial future)",
+                posthug.capture("get_started_clicked", {
+                  location: `Home page (${getValue(contents, "2", "heading")})`,
+                  action: "goes to order a card form",
                 });
               }}
               className="my-2 whitespace-nowrap mt-7 hidden w-full md:flex md:w-[172px]"
@@ -181,7 +193,16 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
               }
             />
           </div>
-          <Button className="my-2 w-full lg:w-[172px] items-center whitespace-nowrap mt-12 md:hidden justify-center flex">
+          <Button
+            onClick={() => {
+              router.push("/order-a-card");
+              posthug.capture("get_started_clicked", {
+                location: `Home page (${getValue(contents, "2", "heading")})`,
+                action: "goes to order a card form",
+              });
+            }}
+            className="my-2 w-full lg:w-[172px] items-center whitespace-nowrap mt-12 md:hidden justify-center flex"
+          >
             {getValue(contents, "2", "buttonText")}
           </Button>
         </div>{" "}
@@ -229,7 +250,13 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
               {getValue(contents, "4", "description")}
             </p>
             <Button
-              onClick={() => router.push("/order-a-card")}
+              onClick={() => {
+                router.push("/order-a-card");
+                posthug.capture("get_your_little_card_now_clicked", {
+                  location: `Home page (${getValue(contents, "4", "heading")})`,
+                  action: "goes to order a card form",
+                });
+              }}
               className="my-2 whitespace-nowrap mt-12 flex lg:w-fit w-full mb-[86px] lg:mb-0"
             >
               {getValue(contents, "4", "buttonText")}
@@ -271,7 +298,16 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 {getValue(contents, "6", "footNote")}
               </p>
               <Button
-                onClick={() => router.push("/order-a-card")}
+                onClick={() => {
+                  router.push("/order-a-card");
+                  posthug.capture("get_your_card_now_clicked", {
+                    location: `Home page (${getValue(
+                      contents,
+                      "6",
+                      "heading"
+                    )})`,
+                  });
+                }}
                 className="my-2 whitespace-nowrap mt-12 hidden md:flex"
               >
                 {getValue(contents, "6", "buttonText")}

@@ -1,6 +1,5 @@
 import groq from "groq";
 import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import client from "../client";
@@ -21,6 +20,7 @@ import {
   getValue,
 } from "../utils";
 import usePhoneInput from "../utils/usePhoneInput";
+import posthog from "posthog-js";
 
 const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
   const { addPhoneNumber, orderCard } = usePhoneInput();
@@ -215,7 +215,14 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             Start nurturing your child into a financially responsible adult{" "}
           </h3>
           <Button
-            onClick={() => router.push("/order-a-card")}
+            onClick={() => {
+              router.push("/order-a-card");
+              posthog.capture("buy_a_little_card_clicked", {
+                location:
+                  "Parents page (Start nurturing your child into a financially responsible adult)",
+                action: "goes to order a card form",
+              });
+            }}
             className="my-2 mt-12 w-full lg:w-[172px] items-center whitespace-nowrap  justify-center flex"
           >
             Buy a Little card
@@ -240,7 +247,13 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               </p>
 
               <Button
-                onClick={() => router.push("/order-a-card")}
+                onClick={() => {
+                  router.push("/order-a-card");
+                  posthog.capture("get_your_card_now_clicked", {
+                    location: "Parents page (What Happy Parents are saying)",
+                    action: "goes to order a card form",
+                  });
+                }}
                 className="my-2 whitespace-nowrap mt-12 hidden md:flex"
               >
                 Get your Card Now!

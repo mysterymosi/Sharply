@@ -14,6 +14,7 @@ import {
   getValue,
   giftLinkFaqs,
 } from "../utils";
+import posthog from "posthog-js";
 
 const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
   const router = useRouter();
@@ -139,7 +140,13 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
                   "
                   >
                     <Button
-                      onClick={() => router.push("/order-a-card")}
+                      onClick={() => {
+                        router.push("/order-a-card");
+                        posthog.capture("order_card_clicked", {
+                          location: `Little cards page (${title})`,
+                          action: "goes to order a card form",
+                        });
+                      }}
                       className="my-2 whitespace-nowrap  w-fit  sm:w-fill "
                     >
                       Order Card
@@ -147,7 +154,13 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
                   </div>
                 ) : (
                   <button
-                    onClick={setOpenCard}
+                    onClick={() => {
+                      setOpenCard();
+                      posthog.capture("show_me_how_it_works_clicked", {
+                        location: `Little cards page (${title})`,
+                        action: "opens card description",
+                      });
+                    }}
                     className={`min-w-[148px] cursor-pointer bg-white  py-2.5 rounded-full px-[21px] h-[64px] mt-[50px] text-black font-semibold
                   transition ease-in-out delay-150 hover:scale-110 duration-300 justify-center items-center  `}
                   >
