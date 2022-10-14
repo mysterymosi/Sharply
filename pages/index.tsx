@@ -28,9 +28,13 @@ import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import usePhoneInput from "../utils/usePhoneInput";
+import { Dialog, Transition } from "@headlessui/react";
+import posthug from "posthog-js";
 
 const Home: NextPage<ContentTypeProps> = ({ contents }) => {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
   const backgroundImage = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)), url(${getValue(
       contents,
@@ -38,17 +42,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       "image"
     )})`,
   };
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const addPhoneNumber = (e: any) => {
-    setPhoneNumber(e.target.value);
-  };
-  const orderCard = () => {
-    if (!phoneNumber) {
-      return;
-    }
-    localStorage.setItem("phoneNumber", phoneNumber);
-    router.push("/order-a-card");
-  };
+  const { addPhoneNumber, orderCard } = usePhoneInput();
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(ScrollTrigger);
@@ -74,29 +68,35 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}
       >
         <NavigationBar buttonText="Order a Card" />
-        <div className="px-[25px] md:px-8 xl:px-0 flex flex-col flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
+        <div className="px-[25px] md:px-8 xl:px-0 flex flex-col md:flex-row items-center flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
           <EnterFromLeft>
-            <h1 className="md:text-xxl  max-w-[20ch] text-xl   xs:text-[30px] leading-[40px] font-semibold ">
-              {getValue(contents, "1", "heading")}
-            </h1>
-            <div className="max-w-[531px]">
-              <p className="mt-6 text-white font-regular text-base ">
-                {getValue(contents, "1", "description")}{" "}
-              </p>
-              <PhoneInput
-                onChange={(e) => addPhoneNumber(e)}
-                type={"phone"}
-                placeholder="Enter your phone number"
-                text={getValue(contents, "1", "buttonText")}
-                className="mt-[40px]"
-                buttonClassName="rgb(251,153,27,0.6)"
-                onClick={orderCard}
-              />
-              <p className="text-base md:text-sm mt-6">
-                {getValue(contents, "1", "footNote")}{" "}
-              </p>
+            <div>
+              <h1 className="md:text-xxl  max-w-[20ch] text-xl   xs:text-[30px] leading-[40px] font-semibold ">
+                {getValue(contents, "1", "heading")}
+              </h1>
+              <div className="max-w-[531px]">
+                <p className="mt-6 text-white font-regular text-base ">
+                  {getValue(contents, "1", "description")}{" "}
+                </p>
+                <PhoneInput
+                  onChange={(e) => addPhoneNumber(e)}
+                  type={"phone"}
+                  placeholder="Enter your phone number"
+                  text={getValue(contents, "1", "buttonText")}
+                  className="mt-[40px]"
+                  buttonClassName="#5BAB0A"
+                  onClick={orderCard}
+                />
+              </div>
             </div>
           </EnterFromLeft>
+
+          <img
+            onClick={() => setIsOpen(true)}
+            className="play-image w-full h-full w-[90px] mt-[50px] md:mt-[0] cursor-pointer"
+            src="/images/play.svg"
+            alt="play"
+          />
         </div>
       </section>
       <section className="flex flex-auto justify-center h-full md:h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
@@ -105,14 +105,72 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             <h2 className="font-semibold text-xl  xs:text-[30px] leading-[40px] lg:leading-[44px] lg:text-[40px]">
               {getValue(contents, "2", "heading")}
             </h2>
-            <p className="text-base font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
+            <p className="text-base font-medium leading-[35px] lg:text-[19px] mt-6 mb-[48px] sm:mb-0">
               {getValue(contents, "2", "description")}
             </p>
-            <Button className="my-2 whitespace-nowrap mt-12 hidden w-full md:flex md:w-[172px]">
+            <div
+              onClick={() => setIsOpen(true)}
+              className="flex mt-[20px] items-center"
+            >
+              <div className="box-shadow w-[40px] flex inset-1/2 justify-center items-center h-[40px] bg-white cursor-pointer rounded-full">
+                <Play size={18} fill="#5BAB0A" color="#5BAB0A" />
+              </div>
+              <p className="ml-5 text-[16px] text-green font-semibold">
+                Play one minute video
+              </p>
+            </div>
+            <Button
+              onClick={() => {
+                router.push("/order-a-card");
+                posthug.capture("order_a_card_clicked", {
+                  location:
+                    "Get started (Become Intentional about your child’s financial future)",
+                });
+              }}
+              className="my-2 whitespace-nowrap mt-7 hidden w-full md:flex md:w-[172px]"
+            >
               {getValue(contents, "2", "buttonText")}
             </Button>
           </div>
+          <Transition
+            show={isOpen}
+            enter="transition duration-100 ease-out"
+            enterFrom="transform scale-95 opacity-0"
+            enterTo="transform scale-100 opacity-100"
+            leave="transition duration-75 ease-out"
+            leaveFrom="transform scale-100 opacity-100"
+            leaveTo="transform scale-95 opacity-0"
+          >
+            <Dialog onClose={() => setIsOpen(false)} className="relative z-50">
+              {/* The backdrop, rendered as a fixed sibling to the panel container */}
+              <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
 
+              {/* Full-screen container to center the panel */}
+              <div className="fixed inset-0 flex items-center justify-center p-4">
+                {/* The actual dialog panel  */}
+                <Dialog.Panel className="mx-auto w-[600px] h-[350px]">
+                  <iframe
+                    src="https://player.vimeo.com/video/760010840?h=3b4ddebb45&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      position: "relative",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    title="Little"
+                  ></iframe>
+                  {/* ... */}
+                </Dialog.Panel>
+              </div>
+            </Dialog>
+          </Transition>
           <div className="relative ">
             <img
               className="w-full h-full lg:h-[400px] lg:w-[460px]"
@@ -122,11 +180,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 getValue(contents, "2", "heading")
               }
             />
-            <div className="w-[48px] flex absolute top-[45%] left-[46%] inset-1/2 justify-center items-center h-[48px] bg-white cursor-pointer rounded-full">
-              <Play fill="#5BAB0A" color="#5BAB0A" />
-            </div>
           </div>
-
           <Button className="my-2 w-full lg:w-[172px] items-center whitespace-nowrap mt-12 md:hidden justify-center flex">
             {getValue(contents, "2", "buttonText")}
           </Button>
@@ -174,7 +228,10 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             <p className="text-[18px] font-medium  mt-6 mb-[48px] sm:mb-0">
               {getValue(contents, "4", "description")}
             </p>
-            <Button className="my-2 whitespace-nowrap mt-12 flex lg:w-fit w-full mb-[86px] lg:mb-0">
+            <Button
+              onClick={() => router.push("/order-a-card")}
+              className="my-2 whitespace-nowrap mt-12 flex lg:w-fit w-full mb-[86px] lg:mb-0"
+            >
               {getValue(contents, "4", "buttonText")}
             </Button>
           </div>
@@ -213,7 +270,10 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 {" "}
                 {getValue(contents, "6", "footNote")}
               </p>
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+              <Button
+                onClick={() => router.push("/order-a-card")}
+                className="my-2 whitespace-nowrap mt-12 hidden md:flex"
+              >
                 {getValue(contents, "6", "buttonText")}
               </Button>
             </EnterFromLeft>

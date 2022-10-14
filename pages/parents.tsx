@@ -2,6 +2,7 @@ import groq from "groq";
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import client from "../client";
 import {
   Button,
@@ -19,8 +20,11 @@ import {
   featuresParentsLove,
   getValue,
 } from "../utils";
+import usePhoneInput from "../utils/usePhoneInput";
 
 const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
+  const { addPhoneNumber, orderCard } = usePhoneInput();
+  const router = useRouter();
   const parentFeatures = contents
     .filter(
       (content: ContentProp) =>
@@ -54,10 +58,12 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               {getValue(contents, "1", "heading")}
             </h1>
             <PhoneInput
+              onChange={(e) => addPhoneNumber(e)}
               placeholder="Enter phone number"
               text={getValue(contents, "1", "buttonText")}
               className="mt-[40px] "
               buttonClassName="rgb(251,153,27,0.6)"
+              onClick={orderCard}
             />
             <p className="text-base  mt-6">
               {" "}
@@ -115,7 +121,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         </div>
         <div className="flex justify-center">
           <Link href="/little-cards">
-            <Button className="my-2 w-full lg:w-[200px] items-center whitespace-nowrap  justify-center flex">
+            <Button className="hidden my-2 w-full lg:w-[200px] items-center whitespace-nowrap  justify-center flex">
               See Pricing and plans
             </Button>
           </Link>
@@ -208,7 +214,10 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             {" "}
             Start nurturing your child into a financially responsible adult{" "}
           </h3>
-          <Button className="my-2 mt-12 w-full lg:w-[172px] items-center whitespace-nowrap  justify-center flex">
+          <Button
+            onClick={() => router.push("/order-a-card")}
+            className="my-2 mt-12 w-full lg:w-[172px] items-center whitespace-nowrap  justify-center flex"
+          >
             Buy a Little card
           </Button>
         </div>
@@ -230,7 +239,10 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                 🎁 Freebies: We are giving 50% off to first 1300 card purchases.
               </p>
 
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+              <Button
+                onClick={() => router.push("/order-a-card")}
+                className="my-2 whitespace-nowrap mt-12 hidden md:flex"
+              >
                 Get your Card Now!
               </Button>
             </EnterFromLeft>

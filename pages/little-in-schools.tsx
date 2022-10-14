@@ -239,9 +239,9 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         mb-[20px]
        lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}
       >
-        <Button className="my-2 whitespace-nowrap  md:hidden  mt-12 w-full text-center justify-center flex mb-[48px]">
+        {/* <Button className="my-2 whitespace-nowrap  md:hidden  mt-12 w-full text-center justify-center flex mb-[48px]">
           {getValue(contents, "7", "buttonText")}
-        </Button>
+        </Button> */}
         <div className="max-w-[51ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
           <FadeInWhenVisible>
             <p className="md:text-[18px] leading-[31px] mb-[13px] font-[#3D3D3D] font-semibold">
@@ -252,13 +252,9 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           <h3 className="font-semibold lg:text-[30px]  text-[20px]">
             {getValue(contents, "7", "description")}
           </h3>
-          <p className="text-primary items-center  gap-2 lg:justify-start justify-center  font-semibold cursor-pointer hidden lg:w-[172px]  mt-12 w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px] text-[20px]">
-            {getValue(contents, "7", "buttonText")}
-            <ChevronsRight />
-          </p>
         </div>
 
-        <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
+        <div className="flex flex-col mt-[20px] md:mt-[0px] mb-[48px] md:mb-[0] justify-center items-center order-2">
           <FadeInWhenVisible>
             <img
               src={getValue(contents, "7", "image")}

@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { navItems } from "../utils";
 import HomeModal from "./Modal";
+import posthog from "posthog-js";
 export const NavigationBar = ({
   buttonText,
   buttonClassName,
@@ -31,9 +32,15 @@ export const NavigationBar = ({
     console.log("buttonText: ", buttonText);
     if (buttonText?.toLowerCase() === "order a card") {
       router.push("/order-a-card");
+      posthog.capture("order_a_card_button_clicked", {
+        location: "Navbar on home page",
+      });
     }
     if (buttonText?.toLowerCase() === "refer a school and earn") {
       router.push("/refer-a-school");
+      posthog.capture("refer_a_school_button_clicked", {
+        location: "Navbar on little-in-schools page",
+      });
     }
   };
   useEffect(() => {

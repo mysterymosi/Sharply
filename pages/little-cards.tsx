@@ -2,7 +2,7 @@
 
 import groq from "groq";
 import type { NextPage } from "next";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import client from "../client";
 import { Button, NavigationBar, Accordion, Layout } from "../components";
@@ -16,6 +16,7 @@ import {
 } from "../utils";
 
 const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
+  const router = useRouter();
   const [openCard, setOpenCard] = useState({
     verveCard: false,
     schoolableCard: false,
@@ -137,7 +138,10 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
                     className=" flex justify-center mr-[20px]
                   "
                   >
-                    <Button className="my-2 whitespace-nowrap  w-fit  sm:w-fill ">
+                    <Button
+                      onClick={() => router.push("/order-a-card")}
+                      className="my-2 whitespace-nowrap  w-fit  sm:w-fill "
+                    >
                       Order Card
                     </Button>
                   </div>
