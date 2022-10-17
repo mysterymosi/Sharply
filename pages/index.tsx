@@ -77,7 +77,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                 {getValue(contents, "1", "heading")}
               </h1>
               <div className="max-w-[531px]">
-                <p className="mt-6 text-white font-regular text-base ">
+                <p className="mt-6 text-white font-regular text-base leading-[33px]">
                   {getValue(contents, "1", "description")}{" "}
                 </p>
                 <PhoneInput
