@@ -152,9 +152,6 @@ const ReferASchool: NextPage = () => {
                 >
                   <option>Select state where school is located</option>
                   <option value="Lagos">Lagos</option>
-                  <option value="Ogun">Ogun</option>
-                  <option value="Osun">Osun</option>
-                  <option value="Ibadan">Ibadan</option>
                 </select>
               </div>
               <div className="mt-[25px]">
