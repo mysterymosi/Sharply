@@ -29,8 +29,8 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import usePhoneInput from "../utils/usePhoneInput";
-import { Dialog, Transition } from "@headlessui/react";
 import posthug from "posthog-js";
+import Script from "next/script";
 
 const Home: NextPage<ContentTypeProps> = ({ contents }) => {
   const router = useRouter();
@@ -63,10 +63,12 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
 
   return (
     <Layout title="Home" showDownloadCard>
+      <Script src="/mklb.js"></Script>
       <section
-        style={backgroundImage}
-        className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top`}
+        // style={backgroundImage}
+        className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top relative`}
       >
+        <div className="overlay overlay-bg"></div>
         <NavigationBar buttonText="Order a Card" />
         <div className="px-[25px] md:px-8 xl:px-0 flex flex-col md:flex-row items-center flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
           <EnterFromLeft>
@@ -91,19 +93,24 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             </div>
           </EnterFromLeft>
 
-          <img
-            onClick={() => {
-              setIsOpen(true);
-              posthug.capture("play_icon_clicked", {
-                location: "Home page (hero)",
-                action: "opens modal to play ad",
-              });
-            }}
-            className="play-image w-full h-full w-[90px] mt-[50px] md:mt-[0] cursor-pointer"
-            src="/images/play.svg"
-            alt="play"
-          />
+          <a href="#" className="mklbItem" data-vimeo-id="760010840">
+            <img
+              onClick={() => {
+                posthug.capture("play_icon_clicked", {
+                  location: "Home page (hero)",
+                  action: "opens modal to play ad",
+                });
+              }}
+              className="play-image w-full h-full w-[90px] mt-[50px] md:mt-[0] cursor-pointer"
+              src="/images/play.svg"
+              alt="play"
+            />
+          </a>
         </div>
+        <video autoPlay loop muted playsInline>
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </section>
       <section className="flex flex-auto justify-center h-full md:h-full items-center md:px-8 pt-[80px] lg:pt-{200px]  bg-white2">
         <div className="flex justify-between lg:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] lg:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
@@ -114,23 +121,28 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
             <p className="text-base font-medium leading-[35px] lg:text-[19px] mt-6 mb-[48px] sm:mb-0">
               {getValue(contents, "2", "description")}
             </p>
-            <div
-              onClick={() => {
-                setIsOpen(true);
-                posthug.capture("play_icon_clicked", {
-                  location: `Home page (${getValue(contents, "2", "heading")})`,
-                  action: "opens modal to play ad",
-                });
-              }}
-              className="flex mt-[20px] items-center"
-            >
-              <div className="box-shadow w-[40px] flex inset-1/2 justify-center items-center h-[40px] bg-white cursor-pointer rounded-full">
-                <Play size={18} fill="#5BAB0A" color="#5BAB0A" />
+            <a href="#" className="mklbItem" data-vimeo-id="760010840">
+              <div
+                onClick={() => {
+                  posthug.capture("play_icon_clicked", {
+                    location: `Home page (${getValue(
+                      contents,
+                      "2",
+                      "heading"
+                    )})`,
+                    action: "opens modal to play ad",
+                  });
+                }}
+                className="flex mt-[20px] items-center"
+              >
+                <div className="box-shadow w-[40px] flex inset-1/2 justify-center items-center h-[40px] bg-white cursor-pointer rounded-full">
+                  <Play size={18} fill="#5BAB0A" color="#5BAB0A" />
+                </div>
+                <p className="ml-5 text-[16px] text-green font-semibold">
+                  Play one minute video
+                </p>
               </div>
-              <p className="ml-5 text-[16px] text-green font-semibold">
-                Play one minute video
-              </p>
-            </div>
+            </a>
             <Button
               onClick={() => {
                 router.push("/order-a-card");
@@ -144,45 +156,6 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
               {getValue(contents, "2", "buttonText")}
             </Button>
           </div>
-          <Transition
-            show={isOpen}
-            enter="transition duration-100 ease-out"
-            enterFrom="transform scale-95 opacity-0"
-            enterTo="transform scale-100 opacity-100"
-            leave="transition duration-75 ease-out"
-            leaveFrom="transform scale-100 opacity-100"
-            leaveTo="transform scale-95 opacity-0"
-          >
-            <Dialog onClose={() => setIsOpen(false)} className="relative z-50">
-              {/* The backdrop, rendered as a fixed sibling to the panel container */}
-              <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
-
-              {/* Full-screen container to center the panel */}
-              <div className="fixed inset-0 flex items-center justify-center p-4">
-                {/* The actual dialog panel  */}
-                <Dialog.Panel className="mx-auto w-[600px] h-[350px]">
-                  <iframe
-                    src="https://player.vimeo.com/video/760010840?h=3b4ddebb45&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                    }}
-                    title="Little"
-                  ></iframe>
-                  {/* ... */}
-                </Dialog.Panel>
-              </div>
-            </Dialog>
-          </Transition>
           <div className="relative ">
             <img
               className="w-full h-full lg:h-[400px] lg:w-[460px]"

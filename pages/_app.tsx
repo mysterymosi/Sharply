@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/mklb.css";
 import type { AppProps } from "next/app";
 import { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/router";
