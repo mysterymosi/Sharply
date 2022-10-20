@@ -62,7 +62,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               placeholder="Enter phone number"
               text={getValue(contents, "1", "buttonText")}
               className="mt-[40px] "
-              buttonClassName="rgb(251,153,27,0.6)"
+              buttonClassName="#5BAB0A"
               onClick={orderCard}
             />
             <p className="text-base  mt-6">
@@ -159,7 +159,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                 alt={"lines"}
               />{" "}
               <img
-                src="/images/cards.svg"
+                src="/images/cards.png"
                 className="md:w-[300px] w-full h-[200px]  md:h-[350px] lg:mt-9 md:mt-0"
                 alt={"lines"}
               />{" "}
@@ -192,7 +192,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             <img
               alt="grid of parents avatars"
               className="w-fit mt-[65px] md:mt-[47px] md:h-[330px] flex justify-center items-center mx-auto"
-              src="/images/fund-wallet-half.svg"
+              src="/images/fund-wallet-half.png"
             />
           </div>
         </div>

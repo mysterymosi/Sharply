@@ -125,23 +125,45 @@ export const moneyItemList = [
   {
     icon: "/images/money-icon.svg",
     title: "Send pocket money instantly",
-    description: "Transfer money to you child whenever, however and wherever",
+    description: (
+      <span>
+        Transfer money to you child whenever,
+        <br /> however and wherever
+      </span>
+    ),
   },
   {
     icon: "/images/card-icon.svg",
     title: "Set spend limit",
-    description: "Regulate how much they can spend daily, weekly or monthly",
+    description: (
+      <span>
+        Regulate how much they can spend
+        <br />
+        daily, weekly or monthly
+      </span>
+    ),
   },
   {
     icon: "/images/notification-icon.svg",
     title: "Get notified when your child spends ",
-    description: "Get instant notifications whenever your child spends",
+    description: (
+      <span>
+        Get instant notifications whenever
+        <br />
+        your child spends
+      </span>
+    ),
   },
   {
     icon: "/images/reward-icon.svg",
     title: "Reward them for good behaviour",
-    description:
-      "Let them know you see their efforts and it pays. They can earn their pocket money. ",
+    description: (
+      <span>
+        Let them know you see their efforts and it pays.
+        <br />
+        They can earn their pocket money.
+      </span>
+    ),
   },
 ];
 

@@ -42,7 +42,7 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
           name="description"
           content="Little is an easy and convenient way to give your child pocket money. Automatically disburse pocket money, set spending limits, monitor spending habits and more!"
         />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/logo_icon.ico" />
       </Head>
       <main className="relative overflow-x-hidden">
         {children}
