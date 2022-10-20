@@ -43,7 +43,7 @@ export const HomeStepper = ({ images }: { images: string[] }) => {
         <img
           src={urlFor(images[2]) as any}
           alt={images[2]}
-          className=" md:w-[200px] h-[250px] lg:h-[500px] lg:w-full m-auto"
+          className=" md:w-[200px] h-[250px] lg:h-[420px] lg:w-full m-auto"
         />
       ),
     },

@@ -159,8 +159,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                 alt={"lines"}
               />{" "}
               <img
-                src="/images/littlecard.png"
-                className="md:w-[200px] w-[120px] h-[200px]  md:h-[350px] lg:mt-9 md:mt-0"
+                src="/images/cards.svg"
+                className="md:w-[300px] w-full h-[200px]  md:h-[350px] lg:mt-9 md:mt-0"
                 alt={"lines"}
               />{" "}
               <img
@@ -192,7 +192,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
             <img
               alt="grid of parents avatars"
               className="w-fit mt-[65px] md:mt-[47px] md:h-[330px] flex justify-center items-center mx-auto"
-              src="/images/fund-wallet-half.png"
+              src="/images/fund-wallet-half.svg"
             />
           </div>
         </div>

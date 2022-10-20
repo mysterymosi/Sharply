@@ -65,12 +65,11 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
     <Layout title="Home" showDownloadCard>
       <Script src="/mklb.js"></Script>
       <section
-        // style={backgroundImage}
         className={` sm:bg-center bg-no-repeat sm:h-[868px] h-screen bg-cover bg-top relative`}
       >
         <div className="overlay overlay-bg"></div>
         <NavigationBar buttonText="Order a Card" />
-        <div className="px-[25px] md:px-8 xl:px-0 flex flex-col md:flex-row items-center flex-auto  lg:max-w-[1070px] mx-auto justify-center text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
+        <div className="px-[25px] md:px-8 xl:px-0 flex flex-col md:flex-row items-center flex-auto  lg:max-w-[1070px] mx-auto justify-center md:justify-start text-white col-4 h-screen   md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
           <EnterFromLeft>
             <div>
               <h1 className="md:text-xxl  max-w-[20ch] text-xl   xs:text-[30px] leading-[40px] font-semibold ">

@@ -128,7 +128,7 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
                       <img
                         src={closedImage}
                         alt={alt}
-                        className="h-[442px] w-[276px]"
+                        className="h-[420px] w-[276px]"
                       />
                     )}
                   </FadeInWhenVisible>
