@@ -42,7 +42,8 @@ export const BookGrid = ({ books, download, loading }: BookGridProps) => {
                     <Link
                       href={`/blog/${slug?.current}`}
                       passHref
-                      as={`/blog/${slug?.current}`}>
+                      as={`/blog/${slug?.current}`}
+                    >
                       <p className="mt-[20px] hover:underline cursor-pointer mb-[16px] font-semibold md:text-[18px]">
                         {title}
                       </p>
