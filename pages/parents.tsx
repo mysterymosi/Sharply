@@ -232,7 +232,11 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
           <FadeInWhenVisible>
             {" "}
-            <img src={"/images/start-nuturing.png"} alt={"family"} />
+            <img
+              className="w-[400px]"
+              src={"/images/start-nuturing.png"}
+              alt={"family"}
+            />
           </FadeInWhenVisible>
         </div>
       </section>

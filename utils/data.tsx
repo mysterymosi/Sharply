@@ -439,6 +439,8 @@ export const schoolNames = [
   "Reagan Memorial Baptist Girls, Yaba",
   "Federal Science and Technical College, Yaba",
   "Methodist Boys’ High School, Victoria Island",
+  "King's College, Yaba",
+  "F.G.C, Ijanikin",
 ];
 
 export const navItems = [
