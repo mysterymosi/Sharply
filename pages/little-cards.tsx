@@ -67,7 +67,7 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
                   getValue(contents, "1", "heading")
                 }
                 src={getValue(contents, "1", "image")}
-                className="lg:mt-[20px] mt-[40px]"
+                className="lg:mt-[20px] mt-[40px] w-[300px] sm:w-[500px] md:w-[600px] lg:w-[900px]"
               />
             </EnterFromLeft>
           </div>

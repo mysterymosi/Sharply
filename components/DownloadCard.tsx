@@ -7,12 +7,14 @@ import posthog from "posthog-js";
 
 export const DownloadCard = ({ className }: ClassNameProps) => {
   const router = useRouter();
+  const [noNumber, setNoNumber] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const addPhoneNumber = (e: any) => {
     setPhoneNumber(e.target.value);
   };
   const orderCard = () => {
     if (!phoneNumber) {
+      setNoNumber(true);
       return;
     }
     localStorage.setItem("phoneNumber", phoneNumber);
@@ -48,6 +50,7 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
           className="mt-[40px] w-[350px] sm:w-[521px]"
           buttonClassName="#5BAB0A"
           onClick={orderCard}
+          noNumber={noNumber}
         />
       </div>
     </div>

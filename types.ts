@@ -25,6 +25,7 @@ export type PhoneInputProps = {
   name?: string;
   text?: string;
   buttonClassName?: string;
+  noNumber?: boolean;
 };
 export type ListProps = {
   list: {

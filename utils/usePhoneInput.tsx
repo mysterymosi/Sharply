@@ -4,12 +4,14 @@ import posthog from "posthog-js";
 
 const usePhoneInput = () => {
   const router = useRouter();
+  const [noNumber, setNoNumber] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const addPhoneNumber = (e: any) => {
     setPhoneNumber(e.target.value);
   };
   const orderCard = () => {
     if (!phoneNumber) {
+      setNoNumber(true);
       return;
     }
     localStorage.setItem("phoneNumber", phoneNumber);
@@ -22,6 +24,7 @@ const usePhoneInput = () => {
   return {
     addPhoneNumber,
     orderCard,
+    noNumber,
   };
 };
 

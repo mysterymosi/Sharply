@@ -22,7 +22,7 @@ import client from "../client";
 import groq from "groq";
 import { ContentTypeProps } from "../types";
 import { Reviews } from "../components/Reviews";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -34,15 +34,7 @@ import Script from "next/script";
 
 const Home: NextPage<ContentTypeProps> = ({ contents }) => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const backgroundImage = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)), url(${getValue(
-      contents,
-      "1",
-      "image"
-    )})`,
-  };
-  const { addPhoneNumber, orderCard } = usePhoneInput();
+  const { addPhoneNumber, orderCard, noNumber } = usePhoneInput();
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(ScrollTrigger);
@@ -87,6 +79,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                   className="mt-[40px]"
                   buttonClassName="#5BAB0A"
                   onClick={orderCard}
+                  noNumber={noNumber}
                 />
               </div>
             </div>
@@ -295,7 +288,7 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
         <h4 className="flex font-semibold text-[18px] justify-center md:text-[24px] mb-[48px]">
           Schools that trust Little
         </h4>
-        <div className="lg:max-w-[1100px] m-auto ">
+        <div className="lg:max-w-[1450px] m-auto ">
           <ImageSlider images={getValue(contents, "7", "images")} />
         </div>{" "}
       </FadeInWhenVisible>

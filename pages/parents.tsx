@@ -23,7 +23,7 @@ import usePhoneInput from "../utils/usePhoneInput";
 import posthog from "posthog-js";
 
 const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
-  const { addPhoneNumber, orderCard } = usePhoneInput();
+  const { addPhoneNumber, orderCard, noNumber } = usePhoneInput();
   const router = useRouter();
   const parentFeatures = contents
     .filter(
@@ -64,6 +64,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               className="mt-[40px] "
               buttonClassName="#5BAB0A"
               onClick={orderCard}
+              noNumber={noNumber}
             />
             <p className="text-base  mt-6">
               {" "}
@@ -231,7 +232,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
           <FadeInWhenVisible>
             {" "}
-            <img src={"/images/nutuing-image.svg"} alt={"family"} />
+            <img src={"/images/start-nuturing.png"} alt={"family"} />
           </FadeInWhenVisible>
         </div>
       </section>

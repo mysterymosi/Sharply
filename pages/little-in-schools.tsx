@@ -21,12 +21,14 @@ import posthog from "posthog-js";
 
 const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
   const router = useRouter();
+  const [noNumber, setNoNumber] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const addPhoneNumber = (e: any) => {
     setPhoneNumber(e.target.value);
   };
   const orderCard = () => {
     if (!phoneNumber) {
+      setNoNumber(true);
       return;
     }
     localStorage.setItem("phoneNumber", phoneNumber);
@@ -66,6 +68,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   className="mt-[40px]"
                   type={"phone"}
                   onClick={orderCard}
+                  noNumber={noNumber}
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
                   {getValue(contents, "1", "footNote")}
