@@ -95,6 +95,10 @@ export const cardFaqs = [
   },
   {
     title: "What is the minimum age to use the card?",
+    description: "Yes, you can secure the Little card with a four-digit pin.",
+  },
+  {
+    title: "Can the Little card be secured with a PIN?",
     description:
       " The card can be used by children as young as 9 years or about to enter JSS1 and understand basic financial concepts.\n\nWe would like to add that you know your child better than anyone else, meaning that you are the most qualified to make the decision on the age to give your child the Little card.",
   },
@@ -126,8 +130,33 @@ export const schoolFaqs = [
     description:
       " Getting notified on how much students spend daily is mostly reserved for parents but a school can granted this information after verifiable request has been provided by the school administrator.",
   },
+  {
+    title: "How long does it take to set up?",
+    description: "It takes 24 - 48 hours to set up Little for your school.",
+  },
+  {
+    title: "How can a school start using it?",
+    description: "Simply call/ Whatsapp our customer support line.",
+  },
+  {
+    title: "Does the card expire?",
+    description:
+      "The Little smart card can be used for 3 years after which it expires.",
+  },
 ];
 
+export const pricingFaqs = [
+  {
+    title: "How much does the card cost?",
+    description:
+      "The Little smart card costs ₦2000 for the initial purchase and ₦1000 for the replacement.",
+  },
+  {
+    title: "What is the cost of transaction charges?",
+    description:
+      "To keep the business running, the only charges are transaction fees.\nCard transactions < ₦1000 is ₦15\nCard transactions > ₦1000 and < ₦5000 is ₦25\nCard transactions > ₦5000 is ₦50",
+  },
+];
 export const allFaqs = [
   {
     title: "General",
@@ -140,6 +169,10 @@ export const allFaqs = [
   {
     title: "Schools",
     faqs: schoolFaqs,
+  },
+  {
+    title: "Pricing",
+    faqs: pricingFaqs,
   },
 ];
 

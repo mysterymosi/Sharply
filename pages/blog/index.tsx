@@ -45,7 +45,7 @@ const Blog: NextPage<any> = ({ blogContent, catgeoryContent }) => {
       <Layout title="Blog">
         <section>
           <NavigationBar buttonText="Order a card" />
-          {loading ? (
+          {false ? (
             <div className="px-[25px] pt-[96px] lg:pt-[150px] flex lg:flex-row flex-col md:h-full justify-center">
               {new Array(1).fill(1).map((_, i) => (
                 <div
