@@ -24,6 +24,28 @@ export const faqs = [
     description:
       " The Little card can be used for 3 years after which it expires",
   },
+];
+
+export const generalFaqs = [
+  {
+    title: "How can I start using Little?",
+    description:
+      " All you have to do is download the Little app on Google Playstore or Apple App store and fill in your details to create an account.",
+  },
+  {
+    title: "How can I put money in the Little card?",
+    description:
+      " You can either fund the Little card through USSD, Bank transfer or any other deposit means available to you",
+  },
+  {
+    title: "Can the Little card be secured with a PIN?",
+    description: " Yes, you can secure the Little card with a four-digit pin.",
+  },
+  {
+    title: "Does the Little card expire?",
+    description:
+      " The Little card can be used for 3 years after which it expires",
+  },
   {
     title: "What if the Little card gets stolen?",
     description:
@@ -45,7 +67,7 @@ export const faqs = [
   },
 ];
 
-const cardFaqs = [
+export const cardFaqs = [
   {
     title: "How do Little cards work?",
     description:
@@ -78,7 +100,7 @@ const cardFaqs = [
   },
 ];
 
-const schoolFaqs = [
+export const schoolFaqs = [
   {
     title: "How much does the card cost?",
     description:
@@ -109,7 +131,7 @@ const schoolFaqs = [
 export const allFaqs = [
   {
     title: "General",
-    faqs: faqs,
+    faqs: generalFaqs,
   },
   {
     title: "Cards",
@@ -429,6 +451,8 @@ export const schoolBenefits = [
   "No middle man between students pocket money and their spending",
   "Zero complains about students misplacing pocket money",
   "Introducing financial responsibility among students",
+  "Know when a student enters or leaves the school",
+  "Pay for anything in school with the card",
 ];
 export const schoolNames = [
   "Queens College, Yaba",

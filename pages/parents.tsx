@@ -213,7 +213,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           </FadeInWhenVisible>
           <h3 className="font-semibold text-[24px] lg:text-[38px]">
             {" "}
-            Start nurturing your child into a financially responsible adult{" "}
+            Order a Little card{" "}
           </h3>
           <Button
             onClick={() => {
@@ -245,7 +245,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           <div className="max-w-[408px ]">
             <EnterFromLeft>
               <h3 className="font-semibold md:text-[40px] text-xl   xs:text-[30px] leading-[40px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
-                What Happy Parents are saying
+                Order your Card Now!
               </h3>
               <p className="text-base ">
                 🎁 Freebies: We are giving 50% off to first 1300 card purchases.

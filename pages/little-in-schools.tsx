@@ -16,6 +16,7 @@ import {
   getValue,
   liitleSchoolFeatures,
   schoolBenefits,
+  schoolFaqs,
 } from "../utils";
 import posthog from "posthog-js";
 
@@ -48,7 +49,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}
       >
         <NavigationBar
-          buttonText={"Refer a school and earn"}
+          buttonText={"Refer a school"}
           buttonClassName="rgb(251,153,27,0.6)"
         />
         <div className=" pt-[100px] px-[25px] flex md:flex-row flex-col lg:gap-[145px] md:gap-[50px] items-center  h-full justify-center text-black ">
@@ -71,7 +72,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   noNumber={noNumber}
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
-                  {getValue(contents, "1", "footNote")}
+                  For children aged 9 and above
                 </p>
               </div>
             </EnterFromLeft>
@@ -164,7 +165,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
             <p className="font-semibold">Refer and earn</p>
             <p className="font-semibold text-[20px] md:text-[32px] leading-[132%] mt-[20px]">
               Get a school to adopt Little and earn up to{" "}
-              <span className="text-green">NGN200,000</span> in referal fees
+              <span className="text-green">NGN200,000</span> in referral fees
             </p>
             <Button
               onClick={() => {
@@ -175,7 +176,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   action: "goes to refer a school form",
                 });
               }}
-              className="hover:scale-100 mt-[20px] px-[43px] hidden sm:hidden md:block"
+              className="hover:scale-100 mt-[20px] px-[43px] hidden sm:hidden md:block bg-[rgb(251,153,27,0.6)]"
             >
               Refer a school
             </Button>
@@ -368,7 +369,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           Frequently Asked Questions
         </h3>
         <div className="sm:w-[627px]">
-          <Accordion list={faqs} />
+          <Accordion list={schoolFaqs} />
         </div>
 
         <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-grey">

@@ -9,6 +9,7 @@ import { Button, NavigationBar, Accordion, Layout } from "../components";
 import { CardStepper } from "../components/CardStepper";
 import { ContentTypeProps } from "../types";
 import {
+  cardFaqs,
   EnterFromLeft,
   FadeInWhenVisible,
   getValue,
@@ -225,7 +226,7 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
             Frequently Asked Questions
           </h3>
           <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center lg:w-7/12 order-2 w-full">
-            <Accordion list={giftLinkFaqs} />
+            <Accordion list={cardFaqs} />
           </div>
         </div>
       </section>

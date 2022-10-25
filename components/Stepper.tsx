@@ -18,7 +18,7 @@ export const Stepper = ({ list, page }: StepperListProps) => {
                   <h4 className="font-bold text-[20px] lg:text-[47px] lg:leading-[51px] leading-[24px]">
                     {heading}
                   </h4>
-                  <h4 className="mt-[16px] text-[18px] mb-[40px] md:mb-[0]">
+                  <h4 className="mt-[16px] text-[22px] mb-[40px] md:mb-[0]">
                     {description}
                   </h4>
 
