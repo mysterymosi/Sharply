@@ -15,7 +15,7 @@ img {
     width: 100vw;
     overflow: hidden;
     box-sizing: border-box;
-    z-index: 9;
+    z-index: 60;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,15 +75,14 @@ section.imageContainer {
 
 .mklbItem:hover {
     cursor: pointer;
-    font-style: italic;
 }
 
 #closeIconContainer {
     width: 25px;
     height: 25px;
     position: fixed;
-    top: 15px;
-    right: 15px;
+    top: 43px;
+    right: 43px;
     transition: transform .2s linear;
 }
 
