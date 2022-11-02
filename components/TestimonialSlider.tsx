@@ -1,7 +1,4 @@
 import React from "react";
-import { ChevronsRight } from "react-feather";
-import { urlFor } from "../utils";
-import { Stepper } from "./Stepper";
 import { TestimonialStepper } from "./TestimonialStepper";
 
 export const TestimonialSlider = () => {

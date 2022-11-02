@@ -90,32 +90,6 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         </div>
       </section>
 
-      <section className="flex flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="max-w-full md:max-w-[35ch]">
-            <EnterFromLeft>
-              <h2 className="font-semibold text-[24px] flex lg:text-[40px] leading-[50px]">
-                <img
-                  src="/images/goal-icon.svg"
-                  className=" md:h-[40px] md:w-[40px] mr-[16px]"
-                  alt="video"
-                />
-                {getValue(contents, "2", "heading")}
-              </h2>
-              <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-                {getValue(contents, "2", "description")}
-              </p>
-            </EnterFromLeft>
-          </div>
-          <FadeInWhenVisible>
-            <img
-              src={getValue(contents, "2", "image")}
-              alt={getValue(contents, "2", "imageAlt")}
-              className="w-full h-full md:h-[400px] md:w-[520px]"
-            />
-          </FadeInWhenVisible>
-        </div>
-      </section>
       <section className="flex flex-col  px-[20px]  lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto   md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
         <h3 className="font-semibold md:text-[40px] text-[24px] text-center">
           {getValue(contents, "3", "heading")}
