@@ -21,7 +21,6 @@ import {
 import client from "../client";
 import groq from "groq";
 import { ContentTypeProps } from "../types";
-import { Reviews } from "../components/Reviews";
 import { useEffect } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
@@ -31,6 +30,7 @@ import { useRouter } from "next/router";
 import usePhoneInput from "../utils/usePhoneInput";
 import posthug from "posthog-js";
 import Script from "next/script";
+import { TestimonialSlider } from "../components/TestimonialSlider";
 
 const Home: NextPage<ContentTypeProps> = ({ contents }) => {
   const router = useRouter();
@@ -247,8 +247,8 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
       <section className="bg-[#CCF4A5] px-[10px] sm:px-[40px] overflow-hidden lg:rounded-[40px] w-full relative h-screen xl:h-[800px] flex">
         <HomeStepper images={getValue(contents, "5", "images")} />
       </section>
-      <section className="flex md:flex-row flex-col px-[20px] lg:max-w-[1500px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center   md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="md:basis-1/3 md:mr-[70px] ">
+      <section className="flex md:flex-col flex-col px-[20px] lg:max-w-[1500px] lg:mb-[100px] md:w-full m-auto justify-center flex-auto  items-start   md:px-[200px] pt-[80px] lg:pt-{200px]  bg-white">
+        <div className="md:mr-[70px] mb-[60px] md:mb-[90px] ">
           <div className="max-w-[408px ]">
             <EnterFromLeft>
               <h3 className="font-semibold md:text-[40px] text-xl   xs:text-[30px] leading-[40px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
@@ -273,16 +273,87 @@ const Home: NextPage<ContentTypeProps> = ({ contents }) => {
                     )})`,
                   });
                 }}
-                className="my-2 whitespace-nowrap mt-12 hidden md:flex"
+                className="my-2 whitespace-nowrap mt-12 w-full md:w-auto md:flex"
               >
                 {getValue(contents, "6", "buttonText")}
               </Button>
             </EnterFromLeft>
           </div>
         </div>
-        <div className="md:basis-[55%] mt-[5px] md:mt-0  overflow-x-auto w-full">
-          <Reviews />
-        </div>{" "}
+        <div className="hidden xl:flex xl:flex-row flex-col justify-between md:gap-[120px]">
+          <a href="#" className="mklbItem" data-youtube-id="jkK7AdAJuTU">
+            <div
+              onClick={() => {
+                posthug.capture("play_icon_clicked", {
+                  location: `Home page (Schools trust us and parents love us)`,
+                  action: "opens modal to play ad",
+                });
+              }}
+              className="relative"
+            >
+              <img
+                src="/images/testimonial-1.png"
+                alt="testimonial-image"
+                className="w-full h-full lg:h-full lg:w-[493px] mb-[40px] lg:mb-0"
+              />
+
+              <div className="flex absolute bottom-[0] px-[20px] md:px-[43px] pb-[25px]">
+                <img
+                  src="/images/play.svg"
+                  className="w-[40px] h-[40px]"
+                  alt="play"
+                />
+                <div className="ml-[16px]">
+                  <p className="text-[white] text-[14px] md:text-[15px]">
+                    Play this video
+                  </p>
+                  <p className="text-[white] text-[12px] md:text-[13px]">
+                    To see what{" "}
+                    <span className="font-extrabold">Mrs Marvellous</span> has
+                    to say about Little
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="#" className="mklbItem" data-youtube-id="64tT9WnCfEs">
+            <div
+              onClick={() => {
+                posthug.capture("play_icon_clicked", {
+                  location: `Home page (Schools trust us and parents love us)`,
+                  action: "opens modal to play ad",
+                });
+              }}
+              className="relative"
+            >
+              <img
+                src="/images/testimonial-2.png"
+                alt="testimonial-image"
+                className="w-full h-full lg:h-full lg:w-[493px] mb-[40px] lg:mb-0"
+              />
+              <div className="flex absolute bottom-[0] px-[20px] md:px-[43px] pb-[25px]">
+                <img
+                  src="/images/play.svg"
+                  className="w-[40px] h-[40px]"
+                  alt=""
+                />
+                <div className="ml-[16px]">
+                  <p className="text-[white] text-[14px] md:text-[15px]">
+                    Play this video
+                  </p>
+                  <p className="text-[white] text-[12px] md:text-[13px]">
+                    To see what{" "}
+                    <span className="font-extrabold">Chief Nwogbo</span> has to
+                    say about Little
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <section className="xl:hidden px-[10px] sm:px-[40px] overflow-hidden w-full relative flex">
+          <TestimonialSlider />
+        </section>
       </section>{" "}
       <FadeInWhenVisible>
         <h4 className="flex font-semibold text-[18px] justify-center md:text-[24px] mb-[48px]">

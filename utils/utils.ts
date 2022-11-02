@@ -48,6 +48,10 @@ export const sliderSettings = {
   autoplay: true,
   speed: 300,
 };
+export const testimonialSliderSettings = {
+  ...sliderSettings,
+  autoplay: false,
+};
 export const imageSliderSettings = {
   dots: true,
   infinite: true,

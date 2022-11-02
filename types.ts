@@ -109,6 +109,7 @@ export type StepperListProps = {
     heading: string;
     description: string | Element | any;
     img: any;
+    youtubeId?: string;
   }[];
   page?: string;
 };
