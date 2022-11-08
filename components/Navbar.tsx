@@ -37,7 +37,7 @@ export const NavigationBar = ({
         action: "goes to order a card form",
       });
     }
-    if (buttonText?.toLowerCase() === "refer a school and earn") {
+    if (buttonText?.toLowerCase() === "refer a school") {
       router.push("/refer-a-school");
       posthog.capture("refer_a_school_button_clicked", {
         location: "Navbar on little-in-schools page",

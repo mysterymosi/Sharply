@@ -187,7 +187,7 @@ const BookACall: NextPage = () => {
                 <input
                   required
                   onChange={(e) => setwhenToCall(e.target.value)}
-                  type="text"
+                  type="datetime-local"
                   name="can-we-call"
                   placeholder="When can we call?"
                   className=" h-[56px]  w-full  p-[20px] border-white4 border-[1.5px] rounded-[32px]"

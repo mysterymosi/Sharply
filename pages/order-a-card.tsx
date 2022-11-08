@@ -14,6 +14,7 @@ const OrderACard: NextPage = () => {
   const [fullName, setFullName] = useState("");
   const [childFullName, setChildFullName] = useState("");
   const [cardUsageLocation, setCardUsageLocation] = useState("");
+  const [cardUse, setCardUse] = useState("");
   const [showSelectSchool, setShowSelectSchool] = useState(false);
   const [showAddress, setShowAddress] = useState(false);
   const [showStoredPhoneNumber, setShowStoredPhoneNumber] = useState(false);
@@ -31,6 +32,9 @@ const OrderACard: NextPage = () => {
       fullName,
       childFullName,
       location: cardUsageLocation,
+      schoolName:
+        cardUse.toLowerCase() === "in school" ? cardUsageLocation : null,
+      cardUse: cardUse,
       _type: "card_ordered",
     };
     await emitMessageToSvix("card_ordered", cardRequestInfo).then((res) => {
@@ -42,7 +46,8 @@ const OrderACard: NextPage = () => {
     });
   };
   const selectCardUsageLocation = (usageLocation: string) => {
-    if (usageLocation.toLowerCase() === "in a school") {
+    setCardUse(usageLocation);
+    if (usageLocation.toLowerCase() === "in school") {
       setShowSelectSchool(true);
       setShowAddress(false);
     } else {
@@ -192,7 +197,7 @@ const OrderACard: NextPage = () => {
                   >
                     <option>Select School</option>
                     <option value="FSTC, Yaba">FSTC, Yaba</option>
-                    <option value="Queen's College">
+                    <option value="Queen's College, Yaba">
                       Queen's College, Yaba
                     </option>
                     <option value="Baptist Academy">
@@ -207,8 +212,14 @@ const OrderACard: NextPage = () => {
                     <option value="Reagan Memorial Baptist">
                       Reagan Memorial Baptist, Yaba
                     </option>
-                    <option value="St Finbarr's College">
+                    <option value="St Finbarr's College, Yaba">
                       St Finbarr's College, Yaba
+                    </option>
+                    <option value="King's College, Lagos">
+                      King's College, Lagos
+                    </option>
+                    <option value="FGC Ijaniki, Lagos">
+                      FGC Ijaniki, Lagos
                     </option>
                   </select>
                 </div>
@@ -243,7 +254,7 @@ const OrderACard: NextPage = () => {
                     type="radio"
                     name="radio"
                     className="order-a-card-radio"
-                    value="In a school"
+                    value="In school"
                     required
                   />
                   In a school
@@ -255,7 +266,7 @@ const OrderACard: NextPage = () => {
                     type="radio"
                     name="radio"
                     className="order-a-card-radio"
-                    value="Outside the school"
+                    value="Outside school"
                     required
                   />
                   Outside the school

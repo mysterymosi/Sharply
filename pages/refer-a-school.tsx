@@ -38,11 +38,11 @@ const ReferASchool: NextPage = () => {
       contactName,
       emailAddress,
       phoneNumber,
-      _type: "refered_a_school",
+      _type: "referred_a_school",
     };
-    await emitMessageToSvix("refered_a_school", bookCallInfo).then((res) => {
+    await emitMessageToSvix("referred_a_school", bookCallInfo).then((res) => {
       if (res) {
-        console.log("Refered a school: ", res);
+        console.log("Referred a school: ", res);
         router.push("/request-received");
       }
     });
