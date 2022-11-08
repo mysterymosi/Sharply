@@ -1,7 +1,7 @@
 import groq from "groq";
 import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import client from "../client";
 import {
   Button,
@@ -19,8 +19,12 @@ import {
   featuresParentsLove,
   getValue,
 } from "../utils";
+import usePhoneInput from "../utils/usePhoneInput";
+import posthog from "posthog-js";
 
 const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
+  const { addPhoneNumber, orderCard, noNumber } = usePhoneInput();
+  const router = useRouter();
   const parentFeatures = contents
     .filter(
       (content: ContentProp) =>
@@ -45,18 +49,22 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
   return (
     <Layout title="Parents">
       <section
-        className={`bg-[#CCF4A5] lg:h-[900px]  xl:px-[0] lg:px-[30px]  h-[850px] md:h-[1000px]  `}>
-        <NavigationBar />
+        className={`bg-[#CCF4A5] lg:h-[900px]  xl:px-[0] lg:px-[30px]  h-[850px] md:h-[1000px]  `}
+      >
+        <NavigationBar buttonText="Order a card" />
         <div className="flex justify-between lg:mb-[200px] lg:pb-[150px] flex-col lg:flex-row lg:h-full lg:max-w-[1100px]  mt-16 md:mt-0  m-auto items-center md:w-full">
           <div className=" mt-[50px] md:mb-[50px] md:mt-[120px] px-[25px] md:px-[0] flex flex-col flex-auto justify-center col-4 max-w-[48ch]">
             <h1 className="md:text-xxl text-xl leading-[34px] font-semibold ">
               {getValue(contents, "1", "heading")}
             </h1>
             <PhoneInput
+              onChange={(e) => addPhoneNumber(e)}
               placeholder="Enter phone number"
               text={getValue(contents, "1", "buttonText")}
               className="mt-[40px] "
-              buttonClassName="rgb(251,153,27,0.6)"
+              buttonClassName="#5BAB0A"
+              onClick={orderCard}
+              noNumber={noNumber}
             />
             <p className="text-base  mt-6">
               {" "}
@@ -90,7 +98,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           {featuresParentsLove.map(({ title, description, color, image }) => (
             <div
               key={title}
-              className={` md:bg-white box-shadow  basis-1/3 flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}>
+              className={` md:bg-white box-shadow  basis-1/3 flex  flex-col justify-start min-h-[325px] rounded-[24px] px-[24px] py-[40px] `}
+            >
               <div
                 className={` ${
                   color === "#5BAB0A"
@@ -99,7 +108,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                     ? "bg-[#FF991B]"
                     : "bg-[#35AFF7]"
                 }
-                  flex   h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
+                  flex   h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}
+              >
                 <FadeInWhenVisible> {image}</FadeInWhenVisible>
               </div>
 
@@ -112,7 +122,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         </div>
         <div className="flex justify-center">
           <Link href="/little-cards">
-            <Button className="my-2 w-full lg:w-[200px] items-center whitespace-nowrap  justify-center flex">
+            <Button className="hidden my-2 w-full lg:w-[200px] items-center whitespace-nowrap  justify-center flex">
               See Pricing and plans
             </Button>
           </Link>
@@ -121,7 +131,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
       <section
         className="flex flex-col  px-[20px] 
       lg:mb-[100px] md:w-full xl:max-w-[1000px] m-auto justify-end flex-auto  
-       md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
+       md:px-5 pt-[80px] lg:pt-{200px]  bg-white"
+      >
         <FadeInWhenVisible>
           {" "}
           <h3 className="font-semibold  md:text-[40px] text-[24px] mb-[53px]  text-center">
@@ -149,8 +160,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
                 alt={"lines"}
               />{" "}
               <img
-                src="/images/littlecard.png"
-                className="md:w-[200px] w-[120px] h-[200px]  md:h-[350px] lg:mt-9 md:mt-0"
+                src="/images/cards.png"
+                className="md:w-[300px] w-full h-[200px]  md:h-[350px] lg:mt-9 md:mt-0"
                 alt={"lines"}
               />{" "}
               <img
@@ -191,7 +202,8 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
         className={`
     gap-[30px]
        flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner box-shadow py-[80px] rounded-[24px] z-30 lg:px-[100px]  mb-[20px]
-       lg:max-w-[1250px] lg:mb-[100px] md:w-full  m-auto  px-[25px] h-full  bg-white`}>
+       lg:max-w-[1250px] lg:mb-[100px] md:w-full  m-auto  px-[25px] h-full  bg-white`}
+      >
         <div className="max-w-[40ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
           <FadeInWhenVisible>
             {" "}
@@ -201,16 +213,30 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           </FadeInWhenVisible>
           <h3 className="font-semibold text-[24px] lg:text-[38px]">
             {" "}
-            Start nurturing your child into a financially responsible adult{" "}
+            Order a Little card{" "}
           </h3>
-          <Button className="my-2 mt-12 w-full lg:w-[172px] items-center whitespace-nowrap  justify-center flex">
+          <Button
+            onClick={() => {
+              router.push("/order-a-card");
+              posthog.capture("buy_a_little_card_clicked", {
+                location:
+                  "Parents page (Start nurturing your child into a financially responsible adult)",
+                action: "goes to order a card form",
+              });
+            }}
+            className="my-2 mt-12 w-full lg:w-[172px] items-center whitespace-nowrap  justify-center flex"
+          >
             Buy a Little card
           </Button>
         </div>
         <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
           <FadeInWhenVisible>
             {" "}
-            <img src={"/images/nutuing-image.svg"} alt={"family"} />
+            <img
+              className="w-[400px]"
+              src={"/images/start-nuturing.png"}
+              alt={"family"}
+            />
           </FadeInWhenVisible>
         </div>
       </section>
@@ -219,13 +245,22 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           <div className="max-w-[408px ]">
             <EnterFromLeft>
               <h3 className="font-semibold md:text-[40px] text-xl   xs:text-[30px] leading-[40px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
-                What Happy Parents are saying
+                Order your Card Now!
               </h3>
               <p className="text-base ">
                 🎁 Freebies: We are giving 50% off to first 1300 card purchases.
               </p>
 
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex">
+              <Button
+                onClick={() => {
+                  router.push("/order-a-card");
+                  posthog.capture("get_your_card_now_clicked", {
+                    location: "Parents page (What Happy Parents are saying)",
+                    action: "goes to order a card form",
+                  });
+                }}
+                className="my-2 whitespace-nowrap mt-12 hidden md:flex"
+              >
                 Get your Card Now!
               </Button>
             </EnterFromLeft>

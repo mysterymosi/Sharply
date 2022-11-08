@@ -23,6 +23,7 @@ module.exports = {
       xxl: ["56px", "64px"],
     },
     colors: {
+      red: "#dc2626",
       primary: "#5BAB0A",
       white: "#ffffff",
       white2: "#F5F5F5",
@@ -38,6 +39,9 @@ module.exports = {
       grey: "#424242",
       grey2: "#757575",
       grey3: "#3D3D3D",
+      grey4: "#898A8D",
+      grey5: "#676767",
+      grey6: "#F0F0F0",
     },
     extend: {
       margin: {
@@ -45,5 +49,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

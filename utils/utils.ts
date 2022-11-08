@@ -48,15 +48,26 @@ export const sliderSettings = {
   autoplay: true,
   speed: 300,
 };
+export const testimonialSliderSettings = {
+  ...sliderSettings,
+  autoplay: false,
+};
 export const imageSliderSettings = {
   dots: true,
   infinite: true,
-  slidesToShow: 5,
+  slidesToShow: 7,
   slidesToScroll: 1,
   height: 100,
   autoplay: true,
   speed: 300,
   responsive: [
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+      },
+    },
     {
       breakpoint: 700,
       settings: {

@@ -55,7 +55,7 @@ const Post: NextPage<any> = ({ post, blogContent }) => {
   return (
     <Layout title="Blog" showDownloadCard>
       <section>
-        <NavigationBar />
+        <NavigationBar buttonText="Order a card" />
       </section>
 
       <section className="flex lg:max-w-[1100px] md:w-full flex-col md:flex-row md:gap-6 p-5 m-auto   h-full md:mt-[100px]  rounded-[40px] ">

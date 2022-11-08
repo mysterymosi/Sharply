@@ -9,10 +9,12 @@ export const ImageSlider = ({ images }: { images: any }) => {
           <img
             key={i}
             src={urlFor(img) as any}
-            className="md:h-[130px] m-auto "
+            className="h-[90px] md:h-[130px] m-auto"
             alt={img}
           />
-          <p className="mt-3  text-grey2 text-center">{schoolNames[i]}</p>
+          <p className="mt-3 text-[13px] md:text-[16px]  text-grey2 text-center">
+            {schoolNames[i]}
+          </p>
         </div>
       ))}
     </Slider>

@@ -8,62 +8,217 @@ export const faqs = [
   {
     title: "How can I start using Little?",
     description:
-      " Yes! You can purchase a license that you can share with your entire team.",
+      " All you have to do is download the Little app on Google Playstore or Apple App store and fill in your details to create an account.",
   },
   {
     title: "How can I put money in the Little card?",
     description:
-      " Yes! You can purchase a license that you can share with your entire team.",
+      " You can either fund the Little card through USSD, Bank transfer or any other deposit means available to you",
   },
   {
     title: "Can the Little card be secured with a PIN?",
-    description:
-      " Yes! You can purchase a license that you can share with your entire team.",
+    description: " Yes, you can secure the Little card with a four-digit pin.",
   },
   {
     title: "Does the Little card expire?",
     description:
-      " Yes! You can purchase a license that you can share with your entire team.",
+      " The Little card can be used for 3 years after which it expires",
+  },
+];
+
+export const generalFaqs = [
+  {
+    title: "How can I start using Little?",
+    description:
+      " All you have to do is download the Little app on Google Playstore or Apple App store and fill in your details to create an account.",
+  },
+  {
+    title: "How can I put money in the Little card?",
+    description:
+      " You can either fund the Little card through USSD, Bank transfer or any other deposit means available to you",
+  },
+  {
+    title: "Can the Little card be secured with a PIN?",
+    description: " Yes, you can secure the Little card with a four-digit pin.",
+  },
+  {
+    title: "Does the Little card expire?",
+    description:
+      " The Little card can be used for 3 years after which it expires",
+  },
+  {
+    title: "What if the Little card gets stolen?",
+    description:
+      " If the Little card gets stolen, you can block it from the Little app and also request for a new card.",
+  },
+  {
+    title: "How can I replace a lost/stolen card?",
+    description:
+      " Simply make a request through the Little Mobile App and we will immediately process a new one.",
+  },
+  {
+    title: "How does the Little card work in School?",
+    description:
+      " The Schoolable Little card can be used to make purchases in school. Your child makes payment by simply tapping on payment terminals at selected sales points in schools.",
+  },
+  {
+    title: "How much does it cost to get the Little card?",
+    description: " The Little card costs 2000 Naira.",
+  },
+];
+
+export const cardFaqs = [
+  {
+    title: "How do Little cards work?",
+    description:
+      " The Little cards work just like the regular ATM cards while giving you added advantages like setting spend limits, track spend location, getting notification on low balance and so much more.",
+  },
+  {
+    title: "What are the types of Little cards?",
+    description:
+      " There are 2 types of Little cards; Little Verve card & Schoolable Little card.\n\nThe Little Verve card can be used any and everywhere (online, ATM, POS etc) while the Schoolable Little card is a smart card that can only be used at our partner schools and other supported merchant locations.",
+  },
+  {
+    title: "How can I request a card?",
+    description:
+      " You can request for a Little card through the Little app or by clicking on the Order a Card button on our website.",
+  },
+  {
+    title: "Will I be charged a maintenance fee for the Little card?",
+    description:
+      " No, we do not charge any maintenance fee for the Little card",
+  },
+  {
+    title: "How long does it take to get the Little card?",
+    description:
+      " It can take 3 to 7 days for a new card to be processed and delivered to you.",
+  },
+  {
+    title: "What is the minimum age to use the card?",
+    description: "Yes, you can secure the Little card with a four-digit pin.",
+  },
+  {
+    title: "Can the Little card be secured with a PIN?",
+    description:
+      " The card can be used by children as young as 9 years or about to enter JSS1 and understand basic financial concepts.\n\nWe would like to add that you know your child better than anyone else, meaning that you are the most qualified to make the decision on the age to give your child the Little card.",
+  },
+];
+
+export const schoolFaqs = [
+  {
+    title: "How much does the card cost?",
+    description:
+      " The Schoolable Little card costs 1500 Naira at initial purchase and 1000 Naira for replacement",
+  },
+  {
+    title: "How do students pickup the Schoolable Little Card?",
+    description:
+      " Students pick up the Schoolable Little card from their school. Note that the card only works at our partner schools and other supported merchant locations.",
+  },
+  {
+    title: "Can the cards be used outside the school?",
+    description:
+      " The Little Verve card can be used anywhere (POS, ATMs, Online) while the Schoolable Little card works at supported merchant locations.",
+  },
+  {
+    title: "Is the money safe with Little?",
+    description:
+      " Yes, the money is safe with Little. We are NDIC insured which means that every deposit made on Little is protected.\n\nLittle also secures customers data with high level encryption and we do not store your card information as we work with a PCIDSS-compliant payment processor to handle all our customers’ card details.",
+  },
+  {
+    title: "Can the school get notified on how much the students spend daily",
+    description:
+      " Getting notified on how much students spend daily is mostly reserved for parents but a school can granted this information after verifiable request has been provided by the school administrator.",
+  },
+  {
+    title: "How long does it take to set up?",
+    description: "It takes 24 - 48 hours to set up Little for your school.",
+  },
+  {
+    title: "How can a school start using it?",
+    description: "Simply call/ Whatsapp our customer support line.",
+  },
+  {
+    title: "Does the card expire?",
+    description:
+      "The Little smart card can be used for 3 years after which it expires.",
+  },
+];
+
+export const pricingFaqs = [
+  {
+    title: "How much does the card cost?",
+    description:
+      "The Little smart card costs ₦2000 for the initial purchase and ₦1000 for the replacement.",
+  },
+  {
+    title: "What is the cost of transaction charges?",
+    description:
+      "To keep the business running, the only charges are transaction fees.\nCard transactions < ₦1000 is ₦15\nCard transactions > ₦1000 and < ₦5000 is ₦25\nCard transactions > ₦5000 is ₦50",
   },
 ];
 export const allFaqs = [
   {
     title: "General",
-    faqs: faqs,
+    faqs: generalFaqs,
   },
   {
     title: "Cards",
-    faqs: faqs,
+    faqs: cardFaqs,
   },
   {
-    title: "Allowance",
-    faqs: faqs,
+    title: "Schools",
+    faqs: schoolFaqs,
   },
-  { title: "Tasks", faqs: faqs },
-  { title: "Giftlinks", faqs: faqs },
+  {
+    title: "Pricing",
+    faqs: pricingFaqs,
+  },
 ];
 
 export const moneyItemList = [
   {
     icon: "/images/money-icon.svg",
     title: "Send pocket money instantly",
-    description: "Transfer money to you child whenever, however and wherever",
+    description: (
+      <span>
+        Transfer money to you child whenever,
+        <br /> however and wherever
+      </span>
+    ),
   },
   {
     icon: "/images/card-icon.svg",
     title: "Set spend limit",
-    description: "Regulate how much they can spend daily, weekly or monthly",
+    description: (
+      <span>
+        Regulate how much they can spend
+        <br />
+        daily, weekly or monthly
+      </span>
+    ),
   },
   {
     icon: "/images/notification-icon.svg",
     title: "Get notified when your child spends ",
-    description: "Get instant notifications whenever your child spends",
+    description: (
+      <span>
+        Get instant notifications whenever
+        <br />
+        your child spends
+      </span>
+    ),
   },
   {
     icon: "/images/reward-icon.svg",
     title: "Reward them for good behaviour",
-    description:
-      "Let them know you see their efforts and it pays. They can earn their pocket money. ",
+    description: (
+      <span>
+        Let them know you see their efforts and it pays.
+        <br />
+        They can earn their pocket money.
+      </span>
+    ),
   },
 ];
 
@@ -329,6 +484,8 @@ export const schoolBenefits = [
   "No middle man between students pocket money and their spending",
   "Zero complains about students misplacing pocket money",
   "Introducing financial responsibility among students",
+  "Know when a student enters or leaves the school",
+  "Pay for anything in school with the card",
 ];
 export const schoolNames = [
   "Queens College, Yaba",
@@ -339,6 +496,8 @@ export const schoolNames = [
   "Reagan Memorial Baptist Girls, Yaba",
   "Federal Science and Technical College, Yaba",
   "Methodist Boys’ High School, Victoria Island",
+  "King's College, Yaba",
+  "F.G.C, Ijanikin",
 ];
 
 export const navItems = [

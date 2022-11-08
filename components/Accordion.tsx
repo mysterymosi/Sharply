@@ -11,15 +11,17 @@ export const Accordion = ({ list, className }: ListProps) => {
           key={i}
           className={`${
             className ? className : ""
-          } bg-white3 min-h-[56px] flex flex-col w-full sm:w-[627px] lg:w-full items-start px-[12px]  md:px-[24px] justify-center mb-[20px] rounded-[12px] `}>
+          } bg-white3 min-h-[56px] flex flex-col w-full sm:w-[627px] lg:w-full items-start px-[12px]  md:px-[24px] justify-center mb-[20px] rounded-[12px] `}
+        >
           <Disclosure key={title}>
             {({ open }) => (
               <>
                 <div className="flex justify-between w-full items-center overflow-hidden">
                   <p
                     className={`${
-                      !open ? "truncate font-regular" : ""
-                    } text-start font-regular`}>
+                      !open ? "truncate font-regular" : "font-semibold"
+                    } text-start font-regular`}
+                  >
                     {title}{" "}
                   </p>
 
@@ -54,7 +56,8 @@ export const Accordion = ({ list, className }: ListProps) => {
                   enterTo="transform scale-100 opacity-100"
                   leave="transition duration-75 ease-out"
                   leaveFrom="transform scale-100 opacity-100"
-                  leaveTo="transform scale-95 opacity-0">
+                  leaveTo="transform scale-95 opacity-0"
+                >
                   <Disclosure.Panel className="text-gray-500 mb-[24px]">
                     {description}
                   </Disclosure.Panel>

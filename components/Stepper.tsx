@@ -8,7 +8,8 @@ export const Stepper = ({ list, page }: StepperListProps) => {
     <div className="xl:max-w-[1300px] px-[10px] md:px-0 lg:max-w-[1070px] md:max-w-[800px] sm:min-w-[100px] min-w-full m-auto">
       <Slider
         {...sliderSettings}
-        className="flex justify-center items-center xl:px-[80px] lg:px-[40px] h-full">
+        className="flex justify-center items-center xl:px-[80px] lg:px-[40px] h-full"
+      >
         {list.map(({ heading, description, img }, i) => {
           return (
             <div key={i} className="h-full  m-auto">
@@ -17,7 +18,7 @@ export const Stepper = ({ list, page }: StepperListProps) => {
                   <h4 className="font-bold text-[20px] lg:text-[47px] lg:leading-[51px] leading-[24px]">
                     {heading}
                   </h4>
-                  <h4 className="mt-[16px] text-[14px] mb-[40px] md:mb-[0]">
+                  <h4 className="mt-[16px] text-[22px] mb-[40px] md:mb-[0]">
                     {description}
                   </h4>
 

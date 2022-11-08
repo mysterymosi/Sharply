@@ -1,7 +1,8 @@
 import groq from "groq";
 import type { NextPage } from "next";
 import Link from "next/link";
-import { ChevronsRight } from "react-feather";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import client from "../client";
 import { Button, Layout, NavigationBar } from "../components";
 import { Accordion } from "../components/Accordion";
@@ -15,15 +16,40 @@ import {
   getValue,
   liitleSchoolFeatures,
   schoolBenefits,
+  schoolFaqs,
 } from "../utils";
+import posthog from "posthog-js";
 
 const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
+  const router = useRouter();
+  const [noNumber, setNoNumber] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const addPhoneNumber = (e: any) => {
+    setPhoneNumber(e.target.value);
+  };
+  const orderCard = () => {
+    if (!phoneNumber) {
+      setNoNumber(true);
+      return;
+    }
+    localStorage.setItem("phoneNumber", phoneNumber);
+    router.push("/book-a-call");
+    posthog.capture("book_a_call_button_clicked", {
+      location: `Little in schools page hero (${getValue(
+        contents,
+        "1",
+        "heading"
+      )})`,
+      action: "goes to book a call form",
+    });
+  };
   return (
     <Layout title="Little in Schools" showDownloadCard>
       <section
-        className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}>
+        className={`sm:h-[868px] lg:h-[800px] md:h-screen h-[1000px] bg-[#D4D3FC]`}
+      >
         <NavigationBar
-          buttonText={"Refer a school and earn"}
+          buttonText={"Refer a school"}
           buttonClassName="rgb(251,153,27,0.6)"
         />
         <div className=" pt-[100px] px-[25px] flex md:flex-row flex-col lg:gap-[145px] md:gap-[50px] items-center  h-full justify-center text-black ">
@@ -37,13 +63,16 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   {getValue(contents, "1", "description")}
                 </p>
                 <PhoneInput
+                  onChange={(e) => addPhoneNumber(e)}
                   placeholder="Enter your phone number"
                   text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
                   type={"phone"}
+                  onClick={orderCard}
+                  noNumber={noNumber}
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
-                  {getValue(contents, "1", "footNote")}
+                  For children aged 9 and above
                 </p>
               </div>
             </EnterFromLeft>
@@ -61,32 +90,6 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         </div>
       </section>
 
-      <section className="flex flex-col flex-auto justify-center items-center md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="flex justify-between md:flex-row flex-col pl-[22.5px] md:pl-0 md:pr-0 lg:max-w-[1100px] pr-[17.5px] md:pb-[106px]  w-full  lg:items-center transition-all  xl:mb-16 ">
-          <div className="max-w-full md:max-w-[35ch]">
-            <EnterFromLeft>
-              <h2 className="font-semibold text-[24px] flex lg:text-[40px] leading-[50px]">
-                <img
-                  src="/images/goal-icon.svg"
-                  className=" md:h-[40px] md:w-[40px] mr-[16px]"
-                  alt="video"
-                />
-                {getValue(contents, "2", "heading")}
-              </h2>
-              <p className="text-[16px] font-medium lg:text-[18px] mt-6 mb-[48px] sm:mb-0">
-                {getValue(contents, "2", "description")}
-              </p>
-            </EnterFromLeft>
-          </div>
-          <FadeInWhenVisible>
-            <img
-              src={getValue(contents, "2", "image")}
-              alt={getValue(contents, "2", "imageAlt")}
-              className="w-full h-full md:h-[400px] md:w-[520px]"
-            />
-          </FadeInWhenVisible>
-        </div>
-      </section>
       <section className="flex flex-col  px-[20px]  lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto   md:px-5 pt-[80px] lg:pt-{200px]  bg-white">
         <h3 className="font-semibold md:text-[40px] text-[24px] text-center">
           {getValue(contents, "3", "heading")}
@@ -95,7 +98,8 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           {liitleSchoolFeatures.map(({ title, description, color, image }) => (
             <div
               key={title}
-              className={` md:bg-white box-shadow  flex flex-col justify-start basis-2/6 min-h-[350px] rounded-[24px] px-[24px] py-[40px] `}>
+              className={` md:bg-white box-shadow  flex flex-col justify-start basis-2/6 min-h-[350px] rounded-[24px] px-[24px] py-[40px] `}
+            >
               <div
                 className={` ${
                   color === "#5BAB0A"
@@ -104,7 +108,8 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                     ? "bg-[#FF991B]"
                     : "bg-[#35AFF7]"
                 }
-                  flex h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}>
+                  flex h-[40px] justify-center items-center rounded-[48px] md:mb-0 mb-[40px] w-[50px] `}
+              >
                 <FadeInWhenVisible> {image}</FadeInWhenVisible>
               </div>
 
@@ -125,10 +130,56 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
         </div>
       </FadeInWhenVisible>
 
+      {/* refer and earn */}
+      <section className="flex flex-col  px-[20px]  lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto   md:px-5 pt-[90px] md:pt-[180px] lg:pt-{200px]  bg-white">
+        <div
+          className={` md:bg-white box-shadow items-center flex flex-col md:flex-row justify-start basis-2/6 min-h-[350px] rounded-[24px] px-[17px] sm:px-[64px] py-[17px] sm:py-[70px] `}
+        >
+          <div className="mb-[32px] md:mb-[0]">
+            <p className="font-semibold">Refer and earn</p>
+            <p className="font-semibold text-[20px] md:text-[32px] leading-[132%] mt-[20px]">
+              Get a school to adopt Little and earn up to{" "}
+              <span className="text-green">NGN200,000</span> in referral fees
+            </p>
+            <Button
+              onClick={() => {
+                router.push("/refer-a-school");
+                posthog.capture("refer_a_school_button_clicked", {
+                  location:
+                    "Little in schools page (Get a school to adopt little)",
+                  action: "goes to refer a school form",
+                });
+              }}
+              className="hover:scale-100 mt-[20px] px-[43px] hidden sm:hidden md:block bg-[rgb(251,153,27,0.6)]"
+            >
+              Refer a school
+            </Button>
+          </div>
+          <img
+            src="/images/refer-and-earn.png"
+            alt="Refer and earn"
+            className="w-full md:w-[520px] "
+          />
+          <Button
+            onClick={() => {
+              router.push("/refer-a-school");
+              posthog.capture("refer_a_school_button_clicked", {
+                location:
+                  "Little in schools page (Get a school to adopt little)",
+                action: "goes to refer a school form",
+              });
+            }}
+            className="hover:scale-100 mt-[32px] px-[43px] block md:hidden"
+          >
+            Refer a school and earn
+          </Button>
+        </div>
+      </section>
       <section
         className="flex flex-col  px-[20px] md:px-0 md:x-0 md:mt-[80px] mt-0
       lg:mb-[100px] md:w-full xl:max-w-[1100px] m-auto justify-end flex-auto  
-   pt-[80px] lg:pt-{200px]  mb-[16px] bg-white">
+   pt-[80px] lg:pt-{200px]  mb-[16px] bg-white"
+      >
         <FadeInWhenVisible>
           <h3 className="font-semibold  md:text-[40px] text-[20px] mb-[48px]  text-center">
             How it works in Little
@@ -186,10 +237,11 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
        flex  md:flex-row  flex-col-reverse justify-around items-center shadow-inner box-shadow pt-[63px] 
        rounded-[24px] z-30 lg:pl-[100px] 
         mb-[20px]
-       lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}>
-        <Button className="my-2 whitespace-nowrap  md:hidden  mt-12 w-full text-center justify-center flex mb-[48px]">
+       lg:max-w-[1100px] lg:mb-[100px] md:w-full  m-auto  mx-[20px] px-[48px] h-full  bg-white`}
+      >
+        {/* <Button className="my-2 whitespace-nowrap  md:hidden  mt-12 w-full text-center justify-center flex mb-[48px]">
           {getValue(contents, "7", "buttonText")}
-        </Button>
+        </Button> */}
         <div className="max-w-[51ch] flex justify-center  md:px-0 flex-col order-last md:order-1 mt-[48px] sm:mb-[48px] lg:mt-0 ">
           <FadeInWhenVisible>
             <p className="md:text-[18px] leading-[31px] mb-[13px] font-[#3D3D3D] font-semibold">
@@ -200,13 +252,9 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           <h3 className="font-semibold lg:text-[30px]  text-[20px]">
             {getValue(contents, "7", "description")}
           </h3>
-          <p className="text-primary items-center  gap-2 lg:justify-start justify-center  font-semibold cursor-pointer hidden lg:w-[172px]  mt-12 w-fill md:w-fit sm:w-auto md:flex md:mb-0 mb-[48px] text-[20px]">
-            {getValue(contents, "7", "buttonText")}
-            <ChevronsRight />
-          </p>
         </div>
 
-        <div className="flex flex-col mt-[20px] md:mt-[0px] justify-center items-center order-2">
+        <div className="flex flex-col mt-[20px] md:mt-[0px] mb-[48px] md:mb-[0] justify-center items-center order-2">
           <FadeInWhenVisible>
             <img
               src={getValue(contents, "7", "image")}
@@ -252,13 +300,39 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   </li>
                 ))}
               </ul>
-              <Button className="my-2 whitespace-nowrap mt-12 hidden md:flex bg-[#FB991B]">
+              <Button
+                onClick={() => {
+                  router.push("/book-a-call");
+                  posthog.capture("book_a_call_button_clicked", {
+                    location: `Little in schools (${getValue(
+                      contents,
+                      "8",
+                      "heading"
+                    )})`,
+                    action: "goes to book a call form",
+                  });
+                }}
+                className="my-2 whitespace-nowrap mt-12 hidden md:flex bg-[#FB991B]"
+              >
                 {getValue(contents, "8", "buttonText")}
               </Button>
             </EnterFromRight>
           </div>
 
-          <Button className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex bg-[#FB991B]">
+          <Button
+            onClick={() => {
+              router.push("/book-a-call");
+              posthog.capture("book_a_call_button_clicked", {
+                location: `Little in schools (${getValue(
+                  contents,
+                  "8",
+                  "heading"
+                )})`,
+                action: "goes to book a call form",
+              });
+            }}
+            className="my-2 whitespace-nowrap mt-12 mb-[80px] md:mb-0 md:hidden justify-center flex bg-[#FB991B]"
+          >
             {getValue(contents, "8", "buttonText")}
           </Button>
         </div>
@@ -269,7 +343,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
           Frequently Asked Questions
         </h3>
         <div className="sm:w-[627px]">
-          <Accordion list={faqs} />
+          <Accordion list={schoolFaqs} />
         </div>
 
         <p className=" mb-[40px] lg:mt-[80px] mt-[40px] text-grey">
