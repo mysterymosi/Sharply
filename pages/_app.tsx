@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     const handleRouteChange = () => posthog.capture("$pageview");
     if (!window.location.href.includes("localhost")) {
       // Init PostHog
-      posthog.init("phc_EV19U6zkY2rwnNU4qcBKkstbguorKyDZ2liyZjVZKwY", {
+      posthog.init("phc_8ZClKFVWelrxFhEe8QzAxzJVmNJkvGkIDRaEO2quNqP", {
         api_host: "https://app.posthog.com",
       });
       // Track page views
