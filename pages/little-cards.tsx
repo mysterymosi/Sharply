@@ -8,13 +8,7 @@ import client from "../client";
 import { Button, NavigationBar, Accordion, Layout } from "../components";
 import { CardStepper } from "../components/CardStepper";
 import { ContentTypeProps } from "../types";
-import {
-  cardFaqs,
-  EnterFromLeft,
-  FadeInWhenVisible,
-  getValue,
-  giftLinkFaqs,
-} from "../utils";
+import { cardFaqs, EnterFromLeft, FadeInWhenVisible, getValue } from "../utils";
 import posthog from "posthog-js";
 
 const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
@@ -129,7 +123,7 @@ const LittleCards: NextPage<ContentTypeProps> = ({ contents }) => {
                       <img
                         src={closedImage}
                         alt={alt}
-                        className="h-[420px] w-[276px]"
+                        className="h-[330px] w-[206px]"
                       />
                     )}
                   </FadeInWhenVisible>

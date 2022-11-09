@@ -6,9 +6,6 @@ const usePhoneInput = () => {
   const router = useRouter();
   const [noNumber, setNoNumber] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const addPhoneNumber = (e: any) => {
-    setPhoneNumber(e.target.value);
-  };
   const orderCard = () => {
     if (!phoneNumber) {
       setNoNumber(true);
@@ -22,9 +19,10 @@ const usePhoneInput = () => {
   };
 
   return {
-    addPhoneNumber,
+    setPhoneNumber,
     orderCard,
     noNumber,
+    phoneNumber,
   };
 };
 

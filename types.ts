@@ -16,7 +16,7 @@ export type ButtonTypes = {
 export type PhoneInputProps = {
   className?: string;
   onClick?: () => void;
-  onChange?: (e: any) => void;
+  onChange?: any;
   value?: string;
   placeholder?: string;
   disabled?: boolean;

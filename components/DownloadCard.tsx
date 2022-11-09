@@ -9,9 +9,6 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
   const router = useRouter();
   const [noNumber, setNoNumber] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const addPhoneNumber = (e: any) => {
-    setPhoneNumber(e.target.value);
-  };
   const orderCard = () => {
     if (!phoneNumber) {
       setNoNumber(true);
@@ -43,7 +40,7 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
       </p>
       <div className="flex justify-center">
         <PhoneInput
-          onChange={(e) => addPhoneNumber(e)}
+          onChange={setPhoneNumber}
           type={"phone"}
           placeholder="Enter your phone number"
           text="Order a card"
@@ -51,6 +48,7 @@ export const DownloadCard = ({ className }: ClassNameProps) => {
           buttonClassName="#5BAB0A"
           onClick={orderCard}
           noNumber={noNumber}
+          value={phoneNumber}
         />
       </div>
     </div>
