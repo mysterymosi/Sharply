@@ -49,6 +49,7 @@ export type ContentProp = {
 };
 export type ContentTypeProps = {
   contents: ContentProp[];
+  contents2: ContentProp[];
 };
 export type LayoutProps = {
   children: ReactNode;

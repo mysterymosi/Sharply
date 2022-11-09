@@ -10,19 +10,14 @@ import {
   TwoColLayout,
   Layout,
 } from "../components";
-import { Reviews } from "../components/Reviews";
 import { ContentProp, ContentTypeProps } from "../types";
 
-import {
-  EnterFromLeft,
-  FadeInWhenVisible,
-  featuresParentsLove,
-  getValue,
-} from "../utils";
+import { FadeInWhenVisible, featuresParentsLove, getValue } from "../utils";
 import usePhoneInput from "../utils/usePhoneInput";
 import posthog from "posthog-js";
+import { Testimonials } from "../components/Testimonials";
 
-const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
+const Parents: NextPage<ContentTypeProps> = ({ contents, contents2 }) => {
   const { setPhoneNumber, phoneNumber, orderCard, noNumber } = usePhoneInput();
   const router = useRouter();
   const parentFeatures = contents
@@ -241,36 +236,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
           </FadeInWhenVisible>
         </div>
       </section>
-      <section className="flex md:flex-row flex-col px-[20px] lg:max-w-[1500px] lg:mb-[100px] md:w-full m-auto justify-end flex-auto  items-center   md:px-8 pt-[80px] lg:pt-{200px]  bg-white">
-        <div className="md:basis-1/3  ">
-          <div className="max-w-[408px ]">
-            <EnterFromLeft>
-              <h3 className="font-semibold md:text-[40px] text-xl   xs:text-[30px] leading-[40px] md:leading-[40px] md:mb-[24px] mb-[8px] mt-2 ">
-                Order your Card Now!
-              </h3>
-              <p className="text-base ">
-                🎁 Freebies: We are giving 50% off to first 1300 card purchases.
-              </p>
-
-              <Button
-                onClick={() => {
-                  router.push("/order-a-card");
-                  posthog.capture("get_your_card_now_clicked", {
-                    location: "Parents page (What Happy Parents are saying)",
-                    action: "goes to order a card form",
-                  });
-                }}
-                className="my-2 whitespace-nowrap mt-12 hidden md:flex"
-              >
-                Get your Card Now!
-              </Button>
-            </EnterFromLeft>
-          </div>
-        </div>
-        <div className="md:basis-[55%] mt-[5px] md:mt-0  overflow-x-auto w-full">
-          <Reviews />
-        </div>{" "}
-      </section>{" "}
+      <Testimonials contents={contents2} />
     </Layout>
   );
 };
@@ -289,9 +255,26 @@ export async function getStaticProps() {
   }
 
    `);
+
+  const contents2 = await client.fetch(groq`
+  *[
+    _type == "home"
+  ]{
+  section,
+    heading,
+    description,
+    buttonText,
+    footNote,
+    imageAlt,
+   images,
+    "image" :image.asset->url
+  }
+
+   `);
   return {
     props: {
       contents,
+      contents2,
     },
   };
 }

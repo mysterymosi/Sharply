@@ -504,10 +504,12 @@ export const navItems = [
   {
     name: "Home",
     link: "/",
+    reload: true,
   },
   {
     name: "Parents",
     link: "/parents",
+    reload: true,
   },
   // {
   //   name: "Kids",
