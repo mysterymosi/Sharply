@@ -5,9 +5,10 @@ export const Subscription = () => (
     className={`bg-yellow 
 lg:gap-[100px]  py-[48px]
 w-full
-flex  md:flex-row  flex-col justify-between items-center shadow-inner md:px-0 px-[25px] box-shadow  
+flex  md:flex-row  flex-col justify-between items-center md:px-0 px-[25px]
 lg:rounded-[24px] z-30 lg:p-[80px]  
-lg:mb-[100px] mb-[12px]`}>
+lg:mb-[100px] mb-[12px]`}
+  >
     <div className="max-w-[42ch] flex justify-center  md:px-0 flex-col lg:mt-0 ">
       <h3 className="font-semibold text-[24px] leading-[40px] lg:text-[32px] mb-[8px]">
         {" "}

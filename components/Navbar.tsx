@@ -116,7 +116,7 @@ export const NavigationBar = ({
               {navItems.map(({ name, link }) => (
                 <Link key={link} href={link}>
                   <p
-                    className={`my-5 text-sm lg:text-base cursor-pointer ${
+                    className={`mt-5 text-sm lg:text-base cursor-pointer ${
                       router?.pathname === link ? "font-bold" : "font-medium"
                     }`}
                   >

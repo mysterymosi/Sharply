@@ -23,7 +23,7 @@ import usePhoneInput from "../utils/usePhoneInput";
 import posthog from "posthog-js";
 
 const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
-  const { addPhoneNumber, orderCard, noNumber } = usePhoneInput();
+  const { setPhoneNumber, phoneNumber, orderCard, noNumber } = usePhoneInput();
   const router = useRouter();
   const parentFeatures = contents
     .filter(
@@ -58,13 +58,14 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               {getValue(contents, "1", "heading")}
             </h1>
             <PhoneInput
-              onChange={(e) => addPhoneNumber(e)}
+              onChange={setPhoneNumber}
               placeholder="Enter phone number"
               text={getValue(contents, "1", "buttonText")}
               className="mt-[40px] "
               buttonClassName="#5BAB0A"
               onClick={orderCard}
               noNumber={noNumber}
+              value={phoneNumber}
             />
             <p className="text-base  mt-6">
               {" "}
@@ -161,7 +162,7 @@ const Parents: NextPage<ContentTypeProps> = ({ contents }) => {
               />{" "}
               <img
                 src="/images/cards.png"
-                className="md:w-[300px] w-full h-[200px]  md:h-[350px] lg:mt-9 md:mt-0"
+                className="md:w-[300px] w-[215px] h-[250px]  md:h-[350px] lg:mt-9 md:mt-0"
                 alt={"lines"}
               />{" "}
               <img

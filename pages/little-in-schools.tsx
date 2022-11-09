@@ -24,9 +24,6 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
   const router = useRouter();
   const [noNumber, setNoNumber] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const addPhoneNumber = (e: any) => {
-    setPhoneNumber(e.target.value);
-  };
   const orderCard = () => {
     if (!phoneNumber) {
       setNoNumber(true);
@@ -63,13 +60,14 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   {getValue(contents, "1", "description")}
                 </p>
                 <PhoneInput
-                  onChange={(e) => addPhoneNumber(e)}
+                  onChange={setPhoneNumber}
                   placeholder="Enter your phone number"
                   text={getValue(contents, "1", "buttonText")}
                   className="mt-[40px]"
                   type={"phone"}
                   onClick={orderCard}
                   noNumber={noNumber}
+                  value={phoneNumber}
                 />
                 <p className="text-sm mt-6 text-center md:text-start">
                   For children aged 9 and above
@@ -205,7 +203,7 @@ const LittleInSchools: NextPage<any> = ({ contents, schoolContent }) => {
                   getValue(contents, "5", "imageAlt") ??
                   getValue(contents, "5", "heading")
                 }
-                className="md:w-[313px] w-[140px] h-full lg:mt-[80px] mx-auto md:h-[342px]   "
+                className="md:w-[313px] w-[254px] h-full lg:mt-[80px] mx-auto md:h-[342px]   "
               />
             </FadeInWhenVisible>
           </div>

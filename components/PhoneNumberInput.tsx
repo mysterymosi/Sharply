@@ -7,6 +7,7 @@ const PhoneNumberInput = ({
   value,
   onChange,
   placeholder = "Enter phone number",
+  className = "h-[56px]  w-full  p-[20px] border-white4 border-[1.5px] rounded-[32px]",
 }: PhoneNumberInputProps) => {
   return (
     <PhoneInput
@@ -14,7 +15,7 @@ const PhoneNumberInput = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className="h-[56px]  w-full  p-[20px] border-white4 border-[1.5px] rounded-[32px]"
+      className={className}
     />
   );
 };

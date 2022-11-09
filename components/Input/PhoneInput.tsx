@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PhoneInputProps } from "../../types";
 import { Button } from "../Button";
+import PhoneNumberInput from "../PhoneNumberInput";
 
 export const PhoneInput = ({
   placeholder,
@@ -13,19 +14,17 @@ export const PhoneInput = ({
   buttonClassName,
   onClick,
   noNumber,
+  value,
 }: PhoneInputProps) => {
   return (
     <div className="w-full">
       <div
         className={`${className} h-[64px] flex shadow-sm  bg-white rounded-full pl-[24px] pr-[8px]`}
       >
-        <input
-          type={type}
-          name={name}
-          id={id}
+        <PhoneNumberInput
+          className="flex-1 border-none focus:bg-white text-[black] focus:outline-none block w-full text-base bg-transparent focus:rounded-full rounded-full sm:text-sm border-gray-300"
+          value={value}
           onChange={onChange}
-          className=" flex-1 focus:bg-white text-[black] focus:outline-none block w-full text-base bg-transparent focus:rounded-full rounded-full sm:text-sm border-gray-300"
-          placeholder={placeholder}
         />
         <Button
           onClick={onClick}
