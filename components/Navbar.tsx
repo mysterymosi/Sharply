@@ -82,8 +82,8 @@ export const NavigationBar = ({
           <div className=" flex-auto justify-between  hidden md:flex">
             {navItems
               .filter((_, idx) => idx < 6)
-              .map(({ name, link }) => {
-                return (
+              .map(({ name, link, reload }) => {
+                return !reload ? (
                   <Link key={link} href={link}>
                     <p
                       className={`my-5 text-xs lg:text-base cursor-pointer ${
@@ -95,6 +95,18 @@ export const NavigationBar = ({
                       {name}
                     </p>
                   </Link>
+                ) : (
+                  <a key={link} href={link}>
+                    <p
+                      className={`my-5 text-xs lg:text-base cursor-pointer ${
+                        router.pathname.includes(link)
+                          ? "font-semibold"
+                          : "font-medium"
+                      }`}
+                    >
+                      {name}
+                    </p>
+                  </a>
                 );
               })}
           </div>
@@ -113,17 +125,29 @@ export const NavigationBar = ({
           </Popover.Button>
           <Popover.Panel className="absolute z-50 top-[4rem] rounded-2xl  shadow bg-white w-[260px] right-[21px] px-[24px] pb-[24px]">
             <div className="grid grid-col-1">
-              {navItems.map(({ name, link }) => (
-                <Link key={link} href={link}>
-                  <p
-                    className={`mt-5 text-sm lg:text-base cursor-pointer ${
-                      router?.pathname === link ? "font-bold" : "font-medium"
-                    }`}
-                  >
-                    {name}
-                  </p>
-                </Link>
-              ))}
+              {navItems.map(({ name, link, reload }) =>
+                !reload ? (
+                  <Link key={link} href={link}>
+                    <p
+                      className={`mt-5 text-sm lg:text-base cursor-pointer ${
+                        router?.pathname === link ? "font-bold" : "font-medium"
+                      }`}
+                    >
+                      {name}
+                    </p>
+                  </Link>
+                ) : (
+                  <a key={link} href={link}>
+                    <p
+                      className={`mt-5 text-sm lg:text-base cursor-pointer ${
+                        router?.pathname === link ? "font-bold" : "font-medium"
+                      }`}
+                    >
+                      {name}
+                    </p>
+                  </a>
+                )
+              )}
 
               <Button
                 onClick={goToForm}

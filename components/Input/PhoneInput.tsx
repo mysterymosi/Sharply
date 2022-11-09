@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PhoneInputProps } from "../../types";
 import { Button } from "../Button";
 import PhoneNumberInput from "../PhoneNumberInput";
