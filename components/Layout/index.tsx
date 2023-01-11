@@ -44,7 +44,14 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
         />
         <link rel="icon" href="/logo_icon.ico" />
       </Head>
-      <main className="relative overflow-x-hidden">{children}</main>
+      <div className="flex h-screen justify-center items-center lg:hidden">
+        <p className="font-semibold font-[raleway] text-[30px] text-center">
+          Mbok! Not available on smaller screens yet
+        </p>
+      </div>
+      <main className="relative overflow-x-hidden hidden lg:block">
+        {children}
+      </main>
     </>
   );
 };

@@ -1,13 +1,9 @@
 import type { NextPage } from "next";
-import { Button, NavigationBar, Layout } from "../components";
-import { serviceCardItems1 } from "../utils";
 import { ContentTypeProps } from "../types";
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { ArrowRight } from "react-feather";
-import { ServicesCard } from "../components/ServicesCard";
 import { useRouter } from "next/router";
 import { ReferPartnerLayout } from "../components/Layout/ReferPartnerLayout";
 import { WhoToRefer } from "../components/ReferPartner/WhoToRefer";
@@ -36,12 +32,6 @@ const ReferPartner: NextPage<ContentTypeProps> = () => {
       ease: "none",
     });
   }, []);
-  const [finishIndex, setFinishIndex] = useState(3);
-  const [serviceCardItems, _setServiceCardItems] = useState(serviceCardItems1);
-  const loadMore = () => {
-    setFinishIndex(finishIndex + 3);
-  };
-
   const [tabId, setTabId] = useState(1);
   return (
     <ReferPartnerLayout setTabId={setTabId} tabId={tabId}>
