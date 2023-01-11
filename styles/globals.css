@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -77,11 +79,11 @@ body {
 }
 
 * {
-  font-family: "Okta Neue", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  font-family: "Okta Neue", sans-serif;
+  font-family: 'Inter', sans-serif;
   width: 100%;
   margin: auto;
   font-size: 100%;
@@ -95,7 +97,9 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-
+  color: #323243;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 main {
@@ -204,6 +208,10 @@ main {
   font-size: 20px;
 }
 
+input {
+  border: 2px solid rgba(217, 217, 217, 0.4);
+}
+
 input:-internal-autofill-selected {
   background-color: inherit !important;
 }
@@ -211,7 +219,7 @@ input:-internal-autofill-selected {
 input:focus, select:focus {
   box-shadow: none !important;
   outline: none !important;
-  border-color: #5BAB0A !important;
+  border-color: rgba(217, 217, 217, 0.4) !important;
 }
 
 .slick-dots li.slick-active button:before {
@@ -346,8 +354,12 @@ video {
   }
 
   .text-base {
-    font-size: 20px;
+    font-size: 24px;
   }
 
 
+}
+
+.container-width {
+  max-width: 1200px;
 }

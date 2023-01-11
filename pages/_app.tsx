@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import "../styles/mklb.css";
 import type { AppProps } from "next/app";
 import { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -44,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
   return (
     <Suspense fallback={<Loader />}>
       <Component {...pageProps} />

@@ -1,4 +1,4 @@
-import { Dispatch, ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type ClassNameProps = {
   className?: string;
@@ -7,6 +7,7 @@ export type ChildrenProp = {
   children: ReactNode;
 };
 export type ButtonTypes = {
+  variant?: string,
   children: ReactNode;
   onClick?: () => void;
   disabled?: boolean;
@@ -103,6 +104,7 @@ export type TabsProps = {
 export type ModalProps = {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
+  type?: string
 };
 
 export type StepperListProps = {
@@ -122,4 +124,29 @@ export type PhoneNumberInputProps = {
   value: any;
   onChange: Dispatch<any>;
   className?: string;
+}
+
+export interface OptionType {
+  value: string;
+  label: string;
+}
+
+export interface MultiOptionType {
+  label: string;
+  options: OptionType[];
+}
+
+export interface RiskAssessmentTypes {
+  setStepNumber: Dispatch<SetStateAction<number>>;
+}
+
+export interface TabOptionTypes {
+  id: number;
+  name: string;
+  active: boolean;
+  done?: boolean;
+}
+
+export interface ReferPartnerTypes {
+  setTabId: Dispatch<SetStateAction<number>>;
 }

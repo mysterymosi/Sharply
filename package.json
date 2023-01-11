@@ -25,6 +25,7 @@
     "react-feather": "^2.0.10",
     "react-phone-number-input": "^3.2.11",
     "react-portable-text": "^0.4.3",
+    "react-select": "^5.7.0",
     "react-share": "^4.4.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",

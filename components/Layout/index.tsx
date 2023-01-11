@@ -44,19 +44,7 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
         />
         <link rel="icon" href="/logo_icon.ico" />
       </Head>
-      <main className="relative overflow-x-hidden">
-        {children}
-        {showDownloadCard && (
-          <DownloadCard className="lg:max-w-[1000px] md:w-full xl:max-w-[1350px] lg:m-auto lg:mw-[1px] flex items-center justify-center overflow-x-hidden mb-12" />
-        )}
-        <div className="flex pl-[22.5px] pr-[17.5px]  z-30 w-full flex-col lg:items-center transition-all  md:pb-16 overflow-x-hidden md:px-5">
-          <WhatsappContact
-            title={title}
-            className="lg:mb-[106px] lg:mt-10 mb-[90px]"
-          />
-          <Footer />
-        </div>
-      </main>
+      <main className="relative overflow-x-hidden">{children}</main>
     </>
   );
 };

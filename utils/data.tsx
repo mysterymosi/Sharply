@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { CreditCard, Send, Shield, Zap } from "react-feather";
-import { ChildrenProp } from "../types";
+import { ChildrenProp, OptionType } from "../types";
 import { urlFor } from "./utils";
 
 export const faqs = [
@@ -502,39 +502,12 @@ export const schoolNames = [
 
 export const navItems = [
   {
-    name: "Home",
-    link: "/",
-    reload: true,
+    name: "Services",
+    link: "/services",
   },
   {
-    name: "Parents",
-    link: "/parents",
-    reload: true,
-  },
-  // {
-  //   name: "Kids",
-  //   link: "/kids",
-  // },
-  // {
-  //   name: "Family & Friends",
-  //   link: "/family-and-friends",
-  // },
-  {
-    name: "Little Cards",
-    link: "/little-cards",
-  },
-  {
-    name: " Little in Schools",
-    link: "/little-in-schools",
-  },
-
-  {
-    name: "Blog",
-    link: "/blog",
-  },
-  {
-    name: "FAQ",
-    link: "/faqs",
+    name: "Refer a partner",
+    link: "/refer-a-partner",
   },
 ];
 
@@ -578,3 +551,118 @@ export const ptComponents = {
     },
   },
 };
+
+export const serviceCardItems1 = [
+  {
+    src: "/images/self-testing.png",
+    title: "HIV self-testing",
+    description:
+      "This service allows people to take an HIV test and find out their result in their own home or other private location.",
+  },
+  {
+    src: "/images/hiv-testing.png",
+    title: "HIV testing",
+    description:
+      "HIV testing, also called HIV screening, is the only way to know if you have the virus.",
+  },
+  {
+    src: "/images/initiate-art.png",
+    title: "Initiate ART",
+    description:
+      "ART is recommended for all individuals with HIV to reduce the morbidity and mortality associated with HIV.",
+  },
+  {
+    src: "/images/viral-load-testing.png",
+    title: "Viral load testing",
+    description:
+      "Getting a viral load test done, gives you an idea of how much of the HIV virus is in your body.",
+  },
+  {
+    src: "/images/initiate-prep.png",
+    title: "Initiate PrEP",
+    description:
+      "Pre-exposure prophylaxis, is medicine people at risk for HIV take to prevent getting HIV from sex or injection drug use.",
+  },
+  {
+    src: "/images/hepatitis-B.png",
+    title: "Hepatitis B",
+    description:
+      "Hepatitis B is a serious liver infection caused by the hepatitis B virus (HBV). For most people, hepatitis B is short term...",
+  },
+  {
+    src: "/images/tuberculosis.png",
+    title: "Tuberculosis",
+    description:
+      "Getting a viral load test done, gives you an idea of how much of the HIV virus is in your body.",
+  },
+  {
+    src: "/images/post-violence.png",
+    title: "Post violence services",
+    description:
+      "Pre-exposure prophylaxis, is medicine people at risk for HIV take to prevent getting HIV from sex or injection drug use.",
+  },
+  {
+    src: "/images/family-planning.png",
+    title: "Family planning",
+    description:
+      "Getting a viral load test done, gives you an idea of how much of the HIV virus is in your body.",
+  },
+  {
+    src: "/images/prep-refill.png",
+    title: "PrEP refill",
+    description:
+      "Getting a viral load test done, gives you an idea of how much of the HIV virus is in your body.",
+  },
+];
+
+export const dayOptions: OptionType[] = [
+  { value: "1", label: "01" },
+  { value: "2", label: "02" },
+  { value: "3", label: "03" },
+  { value: "4", label: "04" },
+  { value: "5", label: "05" },
+  { value: "6", label: "06" },
+  { value: "7", label: "07" },
+  { value: "8", label: "08" },
+  { value: "9", label: "09" },
+  { value: "10", label: "10" },
+  { value: "11", label: "11" },
+];
+
+export const monthOptions: OptionType[] = [
+  { value: "1", label: "Jan" },
+  { value: "2", label: "Feb" },
+  { value: "3", label: "Mar" },
+  { value: "4", label: "Apr" },
+  { value: "5", label: "May" },
+  { value: "6", label: "Jun" },
+  { value: "7", label: "Jul" },
+  { value: "8", label: "Aug" },
+  { value: "9", label: "Sep" },
+  { value: "10", label: "Oct" },
+  { value: "11", label: "Nov" },
+  { value: "12", label: "Dec" },
+];
+
+export const yearOptions: OptionType[] = [
+  { value: "2022", label: "2022" },
+  { value: "2021", label: "2021" },
+  { value: "2020", label: "2020" },
+  { value: "2019", label: "2019" },
+  { value: "2018", label: "2018" },
+  { value: "2017", label: "2017" },
+  { value: "2016", label: "2016" },
+  { value: "2015", label: "2015" },
+  { value: "2014", label: "2014" },
+  { value: "2013", label: "2013" },
+  { value: "2012", label: "2012" },
+  { value: "2011", label: "2011" },
+];
+
+export const serviceOptions: OptionType[] = [
+  { value: "none", label: "None" },
+  { value: "COVID-19", label: "COVID-19" },
+  { value: "Chlamydia", label: "Chlamydia" },
+  { value: "Syphilis", label: "Syphilis" },
+  { value: "Gonorrhea", label: "Gonorrhea" },
+];

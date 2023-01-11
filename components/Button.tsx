@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { ButtonTypes } from "../types";
-import { whatsappLink } from "../utils";
 
 export const Button = ({
+  variant,
   onClick,
   className,
   children,
@@ -13,24 +12,27 @@ export const Button = ({
   <button
     onClick={onClick}
     disabled={disabled}
-    style={style}
-    className={`min-w-[148px] cursor-pointer bg-primary  py-2.5 rounded-full px-[21px] h-[56px] text-white font-semibold
+    style={{
+      ...style,
+      backgroundColor: disabled ? "#EAEAEA" : "",
+      color: disabled ? "#323243" : "",
+      opacity: disabled ? "0.2" : "",
+    }}
+    className={`min-w-[148px] cursor-pointer ${
+      variant === "primary" && "bg-blue"
+    } ${variant === "secondary" && "bg-white"} ${
+      variant === "default" && "bg-grey"
+    } ${variant === "default" && "text-black"} ${
+      variant === "default" && "opacity-60"
+    }  py-2.5 rounded-[10px] px-[30px] h-[56px] text-[15px] ${
+      variant === "primary" && "text-white"
+    } ${variant === "secondary" && "text-blue"} ${
+      variant === "black" && "bg-black"
+    } ${variant === "black" && "text-white"}
+     font-semibold
     transition ease-in-out delay-150 hover:scale-110 duration-300 justify-center items-center ${className} `}
-    {...props}>
+    {...props}
+  >
     {children}
   </button>
-);
-export const WhatsappButton = (
-  <a target={"_blank"} href={whatsappLink}>
-    <button className="bg-green transition ease-in-out delay-150 hover:scale-110 duration-300 md:mx-5 text-white flex w-full sm:w-[162px] text-base justify-center rounded-full h-[56px] items-center mb-[16px] lg:mb-0">
-      <Image
-        layout="fixed"
-        src={"/images/whatsapp.svg"}
-        width={20}
-        alt={"whatsapp"}
-        height={21}
-      />{" "}
-      <p className="ml-[10px] text-sm font-semibold">Whatsapp</p>
-    </button>
-  </a>
 );
