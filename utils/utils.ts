@@ -114,3 +114,8 @@ export const reviewSettings = {
     },
   ],
 };
+
+
+export const serverUrl = process.env.NEXT_PUBLIC_LOCAL_URL
+? process.env.NEXT_PUBLIC_LOCAL_URL
+: "";

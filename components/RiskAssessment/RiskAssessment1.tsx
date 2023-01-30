@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { Dispatch, SetStateAction, useState } from "react";
 import { dayOptions, monthOptions, yearOptions } from "../../utils";
 import { Button } from "../Button";
@@ -11,10 +12,12 @@ export const RiskAssessment1 = ({ setStepNumber }: RiskAssessment1Props) => {
   const [month, setMonth] = useState(null);
   const [year, setYear] = useState(null);
   const handleClick = () => {
+    const dob = `${day}/${month}/${year}`;
+    Cookies.set("dob", dob);
     setStepNumber(2);
   };
   return (
-    <div className="mt-[100px] z-10">
+    <div className="mt-[100px] z-10 relative">
       <h1 className="font-black font-[raleway] text-[35px] w-[24ch] leading-[40px] mb-[40px]">
         Please enter your date of birth.
       </h1>

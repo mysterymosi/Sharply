@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useState } from "react";
 import { ReferPartnerTypes } from "../../types";
 import { Button } from "../Button";
@@ -6,6 +7,7 @@ import RadioInput from "../RadioInput";
 export const SexAtBirth = ({ setTabId }: ReferPartnerTypes) => {
   const [selected, setSelected] = useState(null);
   const handleClick = () => {
+    Cookies.set("sex", selected ? selected : "");
     setTabId(4);
   };
   const options = ["Male", "Female", "Unknown"];

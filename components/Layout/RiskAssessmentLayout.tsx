@@ -46,11 +46,6 @@ export const RiskAssessmentLayout = ({
               {children}
               <div className="flex justify-between items-center">
                 <ProgressBar level={level} />
-                <img
-                  className="w-[92px] z-[1]"
-                  src="/images/message.png"
-                  alt="powered by"
-                />
               </div>
             </div>
           </div>

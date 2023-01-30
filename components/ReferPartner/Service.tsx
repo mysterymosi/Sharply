@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useState } from "react";
 import { ReferPartnerTypes } from "../../types";
 import { serviceOptions } from "../../utils";
@@ -7,6 +8,7 @@ import SelectForm from "../SelectForm";
 export const Service = ({ setTabId }: ReferPartnerTypes) => {
   const [service, setService] = useState<any>(null);
   const handleClick = () => {
+    Cookies.set("service", service.value);
     setTabId(5);
   };
   return (

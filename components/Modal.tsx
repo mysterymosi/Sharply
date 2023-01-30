@@ -1,5 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { ArrowRight, X } from "react-feather";
 import { ModalProps } from "../types";
@@ -111,11 +113,12 @@ export default function HomeModal({ show, setShow, type }: ModalProps) {
     email: "",
     isSubmited: false,
   });
-
+  const router = useRouter();
   const { err, email, isSubmited } = modalDetails;
 
   function closeModal() {
     setShow(false);
+    router.push("/");
   }
 
   const checkEmail = () => {
@@ -164,9 +167,11 @@ export default function HomeModal({ show, setShow, type }: ModalProps) {
 
       <div className="mt-[40px]">
         <div className="flex justify-center">
-          <p className="text-blue opacity-90 text-[14px] font-semibold">
-            Refer a friend/partner
-          </p>
+          <Link href="/refer-a-partner">
+            <p className="text-blue opacity-90 text-[14px] font-semibold cursor-pointer">
+              Refer a friend/partner
+            </p>
+          </Link>
           <ArrowRight className="opacity-90" size="1.3rem" color="#4C6FFF" />
         </div>
       </div>

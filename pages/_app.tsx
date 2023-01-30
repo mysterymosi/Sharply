@@ -5,7 +5,10 @@ import { useRouter } from "next/router";
 import { Loader } from "../components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import posthog from "posthog-js";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { GeneralContextProvider } from "../context";
+
+const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -27,26 +30,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router]);
 
-  useEffect(() => {
-    const handleRouteChange = () => posthog.capture("$pageview");
-    if (!window.location.href.includes("localhost")) {
-      // Init PostHog
-      posthog.init("phc_8ZClKFVWelrxFhEe8QzAxzJVmNJkvGkIDRaEO2quNqP", {
-        api_host: "https://app.posthog.com",
-      });
-      // Track page views
-      router.events.on("routeChangeComplete", handleRouteChange);
-    }
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
-
   // if (loading) return <Loader />;
   return (
     <Suspense fallback={<Loader />}>
-      <Component {...pageProps} />
+      <GeneralContextProvider>
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </GeneralContextProvider>
     </Suspense>
   );
 }

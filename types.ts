@@ -13,6 +13,7 @@ export type ButtonTypes = {
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  isLoading?: boolean;
 };
 export type PhoneInputProps = {
   className?: string;

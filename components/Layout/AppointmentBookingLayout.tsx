@@ -1,53 +1,52 @@
+import Cookies from "js-cookie";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Layout } from ".";
 import { TabOptionTypes } from "../../types";
 import { NavigationBar } from "../Navbar";
 
-interface ReferPartnerProps {
+interface AppointmentBookingProps {
   children: React.ReactNode;
   tabId: number;
   setTabId: Dispatch<SetStateAction<number>>;
 }
 
-export const ReferPartnerLayout = ({
+export const AppointmentBookingLayout = ({
   children,
-  tabId,
   setTabId,
-}: ReferPartnerProps) => {
+  tabId,
+}: AppointmentBookingProps) => {
+  const [type, setType] = useState<string | undefined>("");
+  useEffect(() => {
+    setType(Cookies.get("type"));
+  }, []);
   const [tabOptions, setTabOptions] = useState<TabOptionTypes[]>([
     {
       id: 1,
-      name: "Who?",
+      name: "Location",
       active: true,
       done: false,
     },
     {
       id: 2,
-      name: "Contact",
+      name: "Service Provider",
       active: false,
       done: false,
     },
     {
       id: 3,
-      name: "Sex",
+      name: "Date & Time",
       active: false,
       done: false,
     },
     {
       id: 4,
-      name: "Service",
+      name: "More about you",
       active: false,
       done: false,
     },
     {
       id: 5,
-      name: "Captcha2",
-      active: false,
-      done: false,
-    },
-    {
-      id: 6,
-      name: "Message",
+      name: "Confirm",
       active: false,
       done: false,
     },
@@ -64,6 +63,7 @@ export const ReferPartnerLayout = ({
     });
     setTabOptions(newArr);
   };
+
   const setTabIdToDone = (id: number) => {
     let newArr = [...tabOptions];
     newArr.forEach((tabOption) => {
@@ -91,37 +91,27 @@ export const ReferPartnerLayout = ({
           <div className="lg:container">
             <div
               style={{
-                backgroundImage: "url('/images/Referral-BG.png')",
+                backgroundImage: "url('/images/Service-booking-BG.png')",
               }}
-              className="services-hero relative flex justify-between py-[52px] px-[82px] mt-[30px] rounded-[20px] bg-cover bg-no-repeat bg-center w-full"
+              className="services-hero relative flex justify-between items-center py-[68px] px-[82px] mt-[30px] rounded-[20px] bg-cover bg-no-repeat bg-center w-full"
             >
               <div className="w-[30ch]">
                 <h1 className="text-[35px] font-black font-[raleway] leading-[40px] mb-[15px]">
-                  Would you like to help keep others safe?
+                  {type}
                 </h1>
                 <p className="text-[18px] font-normal leading-[24px] mb-[20px]">
-                  Anonymously refer people to access health services on Sharply.
+                  Make a reservation to access this service at the closest
+                  service provider to you.
                 </p>
               </div>
               <img
-                className="absolute bottom-0 right-[100px] object-cover w-[430px]"
-                src={"/images/referral-img.png"}
+                className="absolute right-[100px] object-cover w-[264px]"
+                src={"/images/Service-booking-image.png"}
                 alt="logo"
               />
             </div>
           </div>
           <div className="md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0 lg:container">
-            <div className="card mt-[21px] rounded-[20px] shadow-3xl px-[19px] py-[15px]">
-              <div className="border-purple1 border-l-2 px-[49px]">
-                <p className="text-[14px] font-normal">
-                  Enter the details for someone you want to refer below and
-                  preview the SMS message Sharply will send. When you click
-                  <span className="font-bold"> "send referral" </span> below,
-                  Sharply will send the message to the person. Repeat this
-                  process to send multiple referrals.
-                </p>
-              </div>
-            </div>
             <div className="border-2 rounded-[10px] border-grey10 flex mt-[20px] justify-items-stretch">
               {tabOptions.map((tabOption) => (
                 <div

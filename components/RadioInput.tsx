@@ -2,11 +2,13 @@ import { Dispatch, SetStateAction } from "react";
 import { RadioGroup } from "@headlessui/react";
 
 interface RadioInputProps {
-  options: string[];
+  options: any[] | string[];
   onChange: Dispatch<SetStateAction<null>>;
   value?: any;
+  type?: "arr" | "obj";
 }
 export default function RadioInput({
+  type,
   options,
   onChange,
   value,
@@ -19,7 +21,7 @@ export default function RadioInput({
           <div className="space-y-2">
             {options.map((option) => (
               <RadioGroup.Option
-                key={option}
+                key={type === "obj" ? option.id : option}
                 value={option}
                 className={({ active, checked }) =>
                   `${checked ? "border-blue" : "border-grey10"}
@@ -42,7 +44,7 @@ export default function RadioInput({
                             as="p"
                             className={`font-medium text-[15px]`}
                           >
-                            {option}
+                            {type === "obj" ? option.option : option}
                           </RadioGroup.Label>
                         </div>
                       </div>

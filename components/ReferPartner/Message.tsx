@@ -2,10 +2,38 @@ import { ReferPartnerTypes } from "../../types";
 import { Button } from "../Button";
 import Image from "next/image";
 import { useState } from "react";
+import { useMutation } from "react-query";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 export const Message = ({ setTabId }: ReferPartnerTypes) => {
+  const serverUrl = process.env.NEXT_PUBLIC_LOCAL_URL
+    ? process.env.NEXT_PUBLIC_LOCAL_URL
+    : "";
+  const submitReferPartnerData = (referPartnerData: any) => {
+    return axios.post(`${serverUrl}/refer`, referPartnerData);
+  };
+  const handleMutate = useMutation(submitReferPartnerData, {
+    onSuccess: (data) => {
+      setIsSubmitted(true);
+      Cookies.remove("who");
+      Cookies.remove("contact");
+      Cookies.remove("sex");
+      Cookies.remove("service");
+    },
+    onError: (error) => {
+      console.log("Error: ", error);
+    },
+  });
   const handleClick = () => {
-    setIsSubmitted(true);
+    const referInfo: any = {
+      who: Cookies.get("who"),
+      contact: Cookies.get("contact"),
+      sex: Cookies.get("sex"),
+      service: Cookies.get("service"),
+      user_id: Cookies.get("userId"),
+    };
+    handleMutate.mutate(referInfo);
   };
   const [isSubmitted, setIsSubmitted] = useState(false);
   return (
@@ -65,12 +93,21 @@ export const Message = ({ setTabId }: ReferPartnerTypes) => {
           >
             Back
           </Button>
-          <Button onClick={handleClick} variant="primary">
+          <Button
+            isLoading={handleMutate.isLoading}
+            onClick={handleClick}
+            disabled={handleMutate.isLoading}
+            variant="primary"
+          >
             Submit
           </Button>
         </div>
       ) : (
-        <Button className="mt-[56px]" onClick={handleClick} variant="primary">
+        <Button
+          className="mt-[56px]"
+          onClick={() => setTabId(1)}
+          variant="primary"
+        >
           Refer a friend
         </Button>
       )}

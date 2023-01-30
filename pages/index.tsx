@@ -7,8 +7,28 @@ import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import HomeModal from "../components/Modal";
+import { useQuery } from "react-query";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 const Home: NextPage<ContentTypeProps> = () => {
+  const router = useRouter();
+  const serverUrl = process.env.NEXT_PUBLIC_LOCAL_URL
+    ? process.env.NEXT_PUBLIC_LOCAL_URL
+    : "";
+  const cookieUserId = Cookies.get("userId");
+  const { error } = useQuery("init", () =>
+    axios.get(`${serverUrl}/init`).then((res) => {
+      if (cookieUserId) {
+        return;
+      }
+      Cookies.set("userId", res.data.data.id);
+    })
+  );
+  if (error) {
+    console.log(error);
+  }
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(ScrollTrigger);
@@ -46,7 +66,7 @@ const Home: NextPage<ContentTypeProps> = () => {
       <Layout title="Home" showDownloadCard>
         <HomeModal type="home" show={showModal} setShow={setShowModal} />
         <section
-          className={`sm:bg-center bg-no-repeat h-screen bg-cover bg-blue bg-top relative`}
+          className={`sm:bg-center bg-no-repeat h-screen bg-cover bg-blue bg-top relative overflow-hidden`}
         >
           <NavigationBar page="home" />
           <div className="px-[25px] md:px-8 xl:px-0  lg:max-w-[1070px] mx-auto text-white md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
@@ -63,6 +83,7 @@ const Home: NextPage<ContentTypeProps> = () => {
                       Find nearby health services on Sharply.
                     </p>
                     <Button
+                      onClick={() => router.push("/services")}
                       variant="secondary"
                       className="my-[30px] whitespace-nowrap"
                     >
@@ -80,13 +101,6 @@ const Home: NextPage<ContentTypeProps> = () => {
                   </div>
                 </div>
               </EnterFromLeft>
-              <div className="z-[5] absolute right-[120px] bottom-[215px]">
-                <img
-                  className="w-[92px]"
-                  src="/images/message.png"
-                  alt="powered by"
-                />
-              </div>
               <img
                 className="w-[892px] h-[892px] z-[4] mt-[50px] object-contain absolute top-[200px] right-[-100px] md:mt-[0] cursor-pointer"
                 src="/images/hero3.png"

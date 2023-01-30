@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useRouter } from "next/router";
 import { ReferPartnerLayout } from "../components/Layout/ReferPartnerLayout";
 import { WhoToRefer } from "../components/ReferPartner/WhoToRefer";
 import { ProvideContactDetails } from "../components/ReferPartner/ProvideContactDetails";
@@ -14,7 +13,6 @@ import { Captcha } from "../components/ReferPartner/Captcha";
 import { Message } from "../components/ReferPartner/Message";
 
 const ReferPartner: NextPage<ContentTypeProps> = () => {
-  const router = useRouter();
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(ScrollTrigger);

@@ -1,16 +1,16 @@
 import Head from "next/head";
-import { DownloadCard } from "../DownloadCard";
-import { Footer } from "../Footer";
-import { WhatsappContact } from "../WhatsappContact";
 import { useRouter } from "next/router";
 import { Loader } from "../Loader";
 import { LayoutProps } from "../../types";
+import { useState } from "react";
 
 export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
   const router = useRouter();
   if (router.isFallback) {
     return <Loader />;
   }
+
+  const [showIcons, setShowIcons] = useState(false);
 
   return (
     <>
@@ -51,6 +51,39 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
       </div>
       <main className="relative overflow-x-hidden hidden lg:block">
         {children}
+        <div className="z-[5] fixed right-[120px] bottom-[115px] flex flex-col">
+          {showIcons && (
+            <div className="flex flex-col">
+              <a target="_blank" href="https://www.instagram.com">
+                <img
+                  className="w-[92px] mb-[-20px]"
+                  src="/images/messenger.png"
+                  alt="message"
+                />
+              </a>
+              <a target="_blank" href="https://www.instagram.com">
+                <img
+                  className="w-[92px] mb-[-20px]"
+                  src="/images/instagram.png"
+                  alt="message"
+                />
+              </a>
+              <a target="_blank" href="https://www.instagram.com">
+                <img
+                  className="w-[92px] mb-[-20px]"
+                  src="/images/whatsapp.png"
+                  alt="message"
+                />
+              </a>
+            </div>
+          )}
+          <img
+            onClick={() => setShowIcons(!showIcons)}
+            className="w-[92px] cursor-pointer"
+            src="/images/message.png"
+            alt="message"
+          />
+        </div>
       </main>
     </>
   );

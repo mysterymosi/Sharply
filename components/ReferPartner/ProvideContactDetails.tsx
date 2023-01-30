@@ -1,15 +1,15 @@
-import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 import { useState } from "react";
 import { ReferPartnerTypes } from "../../types";
 import { Button } from "../Button";
 import PhoneNumberInput from "../PhoneNumberInput";
 
 export const ProvideContactDetails = ({ setTabId }: ReferPartnerTypes) => {
+  const [phoneNumber, setPhoneNumber] = useState<any>("");
   const handleClick = () => {
+    Cookies.set("contact", phoneNumber);
     setTabId(3);
   };
-  const router = useRouter();
-  const [phoneNumber, setPhoneNumber] = useState<any>("");
   return (
     <div className="mt-[54px] flex flex-col items-center">
       <h1 className="font-semibold text-[20px] text-center">

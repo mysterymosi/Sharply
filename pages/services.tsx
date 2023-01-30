@@ -65,7 +65,7 @@ const Services: NextPage<ContentTypeProps> = () => {
                 </Button>
               </div>
               <img
-                className="absolute bottom-[-70px] right-0"
+                className="absolute bottom-0 right-0 w-[47ch]"
                 src={"/images/Assessment-IMG.png"}
                 alt="logo"
               />
@@ -80,7 +80,10 @@ const Services: NextPage<ContentTypeProps> = () => {
                 </p>
               </div>
               <div className="flex">
-                <p className="text-[orange] opacity-90 text-[14px] font-semibold">
+                <p
+                  onClick={() => setFinishIndex(10)}
+                  className="text-[orange] opacity-90 text-[14px] font-semibold cursor-pointer"
+                >
                   see all services
                 </p>
                 <ArrowRight className="opacity-90" color="#E9A802" />

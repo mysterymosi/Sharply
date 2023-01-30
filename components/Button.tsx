@@ -1,4 +1,5 @@
 import { ButtonTypes } from "../types";
+import { Spinner } from "./Spinner";
 
 export const Button = ({
   variant,
@@ -7,6 +8,7 @@ export const Button = ({
   children,
   disabled,
   style,
+  isLoading,
   ...props
 }: ButtonTypes) => (
   <button
@@ -33,6 +35,6 @@ export const Button = ({
     transition ease-in-out delay-150 hover:scale-110 duration-300 justify-center items-center ${className} `}
     {...props}
   >
-    {children}
+    {isLoading ? <Spinner /> : children}
   </button>
 );

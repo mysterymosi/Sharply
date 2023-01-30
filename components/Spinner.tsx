@@ -5,7 +5,9 @@ export const Spinner = () => (
     height="30"
     viewBox="0 0 200 200"
     fill="none"
-    color="#5BAB0A">
+    color="#fff"
+    className="mx-auto"
+  >
     <defs>
       <linearGradient id="spinner-secondHalf">
         <stop offset="0%" stopOpacity="0" stopColor="currentColor" />
