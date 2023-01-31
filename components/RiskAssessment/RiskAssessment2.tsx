@@ -52,8 +52,8 @@ export const RiskAssessment2 = ({
         setShowSuccessModal(false);
         setShowFailedModal(true);
       } else {
-        setShowFailedModal(true);
-        setShowSuccessModal(false);
+        setShowFailedModal(false);
+        setShowSuccessModal(true);
       }
       clearCookies();
     },
