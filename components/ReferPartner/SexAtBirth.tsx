@@ -14,7 +14,7 @@ export const SexAtBirth = ({ setTabId }: ReferPartnerTypes) => {
   return (
     <div className="mt-[54px] flex flex-col items-center">
       <h1 className="font-semibold text-[20px] text-center">Sex at birth</h1>
-      <div className="w-[450px] mt-[30px]">
+      <div className="lg:min-w-[450px] min-w-[350px] mt-[30px]">
         <RadioInput options={options} value={selected} onChange={setSelected} />
       </div>
       <div className="flex">

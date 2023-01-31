@@ -15,7 +15,7 @@ export const ProvideContactDetails = ({ setTabId }: ReferPartnerTypes) => {
       <h1 className="font-semibold text-[20px] text-center">
         Provide contact details
       </h1>
-      <div className="w-[450px] mt-[30px] mb-[30px]">
+      <div className="lg:min-w-[450px] min-w-[350px] mt-[30px] mb-[30px]">
         <PhoneNumberInput
           placeholder="Enter phone number"
           value={phoneNumber}

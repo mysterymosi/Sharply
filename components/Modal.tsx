@@ -141,7 +141,7 @@ export default function HomeModal({ show, setShow, type }: ModalProps) {
   };
 
   const ModalSubmitted = () => (
-    <div className="py-[100px] px-[100px]">
+    <div className="lg:py-[100px] lg:px-[100px] py-[63px] px-[53px]">
       <div className="flex justify-center items-center">
         <Image
           src="/images/Risk-pass.png"
@@ -179,7 +179,7 @@ export default function HomeModal({ show, setShow, type }: ModalProps) {
   );
 
   const TimeToActModal = () => (
-    <div className="py-[100px] px-[80px]">
+    <div className="lg:py-[100px] lg:px-[80px] py-[63px] px-[53px]">
       <div className="flex justify-center items-center">
         <Image
           src="/images/Risk-failed.png"
@@ -193,44 +193,44 @@ export default function HomeModal({ show, setShow, type }: ModalProps) {
 
       <Dialog.Title
         as="h3"
-        className="text-[25px] font-[600] mt-[40px] text-center"
+        className="lg:text-[25px] text-[22px] font-[600] mt-[40px] text-center"
       >
         Time to act!
       </Dialog.Title>
       <div className="mt-[10px]">
-        <p className="text-[15px] font-normal text-gray-500 text-center">
+        <p className="text-[14px] lg:text-[15px] font-normal text-gray-500 text-center">
           You might have been exposed to HIV and other STIs! To stay healthy, it
           is important to get tested. Make an appointment for HIV testing below.
         </p>
       </div>
-      <div className="mt-[34px] w-[460px] mx-auto gap-5 flex items-center border-2 border-grey7 rounded-[20px] py-[17px] relative">
-        <div className="rounded-full bg-purple w-[65px] h-[65px] flex justify-center items-center absolute left-[-35px]">
-          <p className="mb-0 font-bold text-[30px]">1</p>
+      <div className="mt-[34px] lg:w-[460px] mx-auto gap-5 flex items-center border-2 border-grey7 rounded-[20px] py-[17px] relative">
+        <div className="rounded-full bg-purple w-[45px] h-[45px] lg:w-[65px] lg:h-[65px] flex justify-center items-center absolute left-[-35px]">
+          <p className="mb-0 font-bold text-[22px] lg:text-[30px]">1</p>
         </div>
-        <p className="font-normal text-[15px] ml-[40px]">
+        <p className="font-normal text-[14px] lg:text-[15px] ml-[40px]">
           Use a condom each time you have sex to avoid STIs and prevent HIV.
         </p>
       </div>
-      <div className="mt-[34px] w-[460px] mx-auto gap-5 flex items-center mt-[32px] border-2 border-grey7 rounded-[20px] py-[17px] relative">
-        <div className="rounded-full bg-purple w-[65px] h-[65px] flex justify-center items-center absolute left-[-35px]">
-          <p className="mb-0 font-bold text-[30px]">2</p>
+      <div className="mt-[34px] lg:w-[460px] mx-auto gap-5 flex items-center mt-[32px] border-2 border-grey7 rounded-[20px] py-[17px] relative">
+        <div className="rounded-full bg-purple w-[45px] h-[45px] lg:w-[65px] lg:h-[65px] flex justify-center items-center absolute left-[-35px]">
+          <p className="mb-0 font-bold text-[22px] lg:text-[30px]">2</p>
         </div>
-        <p className="font-normal text-[15px] ml-[40px]">
+        <p className="font-normal text-[14px] lg:text-[15px] ml-[40px]">
           If you test HIV negative, learn more about PrEP - a daily HIV
           prevention pill.
         </p>
       </div>
-      <div className="mt-[34px] w-[460px] mx-auto gap-5 flex items-center mt-[32px] border-2 border-grey7 rounded-[20px] py-[17px] relative">
-        <div className="rounded-full bg-purple w-[65px] h-[65px] flex justify-center items-center absolute left-[-35px]">
-          <p className="mb-0 font-bold text-[30px]">3</p>
+      <div className="mt-[34px] lg:w-[460px] mx-auto gap-5 flex items-center mt-[32px] border-2 border-grey7 rounded-[20px] py-[17px] relative">
+        <div className="rounded-full bg-purple w-[45px] h-[45px] lg:w-[65px] lg:h-[65px] flex justify-center items-center absolute left-[-35px]">
+          <p className="mb-0 font-bold text-[22px] lg:text-[30px]">3</p>
         </div>
-        <p className="font-normal text-[15px] ml-[40px]">
+        <p className="font-normal text-[14px] lg:text-[15px] ml-[40px]">
           If you are diagnosed with HIV, you can live a healthy long life with
           daily HIV medicine (ART).
         </p>
       </div>
-      <div className="mt-[40px] flex justify-center">
-        <div className="flex justify-center mr-[43px]">
+      <div className="mt-[40px] flex lg:flex-row flex-col justify-center">
+        <div className="flex justify-center lg:mr-[43px] mb-[16px] lg:mb-0">
           <p className="text-blue opacity-90 text-[14px] font-semibold">
             HIV testing
           </p>
@@ -293,7 +293,7 @@ export default function HomeModal({ show, setShow, type }: ModalProps) {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className={`transform bg-white min-h-[462px]  w-[800px] flex  flex-col my-auto rounded-[50px] text-left align-middle shadow-xl transition-all`}
+                className={`transform bg-white min-h-[462px]  w-[800px] flex  flex-col my-auto rounded-[50px] text-left align-middle shadow-xl transition-all mx-[16px] lg:mx-[0]`}
               >
                 <button
                   onClick={closeModal}

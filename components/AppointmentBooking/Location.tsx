@@ -33,7 +33,7 @@ export const Location = ({ setTabId }: ReferPartnerTypes) => {
       <h1 className="font-semibold text-[20px] text-center">
         What is your location?
       </h1>
-      <div className="mt-[30px]">
+      <div className="mt-[30px] lg:w-[650px] w-full">
         <Map address={address} setAddress={setAddress} />
       </div>
       <Button className="mt-[30px]" onClick={handleClick} variant="primary">

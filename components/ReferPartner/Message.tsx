@@ -43,9 +43,9 @@ export const Message = ({ setTabId }: ReferPartnerTypes) => {
           <h1 className="font-semibold text-[20px] text-center">
             Preview message
           </h1>
-          <div className="w-[450px] mt-[30px] mb-[40px]">
-            <div className="w-[460px] mx-auto gap-5 flex items-center border-2 border-grey7 rounded-[20px] py-[17px] relative">
-              <div className="rounded-full bg-purple w-[65px] h-[65px] flex justify-center items-center absolute left-[-35px]">
+          <div className="lg:w-[450px] min-w-[350px] mt-[30px] mb-[40px] lg:px-0 px-[20px]">
+            <div className="lg:min-w-[450px] min-w-[300px] mx-auto gap-5 flex items-center border-2 border-grey7 rounded-[20px] lg:py-[17px] py-[9px] relative">
+              <div className="rounded-full bg-purple md:w-[65px] w-[56px] md:h-[65px] h-[56px] flex justify-center items-center absolute lg:left-[-35px] left-[-20px]">
                 <Image
                   src="/images/message-icon.png"
                   width={20}
@@ -55,7 +55,7 @@ export const Message = ({ setTabId }: ReferPartnerTypes) => {
                   layout="fixed"
                 />
               </div>
-              <p className="font-normal text-[15px] ml-[50px]">
+              <p className="font-normal lg:text-[15px] text-[14px] ml-[50px]">
                 Hello! A friend referred you for convenient health services on
                 Sharply. To learn more or book an appointment, contact us at
                 <a className="text-blue" href="mailto:contact@sharply.org">
@@ -79,7 +79,7 @@ export const Message = ({ setTabId }: ReferPartnerTypes) => {
           <h1 className="font-semibold text-[20px] text-center mt-[40px]">
             Referral successfully sent
           </h1>
-          <p className="font-normal text-[16px]">
+          <p className="font-normal text-center lg:text-left lg:text-[16px] text-[14px]">
             You can refer more people by clicking the button below
           </p>
         </>

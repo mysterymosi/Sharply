@@ -132,7 +132,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
       <div className="mt-[30px] w-full">
         <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
           <div>
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               1. I am booking an appointment for
             </p>
             <RadioInput
@@ -140,7 +140,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
               value={selected}
               onChange={setSelected}
             />
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               3. Phone number
             </p>
             <PhoneNumberInput
@@ -150,7 +150,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
             />
           </div>
           <div>
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               2. Name or nickname
             </p>
             <input
@@ -159,7 +159,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
               className="h-[56px]  w-full  p-[20px] border-white4 border-[2px] rounded-[10px] mb-[20px]"
               type="text"
             />
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               4. Email Address
             </p>
             <input
@@ -168,7 +168,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
               className="h-[56px]  w-full  p-[20px] border-white4 border-[2px] rounded-[10px] mb-[20px]"
               type="email"
             />
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               5. Communication preferences (optional)
             </p>
             <p className="text-[14px] font-medium opacity-70 tracking-[0.3px] text-black1">
@@ -182,7 +182,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
                 value="Opt-out of SMS for this appointment"
                 className="appearance-none checked:bg-blue-500 rounded-[4px] border-[1.5px] border-grey9"
               />
-              <label className="ml-[13px] font-medium text-black1 text-[15px]">
+              <label className="ml-[13px] font-medium text-black1 lg:text-[15px] text-[14px]">
                 Opt-out of SMS for this appointment
               </label>
             </div>
@@ -193,7 +193,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
                 value="Avoid calling my phone number"
                 className="appearance-none checked:bg-blue-500 rounded-[4px] border-[1.5px] border-grey9"
               />
-              <label className="ml-[13px] font-medium text-black1 text-[15px]">
+              <label className="ml-[13px] font-medium text-black1 lg:text-[15px] text-[14px]">
                 Avoid calling my phone number
               </label>
             </div>
@@ -213,7 +213,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
       <div className="mt-[30px] w-full">
         <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
           <div>
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               1. I am booking an appointment for
             </p>
             <RadioInput
@@ -221,7 +221,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
               value={covidSelected}
               onChange={setCovidSelected}
             />
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               3. What is your COVID-19 vaccination status?
             </p>
             <RadioInput
@@ -231,7 +231,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
             />
           </div>
           <div>
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               2. Were you exposed to anyone that was confirmed as COVID-19
               positive in the last 14 days?
             </p>
@@ -252,7 +252,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
           <div
             className={`${
               noSymptoms ? "border-green4" : "border-red2"
-            } border-l-4 px-[52px]`}
+            } border-l-4 lg:px-[52px] px-[30px]`}
           >
             <p className="text-[14px] font-normal py-[20px]">
               {noSymptoms
@@ -266,10 +266,10 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
       <div className="mt-[30px] w-full">
         <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
           <div>
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               1. Please enter date of birth
             </p>
-            <div className="grid grid-cols-3 gap-4 mb-[40px] w-[50ch]">
+            <div className="grid grid-cols-3 gap-4 mb-[40px] lg:w-[50ch]">
               <SelectForm
                 options={dayOptions}
                 placeholder="Day"
@@ -286,7 +286,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
                 onChange={(selected) => setYear(selected.value)}
               />
             </div>
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               3. How do you identify your gender today?
             </p>
             <RadioInput
@@ -296,7 +296,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
             />
           </div>
           <div>
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               2. What is your sex at birth?
             </p>
             <RadioInput
@@ -304,7 +304,7 @@ export const MoreAboutYou = ({ setTabId }: ReferPartnerTypes) => {
               value={sexSelected}
               onChange={setSexSelected}
             />
-            <p className="text-black font-medium text-[17px] mb-[10px]">
+            <p className="text-black font-medium lg:text-[17px] text-[16px] mb-[10px]">
               4. Are you a member of any of these populations? (Select all that
               apply)
             </p>

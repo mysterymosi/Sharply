@@ -166,7 +166,7 @@ export const DateAndTime = ({ setTabId }: ReferPartnerTypes) => {
                       : "border-grey12 bg-white"
                   } cursor-pointer rounded-[8px] border border-solid py-[12px] px-[8px]`}
                 >
-                  <p className="text-center text-blue2">
+                  <p className="text-center text-blue2 lg:text-[14px] text-[12px]">
                     {appointmentTime?.time}
                   </p>
                 </div>

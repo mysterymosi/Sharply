@@ -83,6 +83,9 @@ module.exports = {
       boxShadow: {
         "3xl": "0px 0px 30px rgba(0, 0, 0, 0.06)",
       },
+      backgroundImage: {
+        "risk-hero": "url('/images/risk-assessment.png')",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

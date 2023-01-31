@@ -69,7 +69,7 @@ const Home: NextPage<ContentTypeProps> = () => {
           className={`sm:bg-center bg-no-repeat h-screen bg-cover bg-blue bg-top relative overflow-hidden`}
         >
           <NavigationBar page="home" />
-          <div className="px-[25px] md:px-8 xl:px-0  lg:max-w-[1070px] mx-auto text-white md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
+          <div className="px-[25px] lg:pt-0 pt-[20px] md:px-8 xl:px-0  lg:max-w-[1070px] mx-auto text-white md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
             <div className="flex flex-col md:flex-row items-center flex-auto justify-center md:justify-between h-full">
               <EnterFromLeft>
                 <div>

@@ -1,8 +1,6 @@
 import Image from "next/image";
-import { Button } from "./Button";
 import { Popover } from "@headlessui/react";
 import Link from "next/link";
-import { ChevronDown } from "react-feather";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
@@ -38,7 +36,9 @@ export const NavigationBar = ({
       ref={ref}
       className={`${
         page === "risk-assessment" && "fixed"
-      } mx-auto z-50 top-0 w-full align-center transition-all left-0 items-center lg:pt-[79px]  justify-between `}
+      } mx-auto z-50 top-0 w-full align-center transition-all left-0 items-center lg:pt-[79px]  justify-between ${
+        page === "risk-assessment" || (page === "home" && "px-[16px] lg:px-0")
+      } ${page === "home" && "py-[10px] lg:py-0"} `}
     >
       <div
         className={`${
@@ -62,9 +62,9 @@ export const NavigationBar = ({
                 ) : (
                   <Image
                     src={"/images/Group-1.png"}
-                    width={77}
+                    width={57}
                     alt="logo"
-                    height={77}
+                    height={57}
                     layout="fixed"
                     className="rounded-full"
                   />
@@ -91,10 +91,16 @@ export const NavigationBar = ({
               })}
           </div>
 
-          <Popover.Button className=" cursor-pointer py-2.5 px-[8px] rounded-full w-[92px] outline-0 my-2 whitespace-nowrap md:hidden flex items-center justify-evenly md:flex-1 lg:w-0 bg-blue font-semibold text-xs text-black">
-            Menu <ChevronDown size={15} />
+          <Popover.Button className="cursor-pointer w-[92px] md:hidden flex items-center justify-end outline-0 md:flex-1 lg:w-0">
+            <Image
+              src={"/images/menu.svg"}
+              width={57}
+              alt="logo"
+              height={57}
+              layout="fixed"
+            />
           </Popover.Button>
-          <Popover.Panel className="absolute z-50 top-[4rem] rounded-2xl  shadow bg-blue w-[260px] right-[21px] px-[24px] pb-[24px]">
+          <Popover.Panel className="absolute z-50 top-[6rem] rounded-2xl  shadow bg-white w-[260px] right-[21px] px-[24px] pb-[24px]">
             <div className="grid grid-col-1">
               {navItems.map(({ name, link, reload }) =>
                 !reload ? (
@@ -119,13 +125,6 @@ export const NavigationBar = ({
                   </a>
                 )
               )}
-
-              <Button
-                style={{ backgroundColor: buttonClassName }}
-                className="my-2 whitespace-nowrap"
-              >
-                {buttonText ?? " Order a Card"}
-              </Button>
             </div>
           </Popover.Panel>
         </div>

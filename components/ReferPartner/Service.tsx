@@ -13,11 +13,11 @@ export const Service = ({ setTabId }: ReferPartnerTypes) => {
   };
   return (
     <div className="mt-[54px] flex flex-col items-center">
-      <h1 className="font-semibold text-[20px] text-center w-[600px]">
+      <h1 className="font-semibold text-[20px] text-center lg:w-[600px]">
         If you potentially exposed this person to an infection, select the
         screening services we should recommend to them:
       </h1>
-      <div className="w-[450px] mt-[30px] mb-[30px]">
+      <div className="lg:min-w-[450px] min-w-[350px] mt-[30px] mb-[30px]">
         <SelectForm
           value={service}
           options={serviceOptions}

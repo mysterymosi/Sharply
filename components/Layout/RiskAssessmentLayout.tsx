@@ -33,18 +33,15 @@ export const RiskAssessmentLayout = ({
   return (
     <>
       <Layout title="Home" showDownloadCard>
-        <section className={`bg-white h-screen relative pb-[100px] relative`}>
+        <section
+          className={`bg-white h-screen relative pb-[100px] relative px-[16px] lg:px-0 py-[23px] lg:py-0`}
+        >
           <NavigationBar page="risk-assessment" />
-          <div
-            style={{
-              backgroundImage: "url('/images/risk-assessment.png')",
-            }}
-            className="grid absolute gap-4 md:grid-cols-2 grid-cols-1 h-screen w-full bg-no-repeat bg-contain bg-right"
-          ></div>
+          <div className="grid lg:bg-risk-hero bg-none absolute gap-4 md:grid-cols-2 grid-cols-1 h-screen w-full bg-no-repeat bg-contain bg-right"></div>
           <div className="lg:container">
             <div className="flex flex-col justify-around h-screen">
               {children}
-              <div className="flex justify-between items-center">
+              <div className="flex lg:justify-between justify-center items-center">
                 <ProgressBar level={level} />
               </div>
             </div>

@@ -16,7 +16,7 @@ export const WhoToRefer = ({ setTabId }: ReferPartnerTypes) => {
       <h1 className="font-semibold text-[20px] text-center">
         Who do you want to refer?
       </h1>
-      <div className="w-[450px] mt-[30px]">
+      <div className="lg:min-w-[450px] min-w-[350px] mt-[30px]">
         <RadioInput
           type="arr"
           options={options}

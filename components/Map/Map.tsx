@@ -29,7 +29,7 @@ const TheMap = ({ address, setAddress }: any) => {
       <GoogleMap
         zoom={10}
         center={selected}
-        mapContainerClassName="map-container"
+        mapContainerClassName="w-full h-[219px] rounded-[14px]"
       >
         {selected && <Marker position={selected} onClick={handleMarkerClick} />}
       </GoogleMap>

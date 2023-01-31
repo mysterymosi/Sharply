@@ -15,7 +15,7 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>{`${title} | Little App`}</title>
+        <title>{`${title} | Sharply`}</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -25,7 +25,7 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
         />
         <meta
           property="og:title"
-          content={`${title} | Little App`}
+          content={`${title} | Sharply`}
           key="ogtitle"
         />
         <meta
@@ -44,14 +44,14 @@ export const Layout = ({ children, title, showDownloadCard }: LayoutProps) => {
         />
         <link rel="icon" href="/logo_icon.ico" />
       </Head>
-      <div className="flex h-screen justify-center items-center lg:hidden">
+      {/* <div className="flex h-screen justify-center items-center lg:hidden">
         <p className="font-semibold font-[raleway] text-[30px] text-center">
           Mbok! Not available on smaller screens yet
         </p>
-      </div>
-      <main className="relative overflow-x-hidden hidden lg:block">
+      </div> */}
+      <main className="relative overflow-x-hidden">
         {children}
-        <div className="z-[5] fixed right-[120px] bottom-[115px] flex flex-col">
+        <div className="z-[5] fixed right-[120px] bottom-[115px] flex-col hidden md:flex">
           {showIcons && (
             <div className="flex flex-col">
               <a target="_blank" href="https://www.instagram.com">

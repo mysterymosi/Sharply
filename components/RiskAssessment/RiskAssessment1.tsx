@@ -17,11 +17,11 @@ export const RiskAssessment1 = ({ setStepNumber }: RiskAssessment1Props) => {
     setStepNumber(2);
   };
   return (
-    <div className="mt-[100px] z-10 relative">
-      <h1 className="font-black font-[raleway] text-[35px] w-[24ch] leading-[40px] mb-[40px]">
+    <div className="mt-[100px] lg:text-left text-center z-10 relative">
+      <h1 className="font-black font-[raleway] lg:text-[35px] text-[22px] lg:w-[24ch] leading-[40px] mb-[40px]">
         Please enter your date of birth.
       </h1>
-      <div className="grid grid-cols-3 gap-4 mb-[40px] w-[50ch]">
+      <div className="grid grid-cols-3 gap-4 mb-[40px] lg:w-[50ch]">
         <SelectForm
           options={dayOptions}
           placeholder="Day"

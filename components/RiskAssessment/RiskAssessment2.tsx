@@ -52,8 +52,8 @@ export const RiskAssessment2 = ({
         setShowSuccessModal(false);
         setShowFailedModal(true);
       } else {
-        setShowFailedModal(false);
-        setShowSuccessModal(true);
+        setShowFailedModal(true);
+        setShowSuccessModal(false);
       }
       clearCookies();
     },
@@ -141,7 +141,7 @@ export const RiskAssessment2 = ({
   };
 
   return (
-    <div className="mt-[100px] z-10 relative">
+    <div className="mt-[100px] z-10 relative text-center lg:text-left">
       <HomeModal
         type="failed"
         show={showFailedModal}
@@ -152,7 +152,7 @@ export const RiskAssessment2 = ({
         show={showSuccessModal}
         setShow={setShowSuccessModal}
       />
-      <h1 className="font-black font-[raleway] text-[35px] w-[24ch] leading-[40px] mb-[40px]">
+      <h1 className="font-black font-[raleway] lg:text-[35px] text-[22px] w-[24ch] leading-[40px] mb-[40px]">
         {question}?
       </h1>
       <RadioInput

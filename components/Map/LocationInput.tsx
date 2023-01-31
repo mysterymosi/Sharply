@@ -39,7 +39,7 @@ export const LocationIpnut = ({
   };
 
   return (
-    <Combobox className="w-[655px]" onSelect={handleSelect}>
+    <Combobox className="lg:w-[655px]" onSelect={handleSelect}>
       <ComboboxInput
         value={value}
         onChange={(e) => setValue(e.target.value)}

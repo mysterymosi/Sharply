@@ -42,7 +42,7 @@ export default function RadioInput({
                         <div className="text-sm">
                           <RadioGroup.Label
                             as="p"
-                            className={`font-medium text-[15px]`}
+                            className={`font-medium lg:text-[15px] text-[14px]`}
                           >
                             {type === "obj" ? option.option : option}
                           </RadioGroup.Label>

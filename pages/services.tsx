@@ -39,7 +39,7 @@ const Services: NextPage<ContentTypeProps> = () => {
     <>
       <Layout title="Home" showDownloadCard>
         <section
-          className={`sm:bg-center bg-no-repeat bg-cover bg-white bg-top relative pb-[100px]`}
+          className={`sm:bg-center bg-no-repeat bg-cover bg-white bg-top relative pb-[100px] px-[16px] py-[23px] lg:px-0 lg:py-0`}
         >
           <NavigationBar page="services" />
           <div className="lg:container">
@@ -47,17 +47,18 @@ const Services: NextPage<ContentTypeProps> = () => {
               style={{
                 backgroundImage: "url('/images/Risk-assessment-BG.png')",
               }}
-              className="services-hero relative flex justify-between py-[52px] px-[82px] mt-[30px] rounded-[20px] bg-cover bg-no-repeat bg-center w-full"
+              className="services-hero relative flex lg:flex-row flex-col items-center justify-between md:py-[52px] py-[25px] lg:px-[82px] px-[40px] mt-[30px] rounded-[20px] bg-cover bg-no-repeat bg-center w-full"
             >
-              <div className="w-[30ch]">
-                <h1 className="text-[35px] font-black font-[raleway] leading-[40px] mb-[15px]">
+              <div className="lg:w-[30ch] lg:text-left text-center">
+                <h1 className="lg:text-[35px] text-[22px] font-black font-[raleway] lg:leading-[40px] leading-[26px] mb-[15px]">
                   What’s your HIV risk level?
                 </h1>
-                <p className="text-[18px] font-normal leading-[24px] mb-[20px]">
+                <p className="lg:text-[18px] text-[12px] font-normal lg:leading-[24px] leading-[15px] mb-[20px]">
                   Take a quick screening quiz to find services recommend for
                   you.
                 </p>
                 <Button
+                  className="z-[1] relative"
                   onClick={() => router.push("/risk-assessment")}
                   variant="black"
                 >
@@ -65,17 +66,19 @@ const Services: NextPage<ContentTypeProps> = () => {
                 </Button>
               </div>
               <img
-                className="absolute bottom-0 right-0 w-[47ch]"
+                className="lg:absolute z-0 lg:bottom-0 mt-[-80px] lg:right-0 lg:w-[47ch] md:hidden lg:block w-[400px]"
                 src={"/images/Assessment-IMG.png"}
                 alt="logo"
               />
             </div>
           </div>
           <div className="md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0 lg:container">
-            <div className="flex flex-col md:flex-row mt-[40px] flex-auto justify-center md:justify-between h-full">
+            <div className="flex flex-col text-center lg:text-left md:flex-row mt-[40px] flex-auto items-center lg:items-start justify-center md:justify-between h-full">
               <div>
-                <p className="font-bold text-[20px]">Other Services</p>
-                <p className="text-[16px] font-normal">
+                <p className="font-bold lg:text-[20px] text-[16px]">
+                  Other Services
+                </p>
+                <p className="lg:text-[16px] text-[14px] font-normal">
                   Choose from our available services
                 </p>
               </div>
