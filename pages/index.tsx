@@ -11,6 +11,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Home: NextPage<ContentTypeProps> = () => {
   const router = useRouter();
@@ -66,19 +67,28 @@ const Home: NextPage<ContentTypeProps> = () => {
       <Layout title="Home" showDownloadCard>
         <HomeModal type="home" show={showModal} setShow={setShowModal} />
         <section
-          className={`sm:bg-center bg-no-repeat h-screen bg-cover bg-blue bg-top relative overflow-hidden`}
+          className={`sm:bg-center bg-no-repeat h-screen bg-cover bg-blue bg-top relative overflow-x-hidden`}
         >
           <NavigationBar page="home" />
           <div className="px-[25px] lg:pt-0 pt-[20px] md:px-8 xl:px-0  lg:max-w-[1070px] mx-auto text-white md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
-            <div className="flex flex-col md:flex-row items-center flex-auto justify-center md:justify-between h-full">
+            <div className="flex flex-col lg:flex-row items-center flex-auto justify-center lg:justify-between h-full lg:text-left text-center">
               <EnterFromLeft>
                 <div>
-                  <h1 className="md:text-xxl font-[raleway]  max-w-[20ch] text-xl   xs:text-[30px] leading-[75px]">
+                  <div className="block lg:hidden mt-[120px]">
+                    <Image
+                      src={"/images/white.svg"}
+                      width={124}
+                      alt="logo"
+                      height={45}
+                      layout="fixed"
+                    />
+                  </div>
+                  <h1 className="md:text-xxl landscape:mt-[40px] font-[raleway] mt-[89px] lg:mt-0  max-w-[20ch] text-xl   xs:text-[30px] leading-[75px]">
                     Simple access to confidential health services near you,{" "}
                     <br />
                     <span className="text-orange font-bold">sharp sharp!</span>
                   </h1>
-                  <div className="max-w-[531px]">
+                  <div className="lg:max-w-[531px]">
                     <p className="mt-6 text-white font-normal text-base leading-[33px]">
                       Find nearby health services on Sharply.
                     </p>
@@ -91,33 +101,46 @@ const Home: NextPage<ContentTypeProps> = () => {
                     </Button>
                   </div>
                 </div>
-                <div className="flex justify-between items-center mt-[137px]">
+                <div className="flex lg:justify-between justify-center items-center mt-[137px]">
                   <div>
                     <img
-                      className="w-[300px]"
+                      className="w-[300px] hidden lg:block"
                       src="/images/poweredby.png"
                       alt="powered by"
                     />
+                    <div>
+                      <p className="uppercase tracking-[0.88em] text-white font-normal text-[7px] mb-[8px]">
+                        powered by
+                      </p>
+                      <img
+                        className="w-full h-[44px] block lg:hidden"
+                        src="/images/bottom-img.svg"
+                        alt="powered by"
+                      />
+                      <p className="text-white font-normal text-[9px] mt-[6px]">
+                        Global Fund National Alliance HIV/AIDS Initiative
+                      </p>
+                    </div>
                   </div>
                 </div>
               </EnterFromLeft>
               <img
-                className="w-[892px] h-[892px] z-[4] mt-[50px] object-contain absolute top-[200px] right-[-100px] md:mt-[0] cursor-pointer"
+                className="w-[892px] h-[892px] hidden lg:block z-[4] mt-[50px] object-contain absolute top-[200px] right-[-100px] md:mt-[0]"
                 src="/images/hero3.png"
                 alt="hero"
               />
               <img
-                className="w-[892px] h-[892px] z-[3] mt-[50px] object-contain absolute top-[180px] right-[-110px] md:mt-[0] cursor-pointer"
+                className="w-[892px] h-[892px] hidden lg:block z-[3] mt-[50px] object-contain absolute top-[180px] right-[-110px] md:mt-[0]"
                 src="/images/hero2.png"
                 alt="hero"
               />
               <img
-                className="w-[892px] h-[892px] z-[2] mt-[50px] object-contain absolute top-[170px] right-[-130px] md:mt-[0] cursor-pointer"
+                className="w-[892px] h-[892px] hidden lg:block z-[2] mt-[50px] object-contain absolute top-[170px] right-[-130px] md:mt-[0]"
                 src="/images/hero1.png"
                 alt="hero"
               />
               <img
-                className="w-[892px] h-[892px] z-[1] mt-[50px] object-contain absolute top-[190px] right-[-160px] md:mt-[0] cursor-pointer"
+                className="w-[892px] h-[892px] hidden lg:block z-[1] mt-[50px] object-contain absolute top-[190px] right-[-160px] md:mt-[0]"
                 src="/images/hero4.png"
                 alt="hero"
               />

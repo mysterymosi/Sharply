@@ -38,7 +38,7 @@ export const NavigationBar = ({
         page === "risk-assessment" && "fixed"
       } mx-auto z-50 top-0 w-full align-center transition-all left-0 items-center lg:pt-[79px]  justify-between ${
         page === "risk-assessment" || (page === "home" && "px-[16px] lg:px-0")
-      } ${page === "home" && "py-[10px] lg:py-0"} `}
+      } ${page === "home" && "hidden lg:flex"} `}
     >
       <div
         className={`${
