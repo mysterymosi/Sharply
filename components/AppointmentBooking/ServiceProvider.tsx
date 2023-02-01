@@ -1,21 +1,12 @@
-import axios from "axios";
 import Cookies from "js-cookie";
-import { useState } from "react";
-import { useQuery } from "react-query";
+import { useContext, useState } from "react";
+import { GeneralContext } from "../../context";
 import { ReferPartnerTypes } from "../../types";
-import { serverUrl } from "../../utils";
 import { Button } from "../Button";
 import ServiceProviderCard from "../ServiceProviderCard";
 
 export const ServiceProvider = ({ setTabId }: ReferPartnerTypes) => {
-  const { error, isLoading, data } = useQuery("init", () =>
-    axios.get(`${serverUrl}/init/generate-centres`).then((res) => {
-      return res.data.data;
-    })
-  );
-  if (error) {
-    console.log("error:", error);
-  }
+  const { helpCenters } = useContext<any>(GeneralContext);
   const [selected, setSelected] = useState<any>(null);
   const handleClick = () => {
     Cookies.set("help_center_id", selected.id);
@@ -27,15 +18,11 @@ export const ServiceProvider = ({ setTabId }: ReferPartnerTypes) => {
         Select your preferred provider
       </h1>
       <div className="w-full mt-[30px] mb-[30px]">
-        {!isLoading ? (
-          <ServiceProviderCard
-            options={data}
-            value={selected}
-            onChange={setSelected}
-          />
-        ) : (
-          <p>Loading...</p>
-        )}
+        <ServiceProviderCard
+          options={helpCenters}
+          value={selected}
+          onChange={setSelected}
+        />
       </div>
       <div className="flex">
         <Button

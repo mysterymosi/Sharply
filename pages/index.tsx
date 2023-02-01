@@ -70,7 +70,7 @@ const Home: NextPage<ContentTypeProps> = () => {
           className={`sm:bg-center bg-no-repeat h-screen bg-cover bg-blue bg-top relative overflow-x-hidden`}
         >
           <NavigationBar page="home" />
-          <div className="px-[25px] lg:pt-0 pt-[20px] md:px-8 xl:px-0  lg:max-w-[1070px] mx-auto text-white md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
+          <div className="lg:pt-0 pt-[20px] md:container text-white md:h-full lg:mt-0 home-hero-section lg:pb-0 mb:pb-0">
             <div className="flex flex-col lg:flex-row items-center flex-auto justify-center lg:justify-between h-full lg:text-left text-center">
               <EnterFromLeft>
                 <div>
@@ -83,13 +83,13 @@ const Home: NextPage<ContentTypeProps> = () => {
                       layout="fixed"
                     />
                   </div>
-                  <h1 className="md:text-xxl landscape:mt-[40px] font-[raleway] mt-[89px] lg:mt-0  max-w-[20ch] text-xl   xs:text-[30px] leading-[75px]">
+                  <h1 className="md:text-xxl landscape:mt-[40px] font-[raleway] mt-[89px] lg:mt-0  max-w-[20ch] text-[29px]  leading-[35px]">
                     Simple access to confidential health services near you,{" "}
                     <br />
                     <span className="text-orange font-bold">sharp sharp!</span>
                   </h1>
                   <div className="lg:max-w-[531px]">
-                    <p className="mt-6 text-white font-normal text-base leading-[33px]">
+                    <p className="lg:mt-6 mt-[9px] text-white font-normal lg:text-base text-[12px] leading-[33px]">
                       Find nearby health services on Sharply.
                     </p>
                     <Button
@@ -108,12 +108,12 @@ const Home: NextPage<ContentTypeProps> = () => {
                       src="/images/poweredby.png"
                       alt="powered by"
                     />
-                    <div>
+                    <div className="block lg:hidden">
                       <p className="uppercase tracking-[0.88em] text-white font-normal text-[7px] mb-[8px]">
                         powered by
                       </p>
                       <img
-                        className="w-full h-[44px] block lg:hidden"
+                        className="w-full h-[44px]"
                         src="/images/bottom-img.svg"
                         alt="powered by"
                       />
