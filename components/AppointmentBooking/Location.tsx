@@ -30,7 +30,9 @@ export const Location = ({ setTabId }: ReferPartnerTypes) => {
       user_id: Cookies.get("userId"),
       location_str: address,
     };
-    handleMutate.mutate(info);
+    if (address) {
+      handleMutate.mutate(info);
+    }
   };
   return (
     <div className="mt-[54px] flex flex-col items-center">
